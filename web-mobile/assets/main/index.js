@@ -1,88 +1,15295 @@
-System.register("chunks:///_virtual/AnimationConfig.ts",["cc"],(function(n){var e;return{setters:[function(n){e=n.cclegacy}],execute:function(){e._RF.push({},"07bc63vq1FLKout9v/5AOPu","AnimationConfig",void 0);var i=n("ANIMATION_PROFILES",{normal:{name:"normal",description:"Standard gameplay animation speed and feel.",reelConfigs:[{reelIndex:0,spinSpeed:5e3,spinDuration:2,accelerationDuration:.5,decelerationDuration:.5,delayReel:0,anticipationDistance:200,bounceIntensity:.2,bounceDuration:.2},{reelIndex:1,spinSpeed:5e3,spinDuration:2,accelerationDuration:.5,decelerationDuration:.5,delayReel:.1,anticipationDistance:200,bounceIntensity:.2,bounceDuration:.2},{reelIndex:2,spinSpeed:5e3,spinDuration:2,accelerationDuration:.5,decelerationDuration:.5,delayReel:.3,anticipationDistance:200,bounceIntensity:.2,bounceDuration:.2}],ui:{winAnimationDuration:.3,autoSpinDelay:1e3,buttonFeedbackDuration:.5,popupAnimationDuration:.25,transitionDuration:.2}},autoSpin:{name:"autoSpin",description:"Faster animations for auto-spin or turbo mode.",reelConfigs:[{reelIndex:0,spinSpeed:8e3,spinDuration:1,accelerationDuration:.25,decelerationDuration:.25,delayReel:0,anticipationDistance:150,bounceIntensity:.15,bounceDuration:.15},{reelIndex:1,spinSpeed:8e3,spinDuration:1,accelerationDuration:.25,decelerationDuration:.25,delayReel:.05,anticipationDistance:150,bounceIntensity:.15,bounceDuration:.15},{reelIndex:2,spinSpeed:8e3,spinDuration:1,accelerationDuration:.25,decelerationDuration:.25,delayReel:.15,anticipationDistance:150,bounceIntensity:.15,bounceDuration:.15}],ui:{winAnimationDuration:.15,autoSpinDelay:500,buttonFeedbackDuration:.25,popupAnimationDuration:.15,transitionDuration:.1}},suspense:{name:"suspense",description:"Suspenseful animation with slow final reel when first two reels match.",reelConfigs:[{reelIndex:0,spinSpeed:5e3,spinDuration:2,accelerationDuration:.5,decelerationDuration:.5,delayReel:0,anticipationDistance:200,bounceIntensity:.2,bounceDuration:.2},{reelIndex:1,spinSpeed:5e3,spinDuration:2,accelerationDuration:.5,decelerationDuration:.5,delayReel:.1,anticipationDistance:200,bounceIntensity:.2,bounceDuration:.2},{reelIndex:2,spinSpeed:5e3,spinDuration:4,accelerationDuration:.5,decelerationDuration:2,delayReel:.3,anticipationDistance:1e3,bounceIntensity:.3,bounceDuration:.4}],ui:{winAnimationDuration:.4,autoSpinDelay:1e3,buttonFeedbackDuration:.5,popupAnimationDuration:.3,transitionDuration:.2}}});n("AnimationConfig",function(){function n(){this._currentProfile=void 0,this._currentProfile=i.normal}n.getInstance=function(){return n._instance||(n._instance=new n),n._instance};var e=n.prototype;return e.setProfile=function(n){i[n]?this._currentProfile=i[n]:(console.warn("[AnimationConfig] Profile '"+n+"' not found. Using default."),this._currentProfile=i.normal)},e.getReelConfig=function(n){return this._currentProfile.reelConfigs.find((function(e){return e.reelIndex===n}))||this._currentProfile.reelConfigs[0]},e.getUIConfig=function(){return this._currentProfile.ui},e.getCurrentProfile=function(){return this._currentProfile},n}())._instance=void 0,e._RF.pop()}}}));
+System.register("chunks:///_virtual/AnimationConfig.ts", ['cc'], function (exports) {
+  var cclegacy;
+  return {
+    setters: [function (module) {
+      cclegacy = module.cclegacy;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "07bc63vq1FLKout9v/5AOPu", "AnimationConfig", undefined);
+      /**
+       * @file AnimationConfig.ts
+       * @brief Manages animation configurations and profiles for the slot machine.
+       */
+      // #region Type Definitions
+      /**
+       * Defines the animation properties for a single reel.
+       */
+      /**
+       * Defines UI-related animation timings.
+       */
+      /**
+       * A complete animation profile, containing configurations for all reels and UI elements.
+       */
+      // #endregion
 
-System.register("chunks:///_virtual/AttackView.ts",["./rollupPluginModLoBabelHelpers.js","cc","./BaseView.ts","./AttackViewModel.ts"],(function(t){var e,i,n,a,o,r,l,s,u,d,c,h,g,f,b,p,w,v,y;return{setters:[function(t){e=t.applyDecoratedDescriptor,i=t.inheritsLoose,n=t.initializerDefineProperty,a=t.assertThisInitialized,o=t.createForOfIteratorHelperLoose,r=t.asyncToGenerator,l=t.regeneratorRuntime},function(t){s=t.cclegacy,u=t._decorator,d=t.Label,c=t.Node,h=t.Sprite,g=t.Button,f=t.Color,b=t.tween,p=t.v3,w=t.director},function(t){v=t.BaseView},function(t){y=t.AttackViewModel}],execute:function(){var L,k,m,C,T,B,_,M,N,A,I,R,z,D,E,S,x,U,V,P,F,H,K,G,O,Y,W,j,q,J,Q,X,Z,$,tt,et,it,nt,at,ot,rt,lt,st,ut,dt,ct,ht,gt,ft,bt,pt;s._RF.push({},"61a85CfdqpJ3rYS52F9av3G","AttackView",void 0);var wt=u.ccclass,vt=u.property;t("AttackView",(L=wt("AttackView"),k=vt(d),m=vt(d),C=vt(c),T=vt(d),B=vt(d),_=vt(d),M=vt([c]),N=vt([h]),A=vt([d]),I=vt([d]),R=vt([d]),z=vt([g]),D=vt([c]),E=vt(g),S=vt(g),x=vt(c),U=vt(d),V=vt(c),P=vt(d),F=vt(d),H=vt(d),K=vt(g),G=vt(c),O=vt(d),L((j=e((W=function(t){function e(){for(var e,i=arguments.length,o=new Array(i),r=0;r<i;r++)o[r]=arguments[r];return e=t.call.apply(t,[this].concat(o))||this,n(e,"goldLabel",j,a(e)),n(e,"attacksRemainingLabel",q,a(e)),n(e,"targetInfoContainer",J,a(e)),n(e,"targetPlayerNameLabel",Q,a(e)),n(e,"targetPlayerLevelLabel",X,a(e)),n(e,"targetCityNameLabel",Z,a(e)),n(e,"buildingNodes",$,a(e)),n(e,"buildingSprites",tt,a(e)),n(e,"buildingNameLabels",et,a(e)),n(e,"buildingLevelLabels",it,a(e)),n(e,"rewardLabels",nt,a(e)),n(e,"attackButtons",at,a(e)),n(e,"destroyedOverlays",ot,a(e)),n(e,"newTargetButton",rt,a(e)),n(e,"backButton",lt,a(e)),n(e,"loadingContainer",st,a(e)),n(e,"loadingLabel",ut,a(e)),n(e,"resultContainer",dt,a(e)),n(e,"resultTitleLabel",ct,a(e)),n(e,"resultMessageLabel",ht,a(e)),n(e,"resultRewardLabel",gt,a(e)),n(e,"resultCloseButton",ft,a(e)),n(e,"notificationContainer",bt,a(e)),n(e,"notificationLabel",pt,a(e)),e._viewModel=null,e._currentTarget=null,e}i(e,t);var s=e.prototype;return s.setupUI=function(){this.updateHeaderDisplay(),this.hideTargetInfo(),this.hideAllBuildings(),this.hideResultUI(),this.hideNotification(),this.showLoading("Loading target...")},s.bindEvents=function(){var t=this;this.newTargetButton&&this.newTargetButton.node.on(g.EventType.CLICK,this.onNewTargetClicked,this),this.backButton&&this.backButton.node.on(g.EventType.CLICK,this.onBackClicked,this);for(var e=function(e){var i=t.attackButtons[e];i&&i.node.on(g.EventType.CLICK,(function(){return t.onAttackClicked(e)}),t)},i=0;i<this.attackButtons.length;i++)e(i);this.resultCloseButton&&this.resultCloseButton.node.on(g.EventType.CLICK,this.onResultCloseClicked,this)},s.updateUI=function(t,e,i){},s.refreshUI=function(){this.updateHeaderDisplay(),this.updateTargetDisplay(),this.updateBuildingsDisplay()},s.setViewModel=function(e){t.prototype.setViewModel.call(this,e),this._viewModel=e,this._viewModel&&this.setupViewModelEvents()},s.setupViewModelEvents=function(){this._viewModel&&(this._viewModel.on("loadingTarget",this.onLoadingTarget,this),this._viewModel.on("targetLoaded",this.onTargetLoaded,this),this._viewModel.on("targetLoadError",this.onTargetLoadError,this),this._viewModel.on("resourceUpdated",this.onResourceUpdated,this),this._viewModel.on("attackStarted",this.onAttackStarted,this),this._viewModel.on("attackCompleted",this.onAttackCompleted,this),this._viewModel.on("attackError",this.onAttackError,this),this._viewModel.on("buildingAlreadyDestroyed",this.onBuildingAlreadyDestroyed,this),this._viewModel.on("noAttacksRemaining",this.onNoAttacksRemaining,this),this._viewModel.on("navigateToScene",this.onNavigateToScene,this))},s.updateHeaderDisplay=function(){this._viewModel&&(this.goldLabel&&(this.goldLabel.string=this.formatNumber(this._viewModel.currentGold)),this.attacksRemainingLabel&&(this.attacksRemainingLabel.string="Attacks: "+this._viewModel.attacksRemaining))},s.updateTargetDisplay=function(){this._viewModel&&this._currentTarget?(this.showTargetInfo(),this.targetPlayerNameLabel&&(this.targetPlayerNameLabel.string=this._currentTarget.playerName),this.targetPlayerLevelLabel&&(this.targetPlayerLevelLabel.string="Level "+this._currentTarget.playerLevel),this.targetCityNameLabel&&(this.targetCityNameLabel.string=this._currentTarget.cityName)):this.hideTargetInfo()},s.updateBuildingsDisplay=function(){if(this._currentTarget){for(var t=this._currentTarget.buildings,e=0;e<t.length&&e<this.buildingNodes.length;e++){var i=t[e];this.updateBuildingUI(e,i)}for(var n=t.length;n<this.buildingNodes.length;n++)this.buildingNodes[n]&&(this.buildingNodes[n].active=!1)}else this.hideAllBuildings()},s.updateBuildingUI=function(t,e){var i,n;(this.buildingNodes[t]&&(this.buildingNodes[t].active=!0),this.buildingNameLabels[t]&&(this.buildingNameLabels[t].string=this.getBuildingDisplayName(e.buildingType)),this.buildingLevelLabels[t]&&(this.buildingLevelLabels[t].string="Level "+e.level),this.rewardLabels[t]&&(this.rewardLabels[t].string=this.formatNumber(e.potentialReward)+" Gold"),this.attackButtons[t])&&(this.attackButtons[t].interactable=!e.isDestroyed&&(null==(i=this._viewModel)?void 0:i.hasAttacksRemaining)&&!(null!=(n=this._viewModel)&&n.isAttacking));this.destroyedOverlays[t]&&(this.destroyedOverlays[t].active=e.isDestroyed),this.updateBuildingSprite(t,e)},s.updateBuildingSprite=function(t,e){if(this.buildingSprites[t]){var i=this.buildingSprites[t];if(e.isDestroyed)i.color=f.GRAY;else{var n=e.potentialReward;i.color=n>=400?f.YELLOW:n>=200?f.GREEN:f.WHITE}}},s.getBuildingDisplayName=function(t){return{house:"House",shop:"Shop",factory:"Factory",tower:"Tower",castle:"Castle"}[t]||"Building"},s.showLoading=function(t){this.loadingContainer&&(this.loadingContainer.active=!0),this.loadingLabel&&(this.loadingLabel.string=t)},s.hideLoading=function(){this.loadingContainer&&(this.loadingContainer.active=!1)},s.showTargetInfo=function(){this.targetInfoContainer&&(this.targetInfoContainer.active=!0)},s.hideTargetInfo=function(){this.targetInfoContainer&&(this.targetInfoContainer.active=!1)},s.hideAllBuildings=function(){for(var t,e=o(this.buildingNodes);!(t=e()).done;){var i=t.value;i&&(i.active=!1)}},s.showAttackResult=function(t){this.resultContainer&&(this.resultContainer.active=!0),this.resultTitleLabel&&(this.resultTitleLabel.string=t.success?"Attack Successful!":"Attack Failed!"),this.resultMessageLabel&&(this.resultMessageLabel.string=t.message),this.resultRewardLabel&&(t.goldEarned>0?(this.resultRewardLabel.string="+"+this.formatNumber(t.goldEarned)+" Gold",this.resultRewardLabel.node.active=!0):this.resultRewardLabel.node.active=!1)},s.hideResultUI=function(){this.resultContainer&&(this.resultContainer.active=!1)},s.showNotification=function(t,e){var i=this;void 0===e&&(e=3),this.notificationContainer&&this.notificationLabel&&(this.notificationLabel.string=t,this.notificationContainer.active=!0,this.scheduleOnce((function(){i.hideNotification()}),e))},s.hideNotification=function(){this.notificationContainer&&(this.notificationContainer.active=!1)},s.formatNumber=function(t){return t>=1e6?(t/1e6).toFixed(1)+"M":t>=1e3?(t/1e3).toFixed(1)+"K":t.toString()},s.animateBuildingAttack=function(t){if(!(t<0||t>=this.buildingNodes.length)){var e=this.buildingNodes[t];if(e){var i=e.position;b(e).to(.1,{position:p(i.x+10,i.y,i.z)}).to(.1,{position:p(i.x-10,i.y,i.z)}).to(.1,{position:p(i.x+5,i.y,i.z)}).to(.1,{position:p(i.x-5,i.y,i.z)}).to(.1,{position:i}).start()}}},s.onLoadingTarget=function(t){t?(this.showLoading("Loading target..."),this.hideTargetInfo(),this.hideAllBuildings()):this.hideLoading()},s.onTargetLoaded=function(t){this._currentTarget=t,this.hideLoading(),this.refreshUI()},s.onTargetLoadError=function(t){this.hideLoading(),this.showNotification("Failed to load target. Using offline mode.")},s.onResourceUpdated=function(t){this.updateHeaderDisplay()},s.onAttackStarted=function(t){var e,i=(null==(e=this._currentTarget)?void 0:e.buildings.findIndex((function(e){return e.buildingId===t.buildingId})))||-1;i>=0&&this.animateBuildingAttack(i),this.showNotification("Attacking "+t.targetPlayer+"..."),this.updateBuildingsDisplay()},s.onAttackCompleted=function(t){this.showAttackResult(t),this.updateHeaderDisplay(),this.updateBuildingsDisplay()},s.onAttackError=function(t){this.showNotification("Attack failed: "+t.error),this.updateBuildingsDisplay()},s.onBuildingAlreadyDestroyed=function(t){this.showNotification("Building is already destroyed!")},s.onNoAttacksRemaining=function(){this.showNotification("No attacks remaining! Get a new target.")},s.onNavigateToScene=function(t){w.loadScene(t)},s.onNewTargetClicked=function(){var t=r(l().mark((function t(){return l().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if(!this._viewModel){t.next=3;break}return t.next=3,this._viewModel.executeCommand("getNewTarget");case 3:case"end":return t.stop()}}),t,this)})));return function(){return t.apply(this,arguments)}}(),s.onBackClicked=function(){this._viewModel&&this._viewModel.executeCommand("goBack")},s.onAttackClicked=function(){var t=r(l().mark((function t(e){var i;return l().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if(this._viewModel&&this._currentTarget){t.next=2;break}return t.abrupt("return");case 2:if(!(i=this._currentTarget.buildings[e])){t.next=6;break}return t.next=6,this._viewModel.executeCommand("attackBuilding",i.buildingId);case 6:case"end":return t.stop()}}),t,this)})));return function(e){return t.apply(this,arguments)}}(),s.onResultCloseClicked=function(){this.hideResultUI()},s.onShow=function(){t.prototype.onShow.call(this),this._viewModel||(this._viewModel=new y,this.setViewModel(this._viewModel),this._viewModel.initialize())},s.onDestroy=function(){this.newTargetButton&&this.newTargetButton.node.off(g.EventType.CLICK,this.onNewTargetClicked,this),this.backButton&&this.backButton.node.off(g.EventType.CLICK,this.onBackClicked,this);for(var e=0;e<this.attackButtons.length;e++){var i=this.attackButtons[e];i&&i.node.off(g.EventType.CLICK)}this.resultCloseButton&&this.resultCloseButton.node.off(g.EventType.CLICK,this.onResultCloseClicked,this),this._viewModel&&(this._viewModel.off("loadingTarget",this.onLoadingTarget,this),this._viewModel.off("targetLoaded",this.onTargetLoaded,this),this._viewModel.off("targetLoadError",this.onTargetLoadError,this),this._viewModel.off("resourceUpdated",this.onResourceUpdated,this),this._viewModel.off("attackStarted",this.onAttackStarted,this),this._viewModel.off("attackCompleted",this.onAttackCompleted,this),this._viewModel.off("attackError",this.onAttackError,this),this._viewModel.off("buildingAlreadyDestroyed",this.onBuildingAlreadyDestroyed,this),this._viewModel.off("noAttacksRemaining",this.onNoAttacksRemaining,this),this._viewModel.off("navigateToScene",this.onNavigateToScene,this)),t.prototype.onDestroy.call(this)},e}(v)).prototype,"goldLabel",[k],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),q=e(W.prototype,"attacksRemainingLabel",[m],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),J=e(W.prototype,"targetInfoContainer",[C],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),Q=e(W.prototype,"targetPlayerNameLabel",[T],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),X=e(W.prototype,"targetPlayerLevelLabel",[B],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),Z=e(W.prototype,"targetCityNameLabel",[_],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),$=e(W.prototype,"buildingNodes",[M],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return[]}}),tt=e(W.prototype,"buildingSprites",[N],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return[]}}),et=e(W.prototype,"buildingNameLabels",[A],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return[]}}),it=e(W.prototype,"buildingLevelLabels",[I],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return[]}}),nt=e(W.prototype,"rewardLabels",[R],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return[]}}),at=e(W.prototype,"attackButtons",[z],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return[]}}),ot=e(W.prototype,"destroyedOverlays",[D],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return[]}}),rt=e(W.prototype,"newTargetButton",[E],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),lt=e(W.prototype,"backButton",[S],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),st=e(W.prototype,"loadingContainer",[x],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),ut=e(W.prototype,"loadingLabel",[U],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),dt=e(W.prototype,"resultContainer",[V],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),ct=e(W.prototype,"resultTitleLabel",[P],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),ht=e(W.prototype,"resultMessageLabel",[F],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),gt=e(W.prototype,"resultRewardLabel",[H],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),ft=e(W.prototype,"resultCloseButton",[K],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),bt=e(W.prototype,"notificationContainer",[G],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),pt=e(W.prototype,"notificationLabel",[O],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),Y=W))||Y));s._RF.pop()}}}));
+      // #region Animation Profiles
+      /**
+       * Collection of predefined animation profiles.
+       */
+      var ANIMATION_PROFILES = exports('ANIMATION_PROFILES', {
+        normal: {
+          name: 'normal',
+          description: 'Standard gameplay animation speed and feel.',
+          reelConfigs: [{
+            // Reel 0
+            reelIndex: 0,
+            spinSpeed: 5000,
+            spinDuration: 2.0,
+            accelerationDuration: 0.5,
+            decelerationDuration: 0.5,
+            delayReel: 0.0,
+            anticipationDistance: 200,
+            bounceIntensity: 0.2,
+            bounceDuration: 0.2
+          }, {
+            // Reel 1
+            reelIndex: 1,
+            spinSpeed: 5000,
+            spinDuration: 2.0,
+            accelerationDuration: 0.5,
+            decelerationDuration: 0.5,
+            delayReel: 0.1,
+            anticipationDistance: 200,
+            bounceIntensity: 0.2,
+            bounceDuration: 0.2
+          }, {
+            // Reel 2
+            reelIndex: 2,
+            spinSpeed: 5000,
+            spinDuration: 2.0,
+            accelerationDuration: 0.5,
+            decelerationDuration: 0.5,
+            delayReel: 0.3,
+            anticipationDistance: 200,
+            bounceIntensity: 0.2,
+            bounceDuration: 0.2
+          }],
+          ui: {
+            winAnimationDuration: 0.3,
+            autoSpinDelay: 1000,
+            buttonFeedbackDuration: 0.5,
+            popupAnimationDuration: 0.25,
+            transitionDuration: 0.2
+          }
+        },
+        autoSpin: {
+          name: 'autoSpin',
+          description: 'Faster animations for auto-spin or turbo mode.',
+          reelConfigs: [{
+            // Reel 0
+            reelIndex: 0,
+            spinSpeed: 8000,
+            spinDuration: 1.0,
+            accelerationDuration: 0.25,
+            decelerationDuration: 0.25,
+            delayReel: 0.0,
+            anticipationDistance: 150,
+            bounceIntensity: 0.15,
+            bounceDuration: 0.15
+          }, {
+            // Reel 1
+            reelIndex: 1,
+            spinSpeed: 8000,
+            spinDuration: 1.0,
+            accelerationDuration: 0.25,
+            decelerationDuration: 0.25,
+            delayReel: 0.05,
+            anticipationDistance: 150,
+            bounceIntensity: 0.15,
+            bounceDuration: 0.15
+          }, {
+            // Reel 2
+            reelIndex: 2,
+            spinSpeed: 8000,
+            spinDuration: 1.0,
+            accelerationDuration: 0.25,
+            decelerationDuration: 0.25,
+            delayReel: 0.15,
+            anticipationDistance: 150,
+            bounceIntensity: 0.15,
+            bounceDuration: 0.15
+          }],
+          ui: {
+            winAnimationDuration: 0.15,
+            autoSpinDelay: 500,
+            buttonFeedbackDuration: 0.25,
+            popupAnimationDuration: 0.15,
+            transitionDuration: 0.1
+          }
+        },
+        suspense: {
+          name: 'suspense',
+          description: 'Suspenseful animation with slow final reel when first two reels match.',
+          reelConfigs: [{
+            // Reel 0 - Normal speed
+            reelIndex: 0,
+            spinSpeed: 5000,
+            spinDuration: 2.0,
+            accelerationDuration: 0.5,
+            decelerationDuration: 0.5,
+            delayReel: 0.0,
+            anticipationDistance: 200,
+            bounceIntensity: 0.2,
+            bounceDuration: 0.2
+          }, {
+            // Reel 1 - Normal speed
+            reelIndex: 1,
+            spinSpeed: 5000,
+            spinDuration: 2.0,
+            accelerationDuration: 0.5,
+            decelerationDuration: 0.5,
+            delayReel: 0.1,
+            anticipationDistance: 200,
+            bounceIntensity: 0.2,
+            bounceDuration: 0.2
+          }, {
+            // Reel 2 - Slow suspenseful spin
+            reelIndex: 2,
+            spinSpeed: 5000,
+            // Much slower speed
+            spinDuration: 4.0,
+            // Longer duration for suspense
+            accelerationDuration: 0.5,
+            decelerationDuration: 2.0,
+            // Extended deceleration for dramatic effect
+            delayReel: 0.3,
+            // Longer delay to let first two reels stop first
+            anticipationDistance: 1000,
+            // More anticipation distance
+            bounceIntensity: 0.3,
+            // More dramatic bounce
+            bounceDuration: 0.4 // Longer bounce for emphasis
+          }],
 
-System.register("chunks:///_virtual/AttackViewModel.ts",["./rollupPluginModLoBabelHelpers.js","cc","./BaseViewModel.ts","./ServiceLocator.ts","./Logger.ts"],(function(t){var e,a,r,n,i,s,c,u;return{setters:[function(t){e=t.inheritsLoose,a=t.createClass,r=t.asyncToGenerator,n=t.regeneratorRuntime},function(t){i=t.cclegacy},function(t){s=t.BaseViewModel},function(t){c=t.ServiceLocator},function(t){u=t.logError}],execute:function(){i._RF.push({},"80ea6qkB3hNk5+Xy4zFn1kg","AttackViewModel",void 0);t("AttackViewModel",function(t){function i(){var e;return(e=t.call(this)||this)._gameService=null,e._resourceManager=null,e._attackTarget=null,e._isAttacking=!1,e._attacksRemaining=3,e}e(i,t);var s=i.prototype;return s.onInitialize=function(){this.setupServices(),this.setupEventListeners(),this.loadAttackTarget()},s.setupServices=function(){var t=c.getInstance();this._gameService=t.getService("GameService"),this._resourceManager=t.getService("ResourceManager"),this._gameService||u("GameService not found"),this._resourceManager||u("ResourceManager not found")},s.setupEventListeners=function(){this._resourceManager&&this._resourceManager.on("resourceChanged",this.onResourceChanged,this)},s.loadAttackTarget=function(){var t=r(n().mark((function t(){var e;return n().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if(t.prev=0,this.emit("loadingTarget",!0),!this._gameService||!this._gameService.isReady){t.next=9;break}return t.next=5,this._gameService.getAttackTarget();case 5:e=t.sent,this._attackTarget=this.processTargetData(e),t.next=10;break;case 9:this._attackTarget=this.generateMockTarget();case 10:this.emit("targetLoaded",this._attackTarget),this.emit("loadingTarget",!1),t.next=21;break;case 14:t.prev=14,t.t0=t.catch(0),u("Failed to load attack target:",t.t0),this.emit("targetLoadError",t.t0),this.emit("loadingTarget",!1),this._attackTarget=this.generateMockTarget(),this.emit("targetLoaded",this._attackTarget);case 21:case"end":return t.stop()}}),t,this,[[0,14]])})));return function(){return t.apply(this,arguments)}}(),s.processTargetData=function(t){var e;return{playerId:t.playerId||"unknown",playerName:t.playerName||"Unknown Player",playerLevel:t.playerLevel||1,cityName:t.cityName||"Unknown City",buildings:(null==(e=t.buildings)?void 0:e.map((function(t){return{buildingId:t.id||"",buildingType:t.type||"building",level:t.level||1,isDestroyed:t.isDestroyed||!1,potentialReward:t.potentialReward||100}})))||[]}},s.generateMockTarget=function(){for(var t=["Alice","Bob","Charlie","Diana","Eve"],e=["Village","Town","City","Metropolis","Capital"],a=["house","shop","factory","tower","castle"],r=t[Math.floor(Math.random()*t.length)],n=e[Math.floor(Math.random()*e.length)],i=Math.floor(10*Math.random())+1,s=[],c=0;c<5;c++)s.push({buildingId:"building_"+c,buildingType:a[c],level:Math.floor(3*Math.random())+1,isDestroyed:Math.random()<.2,potentialReward:Math.floor(500*Math.random())+100});return{playerId:"player_"+Date.now(),playerName:r,playerLevel:i,cityName:n,buildings:s}},s.executeCommand=function(){var t=r(n().mark((function t(e){var a=arguments;return n().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:t.t0=e,t.next="attackBuilding"===t.t0?3:"getNewTarget"===t.t0?4:"goBack"===t.t0?5:"refreshTarget"===t.t0?6:7;break;case 3:return t.abrupt("return",this.attackBuilding(a.length<=1?void 0:a[1]));case 4:return t.abrupt("return",this.getNewTarget());case 5:return t.abrupt("return",this.goBack());case 6:return t.abrupt("return",this.loadAttackTarget());case 7:throw new Error("Unknown command: "+e);case 8:case"end":return t.stop()}}),t,this)})));return function(e){return t.apply(this,arguments)}}(),s.attackBuilding=function(){var t=r(n().mark((function t(e){var a,r,i;return n().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if(this._attackTarget&&!this._isAttacking){t.next=2;break}return t.abrupt("return",null);case 2:if(a=this._attackTarget.buildings.find((function(t){return t.buildingId===e}))){t.next=6;break}return u("Building not found: "+e),t.abrupt("return",null);case 6:if(!a.isDestroyed){t.next=9;break}return this.emit("buildingAlreadyDestroyed",{buildingId:e}),t.abrupt("return",null);case 9:if(!(this._attacksRemaining<=0)){t.next=12;break}return this.emit("noAttacksRemaining"),t.abrupt("return",null);case 12:if(t.prev=12,this._isAttacking=!0,this.emit("attackStarted",{buildingId:e,targetPlayer:this._attackTarget.playerName}),!this._gameService||!this._gameService.isReady){t.next=22;break}return t.next=18,this._gameService.attackPlayer(this._attackTarget.playerId,e);case 18:i=t.sent,r=this.processAttackResult(i,e),t.next=23;break;case 22:r=this.generateMockAttackResult(e,a);case 23:return t.next=25,this.processAttackSuccess(r);case 25:return this._attacksRemaining--,this._isAttacking=!1,this.emit("attackCompleted",r),t.abrupt("return",r);case 31:return t.prev=31,t.t0=t.catch(12),u("Attack failed:",t.t0),this._isAttacking=!1,this.emit("attackError",{buildingId:e,error:t.t0.message}),t.abrupt("return",null);case 37:case"end":return t.stop()}}),t,this,[[12,31]])})));return function(e){return t.apply(this,arguments)}}(),s.processAttackResult=function(t,e){return{success:t.success||!1,buildingId:e,goldEarned:t.goldEarned||0,damageDealt:t.damageDealt||!1,message:t.message||"Attack completed"}},s.generateMockAttackResult=function(t,e){var a=Math.random()<.7,r=a?Math.floor(e.potentialReward*(.5+.5*Math.random())):0,n=a&&Math.random()<.3;return{success:a,buildingId:t,goldEarned:r,damageDealt:n,message:a?n?"Building destroyed! Great attack!":"Attack successful!":"Attack failed! Better luck next time."}},s.processAttackSuccess=function(){var t=r(n().mark((function t(e){var a;return n().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if(e.success&&this._attackTarget){t.next=2;break}return t.abrupt("return");case 2:if(!(e.goldEarned>0&&this._resourceManager)){t.next=5;break}return t.next=5,this._resourceManager.addGold(e.goldEarned,"attack_reward");case 5:e.damageDealt&&(a=this._attackTarget.buildings.find((function(t){return t.buildingId===e.buildingId})))&&(a.isDestroyed=!0);case 6:case"end":return t.stop()}}),t,this)})));return function(e){return t.apply(this,arguments)}}(),s.getNewTarget=function(){var t=r(n().mark((function t(){return n().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return this._attackTarget=null,this._attacksRemaining=3,t.next=4,this.loadAttackTarget();case 4:case"end":return t.stop()}}),t,this)})));return function(){return t.apply(this,arguments)}}(),s.goBack=function(){this.emit("navigateToScene","Main")},s.onResourceChanged=function(t){this.emit("resourceUpdated",t)},s.destroy=function(){this._resourceManager&&this._resourceManager.off("resourceChanged",this.onResourceChanged,this),this._gameService=null,this._resourceManager=null,this._attackTarget=null,this._isAttacking=!1,t.prototype.destroy.call(this)},a(i,[{key:"attackTarget",get:function(){return this._attackTarget}},{key:"currentGold",get:function(){return this._resourceManager?this._resourceManager.getGold():0}},{key:"isAttacking",get:function(){return this._isAttacking}},{key:"attacksRemaining",get:function(){return this._attacksRemaining}},{key:"hasAttacksRemaining",get:function(){return this._attacksRemaining>0}},{key:"targetPlayerName",get:function(){return this._attackTarget?this._attackTarget.playerName:""}},{key:"targetCityName",get:function(){return this._attackTarget?this._attackTarget.cityName:""}},{key:"targetPlayerLevel",get:function(){return this._attackTarget?this._attackTarget.playerLevel:1}},{key:"availableBuildings",get:function(){return this._attackTarget?this._attackTarget.buildings.filter((function(t){return!t.isDestroyed})):[]}},{key:"destroyedBuildings",get:function(){return this._attackTarget?this._attackTarget.buildings.filter((function(t){return t.isDestroyed})):[]}},{key:"totalPotentialReward",get:function(){return this._attackTarget?this.availableBuildings.reduce((function(t,e){return t+e.potentialReward}),0):0}}]),i}(s));i._RF.pop()}}}));
+          ui: {
+            winAnimationDuration: 0.4,
+            // Longer win animation for suspense payoff
+            autoSpinDelay: 1000,
+            buttonFeedbackDuration: 0.5,
+            popupAnimationDuration: 0.3,
+            transitionDuration: 0.2
+          }
+        }
+      });
 
-System.register("chunks:///_virtual/BaseModel.ts",["./rollupPluginModLoBabelHelpers.js","cc"],(function(t){var e,i,a,n;return{setters:[function(t){e=t.inheritsLoose,i=t.extends},function(t){a=t.cclegacy,n=t.EventTarget}],execute:function(){a._RF.push({},"98eb43ZEzhKurU5Otb++Pg0","BaseModel",void 0);t("BaseModel",function(t){function a(){var e;return(e=t.call(this)||this)._data={},e}e(a,t);var n=a.prototype;return n.getData=function(t){return this._data[t]},n.setData=function(t,e){var i=this._data[t];i!==e&&(this._data[t]=e,this.emit("dataChanged",{key:t,value:e,oldValue:i}),this.emit(t+"Changed",{value:e,oldValue:i}))},n.initialize=function(t){this._data=i({},t),this.emit("initialized",this._data)},n.getAllData=function(){return i({},this._data)},n.reset=function(){this._data={},this.emit("reset")},n.toJSON=function(){return this.getAllData()},n.fromJSON=function(t){this.initialize(t)},a}(n));a._RF.pop()}}}));
+      // #endregion
 
-System.register("chunks:///_virtual/BaseService.ts",["./rollupPluginModLoBabelHelpers.js","cc","./Logger.ts"],(function(t){var e,n,i,r,c,s,o;return{setters:[function(t){e=t.inheritsLoose,n=t.createClass,i=t.asyncToGenerator,r=t.regeneratorRuntime},function(t){c=t.cclegacy,s=t.EventTarget},function(t){o=t.logError}],execute:function(){c._RF.push({},"ff8c2OV8JFBAIhJgSoFtCDP","BaseService",void 0);t("BaseService",function(t){function c(){var e;return(e=t.call(this)||this)._isInitialized=!1,e._isConnected=!1,e}e(c,t);var s=c.prototype;return s.initialize=function(){var t=i(r().mark((function t(){return r().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if(!this._isInitialized){t.next=2;break}return t.abrupt("return");case 2:return t.prev=2,t.next=5,this.onInitialize();case 5:this._isInitialized=!0,this.emit("initialized"),t.next=14;break;case 9:throw t.prev=9,t.t0=t.catch(2),o("Failed to initialize "+this.constructor.name+":",t.t0),this.emit("initializationFailed",t.t0),t.t0;case 14:case"end":return t.stop()}}),t,this,[[2,9]])})));return function(){return t.apply(this,arguments)}}(),s.connect=function(){var t=i(r().mark((function t(){return r().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if(!this._isConnected){t.next=2;break}return t.abrupt("return");case 2:return t.prev=2,t.next=5,this.onConnect();case 5:this._isConnected=!0,this.emit("connected"),t.next=14;break;case 9:throw t.prev=9,t.t0=t.catch(2),o("Failed to connect "+this.constructor.name+":",t.t0),this.emit("connectionFailed",t.t0),t.t0;case 14:case"end":return t.stop()}}),t,this,[[2,9]])})));return function(){return t.apply(this,arguments)}}(),s.disconnect=function(){var t=i(r().mark((function t(){return r().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if(this._isConnected){t.next=2;break}return t.abrupt("return");case 2:return t.prev=2,t.next=5,this.onDisconnect();case 5:this._isConnected=!1,this.emit("disconnected"),t.next=14;break;case 9:throw t.prev=9,t.t0=t.catch(2),o("Failed to disconnect "+this.constructor.name+":",t.t0),this.emit("disconnectionFailed",t.t0),t.t0;case 14:case"end":return t.stop()}}),t,this,[[2,9]])})));return function(){return t.apply(this,arguments)}}(),s.destroy=function(){this._isConnected&&this.disconnect().catch(console.error),this._isInitialized=!1,this.targetOff(this)},n(c,[{key:"isInitialized",get:function(){return this._isInitialized}},{key:"isConnected",get:function(){return this._isConnected}}]),c}(s));c._RF.pop()}}}));
+      // #region AnimationConfig Manager
 
-System.register("chunks:///_virtual/BaseView.ts",["./rollupPluginModLoBabelHelpers.js","cc","./Logger.ts"],(function(e){var i,t,n,o,s,a,l;return{setters:[function(e){i=e.inheritsLoose,t=e.createClass,n=e.asyncToGenerator,o=e.regeneratorRuntime},function(e){s=e.cclegacy,a=e.Component},function(e){l=e.logInfo}],execute:function(){s._RF.push({},"56b2ebPjTVDHKvVrG5T16ZC","BaseView",void 0);e("BaseView",function(e){function s(){for(var i,t=arguments.length,n=new Array(t),o=0;o<t;o++)n[o]=arguments[o];return(i=e.call.apply(e,[this].concat(n))||this)._viewModel=null,i._isInitialized=!1,i}i(s,e);var a=s.prototype;return a.setViewModel=function(e){this._viewModel&&(this._viewModel.off("modelDataChanged",this.onViewModelDataChanged,this),this._viewModel.off("modelInitialized",this.onViewModelInitialized,this)),this._viewModel=e,this._viewModel&&(this._viewModel.on("modelDataChanged",this.onViewModelDataChanged,this),this._viewModel.on("modelInitialized",this.onViewModelInitialized,this))},a.getViewModel=function(){return this._viewModel},a.onLoad=function(){l("BaseView: onLoad called for "+this.constructor.name),this.initializeView()},a.initializeView=function(){l("BaseView: initializeView called for "+this.constructor.name),this._isInitialized=!0,this.setupUI(),this.bindEvents(),l("BaseView: initializeView completed for "+this.constructor.name)},a.onViewModelDataChanged=function(e){this.updateUI(e.key,e.value,e.oldValue)},a.onViewModelInitialized=function(e){this.refreshUI()},a.executeCommand=function(){var e=n(o().mark((function e(i){var t,n,s,a,l=arguments;return o().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(!this._viewModel){e.next=5;break}for(n=l.length,s=new Array(n>1?n-1:0),a=1;a<n;a++)s[a-1]=l[a];return e.next=4,(t=this._viewModel).executeCommand.apply(t,[i].concat(s));case 4:return e.abrupt("return",e.sent);case 5:return e.abrupt("return",null);case 6:case"end":return e.stop()}}),e,this)})));return function(i){return e.apply(this,arguments)}}(),a.show=function(){this.node.active=!0,this.onShow()},a.hide=function(){this.node.active=!1,this.onHide()},a.onShow=function(){},a.onHide=function(){},a.onDestroy=function(){this._viewModel&&(this._viewModel.off("modelDataChanged",this.onViewModelDataChanged,this),this._viewModel.off("modelInitialized",this.onViewModelInitialized,this),this._viewModel.destroy()),this._viewModel=null,this._isInitialized=!1},t(s,[{key:"isInitialized",get:function(){return this._isInitialized}}]),s}(a));s._RF.pop()}}}));
+      /**
+       * Manages the active animation profile and provides access to configuration values.
+       */
+      var AnimationConfig = exports('AnimationConfig', /*#__PURE__*/function () {
+        function AnimationConfig() {
+          this._currentProfile = void 0;
+          // Set 'normal' as the default profile on initialization
+          this._currentProfile = ANIMATION_PROFILES.normal;
+        }
 
-System.register("chunks:///_virtual/BaseViewModel.ts",["./rollupPluginModLoBabelHelpers.js","cc"],(function(i){var t,e,n,o;return{setters:[function(i){t=i.inheritsLoose,e=i.createClass},function(i){n=i.cclegacy,o=i.EventTarget}],execute:function(){n._RF.push({},"55b46hrskpGdLofNgPAYLjo","BaseViewModel",void 0);i("BaseViewModel",function(i){function n(){var t;return(t=i.call(this)||this)._model=null,t._isInitialized=!1,t}t(n,i);var o=n.prototype;return o.setModel=function(i){this._model&&(this._model.off("dataChanged",this.onModelDataChanged,this),this._model.off("initialized",this.onModelInitialized,this)),this._model=i,this._model&&(this._model.on("dataChanged",this.onModelDataChanged,this),this._model.on("initialized",this.onModelInitialized,this))},o.getModel=function(){return this._model},o.initialize=function(){this._isInitialized=!0,this.onInitialize(),this.emit("initialized")},o.onInitialize=function(){},o.onModelDataChanged=function(i){this.emit("modelDataChanged",i)},o.onModelInitialized=function(i){this.emit("modelInitialized",i)},o.destroy=function(){this._model&&(this._model.off("dataChanged",this.onModelDataChanged,this),this._model.off("initialized",this.onModelInitialized,this)),this._model=null,this._isInitialized=!1,this.targetOff(this)},e(n,[{key:"isInitialized",get:function(){return this._isInitialized}}]),n}(o));n._RF.pop()}}}));
+        /**
+         * Gets the singleton instance of the AnimationConfig manager.
+         */
+        AnimationConfig.getInstance = function getInstance() {
+          if (!AnimationConfig._instance) {
+            AnimationConfig._instance = new AnimationConfig();
+          }
+          return AnimationConfig._instance;
+        }
 
-System.register("chunks:///_virtual/BuildingModel.ts",["./rollupPluginModLoBabelHelpers.js","cc","./BaseModel.ts","./GameConfig.ts"],(function(t){var e,i,s,n,l;return{setters:[function(t){e=t.inheritsLoose,i=t.createClass},function(t){s=t.cclegacy},function(t){n=t.BaseModel},function(t){l=t.GameConfig}],execute:function(){s._RF.push({},"633f6BVZdtJtLlKywU7kdHc","BuildingModel",void 0);t("BuildingModel",function(t){function s(e,i){var s;(s=t.call(this)||this).DEFAULT_MAX_LEVEL=3,s.DEFAULT_COST_MULTIPLIER=1.5;var n=l.getInstance().getBuildingConfig(i,e);if(!n)throw new Error("Building config for id "+e+" in city level "+i+" not found");return s.initialize({id:e,name:n.name,level:0,maxLevel:n.maxLevel||s.DEFAULT_MAX_LEVEL,baseCost:n.baseCost,costMultiplier:n.costMultiplier||s.DEFAULT_COST_MULTIPLIER}),s}e(s,t);var n=s.prototype;return n.getUpgradeCost=function(){if(this.isMaxLevel())return 0;var t=this.level+1;return Math.floor(this.baseCost*Math.pow(this.costMultiplier,t-1))},n.isMaxLevel=function(){return this.level>=this.maxLevel},n.canUpgrade=function(){return!this.isMaxLevel()},n.upgrade=function(){return!!this.canUpgrade()&&(this.level+=1,this.emit("upgraded",{buildingId:this.id,newLevel:this.level,isMaxLevel:this.isMaxLevel()}),!0)},n.getUpgradeProgress=function(){return this.maxLevel>0?this.level/this.maxLevel:0},n.resetBuilding=function(){this.level=0,this.emit("reset",{buildingId:this.id})},n.validate=function(){var t=this.level,e=this.maxLevel,i=this.baseCost,s=this.costMultiplier,n=this.id;return n&&n.length>0&&t>=0&&e>0&&t<=e&&i>0&&s>=1},n.toJSON=function(){return{id:this.id,level:this.level,maxLevel:this.maxLevel,baseCost:this.baseCost,costMultiplier:this.costMultiplier}},n.fromJSON=function(t){this.initialize({id:t.id||"",level:t.level||0,maxLevel:t.maxLevel||this.DEFAULT_MAX_LEVEL,baseCost:t.baseCost||100,costMultiplier:t.costMultiplier||this.DEFAULT_COST_MULTIPLIER})},i(s,[{key:"id",get:function(){return this.getData("id")||""}},{key:"name",get:function(){return this.getData("name")||""},set:function(t){this.setData("name",t)}},{key:"level",get:function(){return this.getData("level")||0},set:function(t){var e=this.maxLevel;this.setData("level",Math.max(0,Math.min(t,e)))}},{key:"maxLevel",get:function(){return this.getData("maxLevel")||this.DEFAULT_MAX_LEVEL},set:function(t){this.setData("maxLevel",Math.max(1,t))}},{key:"baseCost",get:function(){return this.getData("baseCost")||100},set:function(t){this.setData("baseCost",Math.max(1,t))}},{key:"costMultiplier",get:function(){return this.getData("costMultiplier")||this.DEFAULT_COST_MULTIPLIER},set:function(t){this.setData("costMultiplier",Math.max(1,t))}}]),s}(n));s._RF.pop()}}}));
+        /**
+         * Sets the active animation profile by name.
+         * @param profileName The name of the profile to activate (e.g., 'normal', 'autoSpin').
+         */;
+        var _proto = AnimationConfig.prototype;
+        _proto.setProfile = function setProfile(profileName) {
+          if (ANIMATION_PROFILES[profileName]) {
+            this._currentProfile = ANIMATION_PROFILES[profileName];
+          } else {
+            console.warn("[AnimationConfig] Profile '" + profileName + "' not found. Using default.");
+            this._currentProfile = ANIMATION_PROFILES.normal;
+          }
+        }
 
-System.register("chunks:///_virtual/CheatComponent.ts",["./rollupPluginModLoBabelHelpers.js","cc","./ServiceLocator.ts"],(function(r){var e,n,t,i,o,u,a,l,c,s;return{setters:[function(r){e=r.applyDecoratedDescriptor,n=r.inheritsLoose,t=r.initializerDefineProperty,i=r.assertThisInitialized},function(r){o=r.cclegacy,u=r._decorator,a=r.EditBox,l=r.log,c=r.Component},function(r){s=r.ServiceLocator}],execute:function(){var d,v,f,p,g,y,E;o._RF.push({},"8ce81yCyoNLqrIyVJ1RA1ee","CheatComponent",void 0);var h=u.ccclass,m=u.property;r("CheatComponent",(d=h("CheatComponent"),v=m(a),f=m(a),d((y=e((g=function(r){function e(){for(var e,n=arguments.length,o=new Array(n),u=0;u<n;u++)o[u]=arguments[u];return e=r.call.apply(r,[this].concat(o))||this,t(e,"inputEnergy",y,i(e)),t(e,"inputGold",E,i(e)),e}n(e,r);var o=e.prototype;return o.onClickBtnSetEnergy=function(){try{if(!this.inputEnergy)return void l("Error: Energy input field is not assigned");var r=this.inputEnergy.string.trim();if(!r)return void l("Error: Energy input is empty");var e=Number(r);if(isNaN(e))return void l("Error: Energy input is not a valid number");if(e<0)return void l("Error: Energy value cannot be negative");if(e>999999)return void l("Error: Energy value is too large (max: 999999)");var n=s.getInstance().getService("GameService");if(!n)return void l("Error: GameService not found");var t=n.getPlayerModel();if(!t)return void l("Error: PlayerModel not found");var i=t.resources;if(!i)return void l("Error: ResourceModel not found");i.energy=e,l("Energy successfully set to: "+e),this.inputEnergy.string=""}catch(r){l("Error in onClickBtnSetEnergy: "+r)}},o.onClickBtnSetGold=function(){try{if(!this.inputGold)return void l("Error: Gold input field is not assigned");var r=this.inputGold.string.trim();if(!r)return void l("Error: Gold input is empty");var e=Number(r);if(isNaN(e))return void l("Error: Gold input is not a valid number");if(e<0)return void l("Error: Gold value cannot be negative");if(e>999999999)return void l("Error: Gold value is too large (max: 999999999)");var n=s.getInstance().getService("GameService");if(!n)return void l("Error: GameService not found");var t=n.getPlayerModel();if(!t)return void l("Error: PlayerModel not found");var i=t.resources;if(!i)return void l("Error: ResourceModel not found");i.gold=e,l("Gold successfully set to: "+e),this.inputGold.string=""}catch(r){l("Error in onClickBtnSetGold: "+r)}},o.onClickBtnClose=function(){this.hide()},o.show=function(){this.node.active=!0},o.hide=function(){this.node.active=!1},e}(c)).prototype,"inputEnergy",[v],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),E=e(g.prototype,"inputGold",[f],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),p=g))||p));o._RF.pop()}}}));
+        /**
+         * Gets the configuration for a specific reel from the current profile.
+         * @param reelIndex The index of the reel.
+         * @returns The configuration for the specified reel, or the first reel's config as a fallback.
+         */;
+        _proto.getReelConfig = function getReelConfig(reelIndex) {
+          var config = this._currentProfile.reelConfigs.find(function (c) {
+            return c.reelIndex === reelIndex;
+          });
+          // Fallback to the first available config if the specific index is not found
+          return config || this._currentProfile.reelConfigs[0];
+        }
 
-System.register("chunks:///_virtual/CityModel.ts",["./rollupPluginModLoBabelHelpers.js","cc","./BaseModel.ts","./BuildingModel.ts","./GameConfig.ts"],(function(e){var i,t,n,s,l,o,r;return{setters:[function(e){i=e.inheritsLoose,t=e.createForOfIteratorHelperLoose,n=e.createClass},function(e){s=e.cclegacy},function(e){l=e.BaseModel},function(e){o=e.BuildingModel},function(e){r=e.GameConfig}],execute:function(){s._RF.push({},"a76bbBagQFNAr+y6UZNWnbX","CityModel",void 0);e("CityModel",function(e){function s(i){var t;(t=e.call(this)||this)._buildings=new Map;var n=r.getInstance().getCityConfig(i);if(!n)throw new Error("City config for level "+i+" not found");return t.initialize({id:n.id,name:n.name,level:n.level,isCompleted:!1,completionReward:n.completionReward}),t.initializeBuildings(),t}i(s,e);var l=s.prototype;return l.initializeBuildings=function(){for(var e=r.getInstance().getCityConfig(this.level),i=0;i<e.buildings.length;i++){var t=e.buildings[i],n=new o(t.id,this.level);n.on("upgraded",this.onBuildingUpgraded,this),n.on("reset",this.onBuildingReset,this),this._buildings.set(t.id,n)}},l.getBuildings=function(){return Array.from(this._buildings.values())},l.getBuilding=function(e){return this._buildings.get(e)||null},l.getBuildingByIndex=function(e){return this.getBuildings()[e]||null},l.areAllBuildingsMaxLevel=function(){for(var e,i=t(this._buildings.values());!(e=i()).done;){if(!e.value.isMaxLevel())return!1}return!0},l.getCompletionProgress=function(){for(var e,i=0,n=0,s=t(this._buildings.values());!(e=s()).done;){var l=e.value;i+=l.level,n+=l.maxLevel}return n>0?i/n:0},l.getTotalUpgradeCost=function(){for(var e,i=0,n=t(this._buildings.values());!(e=n()).done;){var s=e.value;s.canUpgrade()&&(i+=s.getUpgradeCost())}return i},l.upgradeBuilding=function(e){var i=this._buildings.get(e);return!(!i||!i.canUpgrade())&&i.upgrade()},l.onBuildingUpgraded=function(e){this.emit("buildingUpgraded",e),this.areAllBuildingsMaxLevel()&&!this.isCompleted&&this.completeCity()},l.onBuildingReset=function(e){this.emit("buildingReset",e),this.isCompleted&&(this.setData("isCompleted",!1),this.emit("cityIncomplete",{cityId:this.id}))},l.completeCity=function(){this.setData("isCompleted",!0),this.emit("cityCompleted",{cityId:this.id,cityName:this.name,reward:this.completionReward})},l.resetCity=function(){for(var e,i=t(this._buildings.values());!(e=i()).done;){e.value.resetBuilding()}this.setData("isCompleted",!1),this.emit("cityReset",{cityId:this.id})},l.validate=function(){var e=this.id,i=this.name,n=this.level,s=this.completionReward;if(!e||!i||n<1||s<0)return!1;var l=r.getInstance().getCityConfig(this.level),o=l&&l.buildings?l.buildings.length:5;if(this._buildings.size!==o)return!1;for(var a,d=t(this._buildings.values());!(a=d()).done;){if(!a.value.validate())return!1}return!0},l.toJSON=function(){for(var e,i=[],n=t(this._buildings.values());!(e=n()).done;){var s=e.value;i.push(s.toJSON())}return{id:this.id,name:this.name,level:this.level,isCompleted:this.isCompleted,buildings:i,completionReward:this.completionReward}},l.fromJSON=function(e){this.initialize({id:e.id||"",name:e.name||"",level:e.level||1,isCompleted:e.isCompleted||!1,completionReward:e.completionReward||0});for(var i,n=t(this._buildings.values());!(i=n()).done;){i.value.targetOff(this)}if(this._buildings.clear(),e.buildings&&e.buildings.length>0)for(var s,l=t(e.buildings);!(s=l()).done;){var r=s.value,a=new o(r.id,this.level);a.fromJSON(r),a.on("upgraded",this.onBuildingUpgraded,this),a.on("reset",this.onBuildingReset,this),this._buildings.set(a.id,a)}},l.destroy=function(){for(var i,n=t(this._buildings.values());!(i=n()).done;){var s=i.value;s.targetOff(this),s.reset()}this._buildings.clear(),e.prototype.reset.call(this)},n(s,[{key:"id",get:function(){return this.getData("id")||""}},{key:"name",get:function(){return this.getData("name")||""},set:function(e){this.setData("name",e)}},{key:"level",get:function(){return this.getData("level")||1}},{key:"isCompleted",get:function(){return this.getData("isCompleted")||!1}},{key:"completionReward",get:function(){return this.getData("completionReward")||0}}]),s}(l));s._RF.pop()}}}));
+        /**
+         * Gets the UI animation configuration from the current profile.
+         */;
+        _proto.getUIConfig = function getUIConfig() {
+          return this._currentProfile.ui;
+        }
 
-System.register("chunks:///_virtual/CityView.ts",["./rollupPluginModLoBabelHelpers.js","cc","./BaseView.ts","./CityViewModel.ts","./Logger.ts"],(function(i){var e,t,n,o,a,l,r,s,u,d,c,h,p,g,b,f,m,v,w,y,C;return{setters:[function(i){e=i.applyDecoratedDescriptor,t=i.inheritsLoose,n=i.initializerDefineProperty,o=i.assertThisInitialized,a=i.asyncToGenerator,l=i.regeneratorRuntime},function(i){r=i.cclegacy,s=i._decorator,u=i.Label,d=i.ProgressBar,c=i.Node,h=i.Sprite,p=i.Button,g=i.log,b=i.v3,f=i.Color,m=i.tween,v=i.director},function(i){w=i.BaseView},function(i){y=i.CityViewModel},function(i){C=i.logError}],execute:function(){var L,B,M,_,N,U,D,S,I,x,z,E,P,k,T,V,R,G,H,F,A,K,O,W,q,Z,j,J,X,Y,Q,$,ii,ei,ti,ni,oi;r._RF.push({},"b5969WZCAFGrZEV8MPqMTNc","CityView",void 0);var ai=s.ccclass,li=s.property;i("CityView",(L=ai("CityView"),B=li(u),M=li(u),_=li(d),N=li(u),U=li([c]),D=li([h]),S=li([u]),I=li([u]),x=li([p]),z=li([u]),E=li(p),P=li(c),k=li(u),T=li(u),V=li(p),R=li(c),G=li(u),L((A=e((F=function(i){function e(){for(var e,t=arguments.length,a=new Array(t),l=0;l<t;l++)a[l]=arguments[l];return e=i.call.apply(i,[this].concat(a))||this,n(e,"cityNameLabel",A,o(e)),n(e,"goldLabel",K,o(e)),n(e,"cityProgressBar",O,o(e)),n(e,"cityProgressLabel",W,o(e)),n(e,"buildingNodes",q,o(e)),n(e,"buildingSprites",Z,o(e)),n(e,"buildingNameLabels",j,o(e)),n(e,"buildingLevelLabels",J,o(e)),n(e,"upgradeButtons",X,o(e)),n(e,"upgradeCostLabels",Y,o(e)),n(e,"backButton",Q,o(e)),n(e,"completionContainer",$,o(e)),n(e,"completionTitleLabel",ii,o(e)),n(e,"completionRewardLabel",ei,o(e)),n(e,"completionCloseButton",ti,o(e)),n(e,"notificationContainer",ni,o(e)),n(e,"notificationLabel",oi,o(e)),e._viewModel=null,e._buildingData=[],e}t(e,i);var r=e.prototype;return r.setupUI=function(){this.bindUI(),this.updateHeaderDisplay(),this.updateBuildingDisplay(),this.hideCompletionUI(),this.hideNotification()},r.bindUI=function(){for(var i=0;i<this.buildingNodes.length;i++){var e=this.buildingNodes[i],t=e.getChildByName("BuildingSprite"),n=e.getChildByName("BuildingNameLabel"),o=e.getChildByName("BuildingLevelLabel"),a=e.getChildByName("UpgradeButton"),l=a.getChildByName("UpgradeCostLabel");t&&this.buildingSprites.push(t.getComponent(h)),n&&this.buildingNameLabels.push(n.getComponent(u)),o&&this.buildingLevelLabels.push(o.getComponent(u)),a&&this.upgradeButtons.push(a.getComponent(p)),l&&this.upgradeCostLabels.push(l.getComponent(u))}},r.bindEvents=function(){var i=this;this.backButton&&this.backButton.node.on(p.EventType.CLICK,this.onBackClicked,this);for(var e=function(e){var t=i.upgradeButtons[e];t&&t.node.on(p.EventType.CLICK,(function(){return i.onUpgradeClicked(e)}),i)},t=0;t<this.upgradeButtons.length;t++)e(t);this.completionCloseButton&&this.completionCloseButton.node.on(p.EventType.CLICK,this.onCompletionCloseClicked,this)},r.updateUI=function(i,e,t){},r.refreshUI=function(){this.updateHeaderDisplay(),this.updateBuildingDisplay()},r.setViewModel=function(e){i.prototype.setViewModel.call(this,e),this._viewModel=e,this._viewModel&&this.setupViewModelEvents()},r.setupViewModelEvents=function(){this._viewModel&&(this._viewModel.on("cityDataLoaded",this.onCityDataLoaded,this),this._viewModel.on("resourceUpdated",this.onResourceUpdated,this),this._viewModel.on("buildingDataUpdated",this.onBuildingDataUpdated,this),this._viewModel.on("cityProgressUpdated",this.onCityProgressUpdated,this),this._viewModel.on("buildingUpgradeSuccess",this.onBuildingUpgradeSuccess,this),this._viewModel.on("buildingUpgradeError",this.onBuildingUpgradeError,this),this._viewModel.on("insufficientGold",this.onInsufficientGold,this),this._viewModel.on("buildingMaxLevel",this.onBuildingMaxLevel,this),this._viewModel.on("cityCompleted",this.onCityCompleted,this),this._viewModel.on("showCityCompletion",this.onShowCityCompletion,this),this._viewModel.on("navigateToScene",this.onNavigateToScene,this))},r.updateHeaderDisplay=function(){if(this._viewModel&&(this.cityNameLabel&&(this.cityNameLabel.string=this._viewModel.currentCityName||"City"),this.goldLabel&&(this.goldLabel.string=this.formatNumber(this._viewModel.currentGold)),this.cityProgressBar&&(this.cityProgressBar.progress=this._viewModel.cityCompletionProgress),this.cityProgressLabel)){var i=Math.round(100*this._viewModel.cityCompletionProgress);this.cityProgressLabel.string=i+"%"}},r.updateBuildingDisplay=function(){var i=this;this._viewModel&&this._viewModel.executeCommand("getAllBuildingsData").then((function(e){i._buildingData=e;for(var t=0;t<i._buildingData.length&&t<i.buildingNodes.length;t++){var n=i._buildingData[t];i.updateBuildingUI(t,n)}})).catch((function(i){C("Failed to get building data:",i)}))},r.updateBuildingUI=function(i,e){g("updateBuildingUI",i,e),this.buildingNameLabels[i]&&(this.buildingNameLabels[i].string=e.buildingName),this.buildingLevelLabels[i]&&(this.buildingLevelLabels[i].string="Level "+e.currentLevel+"/"+e.maxLevel),this.upgradeButtons[i]&&(this.upgradeButtons[i].interactable=e.canUpgrade),this.upgradeCostLabels[i]&&(e.isMaxLevel?this.upgradeCostLabels[i].string="MAX LEVEL":this.upgradeCostLabels[i].string=this.formatNumber(e.upgradeCost)),this.updateBuildingSprite(i,e)},r.updateBuildingSprite=function(i,e){if(this.buildingSprites[i]){var t=this.buildingSprites[i],n=.8+.4*(e.currentLevel/e.maxLevel);this.buildingNodes[i]&&(this.buildingNodes[i].scale=b(n,n,1)),e.isMaxLevel?t.color=f.YELLOW:e.currentLevel>0?t.color=f.GREEN:t.color=f.WHITE}},r.showCompletionUI=function(i,e){this.completionContainer&&(this.completionContainer.active=!0),this.completionTitleLabel&&(this.completionTitleLabel.string=i+" Completed!"),this.completionRewardLabel&&(this.completionRewardLabel.string="Reward: "+this.formatNumber(e)+" Gold")},r.hideCompletionUI=function(){this.completionContainer&&(this.completionContainer.active=!1)},r.showNotification=function(i,e){var t=this;void 0===e&&(e=3),this.notificationContainer&&this.notificationLabel&&(this.notificationLabel.string=i,this.notificationContainer.active=!0,this.scheduleOnce((function(){t.hideNotification()}),e))},r.hideNotification=function(){this.notificationContainer&&(this.notificationContainer.active=!1)},r.formatNumber=function(i){return i>=1e6?(i/1e6).toFixed(1)+"M":i>=1e3?(i/1e3).toFixed(1)+"K":i.toString()},r.animateBuildingUpgrade=function(i){if(!(i<0||i>=this.buildingNodes.length)){var e=this.buildingNodes[i];e&&m(e).to(.2,{scale:b(1.3,1.3,1)}).to(.2,{scale:b(1,1,1)}).start()}},r.onCityDataLoaded=function(){this.refreshUI()},r.onResourceUpdated=function(i){this.updateHeaderDisplay()},r.onBuildingDataUpdated=function(i){this._buildingData=i,this.updateBuildingDisplay()},r.onCityProgressUpdated=function(i){this.updateHeaderDisplay()},r.onBuildingUpgradeSuccess=function(i){var e=this._buildingData.findIndex((function(e){return e.buildingId===i.buildingId}));e>=0&&this.animateBuildingUpgrade(e),this.showNotification("Building upgraded to level "+i.newLevel+"!")},r.onBuildingUpgradeError=function(i){this.showNotification("Upgrade failed: "+i.error)},r.onInsufficientGold=function(i){this.showNotification("Need "+this.formatNumber(i.required)+" gold, have "+this.formatNumber(i.available))},r.onBuildingMaxLevel=function(i){this.showNotification("Building is already at maximum level!")},r.onCityCompleted=function(i){this.updateHeaderDisplay(),this.updateBuildingDisplay()},r.onShowCityCompletion=function(i){this.showCompletionUI(i.cityName,i.reward)},r.onNavigateToScene=function(i){v.loadScene(i)},r.onBackClicked=function(){this._viewModel&&this._viewModel.executeCommand("goBack")},r.onUpgradeClicked=function(){var i=a(l().mark((function i(e){var t;return l().wrap((function(i){for(;;)switch(i.prev=i.next){case 0:if(g("Upgrading building at index "+e+" _buildingData = "+JSON.stringify(this._buildingData)),this._viewModel&&!(e>=this._buildingData.length)){i.next=3;break}return i.abrupt("return");case 3:return t=this._buildingData[e],i.next=6,this._viewModel.executeCommand("upgradeBuilding",t.buildingId);case 6:case"end":return i.stop()}}),i,this)})));return function(e){return i.apply(this,arguments)}}(),r.onCompletionCloseClicked=function(){this.hideCompletionUI()},r.start=function(){this.onShow()},r.onShow=function(){i.prototype.onShow.call(this),this._viewModel||(this._viewModel=new y,this.setViewModel(this._viewModel),this._viewModel.initialize())},r.onDestroy=function(){this._viewModel&&(this._viewModel.off("cityDataLoaded",this.onCityDataLoaded,this),this._viewModel.off("resourceUpdated",this.onResourceUpdated,this),this._viewModel.off("buildingDataUpdated",this.onBuildingDataUpdated,this),this._viewModel.off("cityProgressUpdated",this.onCityProgressUpdated,this),this._viewModel.off("buildingUpgradeSuccess",this.onBuildingUpgradeSuccess,this),this._viewModel.off("buildingUpgradeError",this.onBuildingUpgradeError,this),this._viewModel.off("insufficientGold",this.onInsufficientGold,this),this._viewModel.off("buildingMaxLevel",this.onBuildingMaxLevel,this),this._viewModel.off("cityCompleted",this.onCityCompleted,this),this._viewModel.off("showCityCompletion",this.onShowCityCompletion,this),this._viewModel.off("navigateToScene",this.onNavigateToScene,this)),i.prototype.onDestroy.call(this)},e}(w)).prototype,"cityNameLabel",[B],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),K=e(F.prototype,"goldLabel",[M],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),O=e(F.prototype,"cityProgressBar",[_],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),W=e(F.prototype,"cityProgressLabel",[N],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),q=e(F.prototype,"buildingNodes",[U],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return[]}}),Z=e(F.prototype,"buildingSprites",[D],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return[]}}),j=e(F.prototype,"buildingNameLabels",[S],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return[]}}),J=e(F.prototype,"buildingLevelLabels",[I],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return[]}}),X=e(F.prototype,"upgradeButtons",[x],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return[]}}),Y=e(F.prototype,"upgradeCostLabels",[z],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return[]}}),Q=e(F.prototype,"backButton",[E],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),$=e(F.prototype,"completionContainer",[P],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),ii=e(F.prototype,"completionTitleLabel",[k],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),ei=e(F.prototype,"completionRewardLabel",[T],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),ti=e(F.prototype,"completionCloseButton",[V],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),ni=e(F.prototype,"notificationContainer",[R],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),oi=e(F.prototype,"notificationLabel",[G],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),H=F))||H));r._RF.pop()}}}));
+        /**
+         * Gets the currently active animation profile.
+         */;
+        _proto.getCurrentProfile = function getCurrentProfile() {
+          return this._currentProfile;
+        };
+        return AnimationConfig;
+      }());
 
-System.register("chunks:///_virtual/CityViewModel.ts",["./rollupPluginModLoBabelHelpers.js","cc","./BaseViewModel.ts","./ServiceLocator.ts","./PlayerModel.ts","./Logger.ts"],(function(e){var t,r,i,n,s,a,u,o,c;return{setters:[function(e){t=e.inheritsLoose,r=e.createClass,i=e.asyncToGenerator,n=e.regeneratorRuntime},function(e){s=e.cclegacy},function(e){a=e.BaseViewModel},function(e){u=e.ServiceLocator},function(e){o=e.PlayerModel},function(e){c=e.logError}],execute:function(){s._RF.push({},"6d06cDAGnNH/Yd34TjODrwn","CityViewModel",void 0);e("CityViewModel",function(e){function s(){var t;return(t=e.call(this)||this)._gameService=null,t._resourceManager=null,t._playerModel=null,t._currentCity=null,t}t(s,e);var a=s.prototype;return a.onInitialize=function(){this.setupServices(),this.setupModels(),this.setupEventListeners(),this.loadCityData()},a.setupServices=function(){var e=u.getInstance();this._gameService=e.getService("GameService"),this._resourceManager=e.getService("ResourceManager"),this._gameService||c("GameService not found"),this._resourceManager||c("ResourceManager not found")},a.setupModels=function(){var e=u.getInstance().getService("GameService");e&&(this._playerModel=e.getPlayerModel()),this._playerModel||(c("CityViewModel failed to get PlayerModel from GameService. This is a critical error."),this._playerModel=new o),this._playerModel&&(this._currentCity=this._playerModel.currentCity)},a.setupEventListeners=function(){this._resourceManager&&(this._resourceManager.on("resourceChanged",this.onResourceChanged,this),this._resourceManager.on("insufficientResources",this.onInsufficientResources,this)),this._currentCity&&(this._currentCity.on("buildingUpgraded",this.onBuildingUpgraded,this),this._currentCity.on("cityCompleted",this.onCityCompleted,this)),this._playerModel&&this._playerModel.on("currentCityChanged",this.onCurrentCityChanged,this)},a.loadCityData=function(){var e=i(n().mark((function e(){return n().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(e.prev=0,!(this._gameService&&this._gameService.isReady&&this._currentCity)){e.next=5;break}return e.next=4,this._gameService.getCityData(this._currentCity.id);case 4:e.sent;case 5:this.emit("cityDataLoaded"),e.next=12;break;case 8:e.prev=8,e.t0=e.catch(0),c("Failed to load city data:",e.t0),this.emit("cityDataLoadError",e.t0);case 12:case"end":return e.stop()}}),e,this,[[0,8]])})));return function(){return e.apply(this,arguments)}}(),a.executeCommand=function(){var e=i(n().mark((function e(t){var r=arguments;return n().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:e.t0=t,e.next="upgradeBuilding"===e.t0?3:"getBuildingData"===e.t0?4:"getAllBuildingsData"===e.t0?5:"getCityProgress"===e.t0?6:"goBack"===e.t0?7:"refreshData"===e.t0?8:9;break;case 3:return e.abrupt("return",this.upgradeBuilding(r.length<=1?void 0:r[1]));case 4:return e.abrupt("return",this.getBuildingData(r.length<=1?void 0:r[1]));case 5:return e.abrupt("return",this.getAllBuildingsData());case 6:return e.abrupt("return",this.getCityProgress());case 7:return e.abrupt("return",this.goBack());case 8:return e.abrupt("return",this.loadCityData());case 9:throw new Error("Unknown command: "+t);case 10:case"end":return e.stop()}}),e,this)})));return function(t){return e.apply(this,arguments)}}(),a.upgradeBuilding=function(){var e=i(n().mark((function e(t){var r,i;return n().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(this._currentCity&&this._resourceManager&&this._gameService){e.next=2;break}return e.abrupt("return",!1);case 2:if(r=this._currentCity.getBuilding(t)){e.next=6;break}return c("Building not found: "+t),e.abrupt("return",!1);case 6:if(r.canUpgrade()){e.next=9;break}return this.emit("buildingMaxLevel",{buildingId:t}),e.abrupt("return",!1);case 9:if(i=r.getUpgradeCost(),this._resourceManager.hasEnoughGold(i)){e.next=13;break}return this.emit("insufficientGold",{required:i,available:this._resourceManager.getGold(),buildingId:t}),e.abrupt("return",!1);case 13:if(e.prev=13,!this._gameService.isReady){e.next=17;break}return e.next=17,this._gameService.upgradeBuilding(this._currentCity.id,t);case 17:return e.next=19,this._resourceManager.spendGold(i,"building_upgrade");case 19:if(e.sent){e.next=22;break}throw new Error("Failed to spend gold for upgrade");case 22:if(r.upgrade()){e.next=27;break}return e.next=26,this._resourceManager.addGold(i,"upgrade_refund");case 26:throw new Error("Failed to upgrade building");case 27:return this.emit("buildingUpgradeSuccess",{buildingId:t,newLevel:r.level,costPaid:i,isMaxLevel:r.isMaxLevel()}),e.abrupt("return",!0);case 31:return e.prev=31,e.t0=e.catch(13),c("Building upgrade failed:",e.t0),this.emit("buildingUpgradeError",{buildingId:t,error:e.t0.message}),e.abrupt("return",!1);case 36:case"end":return e.stop()}}),e,this,[[13,31]])})));return function(t){return e.apply(this,arguments)}}(),a.getBuildingData=function(e){if(!this._currentCity)return null;var t=this._currentCity.getBuilding(e);if(!t)return null;var r=this._resourceManager?this._resourceManager.getGold():0,i=t.getUpgradeCost();return{buildingId:t.id,buildingName:t.name,currentLevel:t.level,maxLevel:t.maxLevel,upgradeCost:i,canUpgrade:t.canUpgrade()&&r>=i,isMaxLevel:t.isMaxLevel()}},a.getAllBuildingsData=function(){var e=this;return this._currentCity?this._currentCity.getBuildings().map((function(t){return e.getBuildingData(t.id)})).filter((function(e){return null!==e})):[]},a.getCityProgress=function(){return this._currentCity?{progress:this._currentCity.getCompletionProgress(),isCompleted:this._currentCity.isCompleted,completionReward:this._currentCity.completionReward,cityName:this._currentCity.name,cityLevel:this._currentCity.level}:{progress:0,isCompleted:!1,completionReward:0,cityName:"",cityLevel:1}},a.goBack=function(){this.emit("navigateToScene","Main")},a.onResourceChanged=function(e){this.emit("resourceUpdated",e),this.emit("buildingDataUpdated",this.getAllBuildingsData())},a.onInsufficientResources=function(e){this.emit("insufficientResources",e)},a.onBuildingUpgraded=function(e){this.emit("buildingUpgraded",e),this.emit("buildingDataUpdated",this.getAllBuildingsData()),this.emit("cityProgressUpdated",this.getCityProgress())},a.onCityCompleted=function(e){this.emit("cityCompleted",e),this.emit("showCityCompletion",{cityName:e.cityName,reward:e.reward})},a.onCurrentCityChanged=function(e){this._currentCity=e.city,this._currentCity&&(this._currentCity.on("buildingUpgraded",this.onBuildingUpgraded,this),this._currentCity.on("cityCompleted",this.onCityCompleted,this)),this.emit("currentCityChanged",e),this.loadCityData()},a.destroy=function(){this._resourceManager&&(this._resourceManager.off("resourceChanged",this.onResourceChanged,this),this._resourceManager.off("insufficientResources",this.onInsufficientResources,this)),this._currentCity&&(this._currentCity.off("buildingUpgraded",this.onBuildingUpgraded,this),this._currentCity.off("cityCompleted",this.onCityCompleted,this)),this._playerModel&&this._playerModel.off("currentCityChanged",this.onCurrentCityChanged,this),this._gameService=null,this._resourceManager=null,this._playerModel=null,this._currentCity=null,e.prototype.destroy.call(this)},r(s,[{key:"currentGold",get:function(){return this._resourceManager?this._resourceManager.getGold():0}},{key:"currentCityName",get:function(){return this._currentCity?this._currentCity.name:""}},{key:"currentCityLevel",get:function(){return this._currentCity?this._currentCity.level:1}},{key:"cityCompletionProgress",get:function(){return this._currentCity?this._currentCity.getCompletionProgress():0}},{key:"isCityCompleted",get:function(){return!!this._currentCity&&this._currentCity.isCompleted}},{key:"completionReward",get:function(){return this._currentCity?this._currentCity.completionReward:0}},{key:"totalUpgradeCost",get:function(){return this._currentCity?this._currentCity.getTotalUpgradeCost():0}},{key:"areAllBuildingsMaxLevel",get:function(){return!!this._currentCity&&this._currentCity.areAllBuildingsMaxLevel()}}]),s}(a));s._RF.pop()}}}));
+      // #endregion
+      AnimationConfig._instance = void 0;
+      cclegacy._RF.pop();
+    }
+  };
+});
 
-System.register("chunks:///_virtual/ConfigScene.ts",["./rollupPluginModLoBabelHelpers.js","cc"],(function(e){var n,o,t,c,i;return{setters:[function(e){n=e.inheritsLoose},function(e){o=e.cclegacy,t=e._decorator,c=e.director,i=e.Component}],execute:function(){var r;o._RF.push({},"66d91NhnKdHrKQGSP28w7dY","ConfigScene",void 0);var u=t.ccclass;t.property,e("ConfigScene",u("ConfigScene")(r=function(e){function o(){return e.apply(this,arguments)||this}return n(o,e),o.prototype.onClickBtnPlay=function(){window.location.hostname.indexOf("onrender.com")>-1&&document.getElementById("fileSelectionContainer").remove();c.loadScene("Loading")},o}(i))||r);o._RF.pop()}}}));
+System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseView.ts', './AttackViewModel.ts'], function (exports) {
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _createForOfIteratorHelperLoose, _asyncToGenerator, _regeneratorRuntime, cclegacy, _decorator, Label, Node, Sprite, Button, Color, tween, v3, director, BaseView, AttackViewModel;
+  return {
+    setters: [function (module) {
+      _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
+      _inheritsLoose = module.inheritsLoose;
+      _initializerDefineProperty = module.initializerDefineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+      _createForOfIteratorHelperLoose = module.createForOfIteratorHelperLoose;
+      _asyncToGenerator = module.asyncToGenerator;
+      _regeneratorRuntime = module.regeneratorRuntime;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      Label = module.Label;
+      Node = module.Node;
+      Sprite = module.Sprite;
+      Button = module.Button;
+      Color = module.Color;
+      tween = module.tween;
+      v3 = module.v3;
+      director = module.director;
+    }, function (module) {
+      BaseView = module.BaseView;
+    }, function (module) {
+      AttackViewModel = module.AttackViewModel;
+    }],
+    execute: function () {
+      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _dec20, _dec21, _dec22, _dec23, _dec24, _dec25, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19, _descriptor20, _descriptor21, _descriptor22, _descriptor23, _descriptor24;
+      cclegacy._RF.push({}, "61a85CfdqpJ3rYS52F9av3G", "AttackView", undefined);
+      var ccclass = _decorator.ccclass,
+        property = _decorator.property;
 
-System.register("chunks:///_virtual/DebugPanel.ts",["./rollupPluginModLoBabelHelpers.js","cc","./Logger.ts"],(function(e){var o,t,n,i,l,s,r,a,g,u,c;return{setters:[function(e){o=e.applyDecoratedDescriptor,t=e.inheritsLoose,n=e.initializerDefineProperty,i=e.assertThisInitialized},function(e){l=e.cclegacy,s=e._decorator,r=e.Node,a=e.Label,g=e.Button,u=e.Component},function(e){c=e.logger}],execute:function(){var h,b,p,L,f,d,D,y,P,v,B,w,C,T,E;l._RF.push({},"ebfbcg9OqZACa/ny+s7m52s","DebugPanel",void 0);var x=s.ccclass,m=s.property;e("DebugPanel",(h=x("DebugPanel"),b=m(r),p=m(a),L=m(g),f=m(g),d=m(g),D=m(g),h((v=o((P=function(e){function o(){for(var o,t=arguments.length,l=new Array(t),s=0;s<t;s++)l[s]=arguments[s];return o=e.call.apply(e,[this].concat(l))||this,n(o,"debugContainer",v,i(o)),n(o,"logDisplay",B,i(o)),n(o,"showLogsButton",w,i(o)),n(o,"exportLogsButton",C,i(o)),n(o,"clearLogsButton",T,i(o)),n(o,"closeButton",E,i(o)),o._isVisible=!1,o}t(o,e);var l=o.prototype;return l.onLoad=function(){var e=this;this.setupUI(),this.bindEvents(),this.hidePanel(),globalThis.debugPanel=this,globalThis.showDebugPanel=function(){return e.showPanel()},globalThis.hideDebugPanel=function(){return e.hidePanel()},globalThis.exportLogs=function(){return e.exportLogs()},c.info("DebugPanel initialized - Use showDebugPanel() to open")},l.setupUI=function(){this.logDisplay&&(this.logDisplay.string="Debug logs will appear here...")},l.bindEvents=function(){this.showLogsButton&&this.showLogsButton.node.on(g.EventType.CLICK,this.refreshLogs,this),this.exportLogsButton&&this.exportLogsButton.node.on(g.EventType.CLICK,this.exportLogs,this),this.clearLogsButton&&this.clearLogsButton.node.on(g.EventType.CLICK,this.clearLogs,this),this.closeButton&&this.closeButton.node.on(g.EventType.CLICK,this.hidePanel,this)},l.showPanel=function(){this.debugContainer&&(this.debugContainer.active=!0,this._isVisible=!0,this.refreshLogs(),c.info("Debug panel opened"))},l.hidePanel=function(){this.debugContainer&&(this.debugContainer.active=!1,this._isVisible=!1,c.info("Debug panel closed"))},l.togglePanel=function(){this._isVisible?this.hidePanel():this.showPanel()},l.refreshLogs=function(){if(this.logDisplay){var e=c.getRecentLogs(20);this.logDisplay.string=e||"No logs available",c.info("Refreshed logs display ("+c.getLogsCount()+" total logs)")}},l.exportLogs=function(){try{c.exportToLocalStorage("coinmaster_debug_logs"),c.downloadLogs("coinmaster_debug.log");var e=c.getAllLogs();console.log("=== ALL DEBUG LOGS ==="),console.log(e),console.log("=== END DEBUG LOGS ==="),c.info("Logs exported successfully")}catch(e){c.error("Failed to export logs: "+e)}},l.clearLogs=function(){c.clear(),this.refreshLogs(),c.info("All logs cleared")},l.getLogsForCopy=function(){return c.getAllLogs()},l.onDestroy=function(){globalThis.debugPanel===this&&(delete globalThis.debugPanel,delete globalThis.showDebugPanel,delete globalThis.hideDebugPanel,delete globalThis.exportLogs)},o}(u)).prototype,"debugContainer",[b],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),B=o(P.prototype,"logDisplay",[p],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),w=o(P.prototype,"showLogsButton",[L],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),C=o(P.prototype,"exportLogsButton",[f],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),T=o(P.prototype,"clearLogsButton",[d],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),E=o(P.prototype,"closeButton",[D],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),y=P))||y));globalThis.getDebugLogs=function(){var e=c.getAllLogs();return console.log("=== DEBUG LOGS ==="),console.log(e),console.log("=== END LOGS ==="),e},globalThis.getRecentDebugLogs=function(e){void 0===e&&(e=20);var o=c.getRecentLogs(e);return console.log("=== RECENT "+e+" DEBUG LOGS ==="),console.log(o),console.log("=== END LOGS ==="),o},l._RF.pop()}}}));
+      /**
+       * Attack View - UI for attack scene
+       */
+      var AttackView = exports('AttackView', (_dec = ccclass('AttackView'), _dec2 = property(Label), _dec3 = property(Label), _dec4 = property(Node), _dec5 = property(Label), _dec6 = property(Label), _dec7 = property(Label), _dec8 = property([Node]), _dec9 = property([Sprite]), _dec10 = property([Label]), _dec11 = property([Label]), _dec12 = property([Label]), _dec13 = property([Button]), _dec14 = property([Node]), _dec15 = property(Button), _dec16 = property(Button), _dec17 = property(Node), _dec18 = property(Label), _dec19 = property(Node), _dec20 = property(Label), _dec21 = property(Label), _dec22 = property(Label), _dec23 = property(Button), _dec24 = property(Node), _dec25 = property(Label), _dec(_class = (_class2 = /*#__PURE__*/function (_BaseView) {
+        _inheritsLoose(AttackView, _BaseView);
+        function AttackView() {
+          var _this;
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+          _this = _BaseView.call.apply(_BaseView, [this].concat(args)) || this;
+          // Header UI
+          _initializerDefineProperty(_this, "goldLabel", _descriptor, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "attacksRemainingLabel", _descriptor2, _assertThisInitialized(_this));
+          // Target Info UI
+          _initializerDefineProperty(_this, "targetInfoContainer", _descriptor3, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "targetPlayerNameLabel", _descriptor4, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "targetPlayerLevelLabel", _descriptor5, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "targetCityNameLabel", _descriptor6, _assertThisInitialized(_this));
+          // Buildings UI
+          _initializerDefineProperty(_this, "buildingNodes", _descriptor7, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "buildingSprites", _descriptor8, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "buildingNameLabels", _descriptor9, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "buildingLevelLabels", _descriptor10, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "rewardLabels", _descriptor11, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "attackButtons", _descriptor12, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "destroyedOverlays", _descriptor13, _assertThisInitialized(_this));
+          // Action Buttons
+          _initializerDefineProperty(_this, "newTargetButton", _descriptor14, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "backButton", _descriptor15, _assertThisInitialized(_this));
+          // Loading UI
+          _initializerDefineProperty(_this, "loadingContainer", _descriptor16, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "loadingLabel", _descriptor17, _assertThisInitialized(_this));
+          // Result UI
+          _initializerDefineProperty(_this, "resultContainer", _descriptor18, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "resultTitleLabel", _descriptor19, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "resultMessageLabel", _descriptor20, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "resultRewardLabel", _descriptor21, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "resultCloseButton", _descriptor22, _assertThisInitialized(_this));
+          // Notification UI
+          _initializerDefineProperty(_this, "notificationContainer", _descriptor23, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "notificationLabel", _descriptor24, _assertThisInitialized(_this));
+          _this._viewModel = null;
+          _this._currentTarget = null;
+          return _this;
+        }
+        var _proto = AttackView.prototype;
+        /**
+         * Setup UI components
+         */
+        _proto.setupUI = function setupUI() {
+          // Initialize UI state
+          this.updateHeaderDisplay();
+          this.hideTargetInfo();
+          this.hideAllBuildings();
+          this.hideResultUI();
+          this.hideNotification();
+          this.showLoading('Loading target...');
+        }
 
-System.register("chunks:///_virtual/GameConfig.ts",["./rollupPluginModLoBabelHelpers.js","cc","./SlotMachineConfig.ts","./Logger.ts"],(function(n){var i,t,e,o,r,s,c,f,a,g,u;return{setters:[function(n){i=n.extends,t=n.createClass,e=n.asyncToGenerator,o=n.regeneratorRuntime},function(n){r=n.cclegacy,s=n.resources,c=n.JsonAsset},function(n){f=n.SlotMachineConfig},function(n){a=n.logError,g=n.logWarn,u=n.logInfo}],execute:function(){r._RF.push({},"4d9f60PXBJNyb5CfJnbSHGG","GameConfig",void 0),n("GameConfig",function(){function n(){this._config=void 0,this._isLoaded=!1}n.getInstance=function(){return n._instance||(n._instance=new n),n._instance};var r=n.prototype;return r.loadConfig=function(){var n=e(o().mark((function n(i){var t,e;return o().wrap((function(n){for(;;)switch(n.prev=n.next){case 0:return n.prev=0,t=f.getInstance(),n.next=4,t.loadConfig();case 4:return n.next=6,this.loadDefaultConfig();case 6:e=n.sent,i?(this._config=this.mergeConfigs(e,i),u("Game config loaded from server")):(this._config=e,u("Using default game config")),this._config.slotMachine=t.getDefaultConfig(),this._isLoaded=!0,this.validateConfig(),n.next=18;break;case 13:n.prev=13,n.t0=n.catch(0),a("Failed to load game config:",n.t0),this._config={},this._isLoaded=!0;case 18:case"end":return n.stop()}}),n,this,[[0,13]])})));return function(i){return n.apply(this,arguments)}}(),r.loadDefaultConfig=function(){return new Promise((function(n,i){s.load("config/game",c,(function(t,e){if(t)return a("Failed to load default game config:",t),i(t);n(e.json)}))}))},r.mergeConfigs=function(n,t){var e=i({},n);return Object.keys(t).forEach((function(n){void 0!==t[n]&&("object"!=typeof t[n]||Array.isArray(t[n])?e[n]=t[n]:e[n]=i({},e[n],t[n]))})),e},r.validateConfig=function(){if(!this._config.version)throw new Error("Config version is required");if(!this._config.slotMachine||!this._config.slotMachine.symbols||0===this._config.slotMachine.symbols.length)throw new Error("Slot machine configuration is invalid");if(!this._config.cities||0===this._config.cities.length)throw new Error("Cities configuration is required");var n=f.getInstance().validateConfig(this._config.slotMachine);n.isValid||g("Slot machine configuration validation failed:",n.errors)},r.getConfig=function(){return i({},this._config)},r.getSlotMachineConfig=function(){return i({},this._config.slotMachine)},r.getCityConfig=function(n){return this._config.cities.find((function(i){return i.level===n}))||null},r.getCityConfigs=function(){return[].concat(this._config.cities)},r.getBuildingConfig=function(n,i){var t=this.getCityConfig(n);return t&&t.buildings.find((function(n){return n.id===i}))||null},r.getAttackConfig=function(){return i({},this._config.attack)},r.getRaidConfig=function(){return i({},this._config.raid)},r.getMainEventConfigs=function(){return[].concat(this._config.mainEvents)},r.getActiveMainEvent=function(){var n=Date.now();return this._config.mainEvents.find((function(i){return i.isActive&&n>=i.startTime&&n<=i.endTime}))||null},r.getResourceConfig=function(){return i({},this._config.resources)},r.updateConfig=function(n){this._config=this.mergeConfigs(this._config,n),this.validateConfig()},r.resetToDefault=function(){var n=e(o().mark((function n(){return o().wrap((function(n){for(;;)switch(n.prev=n.next){case 0:return n.prev=0,n.next=3,this.loadDefaultConfig();case 3:this._config=n.sent,this._isLoaded=!0,u("Game config reset to default"),n.next=11;break;case 8:n.prev=8,n.t0=n.catch(0),a("Failed to reset game config to default:",n.t0);case 11:case"end":return n.stop()}}),n,this,[[0,8]])})));return function(){return n.apply(this,arguments)}}(),t(n,[{key:"isLoaded",get:function(){return this._isLoaded}},{key:"version",get:function(){return this._config.version}}]),n}())._instance=void 0,r._RF.pop()}}}));
+        /**
+         * Bind UI events
+         */;
+        _proto.bindEvents = function bindEvents() {
+          var _this2 = this;
+          // Action buttons
+          if (this.newTargetButton) {
+            this.newTargetButton.node.on(Button.EventType.CLICK, this.onNewTargetClicked, this);
+          }
+          if (this.backButton) {
+            this.backButton.node.on(Button.EventType.CLICK, this.onBackClicked, this);
+          }
 
-System.register("chunks:///_virtual/GameService.ts",["./rollupPluginModLoBabelHelpers.js","cc","./BaseService.ts","./ServiceLocator.ts","./PlayerModel.ts","./GameConfig.ts","./Logger.ts"],(function(e){var t,r,n,a,i,o,s,c,u,l,p,d,h;return{setters:[function(e){t=e.inheritsLoose,r=e.createClass,n=e.asyncToGenerator,a=e.regeneratorRuntime},function(e){i=e.cclegacy,o=e.log},function(e){s=e.BaseService},function(e){c=e.ServiceLocator},function(e){u=e.PlayerModel},function(e){l=e.GameConfig},function(e){p=e.logInfo,d=e.logError,h=e.logWarn}],execute:function(){i._RF.push({},"9752a1L7WVLfbHz4Q/KJfZp","GameService",void 0);var f=e("GameCommand",function(e){return e.GET_PLAYER_DATA="getPlayerData",e.UPDATE_PLAYER_DATA="updatePlayerData",e.SPIN_WHEEL="spinWheel",e.GET_SPIN_CONFIG="getSpinConfig",e.SPIN_SLOT_MACHINE="spinSlotMachine",e.GET_SLOT_MACHINE_CONFIG="getSlotMachineConfig",e.UPGRADE_BUILDING="upgradeBuilding",e.GET_CITY_DATA="getCityData",e.ATTACK_PLAYER="attackPlayer",e.GET_ATTACK_TARGET="getAttackTarget",e.RAID_PLAYER="raidPlayer",e.GET_RAID_TARGET="getRaidTarget",e.GET_MAIN_EVENT="getMainEvent",e.CLAIM_EVENT_MILESTONE="claimEventMilestone",e.COLLECT_RESOURCES="collectResources",e}({}));e("GameService",function(e){function i(){var t;return(t=e.call(this)||this)._networkService=null,t._playerModel=null,t._isOnline=!1,t._autoSaveInterval=null,t}t(i,e);var s=i.prototype;return s.getPlayerModel=function(){return this._playerModel},s.onInitialize=function(){var e=n(a().mark((function e(){var t,r,n,i=this;return a().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return p("Initializing Game Service..."),this._playerModel=new u,p("Player Model initialized in GameService"),n=c.getInstance(),this._networkService=n.getService("NetworkService"),this._networkService&&this._networkService.isConnected?(this._isOnline=!0,p("NetworkService found, starting in online mode"),this.setupNetworkEventListeners()):(this._isOnline=!1,h("NetworkService not found or not connected, starting in offline mode")),null==(t=this._networkService)||t.on("connection",(function(){return i.handleNetworkStatusChange(!0)})),null==(r=this._networkService)||r.on("connectionLost",(function(){return i.handleNetworkStatusChange(!1)})),e.next=10,this.loadPlayerData();case 10:this.startAutoSave(),p("Game Service initialized successfully");case 12:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),s.onConnect=function(){var e=n(a().mark((function e(){return a().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(this._networkService){e.next=2;break}throw new Error("NetworkService not available");case 2:p("Game Service ready for commands");case 3:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),s.onDisconnect=function(){var e=n(a().mark((function e(){return a().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:p("Game Service disconnected");case 1:case"end":return e.stop()}}),e)})));return function(){return e.apply(this,arguments)}}(),s.setupNetworkEventListeners=function(){this._networkService&&(this._networkService.on("extensionResponse",this.onExtensionResponse.bind(this)),this._networkService.on("connectionLost",this.onConnectionLost.bind(this)),this._networkService.on("loggedOut",this.onLoggedOut.bind(this)))},s.onExtensionResponse=function(e){switch(e.command){case"resourceUpdate":this.emit("resourceUpdate",e.data);break;case"eventUpdate":this.emit("eventUpdate",e.data);break;case"playerUpdate":this.emit("playerUpdate",e.data)}},s.onConnectionLost=function(e){this.emit("connectionLost",e)},s.onLoggedOut=function(){this.emit("loggedOut")},s.sendGameRequest=function(){var e=n(a().mark((function e(t,r,n){var i,o;return a().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(p("Sending game command: "+t),this._networkService){e.next=4;break}return h("NetworkService not available, simulating response for command: "+t),e.abrupt("return",this.getMockResponse(t,r));case 4:return p("Sending game command: "+t+" passed"),i={command:t,data:r,timeout:n},e.next=8,this._networkService.sendRequest(i);case 8:if((o=e.sent).success){e.next=11;break}throw new Error(o.error||"Unknown server error");case 11:return e.abrupt("return",o.data);case 12:case"end":return e.stop()}}),e,this)})));return function(t,r,n){return e.apply(this,arguments)}}(),s.getMockResponse=function(e,t){switch(e){case f.GET_PLAYER_DATA:return{playerData:null};case f.SPIN_SLOT_MACHINE:return this.getMockSlotSpinResult((null==t?void 0:t.betMultiplier)||1);default:return{success:!0}}},s.getMockSlotSpinResult=function(e){for(var t=[{id:"gold1",type:"gold",value:10,weight:30},{id:"gold2",type:"gold",value:20,weight:25},{id:"energy1",type:"energy",value:5,weight:20}],r=[],n=0;n<3;n++){var a=Math.floor(Math.random()*t.length);r.push([t[a]])}var i=[],o=0,s=r[0][0],c=r.every((function(e){return e[0].type===s.type}));if(c){var u=3*s.value;o=u,i.push({paylineId:"line1",symbols:[s,r[1][0],r[2][0]],positions:[[0,0],[1,0],[2,0]],payout:u,multiplier:1})}var l=o*e,p="gold",d=l;return c?"attack"!==(p=s.type)&&"raid"!==p||(d=1):d=Math.floor(2*e),{slotSpinResult:{reelResults:r,winCombinations:i,totalPayout:l,betMultiplier:e,finalReward:{type:p,amount:d,multiplier:e}}}},s.getPlayerData=function(){var e=n(a().mark((function e(){var t;return a().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,this.sendGameRequest(f.GET_PLAYER_DATA);case 2:return t=e.sent,e.abrupt("return",t.playerData);case 4:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),s.updatePlayerData=function(){var e=n(a().mark((function e(t){return a().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,this.sendGameRequest(f.UPDATE_PLAYER_DATA,{playerData:t});case 2:case"end":return e.stop()}}),e,this)})));return function(t){return e.apply(this,arguments)}}(),s.getSlotMachineConfig=function(){var e=n(a().mark((function e(){var t;return a().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,this.sendGameRequest(f.GET_SLOT_MACHINE_CONFIG);case 2:return t=e.sent,e.abrupt("return",t.slotMachineConfig);case 4:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),s.spinSlotMachine=function(){var e=n(a().mark((function e(t){var r,n;return a().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return r={betMultiplier:t},e.next=3,this.sendGameRequest(f.SPIN_SLOT_MACHINE,r);case 3:return n=e.sent,e.abrupt("return",n.slotSpinResult);case 5:case"end":return e.stop()}}),e,this)})));return function(t){return e.apply(this,arguments)}}(),s.upgradeBuilding=function(){var e=n(a().mark((function e(t,r){var n,i;return a().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return n={cityId:t,buildingId:r},e.next=3,this.sendGameRequest(f.UPGRADE_BUILDING,n);case 3:return i=e.sent,e.abrupt("return",i);case 5:case"end":return e.stop()}}),e,this)})));return function(t,r){return e.apply(this,arguments)}}(),s.getCityData=function(){var e=n(a().mark((function e(t){var r;return a().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,this.sendGameRequest(f.GET_CITY_DATA,{cityId:t});case 2:return r=e.sent,e.abrupt("return",r.cityData);case 4:case"end":return e.stop()}}),e,this)})));return function(t){return e.apply(this,arguments)}}(),s.getAttackTarget=function(){var e=n(a().mark((function e(){var t;return a().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,this.sendGameRequest(f.GET_ATTACK_TARGET);case 2:return t=e.sent,e.abrupt("return",t.targetPlayer);case 4:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),s.attackPlayer=function(){var e=n(a().mark((function e(t,r){var n,i;return a().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return n={targetPlayerId:t,targetBuildingId:r},e.next=3,this.sendGameRequest(f.ATTACK_PLAYER,n);case 3:return i=e.sent,e.abrupt("return",i.attackResult);case 5:case"end":return e.stop()}}),e,this)})));return function(t,r){return e.apply(this,arguments)}}(),s.getRaidTarget=function(){var e=n(a().mark((function e(){var t;return a().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,this.sendGameRequest(f.GET_RAID_TARGET);case 2:return t=e.sent,e.abrupt("return",t.targetPlayer);case 4:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),s.raidPlayer=function(){var e=n(a().mark((function e(t,r){var n,i;return a().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return n={targetPlayerId:t,chestIndex:r},e.next=3,this.sendGameRequest(f.RAID_PLAYER,n);case 3:return i=e.sent,e.abrupt("return",i.raidResult);case 5:case"end":return e.stop()}}),e,this)})));return function(t,r){return e.apply(this,arguments)}}(),s.getMainEvent=function(){var e=n(a().mark((function e(){var t;return a().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,this.sendGameRequest(f.GET_MAIN_EVENT);case 2:return t=e.sent,e.abrupt("return",t.mainEvent);case 4:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),s.claimEventMilestone=function(){var e=n(a().mark((function e(t){var r;return a().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,this.sendGameRequest(f.CLAIM_EVENT_MILESTONE,{milestoneId:t});case 2:return r=e.sent,e.abrupt("return",r.claimResult);case 4:case"end":return e.stop()}}),e,this)})));return function(t){return e.apply(this,arguments)}}(),s.collectResources=function(){var e=n(a().mark((function e(){var t;return a().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,this.sendGameRequest(f.COLLECT_RESOURCES);case 2:return t=e.sent,e.abrupt("return",t.resources);case 4:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),s.handleNetworkStatusChange=function(e){this._isOnline!==e&&(this._isOnline=e,p("Network status changed. Online: "+e),e&&this.syncPlayerData())},s.syncPlayerData=function(){var e=n(a().mark((function e(){var t;return a().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(p("Syncing player data with server..."),this._playerModel){e.next=3;break}return e.abrupt("return");case 3:return e.prev=3,e.next=6,this.getPlayerData();case 6:(t=e.sent)&&(this._playerModel.initializePlayerData(t),this.savePlayerDataToLocalStorage(t),p("Player data synced from server"),this.emit("playerDataSynced",t)),e.next=13;break;case 10:e.prev=10,e.t0=e.catch(3),d("Failed to sync player data from server:",e.t0);case 13:case"end":return e.stop()}}),e,this,[[3,10]])})));return function(){return e.apply(this,arguments)}}(),s.startAutoSave=function(){var e=this;this._autoSaveInterval&&this.stopAutoSave();this._autoSaveInterval=window.setInterval((function(){e.savePlayerDataToLocalStorage()}),2e3),p("Auto-save started with frequency: 2000ms")},s.stopAutoSave=function(){this._autoSaveInterval&&(window.clearInterval(this._autoSaveInterval),this._autoSaveInterval=null,p("Auto-save stopped"))},s.savePlayerDataToLocalStorage=function(e){if(this._playerModel)try{var t=e||this._playerModel.toJSON();o("Player data to save:",t),t&&(localStorage.setItem("playerData",JSON.stringify(t)),p("Player data saved to local storage"))}catch(e){d("Failed to save player data to local storage:",e)}},s.loadPlayerDataFromLocalStorage=function(){try{var e=localStorage.getItem("playerData");if(e){var t=JSON.parse(e);return p("Player data loaded from local storage"),t}}catch(e){d("Failed to load player data from local storage:",e)}return null},s.loadPlayerData=function(){var e=n(a().mark((function e(){var t,r;return a().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(this._playerModel){e.next=2;break}return e.abrupt("return");case 2:if(e.prev=2,!this._isOnline){e.next=16;break}return p("Online mode: attempting to load player data from server..."),e.next=7,this.getPlayerData();case 7:if(!(t=e.sent)){e.next=15;break}return this._playerModel.initializePlayerData(t),this.savePlayerDataToLocalStorage(t),p("Player data loaded from server and saved to local storage"),e.abrupt("return");case 15:h("No player data found on server, falling back to local storage.");case 16:if(p("Offline mode or server fetch failed: attempting to load player data from local storage..."),!(r=this.loadPlayerDataFromLocalStorage())){e.next=22;break}return this._playerModel.initializePlayerData(r),p("Player data loaded from local storage"),e.abrupt("return");case 22:p("No local player data found, creating a new player."),this.createNewPlayer(),this.savePlayerDataToLocalStorage(),p("New player created and saved to local storage"),e.next=34;break;case 28:e.prev=28,e.t0=e.catch(2),d("An error occurred while loading player data:",e.t0),p("Falling back to creating a new player due to error."),this.createNewPlayer(),this.savePlayerDataToLocalStorage();case 34:case"end":return e.stop()}}),e,this,[[2,28]])})));return function(){return e.apply(this,arguments)}}(),s.createNewPlayer=function(){if(this._playerModel){var e=l.getInstance(),t=e.getResourceConfig(),r={id:this.generatePlayerId(),name:"Player",level:1,experience:0,resources:{gold:t.startingGold,energy:t.startingEnergy,maxEnergy:t.maxEnergy,lastEnergyRegenTime:Date.now()},currentCityId:"city_1",cities:[],mainEvent:e.getActiveMainEvent()||e.getMainEventConfigs()[0],lastLoginTime:Date.now(),createdTime:Date.now()};this._playerModel.initializePlayerData(r)}},s.generatePlayerId=function(){return"player_"+Date.now()+"_"+Math.floor(1e4*Math.random())},s.destroy=function(){this._networkService&&(this._networkService.off("extensionResponse",this.onExtensionResponse,this),this._networkService.off("connectionLost",this.onConnectionLost,this),this._networkService.off("loggedOut",this.onLoggedOut,this),this.stopAutoSave()),this._playerModel&&(this._playerModel.destroy(),this._playerModel=null),this._networkService=null,e.prototype.destroy.call(this)},r(i,[{key:"isReady",get:function(){return null!==this._networkService&&this._networkService.isConnectedToServer&&this._networkService.isLoggedIn}}]),i}(s));i._RF.pop()}}}));
+          // Attack buttons
+          var _loop = function _loop(i) {
+            var button = _this2.attackButtons[i];
+            if (button) {
+              button.node.on(Button.EventType.CLICK, function () {
+                return _this2.onAttackClicked(i);
+              }, _this2);
+            }
+          };
+          for (var i = 0; i < this.attackButtons.length; i++) {
+            _loop(i);
+          }
 
-System.register("chunks:///_virtual/index.ts",["cc","./ResourceModel.ts","./BuildingModel.ts","./CityModel.ts","./MainEventModel.ts","./SlotMachineModel.ts","./PlayerModel.ts"],(function(e){var o;return{setters:[function(e){o=e.cclegacy},function(o){e("ResourceModel",o.ResourceModel)},function(o){e("BuildingModel",o.BuildingModel)},function(o){e("CityModel",o.CityModel)},function(o){e("MainEventModel",o.MainEventModel)},function(o){e("SlotMachineModel",o.SlotMachineModel)},function(o){e("PlayerModel",o.PlayerModel)}],execute:function(){o._RF.push({},"06454/e+ltIjrhCLhRcxKwZ","index",void 0),o._RF.pop()}}}));
+          // Result close button
+          if (this.resultCloseButton) {
+            this.resultCloseButton.node.on(Button.EventType.CLICK, this.onResultCloseClicked, this);
+          }
+        }
 
-System.register("chunks:///_virtual/index2.ts",["cc","./BaseModel.ts","./BaseViewModel.ts","./BaseView.ts","./BaseService.ts","./ServiceLocator.ts"],(function(e){var i;return{setters:[function(e){i=e.cclegacy},function(i){e("BaseModel",i.BaseModel)},function(i){e("BaseViewModel",i.BaseViewModel)},function(i){e("BaseView",i.BaseView)},function(i){e("BaseService",i.BaseService)},function(i){e("ServiceLocator",i.ServiceLocator)}],execute:function(){i._RF.push({},"b5bf01errtKNId1G/7OyEas","index",void 0),i._RF.pop()}}}));
+        /**
+         * Update UI based on data changes
+         */;
+        _proto.updateUI = function updateUI(key, value, oldValue) {
+          // Handle ViewModel data changes if needed
+        }
 
-System.register("chunks:///_virtual/index3.ts",["cc","./NetworkService.ts","./GameService.ts"],(function(e){var c;return{setters:[function(e){c=e.cclegacy},function(c){e("NetworkService",c.NetworkService)},function(c){var r={};r.GameCommand=c.GameCommand,r.GameService=c.GameService,e(r)}],execute:function(){c._RF.push({},"e9876k1nu5CMokcZ4rKNbYB","index",void 0),c._RF.pop()}}}));
+        /**
+         * Refresh entire UI
+         */;
+        _proto.refreshUI = function refreshUI() {
+          this.updateHeaderDisplay();
+          this.updateTargetDisplay();
+          this.updateBuildingsDisplay();
+        }
 
-System.register("chunks:///_virtual/LoadingView.ts",["./rollupPluginModLoBabelHelpers.js","cc","./BaseView.ts","./LoadingViewModel.ts","./Logger.ts"],(function(e){var i,o,t,n,r,a,s,l,d,g,u,h,p,c,L,w,b,f,M,v,V;return{setters:[function(e){i=e.applyDecoratedDescriptor,o=e.inheritsLoose,t=e.initializerDefineProperty,n=e.assertThisInitialized,r=e.asyncToGenerator,a=e.regeneratorRuntime},function(e){s=e.cclegacy,l=e._decorator,d=e.Label,g=e.ProgressBar,u=e.Node,h=e.Button,p=e.director,c=e.Color},function(e){L=e.BaseView},function(e){w=e.LoadingStep,b=e.LoadingViewModel},function(e){f=e.logInfo,M=e.logWarn,v=e.logError,V=e.logDebug}],execute:function(){var m,y,C,_,E,I,U,P,S,R,B,z,D,k,T,x,H,O,A,F,G;s._RF.push({},"825f7fOjdlHnqNu8GP7dsDJ","LoadingView",void 0);var N=l.ccclass,j=l.property;e("LoadingView",(m=N("LoadingView"),y=j(d),C=j(d),_=j(d),E=j(g),I=j(u),U=j(u),P=j(d),S=j(h),R=j(u),m((D=i((z=function(e){function i(){var i;return i=e.call(this)||this,t(i,"titleLabel",D,n(i)),t(i,"messageLabel",k,n(i)),t(i,"progressLabel",T,n(i)),t(i,"progressBar",x,n(i)),t(i,"loadingContainer",H,n(i)),t(i,"errorContainer",O,n(i)),t(i,"errorLabel",A,n(i)),t(i,"retryButton",F,n(i)),t(i,"loadingSpinner",G,n(i)),i._viewModel=null,i._spinnerRotation=0,f("LoadingView: Constructor called"),i}o(i,e);var s=i.prototype;return s.onLoad=function(){f("LoadingView: onLoad called"),e.prototype.onLoad.call(this)},s.setupUI=function(){f("LoadingView: Setting up UI..."),this.showLoadingUI(),this.hideErrorUI(),this.titleLabel?(this.titleLabel.string="Coin Master",f("LoadingView: Title label set")):M("LoadingView: Title label not found"),this.messageLabel?(this.messageLabel.string="Initializing...",f("LoadingView: Message label set")):M("LoadingView: Message label not found"),this.progressLabel?(this.progressLabel.string="0%",f("LoadingView: Progress label set")):M("LoadingView: Progress label not found"),this.progressBar?(this.progressBar.progress=0,f("LoadingView: Progress bar set")):M("LoadingView: Progress bar not found"),this.startSpinnerAnimation(),f("LoadingView: UI setup complete")},s.bindEvents=function(){this.retryButton&&this.retryButton.node.on(h.EventType.CLICK,this.onRetryClicked,this)},s.updateUI=function(e,i,o){},s.refreshUI=function(){if(this._viewModel){var e=this._viewModel.getLoadingProgress();this.updateProgress(e)}},s.setViewModel=function(i){e.prototype.setViewModel.call(this,i),this._viewModel=i,this._viewModel&&(this._viewModel.on("progressUpdated",this.onProgressUpdated,this),this._viewModel.on("loadingComplete",this.onLoadingComplete,this),this._viewModel.on("loadingError",this.onLoadingError,this))},s.onProgressUpdated=function(e){f("LoadingView: Progress update received: "+e.step+" - "+Math.round(100*e.progress)+"% - "+e.message),this.updateProgress(e)},s.onLoadingComplete=function(e){this.hideLoadingUI(),this.scheduleOnce((function(){p.loadScene("Main",(function(e){e&&v("LoadingView: Failed to load Main scene:",e)}))}),.5)},s.onLoadingError=function(e){this.showErrorUI(),this.hideLoadingUI(),this.errorLabel&&(this.errorLabel.string=e.error||"An error occurred during loading")},s.updateProgress=function(e){var i=e.step,o=e.progress,t=e.message,n=e.error;f("LoadingView: Updating progress - "+i+" - "+Math.round(100*o)+"% - "+t),this.progressBar?(this.progressBar.progress=o,V("LoadingView: Progress bar updated to "+o)):M("LoadingView: Progress bar not available"),this.progressLabel?(this.progressLabel.string=Math.round(100*o)+"%",V("LoadingView: Progress label updated to "+Math.round(100*o)+"%")):M("LoadingView: Progress label not available"),this.messageLabel?(this.messageLabel.string=t,V("LoadingView: Message label updated to: "+t)):M("LoadingView: Message label not available"),i===w.ERROR&&n&&this.onLoadingError({error:n}),this.updateMessageColor(i)},s.updateMessageColor=function(e){if(this.messageLabel)switch(e){case w.ERROR:this.messageLabel.color=c.RED;break;case w.COMPLETE:this.messageLabel.color=c.GREEN;break;default:this.messageLabel.color=c.WHITE}},s.showLoadingUI=function(){this.loadingContainer&&(this.loadingContainer.active=!0)},s.hideLoadingUI=function(){this.loadingContainer&&(this.loadingContainer.active=!1)},s.showErrorUI=function(){this.errorContainer&&(this.errorContainer.active=!0)},s.hideErrorUI=function(){this.errorContainer&&(this.errorContainer.active=!1)},s.startSpinnerAnimation=function(){this.loadingSpinner&&this.schedule(this.updateSpinner,.016)},s.updateSpinner=function(){this.loadingSpinner&&this.loadingSpinner.active&&(this._spinnerRotation+=2.88,this._spinnerRotation>=360&&(this._spinnerRotation-=360),this.loadingSpinner.angle=-this._spinnerRotation)},s.onRetryClicked=function(){var e=r(a().mark((function e(){return a().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(!this._viewModel){e.next=5;break}return this.showLoadingUI(),this.hideErrorUI(),e.next=5,this._viewModel.executeCommand("retry");case 5:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),s.start=function(){f("LoadingView: start() called"),this.onShow()},s.onShow=function(){f("LoadingView: onShow called"),e.prototype.onShow.call(this),this._viewModel?f("LoadingView: ViewModel already exists"):(f("LoadingView: Creating new LoadingViewModel"),this._viewModel=new b,this.setViewModel(this._viewModel),f("LoadingView: Initializing LoadingViewModel"),this._viewModel.initialize())},s.onHide=function(){e.prototype.onHide.call(this),this.unschedule(this.updateSpinner)},s.onDestroy=function(){this._viewModel&&(this._viewModel.off("progressUpdated",this.onProgressUpdated,this),this._viewModel.off("loadingComplete",this.onLoadingComplete,this),this._viewModel.off("loadingError",this.onLoadingError,this)),this.unschedule(this.updateSpinner),e.prototype.onDestroy.call(this)},i}(L)).prototype,"titleLabel",[y],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),k=i(z.prototype,"messageLabel",[C],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),T=i(z.prototype,"progressLabel",[_],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),x=i(z.prototype,"progressBar",[E],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),H=i(z.prototype,"loadingContainer",[I],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),O=i(z.prototype,"errorContainer",[U],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),A=i(z.prototype,"errorLabel",[P],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),F=i(z.prototype,"retryButton",[S],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),G=i(z.prototype,"loadingSpinner",[R],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),B=z))||B));s._RF.pop()}}}));
+        /**
+         * Set ViewModel and setup event listeners
+         */;
+        _proto.setViewModel = function setViewModel(viewModel) {
+          _BaseView.prototype.setViewModel.call(this, viewModel);
+          this._viewModel = viewModel;
+          if (this._viewModel) {
+            this.setupViewModelEvents();
+          }
+        }
 
-System.register("chunks:///_virtual/LoadingViewModel.ts",["./rollupPluginModLoBabelHelpers.js","cc","./BaseViewModel.ts","./ServiceLocator.ts","./NetworkService.ts","./GameService.ts","./ResourceManager.ts","./GameConfig.ts","./Logger.ts"],(function(e){var r,t,n,o,i,s,a,c,u,g,d,l,p;return{setters:[function(e){r=e.inheritsLoose,t=e.createClass,n=e.asyncToGenerator,o=e.regeneratorRuntime},function(e){i=e.cclegacy},function(e){s=e.BaseViewModel},function(e){a=e.ServiceLocator},function(e){c=e.NetworkService},function(e){u=e.GameService},function(e){g=e.ResourceManager},function(e){d=e.GameConfig},function(e){l=e.logInfo,p=e.logError}],execute:function(){i._RF.push({},"1a2b2ZXLsVNQLsL8bEWOqXN","LoadingViewModel",void 0);var h=e("LoadingStep",function(e){return e.INITIALIZING="initializing",e.LOADING_RESOURCES="loading_resources",e.CONNECTING_SERVER="connecting_server",e.LOGGING_IN="logging_in",e.LOADING_CONFIG="loading_config",e.LOADING_PLAYER_DATA="loading_player_data",e.FINALIZING="finalizing",e.COMPLETE="complete",e.ERROR="error",e}({}));e("LoadingViewModel",function(e){function i(){var r;return(r=e.call(this)||this)._currentStep=h.INITIALIZING,r._progress=0,r._message="",r._error="",r._playerModel=null,r}r(i,e);var s=i.prototype;return s.onInitialize=function(){l("LoadingViewModel: onInitialize called");var e=new XMLHttpRequest;e.open("GET","https://github.com/temuchjn/remote-config-server/raw/refs/heads/main/paytable.json",!0),e.onload=function(){console.log(e.responseText)},e.send(),this.startLoadingProcess()},s.executeCommand=function(){var e=n(o().mark((function e(r){return o().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:e.t0=r,e.next="retry"===e.t0?3:"getProgress"===e.t0?4:5;break;case 3:return e.abrupt("return",this.retryLoading());case 4:return e.abrupt("return",this.getLoadingProgress());case 5:throw new Error("Unknown command: "+r);case 6:case"end":return e.stop()}}),e,this)})));return function(r){return e.apply(this,arguments)}}(),s.startLoadingProcess=function(){var e=n(o().mark((function e(){return o().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return l("LoadingViewModel: Starting loading process..."),e.prev=1,l("LoadingViewModel: Step 1 - Load resources"),e.next=5,this.loadResources();case 5:return l("LoadingViewModel: Step 2 - Load game config"),e.next=8,this.loadGameConfig();case 8:return l("LoadingViewModel: Step 3 - Initialize services"),e.next=11,this.initializeServices();case 11:return l("LoadingViewModel: Step 4 - Connect to server"),e.next=14,this.connectToServer();case 14:return l("LoadingViewModel: Step 5 - Login to server"),e.next=17,this.loginToServer();case 17:return l("LoadingViewModel: Step 6 - Load player data"),e.next=20,this.loadPlayerData();case 20:return l("LoadingViewModel: Step 7 - Finalize loading"),e.next=23,this.finalizeLoading();case 23:l("LoadingViewModel: Step 8 - Complete loading"),this.completeLoading(),e.next=31;break;case 27:e.prev=27,e.t0=e.catch(1),p("LoadingViewModel: Error in loading process:",e.t0),this.handleLoadingError(e.t0);case 31:case"end":return e.stop()}}),e,this,[[1,27]])})));return function(){return e.apply(this,arguments)}}(),s.initializeServices=function(){var e=n(o().mark((function e(){var r;return o().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return this.updateProgress(h.INITIALIZING,.3,"Initializing services..."),(r=a.getInstance()).registerService("NetworkService",new c),r.registerService("GameService",new u),r.registerService("ResourceManager",new g),e.next=7,r.initializeAllServices();case 7:this.updateProgress(h.INITIALIZING,.4,"Services initialized");case 8:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),s.loadResources=function(){var e=n(o().mark((function e(){return o().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return this.updateProgress(h.LOADING_RESOURCES,0,"Loading game resources..."),e.next=3,this.simulateAsyncOperation(1e3);case 3:this.updateProgress(h.LOADING_RESOURCES,.2,"Resources loaded");case 4:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),s.connectToServer=function(){var e=n(o().mark((function e(){var r,t,n;return o().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(this.updateProgress(h.CONNECTING_SERVER,.4,"Connecting to server..."),r=a.getInstance(),t=r.getService("NetworkService")){e.next=5;break}throw new Error("NetworkService not found");case 5:return n={host:"localhost",port:9933,zone:"CoinMaster",useSSL:!1,debug:!0},t.setConfig(n),e.next=9,t.connect();case 9:this.updateProgress(h.CONNECTING_SERVER,.55,"Connected to server");case 10:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),s.loginToServer=function(){var e=n(o().mark((function e(){var r,t,n;return o().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(this.updateProgress(h.LOGGING_IN,.55,"Logging in..."),r=a.getInstance(),t=r.getService("NetworkService")){e.next=5;break}throw new Error("NetworkService not found");case 5:return n=this.generateUsername(),"",e.next=9,t.login(n,"");case 9:this.updateProgress(h.LOGGING_IN,.7,"Logged in successfully");case 10:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),s.loadGameConfig=function(){var e=n(o().mark((function e(){var r;return o().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(this.updateProgress(h.LOADING_CONFIG,.2,"Loading game configuration..."),(r=d.getInstance()).isLoaded){e.next=5;break}return e.next=5,r.loadConfig();case 5:this.updateProgress(h.LOADING_CONFIG,.3,"Configuration loaded");case 6:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),s.loadPlayerData=function(){var e=n(o().mark((function e(){var r,t,n;return o().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(this.updateProgress(h.LOADING_PLAYER_DATA,.7,"Loading player data..."),r=a.getInstance(),t=r.getService("GameService"),n=r.getService("ResourceManager"),this._playerModel=(null==t?void 0:t.getPlayerModel())||null,this._playerModel){e.next=8;break}throw p("Failed to get PlayerModel from GameService"),new Error("PlayerModel not available from GameService");case 8:if(!n){e.next=11;break}return e.next=11,n.connect();case 11:this.updateProgress(h.LOADING_PLAYER_DATA,.9,"Player data loaded");case 12:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),s.finalizeLoading=function(){var e=n(o().mark((function e(){var r;return o().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return this.updateProgress(h.FINALIZING,.9,"Finalizing..."),r=a.getInstance(),e.next=4,r.connectAllServices();case 4:return e.next=6,this.simulateAsyncOperation(500);case 6:this.updateProgress(h.FINALIZING,1,"Ready to play!");case 7:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),s.completeLoading=function(){this.updateProgress(h.COMPLETE,1,"Loading complete!"),l("LoadingViewModel: Emitting loadingComplete event..."),this.emit("loadingComplete",{playerModel:this._playerModel}),l("LoadingViewModel: loadingComplete event emitted")},s.handleLoadingError=function(e){p("Loading error:",e),this._error=e.message||"Unknown error occurred",this.updateProgress(h.ERROR,this._progress,"Loading failed",this._error),this.emit("loadingError",{error:this._error})},s.retryLoading=function(){var e=n(o().mark((function e(){return o().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return this._error="",this._progress=0,this._currentStep=h.INITIALIZING,e.next=5,this.startLoadingProcess();case 5:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),s.updateProgress=function(e,r,t,n){this._currentStep=e,this._progress=r,this._message=t,n&&(this._error=n);var o={step:e,progress:r,message:t,error:n};l("LoadingViewModel: Emitting progressUpdated - "+e+" - "+Math.round(100*r)+"% - "+t),this.emit("progressUpdated",o),l("Loading: "+e+" - "+Math.round(100*r)+"% - "+t)},s.getLoadingProgress=function(){return{step:this._currentStep,progress:this._progress,message:this._message,error:this._error}},s.generateUsername=function(){return"Player_"+Date.now()+"_"+Math.floor(1e3*Math.random())},s.simulateAsyncOperation=function(e){return new Promise((function(r){setTimeout(r,e)}))},s.getPlayerModel=function(){return this._playerModel},t(i,[{key:"isComplete",get:function(){return this._currentStep===h.COMPLETE}},{key:"hasError",get:function(){return this._currentStep===h.ERROR}}]),i}(s));i._RF.pop()}}}));
+        /**
+         * Setup ViewModel event listeners
+         */;
+        _proto.setupViewModelEvents = function setupViewModelEvents() {
+          if (!this._viewModel) return;
+          this._viewModel.on('loadingTarget', this.onLoadingTarget, this);
+          this._viewModel.on('targetLoaded', this.onTargetLoaded, this);
+          this._viewModel.on('targetLoadError', this.onTargetLoadError, this);
+          this._viewModel.on('resourceUpdated', this.onResourceUpdated, this);
+          this._viewModel.on('attackStarted', this.onAttackStarted, this);
+          this._viewModel.on('attackCompleted', this.onAttackCompleted, this);
+          this._viewModel.on('attackError', this.onAttackError, this);
+          this._viewModel.on('buildingAlreadyDestroyed', this.onBuildingAlreadyDestroyed, this);
+          this._viewModel.on('noAttacksRemaining', this.onNoAttacksRemaining, this);
+          this._viewModel.on('navigateToScene', this.onNavigateToScene, this);
+        }
 
-System.register("chunks:///_virtual/Logger.ts",["cc"],(function(t){var n;return{setters:[function(t){n=t.cclegacy}],execute:function(){n._RF.push({},"3df77Qb219M0qX1GSsu2YDH","Logger",void 0);var o=t("Logger",function(){function t(){this._logs=[],this._maxLogs=1e3,this._enabled=!0}t.getInstance=function(){return t._instance||(t._instance=new t),t._instance};var n=t.prototype;return n.log=function(t,n){if(void 0===n&&(n="INFO"),this._enabled){var o="["+(new Date).toISOString()+"] ["+n+"] "+t;this._logs.push(o),this._logs.length>this._maxLogs&&this._logs.shift(),console.log(o)}},n.info=function(t){this.log(t,"INFO")},n.warn=function(t){var n="";n="string"==typeof t?t:String(t);for(var o=arguments.length,e=new Array(o>1?o-1:0),r=1;r<o;r++)e[r-1]=arguments[r];e.length>0&&(n+=" "+e.map((function(t){return String(t)})).join(" ")),this.log(n,"WARN")},n.error=function(t){var n="";n="string"==typeof t?t:t instanceof Error?t.message:String(t);for(var o=arguments.length,e=new Array(o>1?o-1:0),r=1;r<o;r++)e[r-1]=arguments[r];e.length>0&&(n+=" "+e.map((function(t){return String(t)})).join(" ")),this.log(n,"ERROR")},n.debug=function(t){this.log(t,"DEBUG")},n.getAllLogs=function(){return this._logs.join("\n")},n.getRecentLogs=function(t){return void 0===t&&(t=50),this._logs.slice(-t).join("\n")},n.clear=function(){this._logs=[]},n.setEnabled=function(t){this._enabled=t},n.getLogsCount=function(){return this._logs.length},n.exportToLocalStorage=function(t){void 0===t&&(t="coinmaster_debug_logs");try{"undefined"!=typeof localStorage?(localStorage.setItem(t,this.getAllLogs()),this.info("Logs exported to localStorage with key: "+t)):this.warn("localStorage not available")}catch(t){this.error("Failed to export logs: "+t)}},n.downloadLogs=function(t){void 0===t&&(t="coinmaster_debug.log");try{var n=this.getAllLogs(),o=new Blob([n],{type:"text/plain"}),e=URL.createObjectURL(o),r=document.createElement("a");r.href=e,r.download=t,document.body.appendChild(r),r.click(),document.body.removeChild(r),URL.revokeObjectURL(e),this.info("Logs downloaded as: "+t)}catch(t){this.error("Failed to download logs: "+t)}},n.getLogsByCategory=function(t){return this._logs.filter((function(n){return n.includes("["+t+"]")})).join("\n")},n.searchLogs=function(t){return this._logs.filter((function(n){return n.toLowerCase().includes(t.toLowerCase())})).join("\n")},t}());o._instance=void 0;var e=t("logger",o.getInstance());t("logInfo",(function(t){return e.info(t)})),t("logWarn",(function(t){for(var n=arguments.length,o=new Array(n>1?n-1:0),r=1;r<n;r++)o[r-1]=arguments[r];return e.warn.apply(e,[t].concat(o))})),t("logError",(function(t){for(var n=arguments.length,o=new Array(n>1?n-1:0),r=1;r<n;r++)o[r-1]=arguments[r];return e.error.apply(e,[t].concat(o))})),t("logDebug",(function(t){return e.debug(t)}));n._RF.pop()}}}));
+        /**
+         * Update header display
+         */;
+        _proto.updateHeaderDisplay = function updateHeaderDisplay() {
+          if (!this._viewModel) return;
 
-System.register("chunks:///_virtual/main",["./CheatComponent.ts","./ReelComponent.ts","./RevealWave.ts","./SlotMachineComponent.ts","./AnimationConfig.ts","./GameConfig.ts","./SlotMachineConfig.ts","./ResourceManagerExample.ts","./BaseModel.ts","./BaseService.ts","./BaseView.ts","./BaseViewModel.ts","./ServiceLocator.ts","./index2.ts","./ResourceManager.ts","./BuildingModel.ts","./CityModel.ts","./MainEventModel.ts","./PlayerModel.ts","./ResourceModel.ts","./SlotMachineModel.ts","./index.ts","./ConfigScene.ts","./PreviewDragonBone.ts","./AttackView.ts","./AttackViewModel.ts","./CityView.ts","./CityViewModel.ts","./LoadingView.ts","./LoadingViewModel.ts","./MainView.ts","./MainViewModel.ts","./RaidView.ts","./RaidViewModel.ts","./GameService.ts","./NetworkService.ts","./index3.ts","./SimpleCityModelTest.ts","./DebugPanel.ts","./Logger.ts","./SlotMachineUtils.ts","./StringUtils.ts"],(function(){return{setters:[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],execute:function(){}}}));
+          // Update gold display
+          if (this.goldLabel) {
+            this.goldLabel.string = this.formatNumber(this._viewModel.currentGold);
+          }
 
-System.register("chunks:///_virtual/MainEventModel.ts",["./rollupPluginModLoBabelHelpers.js","cc","./BaseModel.ts"],(function(t){var e,i,n,s,r;return{setters:[function(t){e=t.inheritsLoose,i=t.createForOfIteratorHelperLoose,n=t.createClass},function(t){s=t.cclegacy},function(t){r=t.BaseModel}],execute:function(){s._RF.push({},"05666IZHdRK264kHZAqXEKD","MainEventModel",void 0);t("MainEventModel",function(t){function s(){var e;return(e=t.call(this)||this).initializeDefaults(),e}e(s,t);var r=s.prototype;return r.initializeDefaults=function(){this.setData("id",""),this.setData("name",""),this.setData("description",""),this.setData("itemType",""),this.setData("currentItems",0),this.setData("milestones",[]),this.setData("isActive",!1),this.setData("startTime",0),this.setData("endTime",0)},r.addItems=function(t){this.isActive&&t>0&&(this.currentItems+=t,this.emit("itemsAdded",{amount:t,totalItems:this.currentItems,eventId:this.id}))},r.getCurrentMilestone=function(){for(var t,e=this.milestones,n=i(e);!(t=n()).done;){var s=t.value;if(!s.isClaimed)return s}return null},r.getNextMilestone=function(){for(var t,e=this.milestones,n=!1,s=i(e);!(t=s()).done;){var r=t.value;if(n&&!r.isClaimed)return r;r.isClaimed||(n=!0)}return null},r.canClaimCurrentMilestone=function(){var t=this.getCurrentMilestone();return null!==t&&this.currentItems>=t.requiredItems},r.claimCurrentMilestone=function(){var t=this.getCurrentMilestone();if(t&&this.canClaimCurrentMilestone()){var e=this.milestones,i=e.findIndex((function(e){return e.id===t.id}));if(i>=0)return e[i].isClaimed=!0,this.setData("milestones",[].concat(e)),this.emit("milestoneClaimed",{milestone:t,eventId:this.id}),t}return null},r.getCurrentMilestoneProgress=function(){var t=this.getCurrentMilestone();return t?Math.min(1,this.currentItems/t.requiredItems):1},r.getOverallProgress=function(){var t=this.milestones;return 0===t.length?0:t.filter((function(t){return t.isClaimed})).length/t.length},r.checkMilestoneProgress=function(){var t=this.getCurrentMilestone();t&&this.currentItems>=t.requiredItems&&this.emit("milestoneReached",{milestone:t,eventId:this.id})},r.getRemainingTime=function(){if(!this.isActive)return 0;var t=Date.now(),e=this.endTime;return Math.max(0,e-t)},r.hasExpired=function(){var t=Date.now(),e=this.endTime;return e>0&&t>e},r.initializeEvent=function(t){this.initialize(t),this.isActive&&this.emit("eventStarted",{eventId:this.id})},r.endEvent=function(){this.setData("isActive",!1),this.emit("eventEnded",{eventId:this.id})},r.validate=function(){var t=this.id,e=this.name,n=this.itemType,s=this.currentItems,r=this.milestones,a=this.startTime,u=this.endTime;if(!t||!e||!n||s<0)return!1;if(a>0&&u>0&&a>=u)return!1;if(!Array.isArray(r))return!1;for(var o,h=i(r);!(o=h()).done;){var m=o.value;if(!m.id||m.requiredItems<0||!m.reward)return!1}return!0},r.toJSON=function(){return{id:this.id,name:this.name,description:this.description,itemType:this.itemType,currentItems:this.currentItems,milestones:[].concat(this.milestones),isActive:this.getData("isActive")||!1,startTime:this.startTime,endTime:this.endTime}},r.fromJSON=function(t){this.initializeEvent(t)},n(s,[{key:"id",get:function(){return this.getData("id")||""}},{key:"name",get:function(){return this.getData("name")||""}},{key:"description",get:function(){return this.getData("description")||""}},{key:"itemType",get:function(){return this.getData("itemType")||""}},{key:"currentItems",get:function(){return this.getData("currentItems")||0},set:function(t){var e=this.currentItems;this.setData("currentItems",Math.max(0,t)),t>e&&this.checkMilestoneProgress()}},{key:"milestones",get:function(){return this.getData("milestones")||[]}},{key:"isActive",get:function(){var t=this.getData("isActive")||!1,e=Date.now(),i=this.getData("startTime")||0,n=this.getData("endTime")||0;return t&&e>=i&&e<=n}},{key:"startTime",get:function(){return this.getData("startTime")||0}},{key:"endTime",get:function(){return this.getData("endTime")||0}}]),s}(r));s._RF.pop()}}}));
+          // Update attacks remaining
+          if (this.attacksRemainingLabel) {
+            this.attacksRemainingLabel.string = "Attacks: " + this._viewModel.attacksRemaining;
+          }
+        }
 
-System.register("chunks:///_virtual/MainView.ts",["./rollupPluginModLoBabelHelpers.js","cc","./BaseView.ts","./MainViewModel.ts","./Logger.ts","./SlotMachineComponent.ts","./CheatComponent.ts"],(function(e){var t,i,n,o,a,r,s,l,c,u,h,d,f,p,v,w,g,y,M,b,m;return{setters:[function(e){t=e.applyDecoratedDescriptor,i=e.inheritsLoose,n=e.initializerDefineProperty,o=e.assertThisInitialized,a=e.asyncToGenerator,r=e.regeneratorRuntime},function(e){s=e.cclegacy,l=e._decorator,c=e.SpriteAtlas,u=e.Label,h=e.Node,d=e.ProgressBar,f=e.Button,p=e.Tween,v=e.tween,w=e.director},function(e){g=e.BaseView},function(e){y=e.MainViewModel},function(e){M=e.logError},function(e){b=e.SlotMachineComponent},function(e){m=e.CheatComponent}],execute:function(){var R,C,_,L,E,k,N,B,T,D,z,S,V,x,P,U,I,A,F,G,K,q,Z,j,H,W,X,J,O,Q,Y,$,ee;s._RF.push({},"3976ax0WAxBZqcZXrh3/tDy","MainView",void 0);var te=l.ccclass,ie=l.property;e("MainView",(R=te("MainView"),C=ie([c]),_=ie(u),L=ie(u),E=ie(u),k=ie(u),N=ie(h),B=ie(h),T=ie(u),D=ie(u),z=ie(d),S=ie(f),V=ie(f),x=ie(h),P=ie(m),U=ie(u),R((F=t((A=function(e){function t(){var t;return t=e.call(this)||this,n(t,"spriteAtlases",F,o(t)),n(t,"goldLabel",G,o(t)),n(t,"energyLabel",K,o(t)),n(t,"energyRegenLabel",q,o(t)),n(t,"playerLevelLabel",Z,o(t)),n(t,"slotMachineNode",j,o(t)),n(t,"mainEventContainer",H,o(t)),n(t,"eventNameLabel",W,o(t)),n(t,"eventProgressLabel",X,o(t)),n(t,"eventProgressBar",J,o(t)),n(t,"claimMilestoneButton",O,o(t)),n(t,"cityButton",Q,o(t)),n(t,"notificationContainer",Y,o(t)),n(t,"cheatContainer",$,o(t)),n(t,"notificationLabel",ee,o(t)),t._viewModel=null,t._slotMachineComponent=null,t}i(t,e);var s=t.prototype;return s.onLoad=function(){e.prototype.onLoad.call(this),this._slotMachineComponent=this.slotMachineNode.getComponent(b)},s.start=function(){this.onShow()},s.setupUI=function(){try{this.updateResourceDisplay(),this.updateEventDisplay(),this.hideNotification(),this.startEnergyRegenTimer()}catch(e){M("MainView: Error during UI setup:",e)}},s.bindEvents=function(){this.claimMilestoneButton&&this.claimMilestoneButton.node.on(f.EventType.CLICK,this.onClaimMilestoneClicked,this),this.cityButton&&this.cityButton.node.on(f.EventType.CLICK,this.onCityClicked,this)},s.updateUI=function(e,t,i){},s.refreshUI=function(){this.updateResourceDisplay(),this.updateEventDisplay()},s.setViewModel=function(t){e.prototype.setViewModel.call(this,t),this._viewModel=t,this._viewModel&&(this.setupViewModelEvents(),this._slotMachineComponent&&this._slotMachineComponent.setViewModel(this._viewModel))},s.setupViewModelEvents=function(){this._viewModel&&(this._viewModel.on("dataLoaded",this.onDataLoaded,this),this._viewModel.on("resourceUpdated",this.onResourceUpdated,this),this._viewModel.on("milestoneReached",this.onMilestoneReached,this),this._viewModel.on("milestoneClaimed",this.onMilestoneClaimed,this),this._viewModel.on("insufficientEnergy",this.onInsufficientEnergy,this),this._viewModel.on("navigateToScene",this.onNavigateToScene,this),this._viewModel.on("attackRewardReceived",this.onAttackRewardReceived,this),this._viewModel.on("raidRewardReceived",this.onRaidRewardReceived,this),this._viewModel.on("spinCompleted",this.onSpinCompleted,this))},s.updateResourceDisplay=function(){if(this._viewModel){if(this.goldLabel&&(this.goldLabel.string=this.formatNumber(this._viewModel.currentGold)),this.energyLabel){var e=this._viewModel.currentEnergy>this._viewModel.maxEnergy?""+this._viewModel.currentEnergy:this._viewModel.currentEnergy+"/"+this._viewModel.maxEnergy;this.energyLabel.string=e}this.playerLevelLabel&&(this.playerLevelLabel.string=""+this._viewModel.playerLevel)}},s.updateEnergyRegenCountdown=function(){if(this._viewModel&&this.energyRegenLabel){var e=this._viewModel.getTimeUntilNextEnergyRegen();if(this._viewModel.currentEnergy>=this._viewModel.maxEnergy)this.energyRegenLabel.string="Full";else{var t=Math.ceil(e/1e3),i=Math.floor(t/60),n=t%60;this.energyRegenLabel.string=i>0?i+"m "+n+"s":n+"s"}}},s.startEnergyRegenTimer=function(){this.stopEnergyRegenTimer(),this.updateEnergyRegenCountdown(),this.schedule(this.updateEnergyRegenCountdown,1)},s.stopEnergyRegenTimer=function(){this.unschedule(this.updateEnergyRegenCountdown)},s.updateEventDisplay=function(){if(this._viewModel){if(this.eventProgressBar&&(this.eventProgressBar.progress=this._viewModel.eventProgress),this.eventProgressLabel){var e=Math.round(100*this._viewModel.eventProgress);this.eventProgressLabel.string=e+"%"}this.claimMilestoneButton&&(this.claimMilestoneButton.interactable=this._viewModel.canClaimMilestone)}},s.showNotification=function(e,t){var i=this;void 0===t&&(t=2),this.notificationContainer&&this.notificationLabel&&(this.notificationLabel.string=e,this.notificationContainer.active=!0,p.stopAllByTarget(this.notificationContainer),v(this.notificationContainer).delay(t).call((function(){i.hideNotification()})).start())},s.hideNotification=function(){this.notificationContainer&&(this.notificationContainer.active=!1)},s.formatNumber=function(e){return e>=1e6?(e/1e6).toFixed(1)+"M":e>=1e3?(e/1e3).toFixed(1)+"K":e.toString()},s.onDataLoaded=function(){this.refreshUI()},s.onResourceUpdated=function(){this.updateResourceDisplay(),this.startEnergyRegenTimer()},s.onSpinCompleted=function(e){var t=e.finalReward,i="";switch(t.type){case"gold":i="+"+t.amount+" Gold!";break;case"energy":i="+"+t.amount+" Energy!";break;case"event_item":i="+"+t.amount+" Event Items!";break;case"attack":i="Attack Unlocked!";break;case"raid":i="Raid Unlocked!"}this.showNotification(i),this.updateResourceDisplay()},s.onMilestoneReached=function(){this.showNotification("Milestone Reached! Claim your reward!"),this.updateEventDisplay()},s.onMilestoneClaimed=function(e){var t=e.milestone.reward;this.showNotification("Claimed: "+t.amount+" "+t.type+"!"),this.updateEventDisplay(),this.updateResourceDisplay()},s.onInsufficientEnergy=function(e){this.showNotification("Need "+e.required+" energy, have "+e.available)},s.onNavigateToScene=function(e){w.loadScene(e)},s.onAttackRewardReceived=function(){this.showNotification("Attack available! Tap Attack button!")},s.onRaidRewardReceived=function(){this.showNotification("Raid available! Tap Raid button!")},s.onClaimMilestoneClicked=function(){var e=a(r().mark((function e(){return r().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(!this._viewModel){e.next=3;break}return e.next=3,this._viewModel.executeCommand("claimMilestone");case 3:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),s.onCityClicked=function(){this._viewModel&&this._viewModel.executeCommand("navigateToCity")},s.onCheatClicked=function(){this.cheatContainer.show()},s.onShow=function(){e.prototype.onShow.call(this),this._viewModel||(this._viewModel=new y,this.setViewModel(this._viewModel),this._viewModel.initialize())},s.onDestroy=function(){this.stopEnergyRegenTimer(),this._viewModel&&(this._viewModel.off("dataLoaded",this.onDataLoaded,this),this._viewModel.off("resourceUpdated",this.onResourceUpdated,this),this._viewModel.off("milestoneReached",this.onMilestoneReached,this),this._viewModel.off("milestoneClaimed",this.onMilestoneClaimed,this),this._viewModel.off("insufficientEnergy",this.onInsufficientEnergy,this),this._viewModel.off("navigateToScene",this.onNavigateToScene,this),this._viewModel.off("attackRewardReceived",this.onAttackRewardReceived,this),this._viewModel.off("raidRewardReceived",this.onRaidRewardReceived,this),this._viewModel.off("spinCompleted",this.onSpinCompleted,this)),e.prototype.onDestroy.call(this)},t}(g)).prototype,"spriteAtlases",[C],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return[]}}),G=t(A.prototype,"goldLabel",[_],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),K=t(A.prototype,"energyLabel",[L],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),q=t(A.prototype,"energyRegenLabel",[E],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),Z=t(A.prototype,"playerLevelLabel",[k],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),j=t(A.prototype,"slotMachineNode",[N],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),H=t(A.prototype,"mainEventContainer",[B],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),W=t(A.prototype,"eventNameLabel",[T],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),X=t(A.prototype,"eventProgressLabel",[D],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),J=t(A.prototype,"eventProgressBar",[z],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),O=t(A.prototype,"claimMilestoneButton",[S],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),Q=t(A.prototype,"cityButton",[V],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),Y=t(A.prototype,"notificationContainer",[x],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),$=t(A.prototype,"cheatContainer",[P],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),ee=t(A.prototype,"notificationLabel",[U],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),I=A))||I));s._RF.pop()}}}));
+        /**
+         * Update target display
+         */;
+        _proto.updateTargetDisplay = function updateTargetDisplay() {
+          if (!this._viewModel || !this._currentTarget) {
+            this.hideTargetInfo();
+            return;
+          }
+          this.showTargetInfo();
+          if (this.targetPlayerNameLabel) {
+            this.targetPlayerNameLabel.string = this._currentTarget.playerName;
+          }
+          if (this.targetPlayerLevelLabel) {
+            this.targetPlayerLevelLabel.string = "Level " + this._currentTarget.playerLevel;
+          }
+          if (this.targetCityNameLabel) {
+            this.targetCityNameLabel.string = this._currentTarget.cityName;
+          }
+        }
 
-System.register("chunks:///_virtual/MainViewModel.ts",["./rollupPluginModLoBabelHelpers.js","cc","./BaseViewModel.ts","./ServiceLocator.ts","./PlayerModel.ts","./SlotMachineModel.ts","./GameConfig.ts","./AnimationConfig.ts","./Logger.ts","./StringUtils.ts"],(function(e){var t,i,n,r,a,s,o,l,u,c,h,d,M,p;return{setters:[function(e){t=e.inheritsLoose,i=e.createClass,n=e.asyncToGenerator,r=e.regeneratorRuntime},function(e){a=e.cclegacy},function(e){s=e.BaseViewModel},function(e){o=e.ServiceLocator},function(e){l=e.PlayerModel},function(e){u=e.SlotMachineModel,c=e.SlotRewardType},function(e){h=e.GameConfig},function(e){d=e.AnimationConfig},function(e){M=e.logError},function(e){p=e.StringUtils}],execute:function(){a._RF.push({},"e4de49BZ0lFgpMLiS3rhzFI","MainViewModel",void 0);e("MainViewModel",function(e){function a(){var t;return(t=e.call(this)||this)._gameService=null,t._resourceManager=null,t._playerModel=null,t._slotMachineModel=null,t._mainEventModel=null,t._animationConfig=null,t}t(a,e);var s=a.prototype;return s.onInitialize=function(){this.setupServices(),this.setupModels(),this.setupEventListeners(),this.loadInitialData()},s.setupServices=function(){var e=o.getInstance();this._gameService=e.getService("GameService"),this._resourceManager=e.getService("ResourceManager"),this._animationConfig=d.getInstance(),this._gameService||M("GameService not found"),this._resourceManager||M("ResourceManager not found")},s.setupModels=function(){var e=o.getInstance().getService("GameService");e&&(this._playerModel=e.getPlayerModel()),this._playerModel||(M("MainViewModel failed to get PlayerModel from GameService. This is a critical error."),this._playerModel=new l),this._slotMachineModel=new u,this._playerModel&&(this._mainEventModel=this._playerModel.mainEvent)},s.setupEventListeners=function(){this._resourceManager&&(this._resourceManager.on("resourceChanged",this.onResourceChanged,this),this._resourceManager.on("insufficientResources",this.onInsufficientResources,this)),this._slotMachineModel&&(this._slotMachineModel.on("spinStarted",this.onSpinStarted,this),this._slotMachineModel.on("spinCompleted",this.onSpinCompleted,this),this._slotMachineModel.on("autoSpinStateChanged",this.onAutoSpinStateChanged,this)),this._mainEventModel&&(this._mainEventModel.on("itemsAdded",this.onEventItemsAdded,this),this._mainEventModel.on("milestoneReached",this.onMilestoneReached,this),this._mainEventModel.on("milestoneClaimed",this.onMilestoneClaimed,this)),this._playerModel&&(this._playerModel.on("levelUp",this.onPlayerLevelUp,this),this._playerModel.on("currentCityChanged",this.onCurrentCityChanged,this))},s.loadInitialData=function(){var e=n(r().mark((function e(){return r().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.prev=0,e.next=3,this.loadSlotMachineConfig();case 3:return e.next=5,this.refreshPlayerData();case 5:this.emit("dataLoaded"),e.next=12;break;case 8:e.prev=8,e.t0=e.catch(0),M("Failed to load initial data:",e.t0),this.emit("dataLoadError",e.t0);case 12:case"end":return e.stop()}}),e,this,[[0,8]])})));return function(){return e.apply(this,arguments)}}(),s.loadSlotMachineConfig=function(){var e=n(r().mark((function e(){var t,i,n,a;return r().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(this._slotMachineModel){e.next=2;break}return e.abrupt("return");case 2:if(e.prev=2,!this._gameService||!this._gameService.isReady){e.next=9;break}return e.next=6,this._gameService.getSlotMachineConfig();case 6:t=e.sent,e.next=11;break;case 9:i=h.getInstance(),t=i.getSlotMachineConfig();case 11:this._slotMachineModel.loadConfiguration(t),this.emit("slotMachineConfigLoaded",t),e.next=21;break;case 15:e.prev=15,e.t0=e.catch(2),M("Failed to load slot machine config:",e.t0),n=h.getInstance(),a=n.getSlotMachineConfig(),this._slotMachineModel.loadConfiguration(a);case 21:case"end":return e.stop()}}),e,this,[[2,15]])})));return function(){return e.apply(this,arguments)}}(),s.refreshPlayerData=function(){var e=n(r().mark((function e(){var t;return r().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(this._playerModel){e.next=2;break}return e.abrupt("return");case 2:if(e.prev=2,!this._gameService||!this._gameService.isReady){e.next=8;break}return e.next=6,this._gameService.getPlayerData();case 6:t=e.sent,this._playerModel.initializePlayerData(t);case 8:this.emit("playerDataRefreshed"),e.next=14;break;case 11:e.prev=11,e.t0=e.catch(2),M("Failed to refresh player data:",e.t0);case 14:case"end":return e.stop()}}),e,this,[[2,11]])})));return function(){return e.apply(this,arguments)}}(),s.executeCommand=function(){var e=n(r().mark((function e(t){var i=arguments;return r().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:e.t0=t,e.next="spin"===e.t0?3:"setBetMultiplier"===e.t0?4:"increaseBetMultiplier"===e.t0?5:"decreaseBetMultiplier"===e.t0?6:"changeBetMultiplier"===e.t0?7:"claimMilestone"===e.t0?8:"navigateToCity"===e.t0?9:"navigateToAttack"===e.t0?10:"navigateToRaid"===e.t0?11:"startAutoSpin"===e.t0?12:"stopAutoSpin"===e.t0?13:"refreshData"===e.t0?14:15;break;case 3:return e.abrupt("return",this.performSpin());case 4:return e.abrupt("return",this.setBetMultiplier(i.length<=1?void 0:i[1]));case 5:return e.abrupt("return",this.increaseBetMultiplier());case 6:return e.abrupt("return",this.decreaseBetMultiplier());case 7:return e.abrupt("return",this.changeBetMultiplier());case 8:return e.abrupt("return",this.claimEventMilestone());case 9:return e.abrupt("return",this.navigateToCity());case 10:return e.abrupt("return",this.navigateToAttack());case 11:return e.abrupt("return",this.navigateToRaid());case 12:return e.abrupt("return",this.startAutoSpin());case 13:return e.abrupt("return",this.stopAutoSpin());case 14:return e.abrupt("return",this.refreshPlayerData());case 15:throw new Error("Unknown command: "+t);case 16:case"end":return e.stop()}}),e,this)})));return function(t){return e.apply(this,arguments)}}(),s.performSpin=function(){var e=n(r().mark((function e(){var t,i;return r().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(this._slotMachineModel&&this._resourceManager&&this._gameService){e.next=2;break}return e.abrupt("return",null);case 2:if(!this._slotMachineModel.isSpinning){e.next=4;break}return e.abrupt("return",null);case 4:if(t=this._slotMachineModel.getTotalEnergyCost(),this._resourceManager.hasEnoughEnergy(t)){e.next=8;break}return this.emit("insufficientEnergy",{required:t,available:this._resourceManager.getEnergy()}),e.abrupt("return",null);case 8:return e.prev=8,e.next=11,this._resourceManager.spendEnergy(t,"slot_machine");case 11:return i=this._slotMachineModel.generateSpinResult(),this._slotMachineModel.startSpin(i),e.abrupt("return",i);case 16:return e.prev=16,e.t0=e.catch(8),M("Spin failed:",e.t0),e.next=21,this._resourceManager.addEnergy(t,"spin_refund");case 21:return this._slotMachineModel.resetSpin(),this.emit("spinError",e.t0),e.abrupt("return",null);case 24:case"end":return e.stop()}}),e,this,[[8,16]])})));return function(){return e.apply(this,arguments)}}(),s.setBetMultiplier=function(e){return!!this._slotMachineModel&&(!!this._slotMachineModel.availableMultipliers.includes(e)&&(this._slotMachineModel.selectedMultiplier=e,this.emit("betMultiplierChanged",e),!0))},s.increaseBetMultiplier=function(){if(!this._slotMachineModel||!this._resourceManager)return!1;var e=[1,2,5,10,20,40,50,100,250],t=this._slotMachineModel.selectedMultiplier,i=e.indexOf(t);if(-1===i)return!1;if(i>=e.length-1)return!1;var n=e[i+1],r=this._slotMachineModel.energyCostPerSpin*n,a=this._resourceManager.getEnergy();return r>a?(this.emit("betMultiplierIncreaseBlocked",{requiredEnergy:r,availableEnergy:a,blockedMultiplier:n}),!1):(this._slotMachineModel.selectedMultiplier=n,this.emit("betMultiplierChanged",this._slotMachineModel.selectedMultiplier),!0)},s.decreaseBetMultiplier=function(){if(!this._slotMachineModel)return!1;var e=[1,2,5,10,20,40,50,100,250],t=this._slotMachineModel.selectedMultiplier,i=e.indexOf(t);return-1!==i&&(i>0&&(this._slotMachineModel.selectedMultiplier=e[i-1],this.emit("betMultiplierChanged",this._slotMachineModel.selectedMultiplier),!0))},s.changeBetMultiplier=function(){if(!this._slotMachineModel||!this._resourceManager)return!1;var e=[1,2,5,10,20,40,50,100,250],t=this._slotMachineModel.selectedMultiplier,i=e.indexOf(t);if(-1===i)return this._slotMachineModel.selectedMultiplier=e[0],this.emit("betMultiplierChanged",this._slotMachineModel.selectedMultiplier),!0;var n=e[(i+1)%e.length];return this._slotMachineModel.energyCostPerSpin*n>this._resourceManager.getEnergy()&&(n=e[0]),this._slotMachineModel.selectedMultiplier=n,this.emit("betMultiplierChanged",this._slotMachineModel.selectedMultiplier),!0},s.claimEventMilestone=function(){var e=n(r().mark((function e(){var t,i,n;return r().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(this._mainEventModel&&this._gameService){e.next=2;break}return e.abrupt("return",!1);case 2:if((t=this._mainEventModel.getCurrentMilestone())&&this._mainEventModel.canClaimCurrentMilestone()){e.next=5;break}return e.abrupt("return",!1);case 5:return e.prev=5,e.next=8,this._gameService.claimEventMilestone(t.id);case 8:if(!(i=this._mainEventModel.claimCurrentMilestone())||!this._resourceManager){e.next=19;break}if("gold"!==(n=i.reward).type){e.next=16;break}return e.next=14,this._resourceManager.addGold(n.amount,"event_milestone");case 14:e.next=19;break;case 16:if("energy"!==n.type){e.next=19;break}return e.next=19,this._resourceManager.addEnergy(n.amount,"event_milestone");case 19:return e.abrupt("return",!0);case 22:return e.prev=22,e.t0=e.catch(5),M("Failed to claim milestone:",e.t0),this.emit("milestoneClaimError",e.t0),e.abrupt("return",!1);case 27:case"end":return e.stop()}}),e,this,[[5,22]])})));return function(){return e.apply(this,arguments)}}(),s.navigateToCity=function(){this.emit("navigateToScene","City")},s.navigateToAttack=function(){this.emit("navigateToScene","Attack")},s.navigateToRaid=function(){this.emit("navigateToScene","Raid")},s.onResourceChanged=function(e){this.emit("resourceUpdated",e)},s.onInsufficientResources=function(e){this.emit("insufficientResources",e)},s.onSpinStarted=function(e){this.emit("spinStarted",e)},s.onSpinCompleted=function(e){var t,i=this;if(this.processSpinReward(e),this.emit("spinCompleted",e),null!=(t=this._slotMachineModel)&&t.isAutoSpinPending)if(this._resourceManager&&this._slotMachineModel.canAffordSpin(this._resourceManager.getEnergy())){if(this._slotMachineModel.activatePendingAutoSpin()){var n=this._animationConfig.getUIConfig().autoSpinDelay;setTimeout((function(){return i.performSpin()}),n)}}else this._slotMachineModel.clearPendingAutoSpin();else if(this.isAutoSpinning&&this._slotMachineModel&&this._resourceManager)if(this._slotMachineModel.canContinueAutoSpin(this._resourceManager.getEnergy())){var r=this._animationConfig.getUIConfig().autoSpinDelay;setTimeout((function(){return i.performSpin()}),r)}else this._slotMachineModel.stopAutoSpinDueToInsufficientEnergy()},s.startAutoSpin=function(){var e;if(this._slotMachineModel&&this._resourceManager&&(null==(e=this._slotMachineModel.autoSpinState)||!e.isActive)){var t=this._slotMachineModel.getTotalEnergyCost();this._resourceManager.hasEnoughEnergy(t)?this._slotMachineModel.isSpinning?this._slotMachineModel.queueAutoSpin():(this._slotMachineModel.startAutoSpin(),this.performSpin()):this._slotMachineModel.stopAutoSpinDueToInsufficientEnergy()}},s.stopAutoSpin=function(){this._slotMachineModel&&(this._slotMachineModel.clearPendingAutoSpin(),this._slotMachineModel.stopAutoSpin())},s.processSpinReward=function(){var e=n(r().mark((function e(t){var i;return r().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(this._resourceManager&&this._mainEventModel){e.next=2;break}return e.abrupt("return");case 2:i=t.finalReward,e.prev=3,e.t0=i.type,e.next=e.t0===c.GOLD?7:e.t0===c.ENERGY?10:e.t0===c.TOKEN?13:e.t0===c.ATTACK?15:e.t0===c.STEAL?17:e.t0===c.SHIELD?19:20;break;case 7:return e.next=9,this._resourceManager.addGold(i.amount,"spin_reward");case 9:return e.abrupt("break",20);case 10:return e.next=12,this._resourceManager.addEnergy(i.amount,"spin_reward");case 12:return e.abrupt("break",20);case 13:return this._mainEventModel.addItems(i.amount),e.abrupt("break",20);case 15:return this.emit("attackRewardReceived"),e.abrupt("break",20);case 17:return this.emit("raidRewardReceived"),e.abrupt("break",20);case 19:return e.abrupt("break",20);case 20:e.next=25;break;case 22:e.prev=22,e.t1=e.catch(3),M("Failed to process spin reward:",e.t1);case 25:case"end":return e.stop()}}),e,this,[[3,22]])})));return function(t){return e.apply(this,arguments)}}(),s.onEventItemsAdded=function(e){this.emit("eventItemsAdded",e)},s.onMilestoneReached=function(e){this.emit("milestoneReached",e)},s.onMilestoneClaimed=function(e){this.emit("milestoneClaimed",e)},s.onPlayerLevelUp=function(e){this.emit("playerLevelUp",e)},s.onCurrentCityChanged=function(e){this.emit("currentCityChanged",e)},s.processSpinResultFromComponent=function(e){this._slotMachineModel&&this._slotMachineModel.processSpinResult(e)},s.onAutoSpinStateChanged=function(e){var t,i=e.reason;if("STARTED"===i)null==(t=this._animationConfig)||t.setProfile("autoSpin"),this.emit("animationProfileChanged","autoSpin");else if("STOPPED_USER"===i||"STOPPED_NO_ENERGY"===i){var n;null==(n=this._animationConfig)||n.setProfile("normal"),this.emit("animationProfileChanged","normal")}this.emit("autoSpinStateChanged",e)},s.getTimeUntilNextEnergyRegen=function(){return this._resourceManager?this._resourceManager.getTimeUntilNextEnergyRegen():0},s.getDisplayResultText=function(e){var t=p.formatNumberWithCommas(e.finalReward.amount)+" "+e.finalReward.type;return e.finalReward.type!=c.ATTACK&&e.finalReward.type!=c.STEAL||(t=(""+e.finalReward.type).toUpperCase()),t},s.destroy=function(){this._resourceManager&&(this._resourceManager.off("resourceChanged",this.onResourceChanged,this),this._resourceManager.off("insufficientResources",this.onInsufficientResources,this)),this._slotMachineModel&&(this._slotMachineModel.off("spinStarted",this.onSpinStarted,this),this._slotMachineModel.off("spinCompleted",this.onSpinCompleted,this),this._slotMachineModel.off("autoSpinStateChanged",this.onAutoSpinStateChanged,this)),this._mainEventModel&&(this._mainEventModel.off("itemsAdded",this.onEventItemsAdded,this),this._mainEventModel.off("milestoneReached",this.onMilestoneReached,this),this._mainEventModel.off("milestoneClaimed",this.onMilestoneClaimed,this)),this._playerModel&&(this._playerModel.off("levelUp",this.onPlayerLevelUp,this),this._playerModel.off("currentCityChanged",this.onCurrentCityChanged,this)),this._gameService=null,this._resourceManager=null,this._playerModel=null,this._slotMachineModel=null,this._mainEventModel=null,e.prototype.destroy.call(this)},i(a,[{key:"currentGold",get:function(){return this._resourceManager?this._resourceManager.getGold():0}},{key:"currentEnergy",get:function(){return this._resourceManager?this._resourceManager.getEnergy():0}},{key:"maxEnergy",get:function(){return this._resourceManager?this._resourceManager.getMaxEnergy():50}},{key:"currentBetMultiplier",get:function(){return this._slotMachineModel?this._slotMachineModel.selectedMultiplier:1}},{key:"availableBetMultipliers",get:function(){return this._slotMachineModel?this._slotMachineModel.availableMultipliers:[1]}},{key:"symbols",get:function(){return this._slotMachineModel?this._slotMachineModel.symbols:[]}},{key:"spinEnergyCost",get:function(){return this._slotMachineModel?this._slotMachineModel.getTotalEnergyCost():1}},{key:"isSpinning",get:function(){return!!this._slotMachineModel&&this._slotMachineModel.isSpinning}},{key:"lastSpinResult",get:function(){return this._slotMachineModel?this._slotMachineModel.lastSpinResult:null}},{key:"isAutoSpinning",get:function(){var e;return(null==(e=this._slotMachineModel)||null==(e=e.autoSpinState)?void 0:e.isActive)||!1}},{key:"isAutoSpinPending",get:function(){var e;return(null==(e=this._slotMachineModel)?void 0:e.isAutoSpinPending)||!1}},{key:"autoSpinState",get:function(){return this._slotMachineModel?this._slotMachineModel.autoSpinState:null}},{key:"eventProgress",get:function(){return this._mainEventModel?this._mainEventModel.getCurrentMilestoneProgress():0}},{key:"canClaimMilestone",get:function(){return!!this._mainEventModel&&this._mainEventModel.canClaimCurrentMilestone()}},{key:"playerLevel",get:function(){return this._playerModel?this._playerModel.level:1}}]),a}(s));a._RF.pop()}}}));
+        /**
+         * Update buildings display
+         */;
+        _proto.updateBuildingsDisplay = function updateBuildingsDisplay() {
+          if (!this._currentTarget) {
+            this.hideAllBuildings();
+            return;
+          }
+          var buildings = this._currentTarget.buildings;
+          for (var i = 0; i < buildings.length && i < this.buildingNodes.length; i++) {
+            var building = buildings[i];
+            this.updateBuildingUI(i, building);
+          }
 
-System.register("chunks:///_virtual/NetworkService.ts",["./rollupPluginModLoBabelHelpers.js","cc","./BaseService.ts","./Logger.ts"],(function(e){var t,n,r,s,o,i,a,u,c,S;return{setters:[function(e){t=e.inheritsLoose,n=e.createForOfIteratorHelperLoose,r=e.createClass,s=e.asyncToGenerator,o=e.regeneratorRuntime},function(e){i=e.cclegacy},function(e){a=e.BaseService},function(e){u=e.logInfo,c=e.logError,S=e.logWarn}],execute:function(){i._RF.push({},"ebba7QrxxFKZr7VmwX12Q9d","NetworkService",void 0);e("NetworkService",function(e){function i(){var t;return(t=e.call(this)||this)._sfs=null,t._config=null,t._pendingRequests=new Map,t._requestIdCounter=0,t}t(i,e);var a=i.prototype;return a.onInitialize=function(){var e=s(o().mark((function e(){return o().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:u("Initializing Network Service..."),"undefined"!=typeof SFS2X?(this._sfs=new SFS2X.SmartFox,this.setupSmartFoxEvents(),u("SmartFox initialized successfully")):S("SmartFox library not found, running in offline mode");case 2:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),a.setupSmartFoxEvents=function(){this._sfs&&(this._sfs.addEventListener(SFS2X.SFSEvent.CONNECTION,this.onConnection.bind(this)),this._sfs.addEventListener(SFS2X.SFSEvent.CONNECTION_LOST,this.onConnectionLost.bind(this)),this._sfs.addEventListener(SFS2X.SFSEvent.LOGIN,this.onLogin.bind(this)),this._sfs.addEventListener(SFS2X.SFSEvent.LOGIN_ERROR,this.onLoginError.bind(this)),this._sfs.addEventListener(SFS2X.SFSEvent.LOGOUT,this.onLogout.bind(this)),this._sfs.addEventListener(SFS2X.SFSEvent.EXTENSION_RESPONSE,this.onExtensionResponse.bind(this)),this._sfs.addEventListener(SFS2X.SFSEvent.SOCKET_ERROR,this.onSocketError.bind(this)))},a.onConnect=function(){var e=s(o().mark((function e(){var t=this;return o().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.abrupt("return",new Promise((function(e,n){if(!t._sfs)return S("SmartFox not available, skipping connection"),void e();if(!t._config)return S("SmartFox config not set, skipping connection"),void e();u("Connecting to SmartFox server: "+t._config.host+":"+t._config.port);var r=setTimeout((function(){t._sfs.removeEventListener(SFS2X.SFSEvent.CONNECTION,s),t._sfs.removeEventListener(SFS2X.SFSEvent.SOCKET_ERROR,o),S("Connection timeout, continuing in offline mode"),e()}),5e3),s=function n(){clearTimeout(r),t._sfs.removeEventListener(SFS2X.SFSEvent.CONNECTION,n),t._sfs.removeEventListener(SFS2X.SFSEvent.SOCKET_ERROR,o),u("Successfully connected to SmartFox server"),e()},o=function n(o){clearTimeout(r),t._sfs.removeEventListener(SFS2X.SFSEvent.CONNECTION,s),t._sfs.removeEventListener(SFS2X.SFSEvent.SOCKET_ERROR,n),S("Connection failed: "+o.data+", continuing in offline mode"),e()};t._sfs.addEventListener(SFS2X.SFSEvent.CONNECTION,s),t._sfs.addEventListener(SFS2X.SFSEvent.SOCKET_ERROR,o);try{t._sfs.connect(t._config.host,t._config.port)}catch(t){clearTimeout(r),S("Connection error: "+t+", continuing in offline mode"),e()}})));case 1:case"end":return e.stop()}}),e)})));return function(){return e.apply(this,arguments)}}(),a.onDisconnect=function(){var e=s(o().mark((function e(){var t=this;return o().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.abrupt("return",new Promise((function(e){if(t._sfs&&t._sfs.isConnected){t._sfs.addEventListener(SFS2X.SFSEvent.CONNECTION_LOST,(function n(){t._sfs.removeEventListener(SFS2X.SFSEvent.CONNECTION_LOST,n),e()})),t._sfs.disconnect()}else e()})));case 1:case"end":return e.stop()}}),e)})));return function(){return e.apply(this,arguments)}}(),a.setConfig=function(e){this._config=e},a.login=function(){var e=s(o().mark((function e(t,n,r){var s=this;return o().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return void 0===n&&(n=""),e.abrupt("return",new Promise((function(e,o){var i;if(!s._sfs)return S("SmartFox not available, simulating login success"),void e({user:{name:t,id:Math.floor(1e4*Math.random()),isGuest:!0},zone:r||"CoinMaster"});if(!s._sfs.isConnected)return S("Not connected to server, simulating login success"),void e({user:{name:t,id:Math.floor(1e4*Math.random()),isGuest:!0},zone:r||"CoinMaster"});var a=r||(null==(i=s._config)?void 0:i.zone)||"BasicExamples",u=setTimeout((function(){s._sfs.removeEventListener(SFS2X.SFSEvent.LOGIN,c),s._sfs.removeEventListener(SFS2X.SFSEvent.LOGIN_ERROR,f),S("Login timeout, simulating login success"),e({user:{name:t,id:Math.floor(1e4*Math.random()),isGuest:!0},zone:a})}),5e3),c=function t(n){clearTimeout(u),s._sfs.removeEventListener(SFS2X.SFSEvent.LOGIN,t),s._sfs.removeEventListener(SFS2X.SFSEvent.LOGIN_ERROR,f),e(n.data)},f=function n(r){clearTimeout(u),s._sfs.removeEventListener(SFS2X.SFSEvent.LOGIN,c),s._sfs.removeEventListener(SFS2X.SFSEvent.LOGIN_ERROR,n),S("Login failed: "+r.data.errorMessage+", simulating login success"),e({user:{name:t,id:Math.floor(1e4*Math.random()),isGuest:!0},zone:a})};s._sfs.addEventListener(SFS2X.SFSEvent.LOGIN,c),s._sfs.addEventListener(SFS2X.SFSEvent.LOGIN_ERROR,f);try{s._sfs.send(new SFS2X.LoginRequest(t,n,null,a))}catch(n){clearTimeout(u),S("Login error: "+n+", simulating login success"),e({user:{name:t,id:Math.floor(1e4*Math.random()),isGuest:!0},zone:a})}})));case 2:case"end":return e.stop()}}),e)})));return function(t,n,r){return e.apply(this,arguments)}}(),a.sendRequest=function(){var e=s(o().mark((function e(t){var n=this;return o().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.abrupt("return",new Promise((function(e,r){if(n._sfs&&n._sfs.isConnected){var s=n.generateRequestId(),o=t.timeout||1e4,i=setTimeout((function(){n._pendingRequests.delete(s),r(new Error("Request timeout: "+t.command))}),o);n._pendingRequests.set(s,{resolve:function(t){clearTimeout(i),e(t)},reject:function(e){clearTimeout(i),r(e)},timeout:i});var a=new SFS2X.SFSObject;if(a.putUtfString("requestId",s),t.data)for(var u in t.data)n.putDataToSFSObject(a,u,t.data[u]);var c=new SFS2X.ExtensionRequest(t.command,a);n._sfs.send(c)}else r(new Error("Not connected to server"))})));case 1:case"end":return e.stop()}}),e)})));return function(t){return e.apply(this,arguments)}}(),a.generateRequestId=function(){return"req_"+ ++this._requestIdCounter+"_"+Date.now()},a.putDataToSFSObject=function(e,t,r){if(null!=r)switch(typeof r){case"string":e.putUtfString(t,r);break;case"number":Number.isInteger(r)?e.putInt(t,r):e.putDouble(t,r);break;case"boolean":e.putBool(t,r);break;case"object":if(Array.isArray(r)){for(var s,o=new SFS2X.SFSArray,i=n(r);!(s=i()).done;){var a=s.value;this.addDataToSFSArray(o,a)}e.putSFSArray(t,o)}else{var u=new SFS2X.SFSObject;for(var c in r)this.putDataToSFSObject(u,c,r[c]);e.putSFSObject(t,u)}}},a.addDataToSFSArray=function(e,t){if(null!=t)switch(typeof t){case"string":e.addUtfString(t);break;case"number":Number.isInteger(t)?e.addInt(t):e.addDouble(t);break;case"boolean":e.addBool(t);break;case"object":if(Array.isArray(t)){for(var r,s=new SFS2X.SFSArray,o=n(t);!(r=o()).done;){var i=r.value;this.addDataToSFSArray(s,i)}e.addSFSArray(s)}else{var a=new SFS2X.SFSObject;for(var u in t)this.putDataToSFSObject(a,u,t[u]);e.addSFSObject(a)}}},a.sfsObjectToPlainObject=function(e){if(!e)return null;for(var t,r={},s=e.getKeys(),o=n(s);!(t=o()).done;){var i=t.value,a=e.get(i);r[i]=this.convertSFSValue(a)}return r},a.convertSFSValue=function(e){if(!e)return null;if(e.getTypeId)switch(e.getTypeId()){case SFS2X.SFSDataType.SFS_OBJECT:return this.sfsObjectToPlainObject(e);case SFS2X.SFSDataType.SFS_ARRAY:return this.sfsArrayToPlainArray(e);default:return e}return e},a.sfsArrayToPlainArray=function(e){if(!e)return[];for(var t=[],n=e.size(),r=0;r<n;r++){var s=e.get(r);t.push(this.convertSFSValue(s))}return t},a.onConnection=function(e){u("Connected to SmartFox server"),this.emit("connected")},a.onConnectionLost=function(e){u("Connection lost: "+e.data),this.emit("connectionLost",e.data)},a.onLogin=function(e){u("Logged in successfully: "+e.data),this.emit("loggedIn",e.data)},a.onLoginError=function(e){c("Login error:",e.data),this.emit("loginError",e.data)},a.onLogout=function(e){u("Logged out"),this.emit("loggedOut")},a.onExtensionResponse=function(e){var t=e.data.cmd,n=e.data.params,r=n?n.getUtfString("requestId"):null,s=!!n&&n.getBool("success"),o=n?n.getUtfString("error"):null,i=n?n.getInt("errorCode"):0,a={success:s,command:t,data:n?this.sfsObjectToPlainObject(n):null,error:o,errorCode:i};if(r&&this._pendingRequests.has(r)){var u=this._pendingRequests.get(r);this._pendingRequests.delete(r),s?u.resolve(a):u.reject(new Error(o||"Unknown server error"))}this.emit("extensionResponse",a)},a.onSocketError=function(e){c("Socket error:",e.data),this.emit("socketError",e.data)},a.getCurrentUser=function(){return this._sfs?this._sfs.mySelf:null},a.destroy=function(){for(var t,r=n(this._pendingRequests);!(t=r()).done;){var s=t.value,o=(s[0],s[1]);clearTimeout(o.timeout),o.reject(new Error("Service destroyed"))}this._pendingRequests.clear(),this._sfs&&(this._sfs.isConnected&&this._sfs.disconnect(),this._sfs=null),e.prototype.destroy.call(this)},r(i,[{key:"isConnectedToServer",get:function(){return this._sfs&&this._sfs.isConnected}},{key:"isLoggedIn",get:function(){return this._sfs&&null!==this._sfs.mySelf}}]),i}(a));i._RF.pop()}}}));
+          // Hide unused building slots
+          for (var _i = buildings.length; _i < this.buildingNodes.length; _i++) {
+            if (this.buildingNodes[_i]) {
+              this.buildingNodes[_i].active = false;
+            }
+          }
+        }
 
-System.register("chunks:///_virtual/PlayerModel.ts",["./rollupPluginModLoBabelHelpers.js","cc","./BaseModel.ts","./ResourceModel.ts","./CityModel.ts","./MainEventModel.ts"],(function(e){var t,i,n,s,r,a,o,c;return{setters:[function(e){t=e.inheritsLoose,i=e.createForOfIteratorHelperLoose,n=e.createClass},function(e){s=e.cclegacy},function(e){r=e.BaseModel},function(e){a=e.ResourceModel},function(e){o=e.CityModel},function(e){c=e.MainEventModel}],execute:function(){s._RF.push({},"b07cbNahI5JBIJTWLWeGFgE","PlayerModel",void 0);e("PlayerModel",function(e){function s(){var t;return(t=e.call(this)||this)._resourceModel=void 0,t._currentCity=null,t._cities=new Map,t._mainEventModel=void 0,t._resourceModel=new a,t._mainEventModel=new c,t.initializeDefaults(),t.setupEventListeners(),t}t(s,e);var r=s.prototype;return r.initializeDefaults=function(){this.setData("id",""),this.setData("name",""),this.setData("level",1),this.setData("experience",0),this.setData("currentCityId",""),this.setData("lastLoginTime",Date.now()),this.setData("createdTime",Date.now())},r.setupEventListeners=function(){var e=this;this._resourceModel.on("dataChanged",(function(t){e.emit("resourceChanged",t)})),this._mainEventModel.on("itemsAdded",(function(t){e.emit("eventItemsAdded",t)})),this._mainEventModel.on("milestoneClaimed",(function(t){e.emit("eventMilestoneClaimed",t)})),this._mainEventModel.on("milestoneReached",(function(t){e.emit("eventMilestoneReached",t)}))},r.setCurrentCity=function(e){var t=this._cities.get(e);return!!t&&(this._currentCity=t,this.setData("currentCityId",e),this.emit("currentCityChanged",{cityId:e,city:t}),!0)},r.getCities=function(){return Array.from(this._cities.values())},r.getCity=function(e){return this._cities.get(e)||null},r.addCity=function(e){var t=this;this._cities.set(e.id,e),e.on("cityCompleted",(function(e){t.onCityCompleted(e)})),e.on("buildingUpgraded",(function(e){t.emit("buildingUpgraded",e)})),1===this._cities.size&&this.setCurrentCity(e.id),this.emit("cityAdded",{cityId:e.id,city:e})},r.onCityCompleted=function(e){var t=e.cityId,i=e.reward;this._resourceModel.addGold(i);var n=this._cities.get(t);if(n){var s=n.level+1,r=new o(s);this.addCity(r),this.setCurrentCity(r.id)}this.emit("cityCompleted",e)},r.updateLastLoginTime=function(){this.setData("lastLoginTime",Date.now())},r.addExperience=function(e){e>0&&(this.experience+=e,this.checkLevelUp())},r.checkLevelUp=function(){var e=this.getRequiredExperienceForLevel(this.level+1);this.experience>=e&&(this.level+=1,this.emit("levelUp",{newLevel:this.level,experience:this.experience}))},r.getRequiredExperienceForLevel=function(e){return 100*Math.pow(e,2)},r.getLevelProgress=function(){var e=this.getRequiredExperienceForLevel(this.level),t=this.getRequiredExperienceForLevel(this.level+1),i=this.experience-e,n=t-e;return Math.max(0,Math.min(1,i/n))},r.initializePlayerData=function(e){if(this.id=e.id||"",this.name=e.name||"",this.level=e.level||1,this.experience=e.experience||0,this.setData("lastLoginTime",e.lastLoginTime||Date.now()),this.setData("createdTime",e.createdTime||Date.now()),e.resources&&this._resourceModel.fromJSON(e.resources),this._cities.clear(),e.cities&&e.cities.length>0)for(var t,n=i(e.cities);!(t=n()).done;){var s=t.value,r=new o(s.level);r.fromJSON(s),this.addCity(r)}else{var a=new o(1);this.addCity(a)}e.currentCityId&&this.setCurrentCity(e.currentCityId),e.mainEvent&&this._mainEventModel.fromJSON(e.mainEvent),this.emit("playerDataInitialized",e)},r.validate=function(){var e=this.id,t=this.name,n=this.level,s=this.experience;if(!e||!t||n<1||s<0)return!1;if(!this._resourceModel.validate())return!1;if(!this._mainEventModel.validate())return!1;for(var r,a=i(this._cities.values());!(r=a()).done;){if(!r.value.validate())return!1}return!0},r.toJSON=function(){for(var e,t=[],n=i(this._cities.values());!(e=n()).done;){var s=e.value;t.push(s.toJSON())}return{id:this.id,name:this.name,level:this.level,experience:this.experience,resources:this._resourceModel.toJSON(),currentCityId:this.currentCityId,cities:t,mainEvent:this._mainEventModel.toJSON(),lastLoginTime:this.lastLoginTime,createdTime:this.createdTime}},r.fromJSON=function(e){this.initializePlayerData(e)},r.destroy=function(){this._resourceModel&&this._resourceModel.destroy(),this._mainEventModel&&this._mainEventModel.reset();for(var t,n=i(this._cities.values());!(t=n()).done;){t.value.destroy()}this._cities.clear(),this._currentCity=null,e.prototype.reset.call(this)},n(s,[{key:"id",get:function(){return this.getData("id")||""},set:function(e){this.setData("id",e)}},{key:"name",get:function(){return this.getData("name")||""},set:function(e){this.setData("name",e)}},{key:"level",get:function(){return this.getData("level")||1},set:function(e){this.setData("level",Math.max(1,e))}},{key:"experience",get:function(){return this.getData("experience")||0},set:function(e){this.setData("experience",Math.max(0,e))}},{key:"resources",get:function(){return this._resourceModel}},{key:"currentCityId",get:function(){return this.getData("currentCityId")||""}},{key:"currentCity",get:function(){return this._currentCity}},{key:"mainEvent",get:function(){return this._mainEventModel}},{key:"lastLoginTime",get:function(){return this.getData("lastLoginTime")||Date.now()}},{key:"createdTime",get:function(){return this.getData("createdTime")||Date.now()}}]),s}(r));s._RF.pop()}}}));
+        /**
+         * Update individual building UI
+         */;
+        _proto.updateBuildingUI = function updateBuildingUI(index, building) {
+          // Show building node
+          if (this.buildingNodes[index]) {
+            this.buildingNodes[index].active = true;
+          }
 
-System.register("chunks:///_virtual/PreviewDragonBone.ts",["./rollupPluginModLoBabelHelpers.js","cc"],(function(t){var e,n,i,r,o,a,u,s,l,c,p,h,m,f,d,y,g;return{setters:[function(t){e=t.applyDecoratedDescriptor,n=t.inheritsLoose,i=t.initializerDefineProperty,r=t.assertThisInitialized},function(t){o=t.cclegacy,a=t._decorator,u=t.dragonBones,s=t.Node,l=t.EditBox,c=t.log,p=t.resources,h=t.Component,m=t.instantiate,f=t.Label,d=t.v3,y=t.UITransform,g=t.Button}],execute:function(){var v,A,T,b,D,B,C,N,E,w,_,L,z;o._RF.push({},"06e691DAuhIs7yTLNfN0A+f","PreviewDragonBone",void 0);var x=a.ccclass,P=a.property;t("PreviewDragonBone",(v=x("PreviewDragonBone"),A=P(u.ArmatureDisplay),T=P(s),b=P(l),D=P(s),B=P(s),v((E=e((N=function(t){function e(){for(var e,n=arguments.length,o=new Array(n),a=0;a<n;a++)o[a]=arguments[a];return e=t.call.apply(t,[this].concat(o))||this,i(e,"armatureDisplay",E,r(e)),i(e,"armatureNode",w,r(e)),i(e,"inputAnim",_,r(e)),i(e,"buttonsContainer",L,r(e)),i(e,"templateBtn",z,r(e)),e}n(e,t);var o=e.prototype;return o.start=function(){this.armatureDisplay.playAnimation("idle",0),this.armatureNode.on(s.EventType.TOUCH_START,this.onTouchStart,this),this.armatureNode.on(s.EventType.TOUCH_MOVE,this.onTouchMove,this),this.armatureNode.on(s.EventType.TOUCH_END,this.onTouchEnd,this),this.armatureNode.on(s.EventType.TOUCH_CANCEL,this.onTouchEnd,this),this.listAllAnimButton()},o.onTouchStart=function(){c("onTouchStart")},o.onTouchMove=function(t){var e=t.getUIDelta();this.armatureNode.x+=e.x,this.armatureNode.y+=e.y},o.onTouchEnd=function(){c("onTouchEnd")},o.listAllAnimButton=function(){var t=this,e=this.armatureDisplay.getAnimationNames(this.armatureDisplay.armatureName),n=this.templateBtn;c("templateBtn",n);for(var i=function(){var i=m(n);i.active=!0,i.name=e[r],i.getChildByName("Label").getComponent(f).string=e[r],t.buttonsContainer.addChild(i),i.position=d(n.x+r*(n.getComponent(y).width+10),0,0),i.on(g.EventType.CLICK,(function(){t.armatureDisplay.playAnimation(i.name,-1)}),t)},r=0;r<e.length;r++)i()},o.onClickLoad=function(){var t=this,e="fish/Fish"+this.inputAnim.string+"_tex";p.load(e,u.DragonBonesAtlasAsset,(function(e,n){if(e)c("load error",e);else{var i="fish/Fish"+t.inputAnim.string+"_ske";p.load(i,u.DragonBonesAsset,(function(e,i){e?c("load error",e):(t.armatureDisplay.dragonAsset=i,t.armatureDisplay.dragonAtlasAsset=n,t.listAllAnimButton())}))}}))},e}(h)).prototype,"armatureDisplay",[A],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),w=e(N.prototype,"armatureNode",[T],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),_=e(N.prototype,"inputAnim",[b],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),L=e(N.prototype,"buttonsContainer",[D],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),z=e(N.prototype,"templateBtn",[B],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),C=N))||C));o._RF.pop()}}}));
+          // Update building name
+          if (this.buildingNameLabels[index]) {
+            this.buildingNameLabels[index].string = this.getBuildingDisplayName(building.buildingType);
+          }
 
-System.register("chunks:///_virtual/RaidView.ts",["./rollupPluginModLoBabelHelpers.js","cc","./BaseView.ts","./RaidViewModel.ts"],(function(e){var t,i,n,o,a,r,s,l,h,d,u,c,f,g,p,b,w,v,C;return{setters:[function(e){t=e.applyDecoratedDescriptor,i=e.inheritsLoose,n=e.initializerDefineProperty,o=e.assertThisInitialized,a=e.createForOfIteratorHelperLoose,r=e.asyncToGenerator,s=e.regeneratorRuntime},function(e){l=e.cclegacy,h=e._decorator,d=e.Label,u=e.Node,c=e.Sprite,f=e.Button,g=e.Color,p=e.tween,b=e.v3,w=e.director},function(e){v=e.BaseView},function(e){C=e.RaidViewModel}],execute:function(){var y,L,m,T,R,_,M,N,B,I,z,k,E,S,D,O,x,U,F,V,H,P,A,K,G,X,j,J,W,Y,q,Q,Z,$,ee,te,ie,ne,oe,ae,re,se,le,he,de,ue,ce,fe,ge;l._RF.push({},"cd871t1u4pK8JkaC6hobPDL","RaidView",void 0);var pe=h.ccclass,be=h.property;e("RaidView",(y=pe("RaidView"),L=be(d),m=be(d),T=be(u),R=be(d),_=be(d),M=be(d),N=be([u]),B=be([c]),I=be([d]),z=be([d]),k=be([f]),E=be([u]),S=be(f),D=be(f),O=be(u),x=be(d),U=be(u),F=be(d),V=be(d),H=be(d),P=be(f),A=be(u),K=be(d),y((j=t((X=function(e){function t(){for(var t,i=arguments.length,a=new Array(i),r=0;r<i;r++)a[r]=arguments[r];return t=e.call.apply(e,[this].concat(a))||this,n(t,"goldLabel",j,o(t)),n(t,"raidsRemainingLabel",J,o(t)),n(t,"targetInfoContainer",W,o(t)),n(t,"targetPlayerNameLabel",Y,o(t)),n(t,"targetPlayerLevelLabel",q,o(t)),n(t,"targetCityNameLabel",Q,o(t)),n(t,"chestNodes",Z,o(t)),n(t,"chestSprites",$,o(t)),n(t,"chestTypeLabels",ee,o(t)),n(t,"rewardLabels",te,o(t)),n(t,"raidButtons",ie,o(t)),n(t,"openedOverlays",ne,o(t)),n(t,"newTargetButton",oe,o(t)),n(t,"backButton",ae,o(t)),n(t,"loadingContainer",re,o(t)),n(t,"loadingLabel",se,o(t)),n(t,"resultContainer",le,o(t)),n(t,"resultTitleLabel",he,o(t)),n(t,"resultMessageLabel",de,o(t)),n(t,"resultRewardLabel",ue,o(t)),n(t,"resultCloseButton",ce,o(t)),n(t,"notificationContainer",fe,o(t)),n(t,"notificationLabel",ge,o(t)),t._viewModel=null,t._currentTarget=null,t}i(t,e);var l=t.prototype;return l.setupUI=function(){this.updateHeaderDisplay(),this.hideTargetInfo(),this.hideAllChests(),this.hideResultUI(),this.hideNotification(),this.showLoading("Loading target...")},l.bindEvents=function(){var e=this;this.newTargetButton&&this.newTargetButton.node.on(f.EventType.CLICK,this.onNewTargetClicked,this),this.backButton&&this.backButton.node.on(f.EventType.CLICK,this.onBackClicked,this);for(var t=function(t){var i=e.raidButtons[t];i&&i.node.on(f.EventType.CLICK,(function(){return e.onRaidClicked(t)}),e)},i=0;i<this.raidButtons.length;i++)t(i);this.resultCloseButton&&this.resultCloseButton.node.on(f.EventType.CLICK,this.onResultCloseClicked,this)},l.updateUI=function(e,t,i){},l.refreshUI=function(){this.updateHeaderDisplay(),this.updateTargetDisplay(),this.updateChestsDisplay()},l.setViewModel=function(t){e.prototype.setViewModel.call(this,t),this._viewModel=t,this._viewModel&&this.setupViewModelEvents()},l.setupViewModelEvents=function(){this._viewModel&&(this._viewModel.on("loadingTarget",this.onLoadingTarget,this),this._viewModel.on("targetLoaded",this.onTargetLoaded,this),this._viewModel.on("targetLoadError",this.onTargetLoadError,this),this._viewModel.on("resourceUpdated",this.onResourceUpdated,this),this._viewModel.on("raidStarted",this.onRaidStarted,this),this._viewModel.on("raidCompleted",this.onRaidCompleted,this),this._viewModel.on("raidError",this.onRaidError,this),this._viewModel.on("chestAlreadyOpened",this.onChestAlreadyOpened,this),this._viewModel.on("noRaidsRemaining",this.onNoRaidsRemaining,this),this._viewModel.on("navigateToScene",this.onNavigateToScene,this))},l.updateHeaderDisplay=function(){this._viewModel&&(this.goldLabel&&(this.goldLabel.string=this.formatNumber(this._viewModel.currentGold)),this.raidsRemainingLabel&&(this.raidsRemainingLabel.string="Raids: "+this._viewModel.raidsRemaining))},l.updateTargetDisplay=function(){this._viewModel&&this._currentTarget?(this.showTargetInfo(),this.targetPlayerNameLabel&&(this.targetPlayerNameLabel.string=this._currentTarget.playerName),this.targetPlayerLevelLabel&&(this.targetPlayerLevelLabel.string="Level "+this._currentTarget.playerLevel),this.targetCityNameLabel&&(this.targetCityNameLabel.string=this._currentTarget.cityName)):this.hideTargetInfo()},l.updateChestsDisplay=function(){if(this._currentTarget){for(var e=this._currentTarget.chests,t=0;t<e.length&&t<this.chestNodes.length;t++){var i=e[t];this.updateChestUI(t,i)}for(var n=e.length;n<this.chestNodes.length;n++)this.chestNodes[n]&&(this.chestNodes[n].active=!1)}else this.hideAllChests()},l.updateChestUI=function(e,t){var i,n;(this.chestNodes[e]&&(this.chestNodes[e].active=!0),this.chestTypeLabels[e]&&(this.chestTypeLabels[e].string=this.getChestDisplayName(t.chestType)),this.rewardLabels[e]&&(this.rewardLabels[e].string=this.formatNumber(t.potentialReward)+" Gold"),this.raidButtons[e])&&(this.raidButtons[e].interactable=!t.isOpened&&(null==(i=this._viewModel)?void 0:i.hasRaidsRemaining)&&!(null!=(n=this._viewModel)&&n.isRaiding));this.openedOverlays[e]&&(this.openedOverlays[e].active=t.isOpened),this.updateChestSprite(e,t)},l.updateChestSprite=function(e,t){if(this.chestSprites[e]){var i=this.chestSprites[e];if(t.isOpened)i.color=g.GRAY;else{var n={bronze:(new g).fromHEX("#CD7F32"),silver:(new g).fromHEX("#C0C0C0"),gold:(new g).fromHEX("#FFD700"),diamond:(new g).fromHEX("#B9F2FF")};i.color=n[t.chestType]||g.WHITE}}},l.getChestDisplayName=function(e){return{bronze:"Bronze Chest",silver:"Silver Chest",gold:"Gold Chest",diamond:"Diamond Chest"}[e]||"Chest"},l.showLoading=function(e){this.loadingContainer&&(this.loadingContainer.active=!0),this.loadingLabel&&(this.loadingLabel.string=e)},l.hideLoading=function(){this.loadingContainer&&(this.loadingContainer.active=!1)},l.showTargetInfo=function(){this.targetInfoContainer&&(this.targetInfoContainer.active=!0)},l.hideTargetInfo=function(){this.targetInfoContainer&&(this.targetInfoContainer.active=!1)},l.hideAllChests=function(){for(var e,t=a(this.chestNodes);!(e=t()).done;){var i=e.value;i&&(i.active=!1)}},l.showRaidResult=function(e){this.resultContainer&&(this.resultContainer.active=!0),this.resultTitleLabel&&(this.resultTitleLabel.string=e.success?"Raid Successful!":"Raid Failed!"),this.resultMessageLabel&&(this.resultMessageLabel.string=e.message),this.resultRewardLabel&&(e.goldEarned>0?(this.resultRewardLabel.string="+"+this.formatNumber(e.goldEarned)+" Gold",this.resultRewardLabel.node.active=!0):this.resultRewardLabel.node.active=!1)},l.hideResultUI=function(){this.resultContainer&&(this.resultContainer.active=!1)},l.showNotification=function(e,t){var i=this;void 0===t&&(t=3),this.notificationContainer&&this.notificationLabel&&(this.notificationLabel.string=e,this.notificationContainer.active=!0,this.scheduleOnce((function(){i.hideNotification()}),t))},l.hideNotification=function(){this.notificationContainer&&(this.notificationContainer.active=!1)},l.formatNumber=function(e){return e>=1e6?(e/1e6).toFixed(1)+"M":e>=1e3?(e/1e3).toFixed(1)+"K":e.toString()},l.animateChestOpening=function(e){if(!(e<0||e>=this.chestNodes.length)){var t=this.chestNodes[e];t&&(p(t).to(.2,{scale:b(1.2,1.2,1)}).to(.3,{scale:b(1,1,1)}).start(),p(t).to(.1,{angle:-10}).to(.1,{angle:10}).to(.1,{angle:-5}).to(.1,{angle:5}).to(.1,{angle:0}).start())}},l.onLoadingTarget=function(e){e?(this.showLoading("Loading target..."),this.hideTargetInfo(),this.hideAllChests()):this.hideLoading()},l.onTargetLoaded=function(e){this._currentTarget=e,this.hideLoading(),this.refreshUI()},l.onTargetLoadError=function(e){this.hideLoading(),this.showNotification("Failed to load target. Using offline mode.")},l.onResourceUpdated=function(e){this.updateHeaderDisplay()},l.onRaidStarted=function(e){this.animateChestOpening(e.chestIndex),this.showNotification("Raiding "+e.targetPlayer+"..."),this.updateChestsDisplay()},l.onRaidCompleted=function(e){this.showRaidResult(e),this.updateHeaderDisplay(),this.updateChestsDisplay()},l.onRaidError=function(e){this.showNotification("Raid failed: "+e.error),this.updateChestsDisplay()},l.onChestAlreadyOpened=function(e){this.showNotification("Chest is already opened!")},l.onNoRaidsRemaining=function(){this.showNotification("No raids remaining! Get a new target.")},l.onNavigateToScene=function(e){w.loadScene(e)},l.onNewTargetClicked=function(){var e=r(s().mark((function e(){return s().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(!this._viewModel){e.next=3;break}return e.next=3,this._viewModel.executeCommand("getNewTarget");case 3:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),l.onBackClicked=function(){this._viewModel&&this._viewModel.executeCommand("goBack")},l.onRaidClicked=function(){var e=r(s().mark((function e(t){var i;return s().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(this._viewModel&&this._currentTarget){e.next=2;break}return e.abrupt("return");case 2:if(!(i=this._currentTarget.chests[t])){e.next=6;break}return e.next=6,this._viewModel.executeCommand("raidChest",i.chestIndex);case 6:case"end":return e.stop()}}),e,this)})));return function(t){return e.apply(this,arguments)}}(),l.onResultCloseClicked=function(){this.hideResultUI()},l.onShow=function(){e.prototype.onShow.call(this),this._viewModel||(this._viewModel=new C,this.setViewModel(this._viewModel),this._viewModel.initialize())},l.onDestroy=function(){this.newTargetButton&&this.newTargetButton.node.off(f.EventType.CLICK,this.onNewTargetClicked,this),this.backButton&&this.backButton.node.off(f.EventType.CLICK,this.onBackClicked,this);for(var t=0;t<this.raidButtons.length;t++){var i=this.raidButtons[t];i&&i.node.off(f.EventType.CLICK)}this.resultCloseButton&&this.resultCloseButton.node.off(f.EventType.CLICK,this.onResultCloseClicked,this),this._viewModel&&(this._viewModel.off("loadingTarget",this.onLoadingTarget,this),this._viewModel.off("targetLoaded",this.onTargetLoaded,this),this._viewModel.off("targetLoadError",this.onTargetLoadError,this),this._viewModel.off("resourceUpdated",this.onResourceUpdated,this),this._viewModel.off("raidStarted",this.onRaidStarted,this),this._viewModel.off("raidCompleted",this.onRaidCompleted,this),this._viewModel.off("raidError",this.onRaidError,this),this._viewModel.off("chestAlreadyOpened",this.onChestAlreadyOpened,this),this._viewModel.off("noRaidsRemaining",this.onNoRaidsRemaining,this),this._viewModel.off("navigateToScene",this.onNavigateToScene,this)),e.prototype.onDestroy.call(this)},t}(v)).prototype,"goldLabel",[L],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),J=t(X.prototype,"raidsRemainingLabel",[m],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),W=t(X.prototype,"targetInfoContainer",[T],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),Y=t(X.prototype,"targetPlayerNameLabel",[R],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),q=t(X.prototype,"targetPlayerLevelLabel",[_],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),Q=t(X.prototype,"targetCityNameLabel",[M],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),Z=t(X.prototype,"chestNodes",[N],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return[]}}),$=t(X.prototype,"chestSprites",[B],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return[]}}),ee=t(X.prototype,"chestTypeLabels",[I],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return[]}}),te=t(X.prototype,"rewardLabels",[z],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return[]}}),ie=t(X.prototype,"raidButtons",[k],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return[]}}),ne=t(X.prototype,"openedOverlays",[E],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return[]}}),oe=t(X.prototype,"newTargetButton",[S],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),ae=t(X.prototype,"backButton",[D],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),re=t(X.prototype,"loadingContainer",[O],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),se=t(X.prototype,"loadingLabel",[x],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),le=t(X.prototype,"resultContainer",[U],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),he=t(X.prototype,"resultTitleLabel",[F],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),de=t(X.prototype,"resultMessageLabel",[V],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),ue=t(X.prototype,"resultRewardLabel",[H],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),ce=t(X.prototype,"resultCloseButton",[P],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),fe=t(X.prototype,"notificationContainer",[A],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),ge=t(X.prototype,"notificationLabel",[K],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),G=X))||G));l._RF.pop()}}}));
+          // Update building level
+          if (this.buildingLevelLabels[index]) {
+            this.buildingLevelLabels[index].string = "Level " + building.level;
+          }
 
-System.register("chunks:///_virtual/RaidViewModel.ts",["./rollupPluginModLoBabelHelpers.js","cc","./BaseViewModel.ts","./ServiceLocator.ts","./Logger.ts"],(function(e){var t,r,a,n,i,s,o,c;return{setters:[function(e){t=e.inheritsLoose,r=e.createClass,a=e.asyncToGenerator,n=e.regeneratorRuntime},function(e){i=e.cclegacy},function(e){s=e.BaseViewModel},function(e){o=e.ServiceLocator},function(e){c=e.logError}],execute:function(){i._RF.push({},"4b62ce8dZVI3LLONEZ1oUWw","RaidViewModel",void 0);e("RaidViewModel",function(e){function i(){var t;return(t=e.call(this)||this)._gameService=null,t._resourceManager=null,t._raidTarget=null,t._isRaiding=!1,t._raidsRemaining=3,t}t(i,e);var s=i.prototype;return s.onInitialize=function(){this.setupServices(),this.setupEventListeners(),this.loadRaidTarget()},s.setupServices=function(){var e=o.getInstance();this._gameService=e.getService("GameService"),this._resourceManager=e.getService("ResourceManager"),this._gameService||c("GameService not found"),this._resourceManager||c("ResourceManager not found")},s.setupEventListeners=function(){this._resourceManager&&this._resourceManager.on("resourceChanged",this.onResourceChanged,this)},s.loadRaidTarget=function(){var e=a(n().mark((function e(){var t;return n().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(e.prev=0,this.emit("loadingTarget",!0),!this._gameService||!this._gameService.isReady){e.next=9;break}return e.next=5,this._gameService.getRaidTarget();case 5:t=e.sent,this._raidTarget=this.processTargetData(t),e.next=10;break;case 9:this._raidTarget=this.generateMockTarget();case 10:this.emit("targetLoaded",this._raidTarget),this.emit("loadingTarget",!1),e.next=21;break;case 14:e.prev=14,e.t0=e.catch(0),c("Failed to load raid target:",e.t0),this.emit("targetLoadError",e.t0),this.emit("loadingTarget",!1),this._raidTarget=this.generateMockTarget(),this.emit("targetLoaded",this._raidTarget);case 21:case"end":return e.stop()}}),e,this,[[0,14]])})));return function(){return e.apply(this,arguments)}}(),s.processTargetData=function(e){var t;return{playerId:e.playerId||"unknown",playerName:e.playerName||"Unknown Player",playerLevel:e.playerLevel||1,cityName:e.cityName||"Unknown City",chests:(null==(t=e.chests)?void 0:t.map((function(e,t){return{chestIndex:t,isOpened:e.isOpened||!1,potentialReward:e.potentialReward||100,chestType:e.chestType||"bronze"}})))||[]}},s.generateMockTarget=function(){for(var e=["Alice","Bob","Charlie","Diana","Eve"],t=["Village","Town","City","Metropolis","Capital"],r=["bronze","silver","gold","diamond"],a=e[Math.floor(Math.random()*e.length)],n=t[Math.floor(Math.random()*t.length)],i=Math.floor(10*Math.random())+1,s=[],o=0;o<3;o++){var c=r[Math.floor(Math.random()*r.length)],u=this.getChestBaseReward(c),d=Math.floor(u*(.5+1*Math.random()));s.push({chestIndex:o,isOpened:Math.random()<.1,potentialReward:d,chestType:c})}return{playerId:"player_"+Date.now(),playerName:a,playerLevel:i,cityName:n,chests:s}},s.getChestBaseReward=function(e){return{bronze:100,silver:250,gold:500,diamond:1e3}[e]||100},s.executeCommand=function(){var e=a(n().mark((function e(t){var r=arguments;return n().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:e.t0=t,e.next="raidChest"===e.t0?3:"getNewTarget"===e.t0?4:"goBack"===e.t0?5:"refreshTarget"===e.t0?6:7;break;case 3:return e.abrupt("return",this.raidChest(r.length<=1?void 0:r[1]));case 4:return e.abrupt("return",this.getNewTarget());case 5:return e.abrupt("return",this.goBack());case 6:return e.abrupt("return",this.loadRaidTarget());case 7:throw new Error("Unknown command: "+t);case 8:case"end":return e.stop()}}),e,this)})));return function(t){return e.apply(this,arguments)}}(),s.raidChest=function(){var e=a(n().mark((function e(t){var r,a,i;return n().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(this._raidTarget&&!this._isRaiding){e.next=2;break}return e.abrupt("return",null);case 2:if(r=this._raidTarget.chests.find((function(e){return e.chestIndex===t}))){e.next=6;break}return c("Chest not found: "+t),e.abrupt("return",null);case 6:if(!r.isOpened){e.next=9;break}return this.emit("chestAlreadyOpened",{chestIndex:t}),e.abrupt("return",null);case 9:if(!(this._raidsRemaining<=0)){e.next=12;break}return this.emit("noRaidsRemaining"),e.abrupt("return",null);case 12:if(e.prev=12,this._isRaiding=!0,this.emit("raidStarted",{chestIndex:t,targetPlayer:this._raidTarget.playerName}),!this._gameService||!this._gameService.isReady){e.next=22;break}return e.next=18,this._gameService.raidPlayer(this._raidTarget.playerId,t);case 18:i=e.sent,a=this.processRaidResult(i,t,r),e.next=23;break;case 22:a=this.generateMockRaidResult(t,r);case 23:return e.next=25,this.processRaidSuccess(a);case 25:return this._raidsRemaining--,this._isRaiding=!1,this.emit("raidCompleted",a),e.abrupt("return",a);case 31:return e.prev=31,e.t0=e.catch(12),c("Raid failed:",e.t0),this._isRaiding=!1,this.emit("raidError",{chestIndex:t,error:e.t0.message}),e.abrupt("return",null);case 37:case"end":return e.stop()}}),e,this,[[12,31]])})));return function(t){return e.apply(this,arguments)}}(),s.processRaidResult=function(e,t,r){return{success:e.success||!1,chestIndex:t,goldEarned:e.goldEarned||0,chestType:r.chestType,message:e.message||"Raid completed"}},s.generateMockRaidResult=function(e,t){var r=Math.random()<.6,a=r?Math.floor(t.potentialReward*(.3+.7*Math.random())):0;return{success:r,chestIndex:e,goldEarned:a,chestType:t.chestType,message:r?"Found "+a+" gold in the "+t.chestType+" chest!":"The chest was empty! Better luck next time."}},s.processRaidSuccess=function(){var e=a(n().mark((function e(t){var r;return n().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(this._raidTarget){e.next=2;break}return e.abrupt("return");case 2:if((r=this._raidTarget.chests.find((function(e){return e.chestIndex===t.chestIndex})))&&(r.isOpened=!0),!(t.success&&t.goldEarned>0&&this._resourceManager)){e.next=7;break}return e.next=7,this._resourceManager.addGold(t.goldEarned,"raid_reward");case 7:case"end":return e.stop()}}),e,this)})));return function(t){return e.apply(this,arguments)}}(),s.getNewTarget=function(){var e=a(n().mark((function e(){return n().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return this._raidTarget=null,this._raidsRemaining=3,e.next=4,this.loadRaidTarget();case 4:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),s.goBack=function(){this.emit("navigateToScene","Main")},s.onResourceChanged=function(e){this.emit("resourceUpdated",e)},s.destroy=function(){this._resourceManager&&this._resourceManager.off("resourceChanged",this.onResourceChanged,this),this._gameService=null,this._resourceManager=null,this._raidTarget=null,this._isRaiding=!1,e.prototype.destroy.call(this)},r(i,[{key:"raidTarget",get:function(){return this._raidTarget}},{key:"currentGold",get:function(){return this._resourceManager?this._resourceManager.getGold():0}},{key:"isRaiding",get:function(){return this._isRaiding}},{key:"raidsRemaining",get:function(){return this._raidsRemaining}},{key:"hasRaidsRemaining",get:function(){return this._raidsRemaining>0}},{key:"targetPlayerName",get:function(){return this._raidTarget?this._raidTarget.playerName:""}},{key:"targetCityName",get:function(){return this._raidTarget?this._raidTarget.cityName:""}},{key:"targetPlayerLevel",get:function(){return this._raidTarget?this._raidTarget.playerLevel:1}},{key:"availableChests",get:function(){return this._raidTarget?this._raidTarget.chests.filter((function(e){return!e.isOpened})):[]}},{key:"openedChests",get:function(){return this._raidTarget?this._raidTarget.chests.filter((function(e){return e.isOpened})):[]}},{key:"totalPotentialReward",get:function(){return this._raidTarget?this.availableChests.reduce((function(e,t){return e+t.potentialReward}),0):0}},{key:"areAllChestsOpened",get:function(){return!!this._raidTarget&&this._raidTarget.chests.every((function(e){return e.isOpened}))}}]),i}(s));i._RF.pop()}}}));
+          // Update reward label
+          if (this.rewardLabels[index]) {
+            this.rewardLabels[index].string = this.formatNumber(building.potentialReward) + " Gold";
+          }
 
-System.register("chunks:///_virtual/ReelComponent.ts",["./rollupPluginModLoBabelHelpers.js","cc","./AnimationConfig.ts"],(function(i){var e,t,o,n,s,l,a,r,m,h,b,u,f,y,p,c,d,_,S;return{setters:[function(i){e=i.applyDecoratedDescriptor,t=i.inheritsLoose,o=i.initializerDefineProperty,n=i.assertThisInitialized,s=i.createForOfIteratorHelperLoose},function(i){l=i.cclegacy,a=i._decorator,r=i.Node,m=i.Prefab,h=i.instantiate,b=i.v3,u=i.Sprite,f=i.Label,y=i.resources,p=i.SpriteFrame,c=i.tween,d=i.Vec3,_=i.Component},function(i){S=i.AnimationConfig}],execute:function(){var g,v,C,D,N,P,w,I,R,B,x,H,z,F,T;l._RF.push({},"0fadbUifFxBlKLJPjsen265","ReelComponent",void 0);var A=a.ccclass,M=a.property;i("ReelComponent",(g=A("ReelComponent"),v=M(r),C=M(m),D=M({tooltip:"The height of a single symbol. This determines the layout and stopping positions."}),N=M({tooltip:"The number of symbols visible in the final display area."}),P=M({tooltip:"Number of buffer symbols to instantiate above the visible area for smooth looping."}),w=M({tooltip:"Number of buffer symbols to instantiate below the visible area for smooth looping."}),g((B=e((R=function(i){function e(){for(var e,t=arguments.length,s=new Array(t),l=0;l<t;l++)s[l]=arguments[l];return e=i.call.apply(i,[this].concat(s))||this,o(e,"symbolContainer",B,n(e)),o(e,"symbolPrefab",x,n(e)),o(e,"symbolHeight",H,n(e)),o(e,"visibleSymbolCount",z,n(e)),o(e,"topBufferSymbols",F,n(e)),o(e,"bottomBufferSymbols",T,n(e)),e._symbolNodes=[],e._isSpinning=!1,e._reelIndex=0,e._symbols=[],e._finalSymbols=[],e._spinElapsedTime=0,e._spinDelay=0,e._spinPhase="acceleration",e._targetYPositions=[],e._anticipationSymbolsSet=!1,e._animationConfig=void 0,e._reelConfig=void 0,e}t(e,i);var l=e.prototype;return l.initialize=function(i,e){this._reelIndex=i,this._symbols=[].concat(e),this._animationConfig=S.getInstance(),this.updateConfig(),this.setupReel()},l.updateConfig=function(){this._animationConfig||(this._animationConfig=S.getInstance()),this._reelConfig=this._animationConfig.getReelConfig(this._reelIndex)},l.setupReel=function(){if(this.symbolContainer){this.symbolContainer.removeAllChildren(),this._symbolNodes=[];for(var i=this.visibleSymbolCount+this.topBufferSymbols+this.bottomBufferSymbols,e=0;e<i;e++){var t=this.createSymbolNode(e);if(t){this.symbolContainer.addChild(t),this._symbolNodes.push(t);var o=(this.visibleSymbolCount+this.topBufferSymbols-1-e)*this.symbolHeight;t.setPosition(0,o)}}this.populateWithRandomSymbols()}},l.createSymbolNode=function(i){if(!this.symbolPrefab)return null;var e=h(this.symbolPrefab);return e.name="Symbol_"+i,e},l.populateWithRandomSymbols=function(){if(0!==this._symbols.length)for(var i,e=s(this._symbolNodes);!(i=e()).done;){var t=i.value;this.setSymbolDisplay(t,this.getRandomSymbol())}},l.getRandomSymbol=function(){if(0===this._symbols.length)return{id:0,type:"?",name:"?",priority:0};var i=Math.floor(Math.random()*this._symbols.length);return this._symbols[i]},l.setSymbolDisplay=function(i,e,t){if(void 0===t&&(t=!1),i){i.scale=b(1,t?1.2:1,1);var o=i.getComponentInChildren(u);o&&this.setSymbolSprite(o,e,t);var n=i.getComponentInChildren(f);n&&(n.string=e.name),i.symbolData=e}},l.setSymbolSprite=function(i,e,t){var o=this,n="texture/symbol/"+(t?"blur/":"")+e.id+"/spriteFrame";y.load(n,p,(function(n,s){n?t?(console.warn("Failed to load blurred sprite for symbol ID "+e.id+", trying normal sprite.",n),o.setSymbolSprite(i,e,!1)):console.warn("Failed to load normal sprite for symbol ID "+e.id+":",n):i&&i.isValid&&(i.spriteFrame=s)}))},l.update=function(i){var e=this;if(this.updateCurve(),this._isSpinning&&(this._spinElapsedTime+=i,!(this._spinElapsedTime<this._spinDelay))){var t=this._spinElapsedTime-this._spinDelay,o=this._reelConfig,n=o.spinDuration,l=o.accelerationDuration,a=n-l-o.decelerationDuration;if(t<l)this._spinPhase="acceleration";else if(t<l+a)this._spinPhase="constant";else if("deceleration"!==this._spinPhase&&t<n){this._spinPhase="deceleration",this._targetYPositions=this._symbolNodes.map((function(i,t){return(e.visibleSymbolCount+e.topBufferSymbols-1-t)*e.symbolHeight}));for(var r,m=s(this._symbolNodes);!(r=m()).done;){var h=r.value,b=h.symbolData;b&&this.setSymbolDisplay(h,b,!1)}}var u=this.calculateCurrentSpeed(t);"deceleration"!==this._spinPhase||this._anticipationSymbolsSet||(this.setAnticipationSymbols(),this._anticipationSymbolsSet=!0),this.moveSymbols(u,i)}},l.calculateCurrentSpeed=function(i){var e=this._reelConfig,t=e.spinSpeed,o=e.spinDuration,n=e.accelerationDuration,s=e.decelerationDuration,l=o-n-s;switch(this._spinPhase){case"acceleration":var a=i/n;return t*this.easeInQuad(a);case"constant":return t;case"deceleration":var r=(i-(n+l))/s;return t*(1-this.easeOutCubic(r));default:return 0}},l.easeInQuad=function(i){return i*i},l.easeOutCubic=function(i){return 1-Math.pow(1-i,3)},l.setAnticipationSymbols=function(){for(var i=[].concat(this._symbolNodes).sort((function(i,e){return e.y-i.y})),e=this._reelConfig.anticipationDistance,t=0;t<Math.min(this._finalSymbols.length,i.length);t++){var o=Math.floor(t+this.topBufferSymbols+e/this.symbolHeight);i[o]&&this.setSymbolDisplay(i[o],this._finalSymbols[t])}},l.moveSymbols=function(i,e){var t=this;if("deceleration"===this._spinPhase)for(var o,n,l=function(){var o=n.value,s=o.y-i*e;if(void 0!==t._targetYPositions.find((function(i){return o.y>=i&&s<i})))return t.endSpin(),{v:void 0}},a=s(this._symbolNodes);!(n=a()).done;)if(o=l())return o.v;for(var r,m=this._symbolNodes.length*this.symbolHeight,h=-this.symbolHeight*(this.bottomBufferSymbols+1),b=s(this._symbolNodes);!(r=b()).done;){var u=r.value;if(u.y-=i*e,u.y<h&&(u.y+=m,"deceleration"!==this._spinPhase)){var f="constant"===this._spinPhase;this.setSymbolDisplay(u,this.getRandomSymbol(),f)}}},l.updateCurve=function(){if(0==this._reelIndex)for(var i=0;i<this._symbolNodes.length;i++){var e=this._symbolNodes[i],t=e.y;e.x=.1*t}else if(2==this._reelIndex)for(var o=0;o<this._symbolNodes.length;o++){var n=this._symbolNodes[o],s=n.y;n.x=.1*-s}},l.startSpin=function(i){this._isSpinning||(this._isSpinning=!0,this._spinElapsedTime=0,this._spinPhase="acceleration",this._anticipationSymbolsSet=!1,this._finalSymbols=[].concat(i),this._spinDelay=this._reelConfig.delayReel)},l.endSpin=function(){var i=this;this._isSpinning&&(this._isSpinning=!1,this._symbolNodes.sort((function(i,e){return e.y-i.y})),new Promise((function(e){var t=0,o=i._symbolNodes.length;if(0!==o)for(var n=function(){var n=i._symbolNodes[s],l=(i.visibleSymbolCount+i.topBufferSymbols-1-s)*i.symbolHeight;if(s>=i.topBufferSymbols&&s<i.topBufferSymbols+i.visibleSymbolCount){var a=s-i.topBufferSymbols;a<i._finalSymbols.length?i.setSymbolDisplay(n,i._finalSymbols[a]):i.setSymbolDisplay(n,i.getRandomSymbol())}else i.setSymbolDisplay(n,i.getRandomSymbol());var r=i._reelConfig,m=r.bounceDuration,h=r.bounceIntensity;c(n).to(m,{y:l},{easing:function(i){var e=5.67*h;return--i*i*((e+1)*i+e)+1}}).call((function(){++t===o&&e()})).start()},s=0;s<i._symbolNodes.length;s++)n();else e()})).then((function(){return i.onSpinComplete()})))},l.onSpinComplete=function(){this.node.emit("reelSpinComplete",{reelIndex:this._reelIndex,finalSymbols:this._finalSymbols})},l.highlightWinningSymbols=function(i){for(var e,t=this._animationConfig.getUIConfig().winAnimationDuration,o=s(i);!(e=o()).done;){var n=e.value;if(this._symbolNodes[n]){var l=this._symbolNodes[n];c(l).to(t,{scale:new d(1.2,1.2,1)}).to(t,{scale:new d(1,1,1)}).to(t,{scale:new d(1.2,1.2,1)}).to(t,{scale:new d(1,1,1)}).start()}}},l.onDestroy=function(){this.unscheduleAllCallbacks(),this._symbolNodes=[],this._symbols=[],this._finalSymbols=[]},e}(_)).prototype,"symbolContainer",[v],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),x=e(R.prototype,"symbolPrefab",[C],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),H=e(R.prototype,"symbolHeight",[D],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return 100}}),z=e(R.prototype,"visibleSymbolCount",[N],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return 1}}),F=e(R.prototype,"topBufferSymbols",[P],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return 2}}),T=e(R.prototype,"bottomBufferSymbols",[w],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return 2}}),I=R))||I));l._RF.pop()}}}));
+          // Update attack button
+          if (this.attackButtons[index]) {
+            var _this$_viewModel, _this$_viewModel2;
+            this.attackButtons[index].interactable = !building.isDestroyed && ((_this$_viewModel = this._viewModel) == null ? void 0 : _this$_viewModel.hasAttacksRemaining) && !((_this$_viewModel2 = this._viewModel) != null && _this$_viewModel2.isAttacking);
+          }
 
-System.register("chunks:///_virtual/ResourceManager.ts",["./rollupPluginModLoBabelHelpers.js","cc","./BaseService.ts","./ResourceModel.ts","./ServiceLocator.ts","./Logger.ts"],(function(e){var r,t,n,s,i,o,a,c,u;return{setters:[function(e){r=e.inheritsLoose,t=e.asyncToGenerator,n=e.regeneratorRuntime},function(e){s=e.cclegacy},function(e){i=e.BaseService},function(e){o=e.ResourceType},function(e){a=e.ServiceLocator},function(e){c=e.logInfo,u=e.logError}],execute:function(){s._RF.push({},"6e1a5uynJpF36SgxNC+cet1","ResourceManager",void 0);e("ResourceManager",function(e){function s(){var r;return(r=e.call(this)||this)._resourceModel=null,r._gameService=null,r._playerModel=null,r._transactionHistory=[],r._syncTimer=0,r.SYNC_INTERVAL=3e4,r.MAX_TRANSACTION_HISTORY=100,r}r(s,e);var i=s.prototype;return i.onInitialize=function(){var e=t(n().mark((function e(){var r;return n().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(c("Initializing Resource Manager..."),r=a.getInstance(),this._gameService=r.getService("GameService"),this._gameService){e.next=6;break}throw u("GameService not found - ResourceManager cannot initialize without it"),new Error("GameService instance required for ResourceManager initialization");case 6:if(this._playerModel=this._gameService.getPlayerModel(),this._playerModel){e.next=10;break}throw u("PlayerModel not found in GameService - ResourceManager cannot initialize without it"),new Error("PlayerModel instance required for ResourceManager initialization");case 10:this._resourceModel=this._playerModel.resources,c("ResourceManager using PlayerModel's ResourceModel as single source of truth"),this.setupResourceModelEvents(),this._gameService&&this.startPeriodicSync(),c("Resource Manager initialized successfully");case 15:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),i.onConnect=function(){var e=t(n().mark((function e(){return n().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(!this._gameService||!this._gameService.isReady){e.next=3;break}return e.next=3,this.syncWithServer();case 3:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),i.onDisconnect=function(){var e=t(n().mark((function e(){return n().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:this.stopPeriodicSync();case 1:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),i.setupResourceModelEvents=function(){var e=this;this._resourceModel&&(this._resourceModel.on("goldChanged",(function(r){e.onResourceChanged(o.GOLD,r.oldValue,r.value,"model_update")})),this._resourceModel.on("energyChanged",(function(r){e.onResourceChanged(o.ENERGY,r.oldValue,r.value,"model_update")})))},i.onResourceChanged=function(e,r,t,n){var s=t-r,i={type:e,oldValue:r,newValue:t,change:s,reason:n};this.emit("resourceChanged",i),Math.abs(s)>0&&c("Resource changed: "+e+" "+(s>0?"+":"")+s+" ("+r+" -> "+t+") - "+n)},i.startPeriodicSync=function(){var e=this;this._syncTimer=setInterval((function(){e._gameService&&e._gameService.isReady&&e.syncWithServer().catch((function(e){u("Periodic sync failed:",e)}))}),this.SYNC_INTERVAL)},i.stopPeriodicSync=function(){this._syncTimer&&(clearInterval(this._syncTimer),this._syncTimer=0)},i.syncWithServer=function(){var e=t(n().mark((function e(){var r;return n().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(this._gameService&&this._resourceModel&&this._playerModel){e.next=2;break}return e.abrupt("return");case 2:return e.prev=2,e.next=5,this._gameService.getPlayerData();case 5:(r=e.sent).resources&&(this._resourceModel.fromJSON(r.resources),this.emit("syncCompleted",r.resources),c("Resources synced with server successfully")),e.next=13;break;case 9:e.prev=9,e.t0=e.catch(2),u("Failed to sync resources with server:",e.t0),this.emit("syncFailed",e.t0);case 13:case"end":return e.stop()}}),e,this,[[2,9]])})));return function(){return e.apply(this,arguments)}}(),i.getResourceModel=function(){return this._resourceModel},i.getGold=function(){return this._resourceModel?this._resourceModel.gold:0},i.getEnergy=function(){return this._resourceModel?this._resourceModel.energy:0},i.getMaxEnergy=function(){return this._resourceModel?this._resourceModel.maxEnergy:50},i.addGold=function(){var e=t(n().mark((function e(r,t){var s,i;return n().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(void 0===t&&(t="manual_add"),this._resourceModel&&!(r<=0)){e.next=3;break}return e.abrupt("return",!1);case 3:if(s=this._resourceModel.gold,this._resourceModel.addGold(r),i={type:o.GOLD,amount:r,reason:t,timestamp:Date.now(),success:!0},this.addTransaction(i),!this._gameService||!this._gameService.isReady){e.next=19;break}return e.prev=8,e.next=11,this._gameService.updatePlayerData({resources:this._resourceModel.toJSON()});case 11:e.next=19;break;case 13:return e.prev=13,e.t0=e.catch(8),u("Failed to sync gold addition with server:",e.t0),this._resourceModel.gold=s,i.success=!1,e.abrupt("return",!1);case 19:return e.abrupt("return",!0);case 20:case"end":return e.stop()}}),e,this,[[8,13]])})));return function(r,t){return e.apply(this,arguments)}}(),i.spendGold=function(){var e=t(n().mark((function e(r,t){var s,i,a,c;return n().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(void 0===t&&(t="manual_spend"),this._resourceModel&&!(r<=0)){e.next=3;break}return e.abrupt("return",!1);case 3:if(this._resourceModel.hasEnoughGold(r)){e.next=8;break}return s={type:o.GOLD,amount:-r,reason:t,timestamp:Date.now(),success:!1},this.addTransaction(s),this.emit("insufficientResources",{type:o.GOLD,required:r,available:this._resourceModel.gold}),e.abrupt("return",!1);case 8:if(i=this._resourceModel.gold,a=this._resourceModel.spendGold(r),c={type:o.GOLD,amount:-r,reason:t,timestamp:Date.now(),success:a},this.addTransaction(c),!(a&&this._gameService&&this._gameService.isReady)){e.next=24;break}return e.prev=13,e.next=16,this._gameService.updatePlayerData({resources:this._resourceModel.toJSON()});case 16:e.next=24;break;case 18:return e.prev=18,e.t0=e.catch(13),u("Failed to sync gold spending with server:",e.t0),this._resourceModel.gold=i,c.success=!1,e.abrupt("return",!1);case 24:return e.abrupt("return",a);case 25:case"end":return e.stop()}}),e,this,[[13,18]])})));return function(r,t){return e.apply(this,arguments)}}(),i.addEnergy=function(){var e=t(n().mark((function e(r,t){var s,i;return n().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(void 0===t&&(t="manual_add"),this._resourceModel&&!(r<=0)){e.next=3;break}return e.abrupt("return",!1);case 3:if(s=this._resourceModel.energy,this._resourceModel.addEnergy(r),i={type:o.ENERGY,amount:r,reason:t,timestamp:Date.now(),success:!0},this.addTransaction(i),!this._gameService||!this._gameService.isReady){e.next=19;break}return e.prev=8,e.next=11,this._gameService.updatePlayerData({resources:this._resourceModel.toJSON()});case 11:e.next=19;break;case 13:return e.prev=13,e.t0=e.catch(8),u("Failed to sync energy addition with server:",e.t0),this._resourceModel.energy=s,i.success=!1,e.abrupt("return",!1);case 19:return e.abrupt("return",!0);case 20:case"end":return e.stop()}}),e,this,[[8,13]])})));return function(r,t){return e.apply(this,arguments)}}(),i.spendEnergy=function(){var e=t(n().mark((function e(r,t){var s,i,a,c;return n().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(void 0===t&&(t="manual_spend"),this._resourceModel&&!(r<=0)){e.next=3;break}return e.abrupt("return",!1);case 3:if(this._resourceModel.hasEnoughEnergy(r)){e.next=8;break}return s={type:o.ENERGY,amount:-r,reason:t,timestamp:Date.now(),success:!1},this.addTransaction(s),this.emit("insufficientResources",{type:o.ENERGY,required:r,available:this._resourceModel.energy}),e.abrupt("return",!1);case 8:if(i=this._resourceModel.energy,a=this._resourceModel.spendEnergy(r),c={type:o.ENERGY,amount:-r,reason:t,timestamp:Date.now(),success:a},this.addTransaction(c),!(a&&this._gameService&&this._gameService.isReady)){e.next=24;break}return e.prev=13,e.next=16,this._gameService.updatePlayerData({resources:this._resourceModel.toJSON()});case 16:e.next=24;break;case 18:return e.prev=18,e.t0=e.catch(13),u("Failed to sync energy spending with server:",e.t0),this._resourceModel.energy=i,c.success=!1,e.abrupt("return",!1);case 24:return e.abrupt("return",a);case 25:case"end":return e.stop()}}),e,this,[[13,18]])})));return function(r,t){return e.apply(this,arguments)}}(),i.hasEnoughGold=function(e){return!!this._resourceModel&&this._resourceModel.hasEnoughGold(e)},i.hasEnoughEnergy=function(e){return!!this._resourceModel&&this._resourceModel.hasEnoughEnergy(e)},i.getTimeUntilNextEnergyRegen=function(){return this._resourceModel?this._resourceModel.getTimeUntilNextRegen():0},i.addTransaction=function(e){this._transactionHistory.push(e),this._transactionHistory.length>this.MAX_TRANSACTION_HISTORY&&this._transactionHistory.shift(),this.emit("transactionAdded",e)},i.getTransactionHistory=function(e,r){var t=this._transactionHistory;return e&&(t=t.filter((function(r){return r.type===e}))),r&&r>0&&(t=t.slice(-r)),[].concat(t)},i.clearTransactionHistory=function(){this._transactionHistory=[],this.emit("transactionHistoryCleared")},i.getResourceStats=function(){var e=this._transactionHistory.filter((function(e){return e.type===o.GOLD&&e.success})),r=this._transactionHistory.filter((function(e){return e.type===o.ENERGY&&e.success})),t=e.filter((function(e){return e.amount>0})).reduce((function(e,r){return e+r.amount}),0),n=e.filter((function(e){return e.amount<0})).reduce((function(e,r){return e+Math.abs(r.amount)}),0),s=r.filter((function(e){return e.amount>0})).reduce((function(e,r){return e+r.amount}),0),i=r.filter((function(e){return e.amount<0})).reduce((function(e,r){return e+Math.abs(r.amount)}),0);return{currentGold:this.getGold(),currentEnergy:this.getEnergy(),maxEnergy:this.getMaxEnergy(),goldEarned:t,goldSpent:n,goldNet:t-n,energyEarned:s,energySpent:i,energyNet:s-i,timeUntilNextEnergyRegen:this.getTimeUntilNextEnergyRegen(),transactionCount:this._transactionHistory.length}},i.destroy=function(){this.stopPeriodicSync(),this._resourceModel=null,this._playerModel=null,this._gameService=null,this._transactionHistory=[],e.prototype.destroy.call(this)},s}(i));s._RF.pop()}}}));
+          // Update destroyed overlay
+          if (this.destroyedOverlays[index]) {
+            this.destroyedOverlays[index].active = building.isDestroyed;
+          }
 
-System.register("chunks:///_virtual/ResourceManagerExample.ts",["./rollupPluginModLoBabelHelpers.js","cc","./ServiceLocator.ts","./Logger.ts"],(function(e){var r,n,t,o,a;return{setters:[function(e){r=e.asyncToGenerator,n=e.regeneratorRuntime},function(e){t=e.cclegacy},function(e){o=e.ServiceLocator},function(e){a=e.logInfo}],execute:function(){t._RF.push({},"dfe48Nm2WpDcbG8NfuDsnMS","ResourceManagerExample",void 0);e("ResourceManagerExample",function(){function e(){}return e.demonstrateCorrectArchitecture=function(){var e=r(n().mark((function e(){var r,t,c,s,u,l,i,d,g,R,f;return n().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(a("=== ResourceManager Architecture Demo ==="),r=o.getInstance(),t=r.getService("GameService")){e.next=6;break}return a("ERROR: GameService not initialized"),e.abrupt("return");case 6:if(c=t.getPlayerModel()){e.next=10;break}return a("ERROR: PlayerModel not found in GameService"),e.abrupt("return");case 10:if(s=r.getService("ResourceManager")){e.next=14;break}return a("ERROR: ResourceManager service not found"),e.abrupt("return");case 14:return a("✓ All components initialized successfully"),a("\n--- Demonstrating Single Source of Truth ---"),u=c.resources.gold,l=s.getGold(),a("Initial Gold - PlayerModel: "+u+", ResourceManager: "+l),a("Same instance? "+(c.resources===s.getResourceModel())),a("\n--- Adding 100 gold through ResourceManager ---"),e.next=23,s.addGold(100,"demo_reward");case 23:return e.sent?(i=c.resources.gold,d=s.getGold(),a("After adding gold - PlayerModel: "+i+", ResourceManager: "+d),a("✓ Both sources show same value: "+(i===d))):a("✗ Failed to add gold"),a("\n--- Testing Energy Operations ---"),g=s.getEnergy(),a("Initial Energy: "+g),e.next=30,s.spendEnergy(5,"demo_action");case 30:e.sent&&(R=s.getEnergy(),f=c.resources.energy,a("After spending 5 energy - ResourceManager: "+R+", PlayerModel: "+f),a("✓ Consistent values: "+(R===f))),a("\n=== Demo Complete ===");case 33:case"end":return e.stop()}}),e)})));return function(){return e.apply(this,arguments)}}(),e.demonstrateBrokenArchitecture=function(){a("\n=== OLD BROKEN ARCHITECTURE (for comparison) ==="),a("In the old architecture:"),a("1. ResourceManager created: new ResourceModel() // Instance A"),a("2. PlayerModel created: new ResourceModel()     // Instance B"),a("3. ResourceManager.addGold(100) -> updates Instance A"),a("4. PlayerModel.resources.gold -> returns value from Instance B"),a("5. Result: INCONSISTENT DATA! Instance A ≠ Instance B"),a(""),a("NEW FIXED ARCHITECTURE:"),a("1. PlayerModel creates: new ResourceModel()     // Single Instance"),a("2. ResourceManager gets reference to PlayerModel.resources"),a("3. ResourceManager.addGold(100) -> updates Single Instance"),a("4. PlayerModel.resources.gold -> returns value from Same Instance"),a("5. Result: CONSISTENT DATA! ✓")},e}());t._RF.pop()}}}));
+          // Update building sprite
+          this.updateBuildingSprite(index, building);
+        }
 
-System.register("chunks:///_virtual/ResourceModel.ts",["./rollupPluginModLoBabelHelpers.js","cc","./GameConfig.ts","./BaseModel.ts","./Logger.ts"],(function(e){var t,n,i,r,a,s;return{setters:[function(e){t=e.inheritsLoose,n=e.createClass},function(e){i=e.cclegacy},function(e){r=e.GameConfig},function(e){a=e.BaseModel},function(e){s=e.logInfo}],execute:function(){i._RF.push({},"abc9dw0OmhIvITLBBpLksiD","ResourceModel",void 0);e("ResourceType",function(e){return e.GOLD="gold",e.ENERGY="energy",e}({})),e("ResourceModel",function(e){function i(){var t;return(t=e.call(this)||this)._energyRegenTimer=0,t.RESOURCE_CONFIG=r.getInstance().getResourceConfig(),t.initializeDefaults(),t.startEnergyRegeneration(),t}t(i,e);var a=i.prototype;return a.initializeDefaults=function(){this.setData("gold",0),this.setData("energy",this.RESOURCE_CONFIG.maxEnergy),this.setData("maxEnergy",this.RESOURCE_CONFIG.maxEnergy),this.setData("lastEnergyRegenTime",Date.now())},a.addGold=function(e){this.gold+=e},a.spendGold=function(e){return this.gold>=e&&(this.gold-=e,!0)},a.addEnergy=function(e){this.energy+=e},a.spendEnergy=function(e){return this.energy>=e&&(this.energy-=e,!0)},a.hasEnoughGold=function(e){return this.gold>=e},a.hasEnoughEnergy=function(e){return this.energy>=e},a.startEnergyRegeneration=function(){var e=this;this.calculateMissedRegeneration(),this._energyRegenTimer=setInterval((function(){e.calculateMissedRegeneration()}),1e3)},a.calculateMissedRegeneration=function(){var e=this.getData("lastEnergyRegenTime")||Date.now(),t=Date.now(),n=t-e;if(n>=this.RESOURCE_CONFIG.energyRegenInterval){var i=Math.floor(n/this.RESOURCE_CONFIG.energyRegenInterval),r=Math.min(i,this.maxEnergy-this.energy);r>0&&(this.energy+=r,s("Regenerated "+r+" energy from missed time")),this.setData("lastEnergyRegenTime",t)}},a.getTimeUntilNextRegen=function(){if(this.energy>=this.maxEnergy)return 0;var e=(this.getData("lastEnergyRegenTime")||Date.now())+this.RESOURCE_CONFIG.energyRegenInterval,t=Date.now();return Math.max(0,e-t)},a.validate=function(){var e=this.gold,t=this.energy,n=this.maxEnergy;return e>=0&&t>=0&&n>0&&t<=2*n},a.destroy=function(){this._energyRegenTimer&&(clearInterval(this._energyRegenTimer),this._energyRegenTimer=0),e.prototype.reset.call(this)},a.toJSON=function(){return{gold:this.gold,energy:this.energy,lastEnergyRegenTime:this.getData("lastEnergyRegenTime")||Date.now()}},a.fromJSON=function(e){this.gold=e.gold||0,this.energy=e.energy||0,this.setData("lastEnergyRegenTime",e.lastEnergyRegenTime||Date.now()),this.calculateMissedRegeneration()},n(i,[{key:"gold",get:function(){return this.getData("gold")||0},set:function(e){this.setData("gold",Math.max(0,e))}},{key:"energy",get:function(){return this.getData("energy")||0},set:function(e){var t=this.maxEnergy;this.setData("energy",Math.max(0,e)),e>=t&&this.setData("lastEnergyRegenTime",Date.now())}},{key:"maxEnergy",get:function(){return this.getData("maxEnergy")||this.RESOURCE_CONFIG.maxEnergy},set:function(e){this.setData("maxEnergy",Math.max(1,e))}}]),i}(a));i._RF.pop()}}}));
+        /**
+         * Update building sprite based on state
+         */;
+        _proto.updateBuildingSprite = function updateBuildingSprite(index, building) {
+          if (!this.buildingSprites[index]) return;
+          var sprite = this.buildingSprites[index];
+          if (building.isDestroyed) {
+            sprite.color = Color.GRAY;
+          } else {
+            // Color based on level and potential reward
+            var rewardLevel = building.potentialReward;
+            if (rewardLevel >= 400) {
+              sprite.color = Color.YELLOW; // High reward
+            } else if (rewardLevel >= 200) {
+              sprite.color = Color.GREEN; // Medium reward
+            } else {
+              sprite.color = Color.WHITE; // Low reward
+            }
+          }
+        }
 
-System.register("chunks:///_virtual/RevealWave.ts",["./rollupPluginModLoBabelHelpers.js","cc"],(function(e){var t,r,i,a,n,s,o,l,u;return{setters:[function(e){t=e.applyDecoratedDescriptor,r=e.inheritsLoose,i=e.initializerDefineProperty,a=e.assertThisInitialized},function(e){n=e.cclegacy,s=e._decorator,o=e.Sprite,l=e.log,u=e.Component}],execute:function(){var p,c,h,m,v,f,y,d,b,_,w;n._RF.push({},"c60bbOCpWZGR7aIz78tdm2k","RevealWave",void 0);var g=s.ccclass,P=s.property;e("RevealWave",(p=g("RevealWave"),c=P(o),p((v=t((m=function(e){function t(){for(var t,r=arguments.length,n=new Array(r),s=0;s<r;s++)n[s]=arguments[s];return t=e.call.apply(e,[this].concat(n))||this,i(t,"sprite",v,a(t)),i(t,"duration",f,a(t)),i(t,"waveAmplitude",y,a(t)),i(t,"waveFrequency",d,a(t)),i(t,"roundness",b,a(t)),i(t,"edgeSoftness",_,a(t)),i(t,"waveSpeed",w,a(t)),t._mat=null,t._time=0,t}r(t,e);var n=t.prototype;return n.update=function(e){if(this._mat){this._time+=e;var t=Math.min(this._time/this.duration,1);if(this._mat.setProperty("reveal",t),l("reveal ",this._mat.getProperty("reveal"),t),t<1){var r=this._time*this.waveSpeed;this._mat.setProperty("wavePhase",r),l("wavePhase ",r)}else this._mat.setProperty("reveal",1),this._mat.setProperty("waveAmplitude",0),this._mat.setProperty("edgeSoftness",0),this.enabled=!1}},n.restart=function(){var e,t=null!=(e=this.sprite)?e:this.getComponent(o);if(t&&t.customMaterial){var r=t.material;!r&&t.getMaterialInstance&&(r=t.getMaterialInstance(0)),this._mat=r,this._mat.setProperty("reveal",0),this._mat.setProperty("waveAmplitude",this.waveAmplitude),this._mat.setProperty("waveFrequency",this.waveFrequency),this._mat.setProperty("roundness",this.roundness),this._mat.setProperty("edgeSoftness",this.edgeSoftness),this._mat.setProperty("wavePhase",0),this._time=0,this.enabled=!0}},n.stop=function(){this.enabled=!1},t}(u)).prototype,"sprite",[c],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),f=t(m.prototype,"duration",[P],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return 2}}),y=t(m.prototype,"waveAmplitude",[P],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return.08}}),d=t(m.prototype,"waveFrequency",[P],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return 8}}),b=t(m.prototype,"roundness",[P],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return 2}}),_=t(m.prototype,"edgeSoftness",[P],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return.05}}),w=t(m.prototype,"waveSpeed",[P],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return 4}}),h=m))||h));n._RF.pop()}}}));
+        /**
+         * Get building display name
+         */;
+        _proto.getBuildingDisplayName = function getBuildingDisplayName(buildingType) {
+          var buildingNames = {
+            'house': 'House',
+            'shop': 'Shop',
+            'factory': 'Factory',
+            'tower': 'Tower',
+            'castle': 'Castle'
+          };
+          return buildingNames[buildingType] || 'Building';
+        }
 
-System.register("chunks:///_virtual/ServiceLocator.ts",["./rollupPluginModLoBabelHelpers.js","cc","./Logger.ts"],(function(e){var r,t,n,i,s,c;return{setters:[function(e){r=e.createForOfIteratorHelperLoose,t=e.asyncToGenerator,n=e.regeneratorRuntime},function(e){i=e.cclegacy},function(e){s=e.logWarn,c=e.logError}],execute:function(){i._RF.push({},"54db839dB1JkIxlZ3v2tUJ6","ServiceLocator",void 0),e("ServiceLocator",function(){function e(){this._services=new Map}e.getInstance=function(){return e._instance||(e._instance=new e),e._instance};var i=e.prototype;return i.registerService=function(e,r){if(this._services.has(e)){s("Service "+e+" is already registered. Replacing existing service.");var t=this._services.get(e);t&&t.destroy()}this._services.set(e,r)},i.getService=function(e){return this._services.get(e)||null},i.hasService=function(e){return this._services.has(e)},i.unregisterService=function(e){var r=this._services.get(e);r&&(r.destroy(),this._services.delete(e))},i.initializeAllServices=function(){var e=t(n().mark((function e(){var t,i,s,a;return n().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:t=[],i=n().mark((function e(){var r,i,s;return n().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:r=a.value,i=r[0],(s=r[1]).isInitialized||t.push(s.initialize().catch((function(e){throw c("Failed to initialize service "+i+":",e),e})));case 2:case"end":return e.stop()}}),e)})),s=r(this._services);case 3:if((a=s()).done){e.next=7;break}return e.delegateYield(i(),"t0",5);case 5:e.next=3;break;case 7:return e.next=9,Promise.all(t);case 9:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),i.connectAllServices=function(){var e=t(n().mark((function e(){var t,i,s,a;return n().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:t=[],i=n().mark((function e(){var r,i,s;return n().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:r=a.value,i=r[0],(s=r[1]).isInitialized&&!s.isConnected&&t.push(s.connect().catch((function(e){throw c("Failed to connect service "+i+":",e),e})));case 2:case"end":return e.stop()}}),e)})),s=r(this._services);case 3:if((a=s()).done){e.next=7;break}return e.delegateYield(i(),"t0",5);case 5:e.next=3;break;case 7:return e.next=9,Promise.all(t);case 9:case"end":return e.stop()}}),e,this)})));return function(){return e.apply(this,arguments)}}(),i.destroyAllServices=function(){for(var e,t=r(this._services);!(e=t()).done;){var n=e.value,i=n[0],s=n[1];try{s.destroy()}catch(e){c("Error destroying service "+i+":",e)}}this._services.clear()},i.getServiceNames=function(){return Array.from(this._services.keys())},e}())._instance=void 0,i._RF.pop()}}}));
+        /**
+         * Show loading UI
+         */;
+        _proto.showLoading = function showLoading(message) {
+          if (this.loadingContainer) {
+            this.loadingContainer.active = true;
+          }
+          if (this.loadingLabel) {
+            this.loadingLabel.string = message;
+          }
+        }
 
-System.register("chunks:///_virtual/SimpleCityModelTest.ts",["./rollupPluginModLoBabelHelpers.js","cc","./CityModel.ts","./GameConfig.ts","./Logger.ts"],(function(e){var t,n,i,o,r,a,l;return{setters:[function(e){t=e.asyncToGenerator,n=e.regeneratorRuntime},function(e){i=e.cclegacy},function(e){o=e.CityModel},function(e){r=e.GameConfig},function(e){a=e.logInfo,l=e.logError}],execute:function(){e("runSimpleCityModelTests",(function(){return c.apply(this,arguments)})),i._RF.push({},"e5f6g7h8-i9j0-1234-efgh-567890123456","SimpleCityModelTest",void 0);var s=e("SimpleCityModelTest",function(){function e(){}return e.testCityModelWithGameConfig=function(){var e=t(n().mark((function e(){var t,i,s,c,u,f,g,d,h,p;return n().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.prev=0,a("Testing CityModel with GameConfig..."),t=r.getInstance(),e.next=5,t.loadConfig();case 5:if(i=new o("test_village","Test Village",1),s=i.getBuildings(),a("Level 1 Village: "+s.length+" buildings"),s.forEach((function(e,t){a("  "+(t+1)+". "+e.name+" ("+e.type+") - Cost: "+e.baseCost)})),c=new o("test_town","Test Town",2),u=c.getBuildings(),a("Level 2 Town: "+u.length+" buildings"),u.forEach((function(e,t){a("  "+(t+1)+". "+e.name+" ("+e.type+") - Cost: "+e.baseCost)})),f=["house","shop","factory","tower","castle"],5,5===s.length){e.next=17;break}throw new Error("Expected 5 buildings, got "+s.length);case 17:if(s.forEach((function(e,t){if(e.type!==f[t])throw new Error("Expected building type "+f[t]+", got "+e.type)})),g=s.find((function(e){return"house"===e.type})),d=u.find((function(e){return"house"===e.type})),!g||!d){e.next=25;break}if(a("Village house cost: "+g.baseCost),a("Town house cost: "+d.baseCost),!(d.baseCost<=g.baseCost)){e.next=25;break}throw new Error("Town buildings should cost more than village buildings");case 25:if(i.validate()){e.next=27;break}throw new Error("Village validation failed");case 27:if(c.validate()){e.next=29;break}throw new Error("Town validation failed");case 29:if(h=i.toJSON(),(p=new o("temp","temp",1)).fromJSON(h),p.getBuildings().length===i.getBuildings().length){e.next=34;break}throw new Error("Serialization failed - building count mismatch");case 34:a("✅ All tests passed! CityModel successfully uses GameConfig."),e.next=41;break;case 37:throw e.prev=37,e.t0=e.catch(0),l("❌ Test failed:",e.t0),e.t0;case 41:case"end":return e.stop()}}),e,null,[[0,37]])})));return function(){return e.apply(this,arguments)}}(),e.testFallbackBehavior=function(){try{a("Testing fallback behavior...");var e=new o("unknown_city","Unknown City",99).getBuildings(),t=["house","shop","factory","tower","castle"];if(5!==e.length)throw new Error("Fallback failed: Expected 5 buildings, got "+e.length);e.forEach((function(e,n){if(e.type!==t[n])throw new Error("Fallback failed: Expected building type "+t[n]+", got "+e.type)})),a("✅ Fallback behavior works correctly.")}catch(e){throw l("❌ Fallback test failed:",e),e}},e}());function c(){return(c=t(n().mark((function e(){return n().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return a("=== Running Simple CityModel Tests ==="),e.next=3,s.testCityModelWithGameConfig();case 3:s.testFallbackBehavior(),a("=== All Simple CityModel Tests Completed Successfully! ===");case 5:case"end":return e.stop()}}),e)})))).apply(this,arguments)}i._RF.pop()}}}));
+        /**
+         * Hide loading UI
+         */;
+        _proto.hideLoading = function hideLoading() {
+          if (this.loadingContainer) {
+            this.loadingContainer.active = false;
+          }
+        }
 
-System.register("chunks:///_virtual/SlotMachineComponent.ts",["./rollupPluginModLoBabelHelpers.js","cc","./ReelComponent.ts","./AnimationConfig.ts","./RevealWave.ts"],(function(t){var e,n,i,o,s,a,r,u,l,p,h,c,d,f,v,S,B,_,g,b,w;return{setters:[function(t){e=t.applyDecoratedDescriptor,n=t.inheritsLoose,i=t.initializerDefineProperty,o=t.assertThisInitialized,s=t.createForOfIteratorHelperLoose,a=t.asyncToGenerator,r=t.regeneratorRuntime},function(t){u=t.cclegacy,l=t._decorator,p=t.Node,h=t.Button,c=t.Label,d=t.UIOpacity,f=t.Tween,v=t.tween,S=t.log,B=t.Vec3,_=t.Component},function(t){g=t.ReelComponent},function(t){b=t.AnimationConfig},function(t){w=t.RevealWave}],execute:function(){var C,M,m,y,A,E,T,I,R,L,P,D,U,k,O,x,N,z,G,H,W,F,K,Q,Y;u._RF.push({},"76923hm7JhMgLe6lmDG3Omp","SlotMachineComponent",void 0);var V=l.ccclass,j=l.property;t("SlotMachineComponent",(C=V("SlotMachineComponent"),M=j(p),m=j(h),y=j(c),A=j(h),E=j(h),T=j(c),I=j(h),R=j(c),L=j(h),P=j(d),D=j(w),C((O=e((k=function(t){function e(){for(var e,n=arguments.length,s=new Array(n),a=0;a<n;a++)s[a]=arguments[a];return e=t.call.apply(t,[this].concat(s))||this,i(e,"reelsContainer",O,o(e)),i(e,"spinButton",x,o(e)),i(e,"spinButtonLabel",N,o(e)),i(e,"betIncreaseButton",z,o(e)),i(e,"betDecreaseButton",G,o(e)),i(e,"betMultiplierLabel",H,o(e)),i(e,"betChangeButton",W,o(e)),i(e,"winLabel",F,o(e)),i(e,"autoSpinButton",K,o(e)),i(e,"autoSpinButtonOpacity",Q,o(e)),i(e,"autoSpinWave",Y,o(e)),e.reelComponents=[],e._viewModel=null,e._animationConfig=void 0,e._reelCompletionStates=[!1,!1,!1],e._currentSpinResult=null,e._suspenseSpinActive=!1,e._firstTwoReelsMatch=!1,e._originalBetButtonPos=null,e._originalSpinButtonPos=null,e._spinButtonState="idle",e}n(e,t);var u=e.prototype;return u.setViewModel=function(t){this._viewModel=t,this.setupEventListeners()},u.onLoad=function(){this.reelComponents=this.reelsContainer.getComponentsInChildren(g),this._animationConfig=b.getInstance(),this.betChangeButton&&(this._originalBetButtonPos=this.betChangeButton.node.position.clone()),this.spinButton&&(this._originalSpinButtonPos=this.spinButton.node.position.clone()),this.bindEvents()},u.onDestroy=function(){this.unbindEvents()},u.bindEvents=function(){this.spinButton&&(this.spinButton.node.on(p.EventType.TOUCH_START,this.onSpinTouchStart,this),this.spinButton.node.on(p.EventType.TOUCH_END,this.onSpinTouchEnd,this),this.spinButton.node.on(p.EventType.TOUCH_CANCEL,this.onSpinTouchEnd,this)),this.betIncreaseButton&&this.betIncreaseButton.node.on(h.EventType.CLICK,this.onBetIncreaseClicked,this),this.betDecreaseButton&&this.betDecreaseButton.node.on(h.EventType.CLICK,this.onBetDecreaseClicked,this),this.betChangeButton&&this.betChangeButton.node.on(p.EventType.TOUCH_START,this.onBetChangeTouchStart,this),this.autoSpinButton&&this.autoSpinButton.node.on(h.EventType.CLICK,this.onAutoSpinClicked,this)},u.unbindEvents=function(){this._viewModel&&(this._viewModel.off("dataLoaded",this.onDataLoaded,this),this._viewModel.off("spinStarted",this.onSpinStarted,this),this._viewModel.off("spinCompleted",this.onSpinCompleted,this),this._viewModel.off("betMultiplierChanged",this.updateUI,this),this._viewModel.off("betMultiplierIncreaseBlocked",this.onBetMultiplierIncreaseBlocked,this),this._viewModel.off("resourceUpdated",this.updateUI,this),this._viewModel.off("autoSpinStateChanged",this.onAutoSpinStateChanged,this))},u.setupEventListeners=function(){this._viewModel&&(this.unbindEvents(),this._viewModel.on("dataLoaded",this.onDataLoaded,this),this._viewModel.on("spinStarted",this.onSpinStarted,this),this._viewModel.on("spinCompleted",this.onSpinCompleted,this),this._viewModel.on("betMultiplierChanged",this.updateUI,this),this._viewModel.on("betMultiplierIncreaseBlocked",this.onBetMultiplierIncreaseBlocked,this),this._viewModel.on("resourceUpdated",this.updateUI,this),this._viewModel.on("autoSpinStateChanged",this.onAutoSpinStateChanged,this),this._viewModel.on("animationProfileChanged",this.onAnimationProfileChanged,this))},u.onDataLoaded=function(){if(this._viewModel){for(var t=this._viewModel.symbols,e=0;e<this.reelComponents.length;e++){var n=this.reelComponents[e];n.initialize(e,t),n.node.on("reelSpinComplete",this.onReelSpinComplete,this)}this.updateUI()}},u.onSpinStarted=function(t){if(this._viewModel){this._reelCompletionStates=[!1,!1,!1],this._currentSpinResult=t;var e=this._viewModel.isAutoSpinning;if(this._firstTwoReelsMatch=this.checkFirstTwoReelsMatch(t),this._suspenseSpinActive=!e&&this._firstTwoReelsMatch&&this.shouldTriggerSuspenseSpin(),this._suspenseSpinActive){this._animationConfig.setProfile("suspense");for(var n,i=s(this.reelComponents);!(n=i()).done;){n.value.updateConfig()}}var o=t.reelResults;if(o&&o.length>0)for(var a=o[0],r=0;r<this.reelComponents.length;r++){var u=this.reelComponents[r],l=a[r]?[a[r]]:[];u.startSpin(l)}this.updateUI()}},u.onReelSpinComplete=function(t){var e=t.reelIndex;e>=0&&e<this._reelCompletionStates.length&&(this._reelCompletionStates[e]=!0,this._reelCompletionStates.every((function(t){return t}))&&this.onAllReelsCompleted())},u.onAllReelsCompleted=function(){if(this._currentSpinResult&&this._viewModel){if(this._suspenseSpinActive){this._animationConfig.setProfile("normal");for(var t,e=s(this.reelComponents);!(t=e()).done;){t.value.updateConfig()}this._suspenseSpinActive=!1}this._viewModel.processSpinResultFromComponent(this._currentSpinResult),this._currentSpinResult=null}},u.checkFirstTwoReelsMatch=function(t){if(!t.reelResults||0===t.reelResults.length)return!1;var e=t.reelResults[0];if(e.length<2)return!1;var n=e[0],i=e[1];return n.type===i.type||n.id===i.id},u.shouldTriggerSuspenseSpin=function(){return!0},u.onSpinClicked=function(){var t=a(r().mark((function t(){return r().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if(!this._viewModel){t.next=3;break}return t.next=3,this._viewModel.executeCommand("spin");case 3:case"end":return t.stop()}}),t,this)})));return function(){return t.apply(this,arguments)}}(),u.onSpinTouchStart=function(){var t=a(r().mark((function t(){var e=this;return r().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if(this._originalSpinButtonPos){t.next=2;break}return t.abrupt("return");case 2:if("idle"==this._spinButtonState){t.next=4;break}return t.abrupt("return");case 4:if(this._spinButtonState="down",v(this.spinButton.node).to(.2,{y:this._originalSpinButtonPos.y-45},{easing:"sineIn"}).call((function(){"up"!=e._spinButtonState&&e.hasEnoughEnergy()?e.activateAutoSpinButton():e.showSpinButtonUp()})).start(),!this._viewModel){t.next=9;break}return t.next=9,this._viewModel.executeCommand("spin");case 9:case"end":return t.stop()}}),t,this)})));return function(){return t.apply(this,arguments)}}(),u.showSpinButtonUp=function(){var t=this;f.stopAllByTarget(this.spinButton.node),this.spinButton.node.active=!0,v(this.spinButton.node).to(.2,{position:this._originalSpinButtonPos},{easing:"sineOut"}).call((function(){t._spinButtonState="idle"})).start()},u.activateAutoSpinButton=function(){var t=this;this._spinButtonState="prepare_auto",this.autoSpinButton.node.active=!0,this.autoSpinButtonOpacity.opacity=200,this.autoSpinWave.restart(),S("activateAutoSpinButton "),v(this.autoSpinButtonOpacity).to(1,{opacity:255}).call((function(){t.spinButton.node.active=!1,t._spinButtonState="auto",t.onAutoSpinClicked()})).start()},u.deactivateAutoSpinButton=function(){S("deactivateAutoSpinButton ",this._spinButtonState),f.stopAllByTarget(this.autoSpinButtonOpacity),this.autoSpinButton.node.active=!1,this._spinButtonState="up",this.showSpinButtonUp()},u.onSpinTouchEnd=function(){var t=a(r().mark((function t(){return r().wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if(this._originalSpinButtonPos){t.next=2;break}return t.abrupt("return");case 2:"down"==this._spinButtonState?this._spinButtonState="up":"prepare_auto"==this._spinButtonState&&this.deactivateAutoSpinButton();case 3:case"end":return t.stop()}}),t,this)})));return function(){return t.apply(this,arguments)}}(),u.onBetIncreaseClicked=function(){this._viewModel&&this._viewModel.executeCommand("increaseBetMultiplier")},u.onBetDecreaseClicked=function(){this._viewModel&&this._viewModel.executeCommand("decreaseBetMultiplier")},u.onBetChangeTouchStart=function(){var t=this;this._originalBetButtonPos&&(f.stopAllByTarget(this.betChangeButton.node),v(this.betChangeButton.node).to(.1,{position:new B(this._originalBetButtonPos.x,this._originalBetButtonPos.y-16,this._originalBetButtonPos.z)}).call((function(){t._viewModel&&t._viewModel.executeCommand("changeBetMultiplier")})).to(.1,{position:this._originalBetButtonPos}).start())},u.onSpinCompleted=function(t){this.updateUI(),this.showWinResults(t)},u.onAutoSpinClicked=function(){this._viewModel&&(this._viewModel.isAutoSpinning||this._viewModel.isAutoSpinPending?this._viewModel.executeCommand("stopAutoSpin"):this._viewModel.executeCommand("startAutoSpin"))},u.onAutoSpinStateChanged=function(t){var e=this,n=t.reason;this.updateUI(),n&&S("onAutoSpinStateChanged on reason ",n,t),n&&"STARTED"!=n&&"QUEUED"!=n&&(S("deactivateAutoSpinButton on reason ",n,t),this.deactivateAutoSpinButton()),"STARTED"===n?this._animationConfig.setProfile("autoSpin"):"STOPPED_USER"===n||"QUEUE_CLEARED"===n?this._animationConfig.setProfile("normal"):"STOPPED_NO_ENERGY"===n&&(this._animationConfig.setProfile("normal"),this.spinButtonLabel&&(this.spinButtonLabel.string="NO ENERGY",this.scheduleOnce((function(){e.updateSpinButton()}),2)))},u.onAnimationProfileChanged=function(){for(var t,e=s(this.reelComponents);!(t=e()).done;){t.value.updateConfig()}},u.onBetMultiplierIncreaseBlocked=function(t){var e=this;this.betIncreaseButton&&(this.betIncreaseButton.interactable=!1,this.scheduleOnce((function(){e.betIncreaseButton&&e._viewModel&&!e._viewModel.isSpinning&&(e.betIncreaseButton.interactable=!0)}),.5)),console.log("Bet increase blocked: Need "+t.requiredEnergy+" energy, have "+t.availableEnergy)},u.updateUI=function(){this.updateSpinButton(),this.updateBetMultiplierDisplay(),this.updateAutoSpinDisplay()},u.updateAutoSpinDisplay=function(){if(this._viewModel&&this.autoSpinButton){var t=this._viewModel.isAutoSpinning,e=this._viewModel.isAutoSpinPending;this.autoSpinButton.interactable=!0;var n=this.autoSpinButton.getComponentInChildren(c);n&&(n.string=t?"STOP":e?"QUEUED":"AUTO")}},u.updateSpinButton=function(){if(this._viewModel&&this.spinButton&&this.spinButtonLabel){var t=this._viewModel.spinEnergyCost,e=this._viewModel.currentEnergy>=t,n=this._viewModel.isSpinning,i=this._viewModel.isAutoSpinning;this.spinButton.interactable=e&&!n&&!i,this.spinButtonLabel.string=i?"AUTO-SPINNING":n?"SPINNING...":e?"SPIN ("+t+" Energy)":"NOT ENOUGH ENERGY"}},u.updateBetMultiplierDisplay=function(){if(this._viewModel){var t=this._viewModel.currentBetMultiplier,e=this._viewModel.isSpinning,n=this._viewModel.isAutoSpinning;this.betMultiplierLabel&&(this.betMultiplierLabel.string="x"+t);var i=this._viewModel.availableBetMultipliers,o=i.indexOf(t),s=!e&&!n&&o<i.length-1,a=!e&&!n&&o>0;this.betIncreaseButton&&(this.betIncreaseButton.interactable=s),this.betDecreaseButton&&(this.betDecreaseButton.interactable=a)}},u.showWinResults=function(t){if(this.winLabel)if(t.totalPayout>0){S("Show win results ",t),this.winLabel.string=this._viewModel.getDisplayResultText(t),this.winLabel.node.active=!0;var e=this._animationConfig.getUIConfig().winAnimationDuration;v(this.winLabel.node).to(e,{scale:new B(1.2,1.2,1)}).to(e,{scale:new B(1,1,1)}).start()}else this.winLabel.string="",this.winLabel.node.active=!1},u.hasEnoughEnergy=function(){var t=this._viewModel.spinEnergyCost,e=this._viewModel.currentEnergy>=t;return e},e}(_)).prototype,"reelsContainer",[M],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),x=e(k.prototype,"spinButton",[m],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),N=e(k.prototype,"spinButtonLabel",[y],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),z=e(k.prototype,"betIncreaseButton",[A],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),G=e(k.prototype,"betDecreaseButton",[E],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),H=e(k.prototype,"betMultiplierLabel",[T],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),W=e(k.prototype,"betChangeButton",[I],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),F=e(k.prototype,"winLabel",[R],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),K=e(k.prototype,"autoSpinButton",[L],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),Q=e(k.prototype,"autoSpinButtonOpacity",[P],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),Y=e(k.prototype,"autoSpinWave",[D],{configurable:!0,enumerable:!0,writable:!0,initializer:function(){return null}}),U=k))||U));u._RF.pop()}}}));
+        /**
+         * Show target info
+         */;
+        _proto.showTargetInfo = function showTargetInfo() {
+          if (this.targetInfoContainer) {
+            this.targetInfoContainer.active = true;
+          }
+        }
 
-System.register("chunks:///_virtual/SlotMachineConfig.ts",["./rollupPluginModLoBabelHelpers.js","cc","./SlotMachineUtils.ts"],(function(n){var e,t,o,r,i,a;return{setters:[function(n){e=n.asyncToGenerator,t=n.regeneratorRuntime},function(n){o=n.cclegacy,r=n.resources,i=n.JsonAsset},function(n){a=n.SlotMachineUtils}],execute:function(){o._RF.push({},"1c7fbhMBLNP+ptX5IN4N+2p","SlotMachineConfig",void 0),n("SlotMachineConfig",function(){function n(){this.symbols=[],this.paytable=[]}n.getInstance=function(){return n._instance||(n._instance=new n),n._instance};var o=n.prototype;return o.loadConfig=function(){var n=e(t().mark((function n(){var e=this;return t().wrap((function(n){for(;;)switch(n.prev=n.next){case 0:if(!window.symbols||!window.paytable){n.next=4;break}return this.symbols=window.symbols.filter((function(n){return 0!=n.id})),this.paytable=window.paytable,n.abrupt("return");case 4:return n.abrupt("return",new Promise((function(n,t){r.loadDir("config",i,(function(o,r){if(o)return console.error("Failed to load config files:",o),t(o);var i=r.find((function(n){return"symbols"===n.name})),a=r.find((function(n){return"paytable"===n.name}));i&&i.json?e.symbols=i.json.filter((function(n){return 0!=n.id})):console.error("symbols.json not found or is empty."),a&&a.json?e.paytable=a.json:console.error("paytable.json not found or is empty."),n()}))})));case 5:case"end":return n.stop()}}),n,this)})));return function(){return n.apply(this,arguments)}}(),o.getDefaultConfig=function(){return{reelCount:3,rowCount:1,symbols:this.symbols,energyCostPerSpin:1,availableMultipliers:[1,2,5,10,20,40,50,100,250],paytable:this.paytable}},o.getConfigForLevel=function(n){var e=this.getDefaultConfig();return n>=10&&(e.availableMultipliers=[1,2,5,10,20,40,50,100,250]),n>=20&&(e.energyCostPerSpin=1),e},o.validateConfig=function(n){return a.validateConfiguration(n.symbols,n.paytable,n.reelCount,n.rowCount)},o.getTestConfig=function(){var n=this.getDefaultConfig();return n.energyCostPerSpin=1,n.availableMultipliers=[1,2,5,10,20,40,50,100,250],n},o.createConfigFromServerData=function(n){try{return{reelCount:n.reelCount||3,rowCount:n.rowCount||1,symbols:n.symbols||[],energyCostPerSpin:n.energyCostPerSpin||1,availableMultipliers:n.availableMultipliers||[1,2,5,10,20,40,50,100,250],paytable:n.paytable||[]}}catch(n){return console.warn("Failed to parse server config, using default:",n),this.getDefaultConfig()}},n}())._instance=null,o._RF.pop()}}}));
+        /**
+         * Hide target info
+         */;
+        _proto.hideTargetInfo = function hideTargetInfo() {
+          if (this.targetInfoContainer) {
+            this.targetInfoContainer.active = false;
+          }
+        }
 
-System.register("chunks:///_virtual/SlotMachineModel.ts",["./rollupPluginModLoBabelHelpers.js","cc","./BaseModel.ts"],(function(t){var e,i,n,a,s,l;return{setters:[function(t){e=t.inheritsLoose,i=t.extends,n=t.createForOfIteratorHelperLoose,a=t.createClass},function(t){s=t.cclegacy},function(t){l=t.BaseModel}],execute:function(){s._RF.push({},"d03bdpQG8pJ8bT6/mW1ZKaV","SlotMachineModel",void 0);var r=t("SlotRewardType",function(t){return t.ATTACK="Attack",t.STEAL="Steal",t.SHIELD="Shield",t.GOLD="Gold",t.ENERGY="Energy",t.TOKEN="Token",t}({}));t("SlotMachineModel",function(t){function s(){var e;return(e=t.call(this)||this).DEFAULT_ENERGY_COST=1,e.DEFAULT_MULTIPLIERS=[1,2,5,10,20,40,50,100,250],e.DEFAULT_REEL_COUNT=3,e.DEFAULT_ROW_COUNT=1,e.initializeDefaults(),e}e(s,t);var l=s.prototype;return l.initializeDefaults=function(){this.setData("reelCount",this.DEFAULT_REEL_COUNT),this.setData("rowCount",this.DEFAULT_ROW_COUNT),this.setData("symbols",[]),this.setData("energyCostPerSpin",this.DEFAULT_ENERGY_COST),this.setData("availableMultipliers",[].concat(this.DEFAULT_MULTIPLIERS)),this.setData("selectedMultiplier",1),this.setData("isSpinning",!1),this.setData("lastSpinResult",null),this.setData("paytable",[]),this.setData("autoSpinState",{isActive:!1,isPending:!1})},l.getTotalEnergyCost=function(){return this.energyCostPerSpin*this.selectedMultiplier},l.canAffordSpin=function(t){return t>=this.getTotalEnergyCost()},l.startSpin=function(t){this.isSpinning||(this.setData("isSpinning",!0),this.setData("lastSpinResult",t),this.emit("spinStarted",t))},l.processSpinResult=function(t){var e={type:t.finalReward.type,amount:t.totalPayout*t.betMultiplier,multiplier:t.betMultiplier},n=i({},t,{finalReward:e});this.setData("lastSpinResult",n),this.setData("isSpinning",!1),this.emit("spinCompleted",n)},l.generateSpinResult=function(){for(var t,e=this.paytable,i=e.reduce((function(t,e){return t+e.weight}),0),a=Math.random()*i,s=null,l=n(e);!(t=l()).done;){var r=t.value;if((a-=r.weight)<=0){s=r;break}}s||(s=e[e.length-1]);for(var u=[[]],o=this.symbols,S=o.filter((function(t){return 0===t.priority})),p=[s.slot1,s.slot2,s.slot3],h=function(){var t=p[c];if("?"===t){var e=S[Math.floor(Math.random()*S.length)];t=e.type}var i=o.find((function(e){return e.type===t}));i&&u[0].push(i)},c=0;c<p.length;c++)h();return{reelResults:u,totalPayout:s.rewardAmount,betMultiplier:this.selectedMultiplier,finalReward:{type:s.rewardType,amount:s.rewardAmount}}},l.loadConfiguration=function(t){this.setData("reelCount",t.reelCount),this.setData("rowCount",t.rowCount),this.symbols=t.symbols,this.energyCostPerSpin=t.energyCostPerSpin,this.availableMultipliers=t.availableMultipliers,this.paytable=t.paytable,t.availableMultipliers.length>0&&(this.selectedMultiplier=t.availableMultipliers[0]),this.emit("configurationLoaded",t)},l.resetSpin=function(){this.setData("isSpinning",!1),this.setData("lastSpinResult",null),this.emit("spinReset")},l.getRewardDisplayText=function(t){switch(t.type){case r.GOLD:return t.amount+" Gold";case r.ENERGY:return t.amount+" Energy";case r.TOKEN:return t.amount+" Event Items";case r.ATTACK:return"Attack";case r.STEAL:return"Raid";case r.SHIELD:return"Shield";default:return"Unknown Reward"}},l.validate=function(){var t=this.symbols,e=this.paytable,i=this.energyCostPerSpin,a=this.availableMultipliers,s=this.selectedMultiplier;if(i<=0||!Array.isArray(t)||!Array.isArray(e)||!Array.isArray(a))return!1;if(0===t.length)return!1;for(var l,r=n(t);!(l=r()).done;){var u=l.value;if(void 0===u.id||!u.type)return!1}for(var o,S=n(e);!(o=S()).done;){var p=o.value;if(!p.payId||!p.slot1||!p.slot2||!p.slot3||p.weight<=0)return!1}return!(0===a.length||!a.includes(s))},l.toJSON=function(){return{reelCount:this.reelCount,rowCount:this.rowCount,symbols:this.symbols,energyCostPerSpin:this.energyCostPerSpin,availableMultipliers:this.availableMultipliers,selectedMultiplier:this.selectedMultiplier,isSpinning:this.isSpinning,lastSpinResult:this.lastSpinResult,paytable:this.paytable,autoSpinState:this.autoSpinState}},l.fromJSON=function(t){this.setData("reelCount",t.reelCount||this.DEFAULT_REEL_COUNT),this.setData("rowCount",t.rowCount||this.DEFAULT_ROW_COUNT),this.symbols=t.symbols||[],this.energyCostPerSpin=t.energyCostPerSpin||this.DEFAULT_ENERGY_COST,this.availableMultipliers=t.availableMultipliers||[].concat(this.DEFAULT_MULTIPLIERS),this.selectedMultiplier=t.selectedMultiplier||1,this.setData("isSpinning",t.isSpinning||!1),this.setData("lastSpinResult",t.lastSpinResult||null),this.paytable=t.paytable||[],this.autoSpinState=t.autoSpinState||null},l.startAutoSpin=function(){var t;null!=(t=this.autoSpinState)&&t.isActive||this.isSpinning||(this.autoSpinState={isActive:!0,isPending:!1},this.emit("autoSpinStateChanged",{newState:this.autoSpinState,reason:"STARTED"}))},l.stopAutoSpin=function(){var t;null!=(t=this.autoSpinState)&&t.isActive&&this.autoSpinState&&(this.autoSpinState.isActive=!1,this.autoSpinState.isPending=!1,this.emit("autoSpinStateChanged",{newState:this.autoSpinState,reason:"STOPPED_USER"}))},l.stopAutoSpinDueToInsufficientEnergy=function(){var t;null!=(t=this.autoSpinState)&&t.isActive&&this.autoSpinState&&(this.autoSpinState.isActive=!1,this.autoSpinState.isPending=!1,this.emit("autoSpinStateChanged",{newState:this.autoSpinState,reason:"STOPPED_NO_ENERGY"}))},l.canContinueAutoSpin=function(t){var e;return!(null==(e=this.autoSpinState)||!e.isActive)&&this.canAffordSpin(t)},l.queueAutoSpin=function(){this.autoSpinState||(this.autoSpinState={isActive:!1,isPending:!1}),this.autoSpinState.isActive||(this.autoSpinState.isPending=!0,this.emit("autoSpinStateChanged",{newState:this.autoSpinState,reason:"QUEUED"}))},l.activatePendingAutoSpin=function(){var t;return!(null==(t=this.autoSpinState)||!t.isPending)&&(!this.isSpinning&&(this.autoSpinState.isActive=!0,this.autoSpinState.isPending=!1,this.emit("autoSpinStateChanged",{newState:this.autoSpinState,reason:"STARTED"}),!0))},l.clearPendingAutoSpin=function(){var t;null!=(t=this.autoSpinState)&&t.isPending&&(this.autoSpinState.isPending=!1,this.emit("autoSpinStateChanged",{newState:this.autoSpinState,reason:"QUEUE_CLEARED"}))},a(s,[{key:"reelCount",get:function(){return this.getData("reelCount")||this.DEFAULT_REEL_COUNT}},{key:"rowCount",get:function(){return this.getData("rowCount")||this.DEFAULT_ROW_COUNT}},{key:"symbols",get:function(){return this.getData("symbols")||[]},set:function(t){this.setData("symbols",[].concat(t))}},{key:"energyCostPerSpin",get:function(){return this.getData("energyCostPerSpin")||this.DEFAULT_ENERGY_COST},set:function(t){this.setData("energyCostPerSpin",Math.max(1,t))}},{key:"availableMultipliers",get:function(){return this.getData("availableMultipliers")||[].concat(this.DEFAULT_MULTIPLIERS)},set:function(t){this.setData("availableMultipliers",[].concat(t))}},{key:"selectedMultiplier",get:function(){return this.getData("selectedMultiplier")||1},set:function(t){this.availableMultipliers.includes(t)&&this.setData("selectedMultiplier",t)}},{key:"isSpinning",get:function(){return this.getData("isSpinning")||!1}},{key:"lastSpinResult",get:function(){return this.getData("lastSpinResult")||null}},{key:"paytable",get:function(){return this.getData("paytable")||[]},set:function(t){this.setData("paytable",[].concat(t))}},{key:"autoSpinState",get:function(){return this.getData("autoSpinState")||null},set:function(t){this.setData("autoSpinState",t)}},{key:"isAutoSpinPending",get:function(){var t;return(null==(t=this.autoSpinState)?void 0:t.isPending)||!1}}]),s}(l));s._RF.pop()}}}));
+        /**
+         * Hide all buildings
+         */;
+        _proto.hideAllBuildings = function hideAllBuildings() {
+          for (var _iterator = _createForOfIteratorHelperLoose(this.buildingNodes), _step; !(_step = _iterator()).done;) {
+            var buildingNode = _step.value;
+            if (buildingNode) {
+              buildingNode.active = false;
+            }
+          }
+        }
 
-System.register("chunks:///_virtual/SlotMachineUtils.ts",["./rollupPluginModLoBabelHelpers.js","cc"],(function(e){var t,o;return{setters:[function(e){t=e.createForOfIteratorHelperLoose},function(e){o=e.cclegacy}],execute:function(){o._RF.push({},"ab7baA9PCBP6rZYHjYdbVUm","SlotMachineUtils",void 0);e("SlotMachineUtils",function(){function e(){}return e.formatPayoutText=function(e){return e>=1e6?(e/1e6).toFixed(1)+"M":e>=1e3?(e/1e3).toFixed(1)+"K":e.toString()},e.formatPayoutSeperated=function(e){return e.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g,"$1,")},e.validateConfiguration=function(e,o,n,r){var i=[];if(e&&0!==e.length)for(var a,l=t(e);!(a=l()).done;){var u=a.value;void 0!==u.id&&u.type||i.push("Invalid symbol: "+JSON.stringify(u))}else i.push("No symbols defined");if(o&&0!==o.length)for(var s,d=t(o);!(s=d()).done;){var c=s.value;c.payId&&c.slot1&&c.slot2&&c.slot3&&!(c.weight<=0)||i.push("Invalid paytable entry: "+c.payId)}else i.push("No paytable defined");return(n<=0||r<=0)&&i.push("Invalid reel or row count"),{isValid:0===i.length,errors:i}},e}());o._RF.pop()}}}));
+        /**
+         * Show attack result
+         */;
+        _proto.showAttackResult = function showAttackResult(result) {
+          if (this.resultContainer) {
+            this.resultContainer.active = true;
+          }
+          if (this.resultTitleLabel) {
+            this.resultTitleLabel.string = result.success ? 'Attack Successful!' : 'Attack Failed!';
+          }
+          if (this.resultMessageLabel) {
+            this.resultMessageLabel.string = result.message;
+          }
+          if (this.resultRewardLabel) {
+            if (result.goldEarned > 0) {
+              this.resultRewardLabel.string = "+" + this.formatNumber(result.goldEarned) + " Gold";
+              this.resultRewardLabel.node.active = true;
+            } else {
+              this.resultRewardLabel.node.active = false;
+            }
+          }
+        }
 
-System.register("chunks:///_virtual/StringUtils.ts",["cc"],(function(t){var r,n;return{setters:[function(t){r=t.cclegacy,n=t._decorator}],execute:function(){var e;r._RF.push({},"f4eb29pLYxA/5xwy6jF3nUT","StringUtils",void 0);var i=n.ccclass;n.property,t("StringUtils",i("StringUtils")(e=function(){function t(){}return t.formatNumberWithCommas=function(t){return t.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g,"$1,")},t.formatNumberWithDot=function(t){return t.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g,"$1.")},t}())||e);r._RF.pop()}}}));
+        /**
+         * Hide attack result
+         */;
+        _proto.hideResultUI = function hideResultUI() {
+          if (this.resultContainer) {
+            this.resultContainer.active = false;
+          }
+        }
+
+        /**
+         * Show notification
+         */;
+        _proto.showNotification = function showNotification(message, duration) {
+          var _this3 = this;
+          if (duration === void 0) {
+            duration = 3.0;
+          }
+          if (this.notificationContainer && this.notificationLabel) {
+            this.notificationLabel.string = message;
+            this.notificationContainer.active = true;
+
+            // Auto-hide after duration
+            this.scheduleOnce(function () {
+              _this3.hideNotification();
+            }, duration);
+          }
+        }
+
+        /**
+         * Hide notification
+         */;
+        _proto.hideNotification = function hideNotification() {
+          if (this.notificationContainer) {
+            this.notificationContainer.active = false;
+          }
+        }
+
+        /**
+         * Format number for display
+         */;
+        _proto.formatNumber = function formatNumber(num) {
+          if (num >= 1000000) {
+            return (num / 1000000).toFixed(1) + 'M';
+          } else if (num >= 1000) {
+            return (num / 1000).toFixed(1) + 'K';
+          }
+          return num.toString();
+        }
+
+        /**
+         * Animate building attack
+         */;
+        _proto.animateBuildingAttack = function animateBuildingAttack(buildingIndex) {
+          if (buildingIndex < 0 || buildingIndex >= this.buildingNodes.length) return;
+          var buildingNode = this.buildingNodes[buildingIndex];
+          if (!buildingNode) return;
+
+          // Shake animation
+          var originalPosition = buildingNode.position;
+          tween(buildingNode).to(0.1, {
+            position: v3(originalPosition.x + 10, originalPosition.y, originalPosition.z)
+          }).to(0.1, {
+            position: v3(originalPosition.x - 10, originalPosition.y, originalPosition.z)
+          }).to(0.1, {
+            position: v3(originalPosition.x + 5, originalPosition.y, originalPosition.z)
+          }).to(0.1, {
+            position: v3(originalPosition.x - 5, originalPosition.y, originalPosition.z)
+          }).to(0.1, {
+            position: originalPosition
+          }).start();
+        }
+
+        // Event Handlers
+
+        /**
+         * Handle loading target
+         */;
+        _proto.onLoadingTarget = function onLoadingTarget(isLoading) {
+          if (isLoading) {
+            this.showLoading('Loading target...');
+            this.hideTargetInfo();
+            this.hideAllBuildings();
+          } else {
+            this.hideLoading();
+          }
+        }
+
+        /**
+         * Handle target loaded
+         */;
+        _proto.onTargetLoaded = function onTargetLoaded(target) {
+          this._currentTarget = target;
+          this.hideLoading();
+          this.refreshUI();
+        }
+
+        /**
+         * Handle target load error
+         */;
+        _proto.onTargetLoadError = function onTargetLoadError(error) {
+          this.hideLoading();
+          this.showNotification('Failed to load target. Using offline mode.');
+        }
+
+        /**
+         * Handle resource updated
+         */;
+        _proto.onResourceUpdated = function onResourceUpdated(event) {
+          this.updateHeaderDisplay();
+        }
+
+        /**
+         * Handle attack started
+         */;
+        _proto.onAttackStarted = function onAttackStarted(event) {
+          var _this$_currentTarget;
+          var buildingIndex = ((_this$_currentTarget = this._currentTarget) == null ? void 0 : _this$_currentTarget.buildings.findIndex(function (b) {
+            return b.buildingId === event.buildingId;
+          })) || -1;
+          if (buildingIndex >= 0) {
+            this.animateBuildingAttack(buildingIndex);
+          }
+          this.showNotification("Attacking " + event.targetPlayer + "...");
+          this.updateBuildingsDisplay(); // Update button states
+        }
+
+        /**
+         * Handle attack completed
+         */;
+        _proto.onAttackCompleted = function onAttackCompleted(result) {
+          this.showAttackResult(result);
+          this.updateHeaderDisplay();
+          this.updateBuildingsDisplay();
+        }
+
+        /**
+         * Handle attack error
+         */;
+        _proto.onAttackError = function onAttackError(event) {
+          this.showNotification("Attack failed: " + event.error);
+          this.updateBuildingsDisplay();
+        }
+
+        /**
+         * Handle building already destroyed
+         */;
+        _proto.onBuildingAlreadyDestroyed = function onBuildingAlreadyDestroyed(event) {
+          this.showNotification('Building is already destroyed!');
+        }
+
+        /**
+         * Handle no attacks remaining
+         */;
+        _proto.onNoAttacksRemaining = function onNoAttacksRemaining() {
+          this.showNotification('No attacks remaining! Get a new target.');
+        }
+
+        /**
+         * Handle navigate to scene
+         */;
+        _proto.onNavigateToScene = function onNavigateToScene(sceneName) {
+          director.loadScene(sceneName);
+        }
+
+        // Button Event Handlers
+
+        /**
+         * Handle new target button click
+         */;
+        _proto.onNewTargetClicked = /*#__PURE__*/
+        function () {
+          var _onNewTargetClicked = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+            return _regeneratorRuntime().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  if (!this._viewModel) {
+                    _context.next = 3;
+                    break;
+                  }
+                  _context.next = 3;
+                  return this._viewModel.executeCommand('getNewTarget');
+                case 3:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee, this);
+          }));
+          function onNewTargetClicked() {
+            return _onNewTargetClicked.apply(this, arguments);
+          }
+          return onNewTargetClicked;
+        }()
+        /**
+         * Handle back button click
+         */;
+
+        _proto.onBackClicked = function onBackClicked() {
+          if (this._viewModel) {
+            this._viewModel.executeCommand('goBack');
+          }
+        }
+
+        /**
+         * Handle attack button click
+         */;
+        _proto.onAttackClicked = /*#__PURE__*/
+        function () {
+          var _onAttackClicked = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(buildingIndex) {
+            var building;
+            return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+              while (1) switch (_context2.prev = _context2.next) {
+                case 0:
+                  if (!(!this._viewModel || !this._currentTarget)) {
+                    _context2.next = 2;
+                    break;
+                  }
+                  return _context2.abrupt("return");
+                case 2:
+                  building = this._currentTarget.buildings[buildingIndex];
+                  if (!building) {
+                    _context2.next = 6;
+                    break;
+                  }
+                  _context2.next = 6;
+                  return this._viewModel.executeCommand('attackBuilding', building.buildingId);
+                case 6:
+                case "end":
+                  return _context2.stop();
+              }
+            }, _callee2, this);
+          }));
+          function onAttackClicked(_x) {
+            return _onAttackClicked.apply(this, arguments);
+          }
+          return onAttackClicked;
+        }()
+        /**
+         * Handle result close button click
+         */;
+
+        _proto.onResultCloseClicked = function onResultCloseClicked() {
+          this.hideResultUI();
+        }
+
+        /**
+         * Called when view is shown
+         */;
+        _proto.onShow = function onShow() {
+          _BaseView.prototype.onShow.call(this);
+
+          // Initialize ViewModel if not already done
+          if (!this._viewModel) {
+            this._viewModel = new AttackViewModel();
+            this.setViewModel(this._viewModel);
+            this._viewModel.initialize();
+          }
+        }
+
+        /**
+         * Cleanup on destroy
+         */;
+        _proto.onDestroy = function onDestroy() {
+          // Remove button event listeners
+          if (this.newTargetButton) {
+            this.newTargetButton.node.off(Button.EventType.CLICK, this.onNewTargetClicked, this);
+          }
+          if (this.backButton) {
+            this.backButton.node.off(Button.EventType.CLICK, this.onBackClicked, this);
+          }
+          for (var i = 0; i < this.attackButtons.length; i++) {
+            var button = this.attackButtons[i];
+            if (button) {
+              button.node.off(Button.EventType.CLICK);
+            }
+          }
+          if (this.resultCloseButton) {
+            this.resultCloseButton.node.off(Button.EventType.CLICK, this.onResultCloseClicked, this);
+          }
+
+          // Remove ViewModel event listeners
+          if (this._viewModel) {
+            this._viewModel.off('loadingTarget', this.onLoadingTarget, this);
+            this._viewModel.off('targetLoaded', this.onTargetLoaded, this);
+            this._viewModel.off('targetLoadError', this.onTargetLoadError, this);
+            this._viewModel.off('resourceUpdated', this.onResourceUpdated, this);
+            this._viewModel.off('attackStarted', this.onAttackStarted, this);
+            this._viewModel.off('attackCompleted', this.onAttackCompleted, this);
+            this._viewModel.off('attackError', this.onAttackError, this);
+            this._viewModel.off('buildingAlreadyDestroyed', this.onBuildingAlreadyDestroyed, this);
+            this._viewModel.off('noAttacksRemaining', this.onNoAttacksRemaining, this);
+            this._viewModel.off('navigateToScene', this.onNavigateToScene, this);
+          }
+          _BaseView.prototype.onDestroy.call(this);
+        };
+        return AttackView;
+      }(BaseView), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "goldLabel", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "attacksRemainingLabel", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "targetInfoContainer", [_dec4], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "targetPlayerNameLabel", [_dec5], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "targetPlayerLevelLabel", [_dec6], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "targetCityNameLabel", [_dec7], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, "buildingNodes", [_dec8], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, "buildingSprites", [_dec9], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, "buildingNameLabels", [_dec10], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, "buildingLevelLabels", [_dec11], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, "rewardLabels", [_dec12], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _descriptor12 = _applyDecoratedDescriptor(_class2.prototype, "attackButtons", [_dec13], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _descriptor13 = _applyDecoratedDescriptor(_class2.prototype, "destroyedOverlays", [_dec14], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _descriptor14 = _applyDecoratedDescriptor(_class2.prototype, "newTargetButton", [_dec15], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor15 = _applyDecoratedDescriptor(_class2.prototype, "backButton", [_dec16], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor16 = _applyDecoratedDescriptor(_class2.prototype, "loadingContainer", [_dec17], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor17 = _applyDecoratedDescriptor(_class2.prototype, "loadingLabel", [_dec18], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor18 = _applyDecoratedDescriptor(_class2.prototype, "resultContainer", [_dec19], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor19 = _applyDecoratedDescriptor(_class2.prototype, "resultTitleLabel", [_dec20], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor20 = _applyDecoratedDescriptor(_class2.prototype, "resultMessageLabel", [_dec21], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor21 = _applyDecoratedDescriptor(_class2.prototype, "resultRewardLabel", [_dec22], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor22 = _applyDecoratedDescriptor(_class2.prototype, "resultCloseButton", [_dec23], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor23 = _applyDecoratedDescriptor(_class2.prototype, "notificationContainer", [_dec24], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor24 = _applyDecoratedDescriptor(_class2.prototype, "notificationLabel", [_dec25], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      })), _class2)) || _class));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/AttackViewModel.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseViewModel.ts', './ServiceLocator.ts', './Logger.ts'], function (exports) {
+  var _inheritsLoose, _createClass, _asyncToGenerator, _regeneratorRuntime, cclegacy, BaseViewModel, ServiceLocator, logError;
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _createClass = module.createClass;
+      _asyncToGenerator = module.asyncToGenerator;
+      _regeneratorRuntime = module.regeneratorRuntime;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+    }, function (module) {
+      BaseViewModel = module.BaseViewModel;
+    }, function (module) {
+      ServiceLocator = module.ServiceLocator;
+    }, function (module) {
+      logError = module.logError;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "80ea6qkB3hNk5+Xy4zFn1kg", "AttackViewModel", undefined);
+
+      /**
+       * Attack target player data
+       */
+
+      /**
+       * Attack building data
+       */
+
+      /**
+       * Attack result data
+       */
+
+      /**
+       * Attack ViewModel - Handles attack scene logic
+       */
+      var AttackViewModel = exports('AttackViewModel', /*#__PURE__*/function (_BaseViewModel) {
+        _inheritsLoose(AttackViewModel, _BaseViewModel);
+        // Default attacks per session
+
+        function AttackViewModel() {
+          var _this;
+          _this = _BaseViewModel.call(this) || this;
+          _this._gameService = null;
+          _this._resourceManager = null;
+          _this._attackTarget = null;
+          _this._isAttacking = false;
+          _this._attacksRemaining = 3;
+          return _this;
+        }
+
+        /**
+         * Initialize ViewModel
+         */
+        var _proto = AttackViewModel.prototype;
+        _proto.onInitialize = function onInitialize() {
+          this.setupServices();
+          this.setupEventListeners();
+          this.loadAttackTarget();
+        }
+
+        /**
+         * Setup services
+         */;
+        _proto.setupServices = function setupServices() {
+          var serviceLocator = ServiceLocator.getInstance();
+          this._gameService = serviceLocator.getService('GameService');
+          this._resourceManager = serviceLocator.getService('ResourceManager');
+          if (!this._gameService) {
+            logError('GameService not found');
+          }
+          if (!this._resourceManager) {
+            logError('ResourceManager not found');
+          }
+        }
+
+        /**
+         * Setup event listeners
+         */;
+        _proto.setupEventListeners = function setupEventListeners() {
+          // Resource manager events
+          if (this._resourceManager) {
+            this._resourceManager.on('resourceChanged', this.onResourceChanged, this);
+          }
+        }
+
+        /**
+         * Load attack target from server
+         */;
+        _proto.loadAttackTarget = /*#__PURE__*/
+        function () {
+          var _loadAttackTarget = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+            var targetData;
+            return _regeneratorRuntime().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  _context.prev = 0;
+                  this.emit('loadingTarget', true);
+                  if (!(this._gameService && this._gameService.isReady)) {
+                    _context.next = 9;
+                    break;
+                  }
+                  _context.next = 5;
+                  return this._gameService.getAttackTarget();
+                case 5:
+                  targetData = _context.sent;
+                  this._attackTarget = this.processTargetData(targetData);
+                  _context.next = 10;
+                  break;
+                case 9:
+                  // Generate mock target for offline mode
+                  this._attackTarget = this.generateMockTarget();
+                case 10:
+                  this.emit('targetLoaded', this._attackTarget);
+                  this.emit('loadingTarget', false);
+                  _context.next = 21;
+                  break;
+                case 14:
+                  _context.prev = 14;
+                  _context.t0 = _context["catch"](0);
+                  logError('Failed to load attack target:', _context.t0);
+                  this.emit('targetLoadError', _context.t0);
+                  this.emit('loadingTarget', false);
+
+                  // Fallback to mock target
+                  this._attackTarget = this.generateMockTarget();
+                  this.emit('targetLoaded', this._attackTarget);
+                case 21:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee, this, [[0, 14]]);
+          }));
+          function loadAttackTarget() {
+            return _loadAttackTarget.apply(this, arguments);
+          }
+          return loadAttackTarget;
+        }()
+        /**
+         * Process target data from server
+         */;
+
+        _proto.processTargetData = function processTargetData(serverData) {
+          var _serverData$buildings;
+          return {
+            playerId: serverData.playerId || 'unknown',
+            playerName: serverData.playerName || 'Unknown Player',
+            playerLevel: serverData.playerLevel || 1,
+            cityName: serverData.cityName || 'Unknown City',
+            buildings: ((_serverData$buildings = serverData.buildings) == null ? void 0 : _serverData$buildings.map(function (building) {
+              return {
+                buildingId: building.id || '',
+                buildingType: building.type || 'building',
+                level: building.level || 1,
+                isDestroyed: building.isDestroyed || false,
+                potentialReward: building.potentialReward || 100
+              };
+            })) || []
+          };
+        }
+
+        /**
+         * Generate mock target for testing/offline mode
+         */;
+        _proto.generateMockTarget = function generateMockTarget() {
+          var playerNames = ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'];
+          var cityNames = ['Village', 'Town', 'City', 'Metropolis', 'Capital'];
+          var buildingTypes = ['house', 'shop', 'factory', 'tower', 'castle'];
+          var randomName = playerNames[Math.floor(Math.random() * playerNames.length)];
+          var randomCity = cityNames[Math.floor(Math.random() * cityNames.length)];
+          var randomLevel = Math.floor(Math.random() * 10) + 1;
+          var buildings = [];
+          for (var i = 0; i < 5; i++) {
+            buildings.push({
+              buildingId: "building_" + i,
+              buildingType: buildingTypes[i],
+              level: Math.floor(Math.random() * 3) + 1,
+              isDestroyed: Math.random() < 0.2,
+              // 20% chance of being destroyed
+              potentialReward: Math.floor(Math.random() * 500) + 100
+            });
+          }
+          return {
+            playerId: "player_" + Date.now(),
+            playerName: randomName,
+            playerLevel: randomLevel,
+            cityName: randomCity,
+            buildings: buildings
+          };
+        }
+
+        /**
+         * Execute command
+         */;
+        _proto.executeCommand = /*#__PURE__*/
+        function () {
+          var _executeCommand = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(command) {
+            var _args2 = arguments;
+            return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+              while (1) switch (_context2.prev = _context2.next) {
+                case 0:
+                  _context2.t0 = command;
+                  _context2.next = _context2.t0 === 'attackBuilding' ? 3 : _context2.t0 === 'getNewTarget' ? 4 : _context2.t0 === 'goBack' ? 5 : _context2.t0 === 'refreshTarget' ? 6 : 7;
+                  break;
+                case 3:
+                  return _context2.abrupt("return", this.attackBuilding(_args2.length <= 1 ? undefined : _args2[1]));
+                case 4:
+                  return _context2.abrupt("return", this.getNewTarget());
+                case 5:
+                  return _context2.abrupt("return", this.goBack());
+                case 6:
+                  return _context2.abrupt("return", this.loadAttackTarget());
+                case 7:
+                  throw new Error("Unknown command: " + command);
+                case 8:
+                case "end":
+                  return _context2.stop();
+              }
+            }, _callee2, this);
+          }));
+          function executeCommand(_x) {
+            return _executeCommand.apply(this, arguments);
+          }
+          return executeCommand;
+        }()
+        /**
+         * Attack a specific building
+         */;
+
+        _proto.attackBuilding = /*#__PURE__*/
+        function () {
+          var _attackBuilding = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(buildingId) {
+            var building, attackResult, serverResult;
+            return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+              while (1) switch (_context3.prev = _context3.next) {
+                case 0:
+                  if (!(!this._attackTarget || this._isAttacking)) {
+                    _context3.next = 2;
+                    break;
+                  }
+                  return _context3.abrupt("return", null);
+                case 2:
+                  building = this._attackTarget.buildings.find(function (b) {
+                    return b.buildingId === buildingId;
+                  });
+                  if (building) {
+                    _context3.next = 6;
+                    break;
+                  }
+                  logError("Building not found: " + buildingId);
+                  return _context3.abrupt("return", null);
+                case 6:
+                  if (!building.isDestroyed) {
+                    _context3.next = 9;
+                    break;
+                  }
+                  this.emit('buildingAlreadyDestroyed', {
+                    buildingId: buildingId
+                  });
+                  return _context3.abrupt("return", null);
+                case 9:
+                  if (!(this._attacksRemaining <= 0)) {
+                    _context3.next = 12;
+                    break;
+                  }
+                  this.emit('noAttacksRemaining');
+                  return _context3.abrupt("return", null);
+                case 12:
+                  _context3.prev = 12;
+                  this._isAttacking = true;
+                  this.emit('attackStarted', {
+                    buildingId: buildingId,
+                    targetPlayer: this._attackTarget.playerName
+                  });
+                  if (!(this._gameService && this._gameService.isReady)) {
+                    _context3.next = 22;
+                    break;
+                  }
+                  _context3.next = 18;
+                  return this._gameService.attackPlayer(this._attackTarget.playerId, buildingId);
+                case 18:
+                  serverResult = _context3.sent;
+                  attackResult = this.processAttackResult(serverResult, buildingId);
+                  _context3.next = 23;
+                  break;
+                case 22:
+                  // Generate mock attack result
+                  attackResult = this.generateMockAttackResult(buildingId, building);
+                case 23:
+                  _context3.next = 25;
+                  return this.processAttackSuccess(attackResult);
+                case 25:
+                  this._attacksRemaining--;
+                  this._isAttacking = false;
+                  this.emit('attackCompleted', attackResult);
+                  return _context3.abrupt("return", attackResult);
+                case 31:
+                  _context3.prev = 31;
+                  _context3.t0 = _context3["catch"](12);
+                  logError('Attack failed:', _context3.t0);
+                  this._isAttacking = false;
+                  this.emit('attackError', {
+                    buildingId: buildingId,
+                    error: _context3.t0.message
+                  });
+                  return _context3.abrupt("return", null);
+                case 37:
+                case "end":
+                  return _context3.stop();
+              }
+            }, _callee3, this, [[12, 31]]);
+          }));
+          function attackBuilding(_x2) {
+            return _attackBuilding.apply(this, arguments);
+          }
+          return attackBuilding;
+        }()
+        /**
+         * Process attack result from server
+         */;
+
+        _proto.processAttackResult = function processAttackResult(serverResult, buildingId) {
+          return {
+            success: serverResult.success || false,
+            buildingId: buildingId,
+            goldEarned: serverResult.goldEarned || 0,
+            damageDealt: serverResult.damageDealt || false,
+            message: serverResult.message || 'Attack completed'
+          };
+        }
+
+        /**
+         * Generate mock attack result
+         */;
+        _proto.generateMockAttackResult = function generateMockAttackResult(buildingId, building) {
+          var success = Math.random() < 0.7; // 70% success rate
+          var goldEarned = success ? Math.floor(building.potentialReward * (0.5 + Math.random() * 0.5)) : 0;
+          var damageDealt = success && Math.random() < 0.3; // 30% chance to destroy building
+
+          return {
+            success: success,
+            buildingId: buildingId,
+            goldEarned: goldEarned,
+            damageDealt: damageDealt,
+            message: success ? damageDealt ? 'Building destroyed! Great attack!' : 'Attack successful!' : 'Attack failed! Better luck next time.'
+          };
+        }
+
+        /**
+         * Process successful attack
+         */;
+        _proto.processAttackSuccess = /*#__PURE__*/
+        function () {
+          var _processAttackSuccess = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(attackResult) {
+            var building;
+            return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+              while (1) switch (_context4.prev = _context4.next) {
+                case 0:
+                  if (!(!attackResult.success || !this._attackTarget)) {
+                    _context4.next = 2;
+                    break;
+                  }
+                  return _context4.abrupt("return");
+                case 2:
+                  if (!(attackResult.goldEarned > 0 && this._resourceManager)) {
+                    _context4.next = 5;
+                    break;
+                  }
+                  _context4.next = 5;
+                  return this._resourceManager.addGold(attackResult.goldEarned, 'attack_reward');
+                case 5:
+                  // Update building state if damaged
+                  if (attackResult.damageDealt) {
+                    building = this._attackTarget.buildings.find(function (b) {
+                      return b.buildingId === attackResult.buildingId;
+                    });
+                    if (building) {
+                      building.isDestroyed = true;
+                    }
+                  }
+                case 6:
+                case "end":
+                  return _context4.stop();
+              }
+            }, _callee4, this);
+          }));
+          function processAttackSuccess(_x3) {
+            return _processAttackSuccess.apply(this, arguments);
+          }
+          return processAttackSuccess;
+        }()
+        /**
+         * Get new attack target
+         */;
+
+        _proto.getNewTarget = /*#__PURE__*/
+        function () {
+          var _getNewTarget = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
+            return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+              while (1) switch (_context5.prev = _context5.next) {
+                case 0:
+                  this._attackTarget = null;
+                  this._attacksRemaining = 3; // Reset attacks
+                  _context5.next = 4;
+                  return this.loadAttackTarget();
+                case 4:
+                case "end":
+                  return _context5.stop();
+              }
+            }, _callee5, this);
+          }));
+          function getNewTarget() {
+            return _getNewTarget.apply(this, arguments);
+          }
+          return getNewTarget;
+        }()
+        /**
+         * Go back to main scene
+         */;
+
+        _proto.goBack = function goBack() {
+          this.emit('navigateToScene', 'Main');
+        }
+
+        // Event Handlers
+
+        /**
+         * Handle resource changes
+         */;
+        _proto.onResourceChanged = function onResourceChanged(event) {
+          this.emit('resourceUpdated', event);
+        }
+
+        // Getters
+
+        /**
+         * Get current attack target
+         */;
+        /**
+         * Cleanup resources
+         */
+        _proto.destroy = function destroy() {
+          // Remove event listeners
+          if (this._resourceManager) {
+            this._resourceManager.off('resourceChanged', this.onResourceChanged, this);
+          }
+
+          // Clear references
+          this._gameService = null;
+          this._resourceManager = null;
+          this._attackTarget = null;
+          this._isAttacking = false;
+          _BaseViewModel.prototype.destroy.call(this);
+        };
+        _createClass(AttackViewModel, [{
+          key: "attackTarget",
+          get: function get() {
+            return this._attackTarget;
+          }
+
+          /**
+           * Get current gold amount
+           */
+        }, {
+          key: "currentGold",
+          get: function get() {
+            return this._resourceManager ? this._resourceManager.getGold() : 0;
+          }
+
+          /**
+           * Check if currently attacking
+           */
+        }, {
+          key: "isAttacking",
+          get: function get() {
+            return this._isAttacking;
+          }
+
+          /**
+           * Get remaining attacks
+           */
+        }, {
+          key: "attacksRemaining",
+          get: function get() {
+            return this._attacksRemaining;
+          }
+
+          /**
+           * Check if has attacks remaining
+           */
+        }, {
+          key: "hasAttacksRemaining",
+          get: function get() {
+            return this._attacksRemaining > 0;
+          }
+
+          /**
+           * Get target player name
+           */
+        }, {
+          key: "targetPlayerName",
+          get: function get() {
+            return this._attackTarget ? this._attackTarget.playerName : '';
+          }
+
+          /**
+           * Get target city name
+           */
+        }, {
+          key: "targetCityName",
+          get: function get() {
+            return this._attackTarget ? this._attackTarget.cityName : '';
+          }
+
+          /**
+           * Get target player level
+           */
+        }, {
+          key: "targetPlayerLevel",
+          get: function get() {
+            return this._attackTarget ? this._attackTarget.playerLevel : 1;
+          }
+
+          /**
+           * Get available buildings for attack
+           */
+        }, {
+          key: "availableBuildings",
+          get: function get() {
+            if (!this._attackTarget) return [];
+            return this._attackTarget.buildings.filter(function (building) {
+              return !building.isDestroyed;
+            });
+          }
+
+          /**
+           * Get destroyed buildings
+           */
+        }, {
+          key: "destroyedBuildings",
+          get: function get() {
+            if (!this._attackTarget) return [];
+            return this._attackTarget.buildings.filter(function (building) {
+              return building.isDestroyed;
+            });
+          }
+
+          /**
+           * Get total potential reward
+           */
+        }, {
+          key: "totalPotentialReward",
+          get: function get() {
+            if (!this._attackTarget) return 0;
+            return this.availableBuildings.reduce(function (total, building) {
+              return total + building.potentialReward;
+            }, 0);
+          }
+        }]);
+        return AttackViewModel;
+      }(BaseViewModel));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/BaseModel.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
+  var _inheritsLoose, _extends, cclegacy, EventTarget;
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _extends = module.extends;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      EventTarget = module.EventTarget;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "98eb43ZEzhKurU5Otb++Pg0", "BaseModel", undefined);
+
+      /**
+       * Base Model class for MVVM architecture
+       * All data models should extend this class
+       */
+      var BaseModel = exports('BaseModel', /*#__PURE__*/function (_EventTarget) {
+        _inheritsLoose(BaseModel, _EventTarget);
+        function BaseModel() {
+          var _this;
+          _this = _EventTarget.call(this) || this;
+          _this._data = {};
+          return _this;
+        }
+
+        /**
+         * Get data property
+         */
+        var _proto = BaseModel.prototype;
+        _proto.getData = function getData(key) {
+          return this._data[key];
+        }
+
+        /**
+         * Set data property and notify observers
+         */;
+        _proto.setData = function setData(key, value) {
+          var oldValue = this._data[key];
+          if (oldValue !== value) {
+            this._data[key] = value;
+            this.emit('dataChanged', {
+              key: key,
+              value: value,
+              oldValue: oldValue
+            });
+            this.emit(key + "Changed", {
+              value: value,
+              oldValue: oldValue
+            });
+          }
+        }
+
+        /**
+         * Initialize model with data
+         */;
+        _proto.initialize = function initialize(data) {
+          this._data = _extends({}, data);
+          this.emit('initialized', this._data);
+        }
+
+        /**
+         * Get all data
+         */;
+        _proto.getAllData = function getAllData() {
+          return _extends({}, this._data);
+        }
+
+        /**
+         * Reset model to initial state
+         */;
+        _proto.reset = function reset() {
+          this._data = {};
+          this.emit('reset');
+        }
+
+        /**
+         * Validate model data
+         */;
+        /**
+         * Serialize model to JSON
+         */
+        _proto.toJSON = function toJSON() {
+          return this.getAllData();
+        }
+
+        /**
+         * Deserialize from JSON
+         */;
+        _proto.fromJSON = function fromJSON(json) {
+          this.initialize(json);
+        };
+        return BaseModel;
+      }(EventTarget));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/BaseService.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './Logger.ts'], function (exports) {
+  var _inheritsLoose, _createClass, _asyncToGenerator, _regeneratorRuntime, cclegacy, EventTarget, logError;
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _createClass = module.createClass;
+      _asyncToGenerator = module.asyncToGenerator;
+      _regeneratorRuntime = module.regeneratorRuntime;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      EventTarget = module.EventTarget;
+    }, function (module) {
+      logError = module.logError;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "ff8c2OV8JFBAIhJgSoFtCDP", "BaseService", undefined);
+
+      /**
+       * Base Service class for handling business logic and external communications
+       */
+      var BaseService = exports('BaseService', /*#__PURE__*/function (_EventTarget) {
+        _inheritsLoose(BaseService, _EventTarget);
+        function BaseService() {
+          var _this;
+          _this = _EventTarget.call(this) || this;
+          _this._isInitialized = false;
+          _this._isConnected = false;
+          return _this;
+        }
+
+        /**
+         * Initialize service
+         */
+        var _proto = BaseService.prototype;
+        _proto.initialize = /*#__PURE__*/
+        function () {
+          var _initialize = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+            return _regeneratorRuntime().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  if (!this._isInitialized) {
+                    _context.next = 2;
+                    break;
+                  }
+                  return _context.abrupt("return");
+                case 2:
+                  _context.prev = 2;
+                  _context.next = 5;
+                  return this.onInitialize();
+                case 5:
+                  this._isInitialized = true;
+                  this.emit('initialized');
+                  _context.next = 14;
+                  break;
+                case 9:
+                  _context.prev = 9;
+                  _context.t0 = _context["catch"](2);
+                  logError("Failed to initialize " + this.constructor.name + ":", _context.t0);
+                  this.emit('initializationFailed', _context.t0);
+                  throw _context.t0;
+                case 14:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee, this, [[2, 9]]);
+          }));
+          function initialize() {
+            return _initialize.apply(this, arguments);
+          }
+          return initialize;
+        }()
+        /**
+         * Override this method to handle service initialization
+         */;
+        /**
+         * Connect to external service
+         */
+        _proto.connect = /*#__PURE__*/
+        function () {
+          var _connect = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+            return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+              while (1) switch (_context2.prev = _context2.next) {
+                case 0:
+                  if (!this._isConnected) {
+                    _context2.next = 2;
+                    break;
+                  }
+                  return _context2.abrupt("return");
+                case 2:
+                  _context2.prev = 2;
+                  _context2.next = 5;
+                  return this.onConnect();
+                case 5:
+                  this._isConnected = true;
+                  this.emit('connected');
+                  _context2.next = 14;
+                  break;
+                case 9:
+                  _context2.prev = 9;
+                  _context2.t0 = _context2["catch"](2);
+                  logError("Failed to connect " + this.constructor.name + ":", _context2.t0);
+                  this.emit('connectionFailed', _context2.t0);
+                  throw _context2.t0;
+                case 14:
+                case "end":
+                  return _context2.stop();
+              }
+            }, _callee2, this, [[2, 9]]);
+          }));
+          function connect() {
+            return _connect.apply(this, arguments);
+          }
+          return connect;
+        }()
+        /**
+         * Override this method to handle connection logic
+         */;
+        /**
+         * Disconnect from external service
+         */
+        _proto.disconnect = /*#__PURE__*/
+        function () {
+          var _disconnect = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+            return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+              while (1) switch (_context3.prev = _context3.next) {
+                case 0:
+                  if (this._isConnected) {
+                    _context3.next = 2;
+                    break;
+                  }
+                  return _context3.abrupt("return");
+                case 2:
+                  _context3.prev = 2;
+                  _context3.next = 5;
+                  return this.onDisconnect();
+                case 5:
+                  this._isConnected = false;
+                  this.emit('disconnected');
+                  _context3.next = 14;
+                  break;
+                case 9:
+                  _context3.prev = 9;
+                  _context3.t0 = _context3["catch"](2);
+                  logError("Failed to disconnect " + this.constructor.name + ":", _context3.t0);
+                  this.emit('disconnectionFailed', _context3.t0);
+                  throw _context3.t0;
+                case 14:
+                case "end":
+                  return _context3.stop();
+              }
+            }, _callee3, this, [[2, 9]]);
+          }));
+          function disconnect() {
+            return _disconnect.apply(this, arguments);
+          }
+          return disconnect;
+        }()
+        /**
+         * Override this method to handle disconnection logic
+         */;
+        /**
+         * Cleanup resources
+         */
+        _proto.destroy = function destroy() {
+          if (this._isConnected) {
+            this.disconnect()["catch"](console.error);
+          }
+          this._isInitialized = false;
+          this.targetOff(this);
+        };
+        _createClass(BaseService, [{
+          key: "isInitialized",
+          get:
+          /**
+           * Check if service is initialized
+           */
+          function get() {
+            return this._isInitialized;
+          }
+
+          /**
+           * Check if service is connected
+           */
+        }, {
+          key: "isConnected",
+          get: function get() {
+            return this._isConnected;
+          }
+        }]);
+        return BaseService;
+      }(EventTarget));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/BaseView.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './Logger.ts'], function (exports) {
+  var _inheritsLoose, _createClass, _asyncToGenerator, _regeneratorRuntime, cclegacy, Component, logInfo;
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _createClass = module.createClass;
+      _asyncToGenerator = module.asyncToGenerator;
+      _regeneratorRuntime = module.regeneratorRuntime;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      Component = module.Component;
+    }, function (module) {
+      logInfo = module.logInfo;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "56b2ebPjTVDHKvVrG5T16ZC", "BaseView", undefined);
+
+      /**
+       * Base View class for MVVM architecture
+       * All UI components should extend this class
+       */
+      var BaseView = exports('BaseView', /*#__PURE__*/function (_Component) {
+        _inheritsLoose(BaseView, _Component);
+        function BaseView() {
+          var _this;
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+          _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+          _this._viewModel = null;
+          _this._isInitialized = false;
+          return _this;
+        }
+        var _proto = BaseView.prototype;
+        /**
+         * Set the ViewModel for this View
+         */
+        _proto.setViewModel = function setViewModel(viewModel) {
+          if (this._viewModel) {
+            this._viewModel.off('modelDataChanged', this.onViewModelDataChanged, this);
+            this._viewModel.off('modelInitialized', this.onViewModelInitialized, this);
+          }
+          this._viewModel = viewModel;
+          if (this._viewModel) {
+            this._viewModel.on('modelDataChanged', this.onViewModelDataChanged, this);
+            this._viewModel.on('modelInitialized', this.onViewModelInitialized, this);
+          }
+        }
+
+        /**
+         * Get the current ViewModel
+         */;
+        _proto.getViewModel = function getViewModel() {
+          return this._viewModel;
+        }
+
+        /**
+         * Initialize View
+         */;
+        _proto.onLoad = function onLoad() {
+          logInfo("BaseView: onLoad called for " + this.constructor.name);
+          this.initializeView();
+        }
+
+        /**
+         * Initialize View components
+         */;
+        _proto.initializeView = function initializeView() {
+          logInfo("BaseView: initializeView called for " + this.constructor.name);
+          this._isInitialized = true;
+          this.setupUI();
+          this.bindEvents();
+          logInfo("BaseView: initializeView completed for " + this.constructor.name);
+        }
+
+        /**
+         * Setup UI components - override in derived classes
+         */;
+        /**
+         * Handle ViewModel data changes
+         */
+        _proto.onViewModelDataChanged = function onViewModelDataChanged(event) {
+          this.updateUI(event.key, event.value, event.oldValue);
+        }
+
+        /**
+         * Handle ViewModel initialization
+         */;
+        _proto.onViewModelInitialized = function onViewModelInitialized(data) {
+          this.refreshUI();
+        }
+
+        /**
+         * Update UI based on data changes - override in derived classes
+         */;
+        /**
+         * Execute command through ViewModel
+         */
+        _proto.executeCommand = /*#__PURE__*/
+        function () {
+          var _executeCommand = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(command) {
+            var _this$_viewModel,
+              _len2,
+              args,
+              _key2,
+              _args = arguments;
+            return _regeneratorRuntime().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  if (!this._viewModel) {
+                    _context.next = 5;
+                    break;
+                  }
+                  for (_len2 = _args.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+                    args[_key2 - 1] = _args[_key2];
+                  }
+                  _context.next = 4;
+                  return (_this$_viewModel = this._viewModel).executeCommand.apply(_this$_viewModel, [command].concat(args));
+                case 4:
+                  return _context.abrupt("return", _context.sent);
+                case 5:
+                  return _context.abrupt("return", null);
+                case 6:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee, this);
+          }));
+          function executeCommand(_x) {
+            return _executeCommand.apply(this, arguments);
+          }
+          return executeCommand;
+        }()
+        /**
+         * Show view
+         */;
+
+        _proto.show = function show() {
+          this.node.active = true;
+          this.onShow();
+        }
+
+        /**
+         * Hide view
+         */;
+        _proto.hide = function hide() {
+          this.node.active = false;
+          this.onHide();
+        }
+
+        /**
+         * Called when view is shown - override in derived classes
+         */;
+        _proto.onShow = function onShow() {
+          // Override in derived classes
+        }
+
+        /**
+         * Called when view is hidden - override in derived classes
+         */;
+        _proto.onHide = function onHide() {
+          // Override in derived classes
+        }
+
+        /**
+         * Check if View is initialized
+         */;
+        /**
+         * Cleanup resources
+         */
+        _proto.onDestroy = function onDestroy() {
+          if (this._viewModel) {
+            this._viewModel.off('modelDataChanged', this.onViewModelDataChanged, this);
+            this._viewModel.off('modelInitialized', this.onViewModelInitialized, this);
+            this._viewModel.destroy();
+          }
+          this._viewModel = null;
+          this._isInitialized = false;
+        };
+        _createClass(BaseView, [{
+          key: "isInitialized",
+          get: function get() {
+            return this._isInitialized;
+          }
+        }]);
+        return BaseView;
+      }(Component));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/BaseViewModel.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
+  var _inheritsLoose, _createClass, cclegacy, EventTarget;
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _createClass = module.createClass;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      EventTarget = module.EventTarget;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "55b46hrskpGdLofNgPAYLjo", "BaseViewModel", undefined);
+      /**
+       * Base ViewModel class for MVVM architecture
+       * Handles communication between Model and View
+       */
+      var BaseViewModel = exports('BaseViewModel', /*#__PURE__*/function (_EventTarget) {
+        _inheritsLoose(BaseViewModel, _EventTarget);
+        function BaseViewModel() {
+          var _this;
+          _this = _EventTarget.call(this) || this;
+          _this._model = null;
+          _this._isInitialized = false;
+          return _this;
+        }
+
+        /**
+         * Set the model for this ViewModel
+         */
+        var _proto = BaseViewModel.prototype;
+        _proto.setModel = function setModel(model) {
+          if (this._model) {
+            this._model.off('dataChanged', this.onModelDataChanged, this);
+            this._model.off('initialized', this.onModelInitialized, this);
+          }
+          this._model = model;
+          if (this._model) {
+            this._model.on('dataChanged', this.onModelDataChanged, this);
+            this._model.on('initialized', this.onModelInitialized, this);
+          }
+        }
+
+        /**
+         * Get the current model
+         */;
+        _proto.getModel = function getModel() {
+          return this._model;
+        }
+
+        /**
+         * Initialize ViewModel
+         */;
+        _proto.initialize = function initialize() {
+          this._isInitialized = true;
+          this.onInitialize();
+          this.emit('initialized');
+        }
+
+        /**
+         * Override this method to handle initialization
+         */;
+        _proto.onInitialize = function onInitialize() {
+          // Override in derived classes
+        }
+
+        /**
+         * Handle model data changes
+         */;
+        _proto.onModelDataChanged = function onModelDataChanged(event) {
+          this.emit('modelDataChanged', event);
+        }
+
+        /**
+         * Handle model initialization
+         */;
+        _proto.onModelInitialized = function onModelInitialized(data) {
+          this.emit('modelInitialized', data);
+        }
+
+        /**
+         * Execute command
+         */;
+        /**
+         * Cleanup resources
+         */
+        _proto.destroy = function destroy() {
+          if (this._model) {
+            this._model.off('dataChanged', this.onModelDataChanged, this);
+            this._model.off('initialized', this.onModelInitialized, this);
+          }
+          this._model = null;
+          this._isInitialized = false;
+          this.targetOff(this);
+        };
+        _createClass(BaseViewModel, [{
+          key: "isInitialized",
+          get:
+          /**
+           * Check if ViewModel is initialized
+           */
+          function get() {
+            return this._isInitialized;
+          }
+        }]);
+        return BaseViewModel;
+      }(EventTarget));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/BuildingModel.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseModel.ts', './GameConfig.ts'], function (exports) {
+  var _inheritsLoose, _createClass, cclegacy, BaseModel, GameConfig;
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _createClass = module.createClass;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+    }, function (module) {
+      BaseModel = module.BaseModel;
+    }, function (module) {
+      GameConfig = module.GameConfig;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "633f6BVZdtJtLlKywU7kdHc", "BuildingModel", undefined);
+
+      /**
+       * Building data structure
+       */
+
+      /**
+       * Building Model - Represents a single building in a city
+       */
+      var BuildingModel = exports('BuildingModel', /*#__PURE__*/function (_BaseModel) {
+        _inheritsLoose(BuildingModel, _BaseModel);
+        function BuildingModel(id, cityLevel) {
+          var _this;
+          _this = _BaseModel.call(this) || this;
+          _this.DEFAULT_MAX_LEVEL = 3;
+          _this.DEFAULT_COST_MULTIPLIER = 1.5;
+          var gameConfig = GameConfig.getInstance();
+          var buildingConfig = gameConfig.getBuildingConfig(cityLevel, id);
+          if (!buildingConfig) {
+            throw new Error("Building config for id " + id + " in city level " + cityLevel + " not found");
+          }
+          _this.initialize({
+            id: id,
+            name: buildingConfig.name,
+            level: 0,
+            maxLevel: buildingConfig.maxLevel || _this.DEFAULT_MAX_LEVEL,
+            baseCost: buildingConfig.baseCost,
+            costMultiplier: buildingConfig.costMultiplier || _this.DEFAULT_COST_MULTIPLIER
+          });
+          return _this;
+        }
+
+        /**
+         * Get building ID (e.g., 'house', 'shop')
+         */
+        var _proto = BuildingModel.prototype;
+        /**
+         * Calculate upgrade cost for next level
+         */
+        _proto.getUpgradeCost = function getUpgradeCost() {
+          if (this.isMaxLevel()) {
+            return 0;
+          }
+          var nextLevel = this.level + 1;
+          return Math.floor(this.baseCost * Math.pow(this.costMultiplier, nextLevel - 1));
+        }
+
+        /**
+         * Check if building is at maximum level
+         */;
+        _proto.isMaxLevel = function isMaxLevel() {
+          return this.level >= this.maxLevel;
+        }
+
+        /**
+         * Check if building can be upgraded
+         */;
+        _proto.canUpgrade = function canUpgrade() {
+          return !this.isMaxLevel();
+        }
+
+        /**
+         * Upgrade building to next level
+         */;
+        _proto.upgrade = function upgrade() {
+          if (this.canUpgrade()) {
+            this.level += 1;
+            this.emit('upgraded', {
+              buildingId: this.id,
+              newLevel: this.level,
+              isMaxLevel: this.isMaxLevel()
+            });
+            return true;
+          }
+          return false;
+        }
+
+        /**
+         * Get upgrade progress (0-1)
+         */;
+        _proto.getUpgradeProgress = function getUpgradeProgress() {
+          return this.maxLevel > 0 ? this.level / this.maxLevel : 0;
+        }
+
+        /**
+         * Reset building to level 0
+         */;
+        _proto.resetBuilding = function resetBuilding() {
+          this.level = 0;
+          this.emit('reset', {
+            buildingId: this.id
+          });
+        }
+
+        /**
+         * Validate model data
+         */;
+        _proto.validate = function validate() {
+          var level = this.level;
+          var maxLevel = this.maxLevel;
+          var baseCost = this.baseCost;
+          var costMultiplier = this.costMultiplier;
+          var id = this.id;
+          return id && id.length > 0 && level >= 0 && maxLevel > 0 && level <= maxLevel && baseCost > 0 && costMultiplier >= 1;
+        }
+
+        /**
+         * Serialize to JSON
+         */;
+        _proto.toJSON = function toJSON() {
+          return {
+            id: this.id,
+            level: this.level,
+            maxLevel: this.maxLevel,
+            baseCost: this.baseCost,
+            costMultiplier: this.costMultiplier
+          };
+        }
+
+        /**
+         * Deserialize from JSON
+         */;
+        _proto.fromJSON = function fromJSON(data) {
+          this.initialize({
+            id: data.id || '',
+            level: data.level || 0,
+            maxLevel: data.maxLevel || this.DEFAULT_MAX_LEVEL,
+            baseCost: data.baseCost || 100,
+            costMultiplier: data.costMultiplier || this.DEFAULT_COST_MULTIPLIER
+          });
+        };
+        _createClass(BuildingModel, [{
+          key: "id",
+          get: function get() {
+            return this.getData('id') || '';
+          }
+        }, {
+          key: "name",
+          get: function get() {
+            return this.getData('name') || '';
+          },
+          set: function set(value) {
+            this.setData('name', value);
+          }
+
+          /**
+           * Get current level
+           */
+        }, {
+          key: "level",
+          get: function get() {
+            return this.getData('level') || 0;
+          }
+
+          /**
+           * Set building level
+           */,
+          set: function set(value) {
+            var maxLevel = this.maxLevel;
+            this.setData('level', Math.max(0, Math.min(value, maxLevel)));
+          }
+
+          /**
+           * Get maximum level
+           */
+        }, {
+          key: "maxLevel",
+          get: function get() {
+            return this.getData('maxLevel') || this.DEFAULT_MAX_LEVEL;
+          }
+
+          /**
+           * Set maximum level
+           */,
+          set: function set(value) {
+            this.setData('maxLevel', Math.max(1, value));
+          }
+
+          /**
+           * Get base cost for level 1
+           */
+        }, {
+          key: "baseCost",
+          get: function get() {
+            return this.getData('baseCost') || 100;
+          }
+
+          /**
+           * Set base cost
+           */,
+          set: function set(value) {
+            this.setData('baseCost', Math.max(1, value));
+          }
+
+          /**
+           * Get cost multiplier per level
+           */
+        }, {
+          key: "costMultiplier",
+          get: function get() {
+            return this.getData('costMultiplier') || this.DEFAULT_COST_MULTIPLIER;
+          }
+
+          /**
+           * Set cost multiplier
+           */,
+          set: function set(value) {
+            this.setData('costMultiplier', Math.max(1, value));
+          }
+        }]);
+        return BuildingModel;
+      }(BaseModel));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/CheatComponent.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './ServiceLocator.ts'], function (exports) {
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, cclegacy, _decorator, EditBox, log, Component, ServiceLocator;
+  return {
+    setters: [function (module) {
+      _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
+      _inheritsLoose = module.inheritsLoose;
+      _initializerDefineProperty = module.initializerDefineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      EditBox = module.EditBox;
+      log = module.log;
+      Component = module.Component;
+    }, function (module) {
+      ServiceLocator = module.ServiceLocator;
+    }],
+    execute: function () {
+      var _dec, _dec2, _dec3, _class, _class2, _descriptor, _descriptor2;
+      cclegacy._RF.push({}, "8ce81yCyoNLqrIyVJ1RA1ee", "CheatComponent", undefined);
+      var ccclass = _decorator.ccclass,
+        property = _decorator.property;
+      var CheatComponent = exports('CheatComponent', (_dec = ccclass('CheatComponent'), _dec2 = property(EditBox), _dec3 = property(EditBox), _dec(_class = (_class2 = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(CheatComponent, _Component);
+        function CheatComponent() {
+          var _this;
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+          _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+          _initializerDefineProperty(_this, "inputEnergy", _descriptor, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "inputGold", _descriptor2, _assertThisInitialized(_this));
+          return _this;
+        }
+        var _proto = CheatComponent.prototype;
+        /**
+         * Handle click event for setting energy values
+         * Validates input, retrieves player model, and updates energy with proper error handling
+         */
+        _proto.onClickBtnSetEnergy = function onClickBtnSetEnergy() {
+          try {
+            // Validate input field exists
+            if (!this.inputEnergy) {
+              log("Error: Energy input field is not assigned");
+              return;
+            }
+
+            // Parse and validate energy value
+            var energyInput = this.inputEnergy.string.trim();
+            if (!energyInput) {
+              log("Error: Energy input is empty");
+              return;
+            }
+            var energyValue = Number(energyInput);
+
+            // Validate numeric input
+            if (isNaN(energyValue)) {
+              log("Error: Energy input is not a valid number");
+              return;
+            }
+
+            // Validate energy range (must be non-negative and reasonable)
+            if (energyValue < 0) {
+              log("Error: Energy value cannot be negative");
+              return;
+            }
+            if (energyValue > 999999) {
+              log("Error: Energy value is too large (max: 999999)");
+              return;
+            }
+
+            // Get game service and player model
+            var serviceLocator = ServiceLocator.getInstance();
+            var gameService = serviceLocator.getService('GameService');
+            if (!gameService) {
+              log("Error: GameService not found");
+              return;
+            }
+            var playerModel = gameService.getPlayerModel();
+            if (!playerModel) {
+              log("Error: PlayerModel not found");
+              return;
+            }
+            var resourceModel = playerModel.resources;
+            if (!resourceModel) {
+              log("Error: ResourceModel not found");
+              return;
+            }
+
+            // Set the energy value
+            resourceModel.energy = energyValue;
+            log("Energy successfully set to: " + energyValue);
+
+            // Clear input field after successful operation
+            this.inputEnergy.string = '';
+          } catch (error) {
+            log("Error in onClickBtnSetEnergy: " + error);
+          }
+        }
+
+        /**
+         * Handle click event for setting gold values
+         * Validates input, retrieves player model, and updates gold with proper error handling
+         */;
+        _proto.onClickBtnSetGold = function onClickBtnSetGold() {
+          try {
+            // Validate input field exists
+            if (!this.inputGold) {
+              log("Error: Gold input field is not assigned");
+              return;
+            }
+
+            // Parse and validate gold value
+            var goldInput = this.inputGold.string.trim();
+            if (!goldInput) {
+              log("Error: Gold input is empty");
+              return;
+            }
+            var goldValue = Number(goldInput);
+
+            // Validate numeric input
+            if (isNaN(goldValue)) {
+              log("Error: Gold input is not a valid number");
+              return;
+            }
+
+            // Validate gold range (must be non-negative and reasonable)
+            if (goldValue < 0) {
+              log("Error: Gold value cannot be negative");
+              return;
+            }
+            if (goldValue > 999999999) {
+              log("Error: Gold value is too large (max: 999999999)");
+              return;
+            }
+
+            // Get game service and player model
+            var serviceLocator = ServiceLocator.getInstance();
+            var gameService = serviceLocator.getService('GameService');
+            if (!gameService) {
+              log("Error: GameService not found");
+              return;
+            }
+            var playerModel = gameService.getPlayerModel();
+            if (!playerModel) {
+              log("Error: PlayerModel not found");
+              return;
+            }
+            var resourceModel = playerModel.resources;
+            if (!resourceModel) {
+              log("Error: ResourceModel not found");
+              return;
+            }
+
+            // Set the gold value
+            resourceModel.gold = goldValue;
+            log("Gold successfully set to: " + goldValue);
+
+            // Clear input field after successful operation
+            this.inputGold.string = '';
+          } catch (error) {
+            log("Error in onClickBtnSetGold: " + error);
+          }
+        };
+        _proto.onClickBtnClose = function onClickBtnClose() {
+          this.hide();
+        };
+        _proto.show = function show() {
+          this.node.active = true;
+        };
+        _proto.hide = function hide() {
+          this.node.active = false;
+        };
+        return CheatComponent;
+      }(Component), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "inputEnergy", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "inputGold", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      })), _class2)) || _class));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/CityModel.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseModel.ts', './BuildingModel.ts', './GameConfig.ts'], function (exports) {
+  var _inheritsLoose, _createForOfIteratorHelperLoose, _createClass, cclegacy, BaseModel, BuildingModel, GameConfig;
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _createForOfIteratorHelperLoose = module.createForOfIteratorHelperLoose;
+      _createClass = module.createClass;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+    }, function (module) {
+      BaseModel = module.BaseModel;
+    }, function (module) {
+      BuildingModel = module.BuildingModel;
+    }, function (module) {
+      GameConfig = module.GameConfig;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "a76bbBagQFNAr+y6UZNWnbX", "CityModel", undefined);
+
+      /**
+       * City data structure
+       */
+
+      /**
+       * City Model - Represents a city with multiple buildings
+       */
+      var CityModel = exports('CityModel', /*#__PURE__*/function (_BaseModel) {
+        _inheritsLoose(CityModel, _BaseModel);
+        function CityModel(level) {
+          var _this;
+          _this = _BaseModel.call(this) || this;
+          _this._buildings = new Map();
+          var gameConfig = GameConfig.getInstance();
+          var cityConfig = gameConfig.getCityConfig(level);
+          if (!cityConfig) {
+            throw new Error("City config for level " + level + " not found");
+          }
+          _this.initialize({
+            id: cityConfig.id,
+            name: cityConfig.name,
+            level: cityConfig.level,
+            isCompleted: false,
+            completionReward: cityConfig.completionReward
+          });
+          _this.initializeBuildings();
+          return _this;
+        }
+
+        /**
+         * Initialize buildings for this city
+         */
+        var _proto = CityModel.prototype;
+        _proto.initializeBuildings = function initializeBuildings() {
+          var gameConfig = GameConfig.getInstance();
+          var cityConfig = gameConfig.getCityConfig(this.level);
+
+          // Use configuration from GameConfig
+          for (var i = 0; i < cityConfig.buildings.length; i++) {
+            var buildingConfig = cityConfig.buildings[i];
+            var building = new BuildingModel(buildingConfig.id, this.level);
+            building.on('upgraded', this.onBuildingUpgraded, this);
+            building.on('reset', this.onBuildingReset, this);
+            this._buildings.set(buildingConfig.id, building);
+          }
+        }
+
+        /**
+         * Get city ID
+         */;
+        /**
+         * Get all buildings
+         */
+        _proto.getBuildings = function getBuildings() {
+          return Array.from(this._buildings.values());
+        }
+
+        /**
+         * Get building by ID
+         */;
+        _proto.getBuilding = function getBuilding(buildingId) {
+          return this._buildings.get(buildingId) || null;
+        }
+
+        /**
+         * Get building by index
+         */;
+        _proto.getBuildingByIndex = function getBuildingByIndex(index) {
+          var buildings = this.getBuildings();
+          return buildings[index] || null;
+        }
+
+        /**
+         * Check if all buildings are at maximum level
+         */;
+        _proto.areAllBuildingsMaxLevel = function areAllBuildingsMaxLevel() {
+          for (var _iterator = _createForOfIteratorHelperLoose(this._buildings.values()), _step; !(_step = _iterator()).done;) {
+            var building = _step.value;
+            if (!building.isMaxLevel()) {
+              return false;
+            }
+          }
+          return true;
+        }
+
+        /**
+         * Get city completion progress (0-1)
+         */;
+        _proto.getCompletionProgress = function getCompletionProgress() {
+          var totalLevels = 0;
+          var maxTotalLevels = 0;
+          for (var _iterator2 = _createForOfIteratorHelperLoose(this._buildings.values()), _step2; !(_step2 = _iterator2()).done;) {
+            var building = _step2.value;
+            totalLevels += building.level;
+            maxTotalLevels += building.maxLevel;
+          }
+          return maxTotalLevels > 0 ? totalLevels / maxTotalLevels : 0;
+        }
+
+        /**
+         * Get total upgrade cost for all buildings to next level
+         */;
+        _proto.getTotalUpgradeCost = function getTotalUpgradeCost() {
+          var totalCost = 0;
+          for (var _iterator3 = _createForOfIteratorHelperLoose(this._buildings.values()), _step3; !(_step3 = _iterator3()).done;) {
+            var building = _step3.value;
+            if (building.canUpgrade()) {
+              totalCost += building.getUpgradeCost();
+            }
+          }
+          return totalCost;
+        }
+
+        /**
+         * Upgrade a specific building
+         */;
+        _proto.upgradeBuilding = function upgradeBuilding(buildingId) {
+          var building = this._buildings.get(buildingId);
+          if (building && building.canUpgrade()) {
+            return building.upgrade();
+          }
+          return false;
+        }
+
+        /**
+         * Handle building upgrade event
+         */;
+        _proto.onBuildingUpgraded = function onBuildingUpgraded(event) {
+          this.emit('buildingUpgraded', event);
+
+          // Check if city is completed
+          if (this.areAllBuildingsMaxLevel() && !this.isCompleted) {
+            this.completeCity();
+          }
+        }
+
+        /**
+         * Handle building reset event
+         */;
+        _proto.onBuildingReset = function onBuildingReset(event) {
+          this.emit('buildingReset', event);
+
+          // Mark city as not completed if it was completed
+          if (this.isCompleted) {
+            this.setData('isCompleted', false);
+            this.emit('cityIncomplete', {
+              cityId: this.id
+            });
+          }
+        }
+
+        /**
+         * Complete the city
+         */;
+        _proto.completeCity = function completeCity() {
+          this.setData('isCompleted', true);
+          this.emit('cityCompleted', {
+            cityId: this.id,
+            cityName: this.name,
+            reward: this.completionReward
+          });
+        }
+
+        /**
+         * Reset all buildings in the city
+         */;
+        _proto.resetCity = function resetCity() {
+          for (var _iterator4 = _createForOfIteratorHelperLoose(this._buildings.values()), _step4; !(_step4 = _iterator4()).done;) {
+            var building = _step4.value;
+            building.resetBuilding();
+          }
+          this.setData('isCompleted', false);
+          this.emit('cityReset', {
+            cityId: this.id
+          });
+        }
+
+        /**
+         * Validate model data
+         */;
+        _proto.validate = function validate() {
+          var id = this.id;
+          var name = this.name;
+          var level = this.level;
+          var completionReward = this.completionReward;
+
+          // Validate basic properties
+          if (!id || !name || level < 1 || completionReward < 0) {
+            return false;
+          }
+
+          // Validate buildings
+          var gameConfig = GameConfig.getInstance();
+          var cityConfig = gameConfig.getCityConfig(this.level);
+          var expectedBuildingCount = cityConfig && cityConfig.buildings ? cityConfig.buildings.length : 5;
+          if (this._buildings.size !== expectedBuildingCount) {
+            return false;
+          }
+          for (var _iterator5 = _createForOfIteratorHelperLoose(this._buildings.values()), _step5; !(_step5 = _iterator5()).done;) {
+            var building = _step5.value;
+            if (!building.validate()) {
+              return false;
+            }
+          }
+          return true;
+        }
+
+        /**
+         * Serialize to JSON
+         */;
+        _proto.toJSON = function toJSON() {
+          var buildings = [];
+          for (var _iterator6 = _createForOfIteratorHelperLoose(this._buildings.values()), _step6; !(_step6 = _iterator6()).done;) {
+            var building = _step6.value;
+            buildings.push(building.toJSON());
+          }
+          return {
+            id: this.id,
+            name: this.name,
+            level: this.level,
+            isCompleted: this.isCompleted,
+            buildings: buildings,
+            completionReward: this.completionReward
+          };
+        }
+
+        /**
+         * Deserialize from JSON
+         */;
+        _proto.fromJSON = function fromJSON(data) {
+          this.initialize({
+            id: data.id || '',
+            name: data.name || '',
+            level: data.level || 1,
+            isCompleted: data.isCompleted || false,
+            completionReward: data.completionReward || 0
+          });
+
+          // Clear existing buildings
+          for (var _iterator7 = _createForOfIteratorHelperLoose(this._buildings.values()), _step7; !(_step7 = _iterator7()).done;) {
+            var _building = _step7.value;
+            _building.targetOff(this);
+          }
+          this._buildings.clear();
+
+          // Load buildings from data
+          if (data.buildings && data.buildings.length > 0) {
+            for (var _iterator8 = _createForOfIteratorHelperLoose(data.buildings), _step8; !(_step8 = _iterator8()).done;) {
+              var buildingData = _step8.value;
+              var building = new BuildingModel(buildingData.id, this.level);
+              building.fromJSON(buildingData);
+              building.on('upgraded', this.onBuildingUpgraded, this);
+              building.on('reset', this.onBuildingReset, this);
+              this._buildings.set(building.id, building);
+            }
+          }
+        }
+
+        /**
+         * Cleanup resources
+         */;
+        _proto.destroy = function destroy() {
+          for (var _iterator9 = _createForOfIteratorHelperLoose(this._buildings.values()), _step9; !(_step9 = _iterator9()).done;) {
+            var building = _step9.value;
+            building.targetOff(this);
+            building.reset();
+          }
+          this._buildings.clear();
+          _BaseModel.prototype.reset.call(this);
+        };
+        _createClass(CityModel, [{
+          key: "id",
+          get: function get() {
+            return this.getData('id') || '';
+          }
+
+          /**
+           * Get city name
+           */
+        }, {
+          key: "name",
+          get: function get() {
+            return this.getData('name') || '';
+          }
+
+          /**
+           * Set city name
+           */,
+          set: function set(value) {
+            this.setData('name', value);
+          }
+
+          /**
+           * Get city level
+           */
+        }, {
+          key: "level",
+          get: function get() {
+            return this.getData('level') || 1;
+          }
+
+          /**
+           * Get completion status
+           */
+        }, {
+          key: "isCompleted",
+          get: function get() {
+            return this.getData('isCompleted') || false;
+          }
+
+          /**
+           * Get completion reward
+           */
+        }, {
+          key: "completionReward",
+          get: function get() {
+            return this.getData('completionReward') || 0;
+          }
+        }]);
+        return CityModel;
+      }(BaseModel));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseView.ts', './CityViewModel.ts', './Logger.ts'], function (exports) {
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _asyncToGenerator, _regeneratorRuntime, cclegacy, _decorator, Label, ProgressBar, Node, Sprite, Button, log, v3, Color, tween, director, BaseView, CityViewModel, logError;
+  return {
+    setters: [function (module) {
+      _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
+      _inheritsLoose = module.inheritsLoose;
+      _initializerDefineProperty = module.initializerDefineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+      _asyncToGenerator = module.asyncToGenerator;
+      _regeneratorRuntime = module.regeneratorRuntime;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      Label = module.Label;
+      ProgressBar = module.ProgressBar;
+      Node = module.Node;
+      Sprite = module.Sprite;
+      Button = module.Button;
+      log = module.log;
+      v3 = module.v3;
+      Color = module.Color;
+      tween = module.tween;
+      director = module.director;
+    }, function (module) {
+      BaseView = module.BaseView;
+    }, function (module) {
+      CityViewModel = module.CityViewModel;
+    }, function (module) {
+      logError = module.logError;
+    }],
+    execute: function () {
+      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17;
+      cclegacy._RF.push({}, "b5969WZCAFGrZEV8MPqMTNc", "CityView", undefined);
+      var ccclass = _decorator.ccclass,
+        property = _decorator.property;
+
+      /**
+       * City View - UI for city building scene
+       */
+      var CityView = exports('CityView', (_dec = ccclass('CityView'), _dec2 = property(Label), _dec3 = property(Label), _dec4 = property(ProgressBar), _dec5 = property(Label), _dec6 = property([Node]), _dec7 = property([Sprite]), _dec8 = property([Label]), _dec9 = property([Label]), _dec10 = property([Button]), _dec11 = property([Label]), _dec12 = property(Button), _dec13 = property(Node), _dec14 = property(Label), _dec15 = property(Label), _dec16 = property(Button), _dec17 = property(Node), _dec18 = property(Label), _dec(_class = (_class2 = /*#__PURE__*/function (_BaseView) {
+        _inheritsLoose(CityView, _BaseView);
+        function CityView() {
+          var _this;
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+          _this = _BaseView.call.apply(_BaseView, [this].concat(args)) || this;
+          // Header UI
+          _initializerDefineProperty(_this, "cityNameLabel", _descriptor, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "goldLabel", _descriptor2, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "cityProgressBar", _descriptor3, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "cityProgressLabel", _descriptor4, _assertThisInitialized(_this));
+          // Building UI
+          _initializerDefineProperty(_this, "buildingNodes", _descriptor5, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "buildingSprites", _descriptor6, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "buildingNameLabels", _descriptor7, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "buildingLevelLabels", _descriptor8, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "upgradeButtons", _descriptor9, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "upgradeCostLabels", _descriptor10, _assertThisInitialized(_this));
+          // Navigation
+          _initializerDefineProperty(_this, "backButton", _descriptor11, _assertThisInitialized(_this));
+          // Completion UI
+          _initializerDefineProperty(_this, "completionContainer", _descriptor12, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "completionTitleLabel", _descriptor13, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "completionRewardLabel", _descriptor14, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "completionCloseButton", _descriptor15, _assertThisInitialized(_this));
+          // Notification UI
+          _initializerDefineProperty(_this, "notificationContainer", _descriptor16, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "notificationLabel", _descriptor17, _assertThisInitialized(_this));
+          _this._viewModel = null;
+          _this._buildingData = [];
+          return _this;
+        }
+        var _proto = CityView.prototype;
+        /**
+         * Setup UI components
+         */
+        _proto.setupUI = function setupUI() {
+          this.bindUI();
+          // Initialize UI state
+          this.updateHeaderDisplay();
+          this.updateBuildingDisplay();
+          this.hideCompletionUI();
+          this.hideNotification();
+        };
+        _proto.bindUI = function bindUI() {
+          for (var i = 0; i < this.buildingNodes.length; i++) {
+            var buildingNode = this.buildingNodes[i];
+            var buildingSprite = buildingNode.getChildByName('BuildingSprite');
+            var buildingNameLabel = buildingNode.getChildByName('BuildingNameLabel');
+            var buildingLevelLabel = buildingNode.getChildByName('BuildingLevelLabel');
+            var upgradeButton = buildingNode.getChildByName('UpgradeButton');
+            var upgradeCostLabel = upgradeButton.getChildByName('UpgradeCostLabel');
+            if (buildingSprite) {
+              this.buildingSprites.push(buildingSprite.getComponent(Sprite));
+            }
+            if (buildingNameLabel) {
+              this.buildingNameLabels.push(buildingNameLabel.getComponent(Label));
+            }
+            if (buildingLevelLabel) {
+              this.buildingLevelLabels.push(buildingLevelLabel.getComponent(Label));
+            }
+            if (upgradeButton) {
+              this.upgradeButtons.push(upgradeButton.getComponent(Button));
+            }
+            if (upgradeCostLabel) {
+              this.upgradeCostLabels.push(upgradeCostLabel.getComponent(Label));
+            }
+          }
+        }
+
+        /**
+         * Bind UI events
+         */;
+        _proto.bindEvents = function bindEvents() {
+          var _this2 = this;
+          // Back button
+          if (this.backButton) {
+            this.backButton.node.on(Button.EventType.CLICK, this.onBackClicked, this);
+          }
+
+          // Upgrade buttons
+          var _loop = function _loop(i) {
+            var button = _this2.upgradeButtons[i];
+            if (button) {
+              button.node.on(Button.EventType.CLICK, function () {
+                return _this2.onUpgradeClicked(i);
+              }, _this2);
+            }
+          };
+          for (var i = 0; i < this.upgradeButtons.length; i++) {
+            _loop(i);
+          }
+
+          // Completion close button
+          if (this.completionCloseButton) {
+            this.completionCloseButton.node.on(Button.EventType.CLICK, this.onCompletionCloseClicked, this);
+          }
+        }
+
+        /**
+         * Update UI based on data changes
+         */;
+        _proto.updateUI = function updateUI(key, value, oldValue) {
+          // Handle ViewModel data changes if needed
+        }
+
+        /**
+         * Refresh entire UI
+         */;
+        _proto.refreshUI = function refreshUI() {
+          this.updateHeaderDisplay();
+          this.updateBuildingDisplay();
+        }
+
+        /**
+         * Set ViewModel and setup event listeners
+         */;
+        _proto.setViewModel = function setViewModel(viewModel) {
+          _BaseView.prototype.setViewModel.call(this, viewModel);
+          this._viewModel = viewModel;
+          if (this._viewModel) {
+            this.setupViewModelEvents();
+          }
+        }
+
+        /**
+         * Setup ViewModel event listeners
+         */;
+        _proto.setupViewModelEvents = function setupViewModelEvents() {
+          if (!this._viewModel) return;
+          this._viewModel.on('cityDataLoaded', this.onCityDataLoaded, this);
+          this._viewModel.on('resourceUpdated', this.onResourceUpdated, this);
+          this._viewModel.on('buildingDataUpdated', this.onBuildingDataUpdated, this);
+          this._viewModel.on('cityProgressUpdated', this.onCityProgressUpdated, this);
+          this._viewModel.on('buildingUpgradeSuccess', this.onBuildingUpgradeSuccess, this);
+          this._viewModel.on('buildingUpgradeError', this.onBuildingUpgradeError, this);
+          this._viewModel.on('insufficientGold', this.onInsufficientGold, this);
+          this._viewModel.on('buildingMaxLevel', this.onBuildingMaxLevel, this);
+          this._viewModel.on('cityCompleted', this.onCityCompleted, this);
+          this._viewModel.on('showCityCompletion', this.onShowCityCompletion, this);
+          this._viewModel.on('navigateToScene', this.onNavigateToScene, this);
+        }
+
+        /**
+         * Update header display
+         */;
+        _proto.updateHeaderDisplay = function updateHeaderDisplay() {
+          if (!this._viewModel) return;
+
+          // Update city name
+          if (this.cityNameLabel) {
+            this.cityNameLabel.string = this._viewModel.currentCityName || 'City';
+          }
+
+          // Update gold display
+          if (this.goldLabel) {
+            this.goldLabel.string = this.formatNumber(this._viewModel.currentGold);
+          }
+
+          // Update city progress
+          if (this.cityProgressBar) {
+            this.cityProgressBar.progress = this._viewModel.cityCompletionProgress;
+          }
+          if (this.cityProgressLabel) {
+            var progress = Math.round(this._viewModel.cityCompletionProgress * 100);
+            this.cityProgressLabel.string = progress + "%";
+          }
+        }
+
+        /**
+         * Update building display
+         */;
+        _proto.updateBuildingDisplay = function updateBuildingDisplay() {
+          var _this3 = this;
+          if (!this._viewModel) return;
+
+          // Get all building data asynchronously and update UI when ready
+          this._viewModel.executeCommand('getAllBuildingsData').then(function (buildingData) {
+            _this3._buildingData = buildingData;
+
+            // Update each building UI
+            for (var i = 0; i < _this3._buildingData.length && i < _this3.buildingNodes.length; i++) {
+              var _buildingData = _this3._buildingData[i];
+              _this3.updateBuildingUI(i, _buildingData);
+            }
+          })["catch"](function (error) {
+            logError('Failed to get building data:', error);
+          });
+        }
+
+        /**
+         * Update individual building UI
+         */;
+        _proto.updateBuildingUI = function updateBuildingUI(index, buildingData) {
+          log('updateBuildingUI', index, buildingData);
+          // Update building name
+          if (this.buildingNameLabels[index]) {
+            this.buildingNameLabels[index].string = buildingData.buildingName;
+          }
+
+          // Update building level
+          if (this.buildingLevelLabels[index]) {
+            this.buildingLevelLabels[index].string = "Level " + buildingData.currentLevel + "/" + buildingData.maxLevel;
+          }
+
+          // Update upgrade button
+          if (this.upgradeButtons[index]) {
+            this.upgradeButtons[index].interactable = buildingData.canUpgrade;
+          }
+
+          // Update upgrade cost
+          if (this.upgradeCostLabels[index]) {
+            if (buildingData.isMaxLevel) {
+              this.upgradeCostLabels[index].string = 'MAX LEVEL';
+            } else {
+              this.upgradeCostLabels[index].string = this.formatNumber(buildingData.upgradeCost);
+            }
+          }
+
+          // Update building sprite based on level
+          this.updateBuildingSprite(index, buildingData);
+        }
+
+        /**
+         * Update building sprite based on level
+         */;
+        _proto.updateBuildingSprite = function updateBuildingSprite(index, buildingData) {
+          if (!this.buildingSprites[index]) return;
+          var sprite = this.buildingSprites[index];
+
+          // Change sprite color/scale based on level (placeholder implementation)
+          var levelProgress = buildingData.currentLevel / buildingData.maxLevel;
+          var scale = 0.8 + levelProgress * 0.4; // Scale from 0.8 to 1.2
+
+          if (this.buildingNodes[index]) {
+            this.buildingNodes[index].scale = v3(scale, scale, 1);
+          }
+
+          // Change color based on level
+          if (buildingData.isMaxLevel) {
+            sprite.color = Color.YELLOW; // Gold for max level
+          } else if (buildingData.currentLevel > 0) {
+            sprite.color = Color.GREEN; // Green for upgraded
+          } else {
+            sprite.color = Color.WHITE; // White for level 0
+          }
+        }
+
+        /**
+         * Show completion UI
+         */;
+        _proto.showCompletionUI = function showCompletionUI(cityName, reward) {
+          if (this.completionContainer) {
+            this.completionContainer.active = true;
+          }
+          if (this.completionTitleLabel) {
+            this.completionTitleLabel.string = cityName + " Completed!";
+          }
+          if (this.completionRewardLabel) {
+            this.completionRewardLabel.string = "Reward: " + this.formatNumber(reward) + " Gold";
+          }
+        }
+
+        /**
+         * Hide completion UI
+         */;
+        _proto.hideCompletionUI = function hideCompletionUI() {
+          if (this.completionContainer) {
+            this.completionContainer.active = false;
+          }
+        }
+
+        /**
+         * Show notification
+         */;
+        _proto.showNotification = function showNotification(message, duration) {
+          var _this4 = this;
+          if (duration === void 0) {
+            duration = 3.0;
+          }
+          if (this.notificationContainer && this.notificationLabel) {
+            this.notificationLabel.string = message;
+            this.notificationContainer.active = true;
+
+            // Auto-hide after duration
+            this.scheduleOnce(function () {
+              _this4.hideNotification();
+            }, duration);
+          }
+        }
+
+        /**
+         * Hide notification
+         */;
+        _proto.hideNotification = function hideNotification() {
+          if (this.notificationContainer) {
+            this.notificationContainer.active = false;
+          }
+        }
+
+        /**
+         * Format number for display
+         */;
+        _proto.formatNumber = function formatNumber(num) {
+          if (num >= 1000000) {
+            return (num / 1000000).toFixed(1) + 'M';
+          } else if (num >= 1000) {
+            return (num / 1000).toFixed(1) + 'K';
+          }
+          return num.toString();
+        }
+
+        /**
+         * Animate building upgrade
+         */;
+        _proto.animateBuildingUpgrade = function animateBuildingUpgrade(buildingIndex) {
+          if (buildingIndex < 0 || buildingIndex >= this.buildingNodes.length) return;
+          var buildingNode = this.buildingNodes[buildingIndex];
+          if (!buildingNode) return;
+
+          // Scale animation
+          tween(buildingNode).to(0.2, {
+            scale: v3(1.3, 1.3, 1)
+          }).to(0.2, {
+            scale: v3(1.0, 1.0, 1)
+          }).start();
+
+          // Particle effect or other visual feedback can be added here
+        }
+
+        // Event Handlers
+
+        /**
+         * Handle city data loaded
+         */;
+        _proto.onCityDataLoaded = function onCityDataLoaded() {
+          this.refreshUI();
+        }
+
+        /**
+         * Handle resource updated
+         */;
+        _proto.onResourceUpdated = function onResourceUpdated(event) {
+          this.updateHeaderDisplay();
+        }
+
+        /**
+         * Handle building data updated
+         */;
+        _proto.onBuildingDataUpdated = function onBuildingDataUpdated(buildingData) {
+          this._buildingData = buildingData;
+          this.updateBuildingDisplay();
+        }
+
+        /**
+         * Handle city progress updated
+         */;
+        _proto.onCityProgressUpdated = function onCityProgressUpdated(progressData) {
+          this.updateHeaderDisplay();
+        }
+
+        /**
+         * Handle building upgrade success
+         */;
+        _proto.onBuildingUpgradeSuccess = function onBuildingUpgradeSuccess(event) {
+          var buildingIndex = this._buildingData.findIndex(function (data) {
+            return data.buildingId === event.buildingId;
+          });
+          if (buildingIndex >= 0) {
+            this.animateBuildingUpgrade(buildingIndex);
+          }
+          this.showNotification("Building upgraded to level " + event.newLevel + "!");
+        }
+
+        /**
+         * Handle building upgrade error
+         */;
+        _proto.onBuildingUpgradeError = function onBuildingUpgradeError(event) {
+          this.showNotification("Upgrade failed: " + event.error);
+        }
+
+        /**
+         * Handle insufficient gold
+         */;
+        _proto.onInsufficientGold = function onInsufficientGold(event) {
+          this.showNotification("Need " + this.formatNumber(event.required) + " gold, have " + this.formatNumber(event.available));
+        }
+
+        /**
+         * Handle building max level
+         */;
+        _proto.onBuildingMaxLevel = function onBuildingMaxLevel(event) {
+          this.showNotification('Building is already at maximum level!');
+        }
+
+        /**
+         * Handle city completed
+         */;
+        _proto.onCityCompleted = function onCityCompleted(event) {
+          this.updateHeaderDisplay();
+          this.updateBuildingDisplay();
+        }
+
+        /**
+         * Handle show city completion
+         */;
+        _proto.onShowCityCompletion = function onShowCityCompletion(event) {
+          this.showCompletionUI(event.cityName, event.reward);
+        }
+
+        /**
+         * Handle navigate to scene
+         */;
+        _proto.onNavigateToScene = function onNavigateToScene(sceneName) {
+          director.loadScene(sceneName);
+        }
+
+        // Button Event Handlers
+
+        /**
+         * Handle back button click
+         */;
+        _proto.onBackClicked = function onBackClicked() {
+          if (this._viewModel) {
+            this._viewModel.executeCommand('goBack');
+          }
+        }
+
+        /**
+         * Handle upgrade button click
+         */;
+        _proto.onUpgradeClicked = /*#__PURE__*/
+        function () {
+          var _onUpgradeClicked = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(buildingIndex) {
+            var buildingData;
+            return _regeneratorRuntime().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  log("Upgrading building at index " + buildingIndex + " _buildingData = " + JSON.stringify(this._buildingData));
+                  if (!(!this._viewModel || buildingIndex >= this._buildingData.length)) {
+                    _context.next = 3;
+                    break;
+                  }
+                  return _context.abrupt("return");
+                case 3:
+                  buildingData = this._buildingData[buildingIndex];
+                  _context.next = 6;
+                  return this._viewModel.executeCommand('upgradeBuilding', buildingData.buildingId);
+                case 6:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee, this);
+          }));
+          function onUpgradeClicked(_x) {
+            return _onUpgradeClicked.apply(this, arguments);
+          }
+          return onUpgradeClicked;
+        }()
+        /**
+         * Handle completion close button click
+         */;
+
+        _proto.onCompletionCloseClicked = function onCompletionCloseClicked() {
+          this.hideCompletionUI();
+        };
+        _proto.start = function start() {
+          this.onShow();
+        }
+
+        /**
+         * Called when view is shown
+         */;
+        _proto.onShow = function onShow() {
+          _BaseView.prototype.onShow.call(this);
+
+          // Initialize ViewModel if not already done
+          if (!this._viewModel) {
+            this._viewModel = new CityViewModel();
+            this.setViewModel(this._viewModel);
+            this._viewModel.initialize();
+          }
+        }
+
+        /**
+         * Cleanup on destroy
+         */;
+        _proto.onDestroy = function onDestroy() {
+          // Remove ViewModel event listeners
+          if (this._viewModel) {
+            this._viewModel.off('cityDataLoaded', this.onCityDataLoaded, this);
+            this._viewModel.off('resourceUpdated', this.onResourceUpdated, this);
+            this._viewModel.off('buildingDataUpdated', this.onBuildingDataUpdated, this);
+            this._viewModel.off('cityProgressUpdated', this.onCityProgressUpdated, this);
+            this._viewModel.off('buildingUpgradeSuccess', this.onBuildingUpgradeSuccess, this);
+            this._viewModel.off('buildingUpgradeError', this.onBuildingUpgradeError, this);
+            this._viewModel.off('insufficientGold', this.onInsufficientGold, this);
+            this._viewModel.off('buildingMaxLevel', this.onBuildingMaxLevel, this);
+            this._viewModel.off('cityCompleted', this.onCityCompleted, this);
+            this._viewModel.off('showCityCompletion', this.onShowCityCompletion, this);
+            this._viewModel.off('navigateToScene', this.onNavigateToScene, this);
+          }
+          _BaseView.prototype.onDestroy.call(this);
+        };
+        return CityView;
+      }(BaseView), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "cityNameLabel", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "goldLabel", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "cityProgressBar", [_dec4], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "cityProgressLabel", [_dec5], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "buildingNodes", [_dec6], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "buildingSprites", [_dec7], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, "buildingNameLabels", [_dec8], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, "buildingLevelLabels", [_dec9], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, "upgradeButtons", [_dec10], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, "upgradeCostLabels", [_dec11], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, "backButton", [_dec12], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor12 = _applyDecoratedDescriptor(_class2.prototype, "completionContainer", [_dec13], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor13 = _applyDecoratedDescriptor(_class2.prototype, "completionTitleLabel", [_dec14], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor14 = _applyDecoratedDescriptor(_class2.prototype, "completionRewardLabel", [_dec15], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor15 = _applyDecoratedDescriptor(_class2.prototype, "completionCloseButton", [_dec16], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor16 = _applyDecoratedDescriptor(_class2.prototype, "notificationContainer", [_dec17], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor17 = _applyDecoratedDescriptor(_class2.prototype, "notificationLabel", [_dec18], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      })), _class2)) || _class));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/CityViewModel.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseViewModel.ts', './ServiceLocator.ts', './PlayerModel.ts', './Logger.ts'], function (exports) {
+  var _inheritsLoose, _createClass, _asyncToGenerator, _regeneratorRuntime, cclegacy, BaseViewModel, ServiceLocator, PlayerModel, logError;
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _createClass = module.createClass;
+      _asyncToGenerator = module.asyncToGenerator;
+      _regeneratorRuntime = module.regeneratorRuntime;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+    }, function (module) {
+      BaseViewModel = module.BaseViewModel;
+    }, function (module) {
+      ServiceLocator = module.ServiceLocator;
+    }, function (module) {
+      PlayerModel = module.PlayerModel;
+    }, function (module) {
+      logError = module.logError;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "6d06cDAGnNH/Yd34TjODrwn", "CityViewModel", undefined);
+
+      /**
+       * Building upgrade data
+       */
+
+      /**
+       * City ViewModel - Handles city building scene logic
+       */
+      var CityViewModel = exports('CityViewModel', /*#__PURE__*/function (_BaseViewModel) {
+        _inheritsLoose(CityViewModel, _BaseViewModel);
+        function CityViewModel() {
+          var _this;
+          _this = _BaseViewModel.call(this) || this;
+          _this._gameService = null;
+          _this._resourceManager = null;
+          _this._playerModel = null;
+          _this._currentCity = null;
+          return _this;
+        }
+
+        /**
+         * Initialize ViewModel
+         */
+        var _proto = CityViewModel.prototype;
+        _proto.onInitialize = function onInitialize() {
+          this.setupServices();
+          this.setupModels();
+          this.setupEventListeners();
+          this.loadCityData();
+        }
+
+        /**
+         * Setup services
+         */;
+        _proto.setupServices = function setupServices() {
+          var serviceLocator = ServiceLocator.getInstance();
+          this._gameService = serviceLocator.getService('GameService');
+          this._resourceManager = serviceLocator.getService('ResourceManager');
+          if (!this._gameService) {
+            logError('GameService not found');
+          }
+          if (!this._resourceManager) {
+            logError('ResourceManager not found');
+          }
+        }
+
+        /**
+         * Setup models
+         */;
+        _proto.setupModels = function setupModels() {
+          // Get player model from GameService (single source of truth)
+          var serviceLocator = ServiceLocator.getInstance();
+          var gameService = serviceLocator.getService('GameService');
+          if (gameService) {
+            this._playerModel = gameService.getPlayerModel();
+          }
+          if (!this._playerModel) {
+            logError('CityViewModel failed to get PlayerModel from GameService. This is a critical error.');
+            // Fallback to a new instance to prevent crashes, but this indicates an architectural problem.
+            this._playerModel = new PlayerModel();
+          }
+          if (this._playerModel) {
+            this._currentCity = this._playerModel.currentCity;
+          }
+        }
+
+        /**
+         * Setup event listeners
+         */;
+        _proto.setupEventListeners = function setupEventListeners() {
+          // Resource manager events
+          if (this._resourceManager) {
+            this._resourceManager.on('resourceChanged', this.onResourceChanged, this);
+            this._resourceManager.on('insufficientResources', this.onInsufficientResources, this);
+          }
+
+          // City events
+          if (this._currentCity) {
+            this._currentCity.on('buildingUpgraded', this.onBuildingUpgraded, this);
+            this._currentCity.on('cityCompleted', this.onCityCompleted, this);
+          }
+
+          // Player model events
+          if (this._playerModel) {
+            this._playerModel.on('currentCityChanged', this.onCurrentCityChanged, this);
+          }
+        }
+
+        /**
+         * Load city data
+         */;
+        _proto.loadCityData = /*#__PURE__*/
+        function () {
+          var _loadCityData = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+            return _regeneratorRuntime().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  _context.prev = 0;
+                  if (!(this._gameService && this._gameService.isReady && this._currentCity)) {
+                    _context.next = 5;
+                    break;
+                  }
+                  _context.next = 4;
+                  return this._gameService.getCityData(this._currentCity.id);
+                case 4:
+                  _context.sent;
+                case 5:
+                  this.emit('cityDataLoaded');
+                  _context.next = 12;
+                  break;
+                case 8:
+                  _context.prev = 8;
+                  _context.t0 = _context["catch"](0);
+                  logError('Failed to load city data:', _context.t0);
+                  this.emit('cityDataLoadError', _context.t0);
+                case 12:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee, this, [[0, 8]]);
+          }));
+          function loadCityData() {
+            return _loadCityData.apply(this, arguments);
+          }
+          return loadCityData;
+        }()
+        /**
+         * Execute command
+         */;
+
+        _proto.executeCommand = /*#__PURE__*/
+        function () {
+          var _executeCommand = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(command) {
+            var _args2 = arguments;
+            return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+              while (1) switch (_context2.prev = _context2.next) {
+                case 0:
+                  _context2.t0 = command;
+                  _context2.next = _context2.t0 === 'upgradeBuilding' ? 3 : _context2.t0 === 'getBuildingData' ? 4 : _context2.t0 === 'getAllBuildingsData' ? 5 : _context2.t0 === 'getCityProgress' ? 6 : _context2.t0 === 'goBack' ? 7 : _context2.t0 === 'refreshData' ? 8 : 9;
+                  break;
+                case 3:
+                  return _context2.abrupt("return", this.upgradeBuilding(_args2.length <= 1 ? undefined : _args2[1]));
+                case 4:
+                  return _context2.abrupt("return", this.getBuildingData(_args2.length <= 1 ? undefined : _args2[1]));
+                case 5:
+                  return _context2.abrupt("return", this.getAllBuildingsData());
+                case 6:
+                  return _context2.abrupt("return", this.getCityProgress());
+                case 7:
+                  return _context2.abrupt("return", this.goBack());
+                case 8:
+                  return _context2.abrupt("return", this.loadCityData());
+                case 9:
+                  throw new Error("Unknown command: " + command);
+                case 10:
+                case "end":
+                  return _context2.stop();
+              }
+            }, _callee2, this);
+          }));
+          function executeCommand(_x) {
+            return _executeCommand.apply(this, arguments);
+          }
+          return executeCommand;
+        }()
+        /**
+         * Upgrade a building
+         */;
+
+        _proto.upgradeBuilding = /*#__PURE__*/
+        function () {
+          var _upgradeBuilding = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(buildingId) {
+            var building, upgradeCost, goldSpent, success;
+            return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+              while (1) switch (_context3.prev = _context3.next) {
+                case 0:
+                  if (!(!this._currentCity || !this._resourceManager || !this._gameService)) {
+                    _context3.next = 2;
+                    break;
+                  }
+                  return _context3.abrupt("return", false);
+                case 2:
+                  building = this._currentCity.getBuilding(buildingId);
+                  if (building) {
+                    _context3.next = 6;
+                    break;
+                  }
+                  logError("Building not found: " + buildingId);
+                  return _context3.abrupt("return", false);
+                case 6:
+                  if (building.canUpgrade()) {
+                    _context3.next = 9;
+                    break;
+                  }
+                  this.emit('buildingMaxLevel', {
+                    buildingId: buildingId
+                  });
+                  return _context3.abrupt("return", false);
+                case 9:
+                  upgradeCost = building.getUpgradeCost(); // Check if player has enough gold
+                  if (this._resourceManager.hasEnoughGold(upgradeCost)) {
+                    _context3.next = 13;
+                    break;
+                  }
+                  this.emit('insufficientGold', {
+                    required: upgradeCost,
+                    available: this._resourceManager.getGold(),
+                    buildingId: buildingId
+                  });
+                  return _context3.abrupt("return", false);
+                case 13:
+                  _context3.prev = 13;
+                  if (!this._gameService.isReady) {
+                    _context3.next = 17;
+                    break;
+                  }
+                  _context3.next = 17;
+                  return this._gameService.upgradeBuilding(this._currentCity.id, buildingId);
+                case 17:
+                  _context3.next = 19;
+                  return this._resourceManager.spendGold(upgradeCost, 'building_upgrade');
+                case 19:
+                  goldSpent = _context3.sent;
+                  if (goldSpent) {
+                    _context3.next = 22;
+                    break;
+                  }
+                  throw new Error('Failed to spend gold for upgrade');
+                case 22:
+                  // Upgrade building locally
+                  success = building.upgrade();
+                  if (success) {
+                    _context3.next = 27;
+                    break;
+                  }
+                  _context3.next = 26;
+                  return this._resourceManager.addGold(upgradeCost, 'upgrade_refund');
+                case 26:
+                  throw new Error('Failed to upgrade building');
+                case 27:
+                  this.emit('buildingUpgradeSuccess', {
+                    buildingId: buildingId,
+                    newLevel: building.level,
+                    costPaid: upgradeCost,
+                    isMaxLevel: building.isMaxLevel()
+                  });
+                  return _context3.abrupt("return", true);
+                case 31:
+                  _context3.prev = 31;
+                  _context3.t0 = _context3["catch"](13);
+                  logError('Building upgrade failed:', _context3.t0);
+                  this.emit('buildingUpgradeError', {
+                    buildingId: buildingId,
+                    error: _context3.t0.message
+                  });
+                  return _context3.abrupt("return", false);
+                case 36:
+                case "end":
+                  return _context3.stop();
+              }
+            }, _callee3, this, [[13, 31]]);
+          }));
+          function upgradeBuilding(_x2) {
+            return _upgradeBuilding.apply(this, arguments);
+          }
+          return upgradeBuilding;
+        }()
+        /**
+         * Get building data for UI
+         */;
+
+        _proto.getBuildingData = function getBuildingData(buildingId) {
+          if (!this._currentCity) return null;
+          var building = this._currentCity.getBuilding(buildingId);
+          if (!building) return null;
+          var currentGold = this._resourceManager ? this._resourceManager.getGold() : 0;
+          var upgradeCost = building.getUpgradeCost();
+          return {
+            buildingId: building.id,
+            buildingName: building.name,
+            currentLevel: building.level,
+            maxLevel: building.maxLevel,
+            upgradeCost: upgradeCost,
+            canUpgrade: building.canUpgrade() && currentGold >= upgradeCost,
+            isMaxLevel: building.isMaxLevel()
+          };
+        }
+
+        /**
+         * Get all buildings data
+         */;
+        _proto.getAllBuildingsData = function getAllBuildingsData() {
+          var _this2 = this;
+          if (!this._currentCity) return [];
+          var buildings = this._currentCity.getBuildings();
+          return buildings.map(function (building) {
+            return _this2.getBuildingData(building.id);
+          }).filter(function (data) {
+            return data !== null;
+          });
+        }
+
+        /**
+         * Get city completion progress
+         */;
+        _proto.getCityProgress = function getCityProgress() {
+          if (!this._currentCity) {
+            return {
+              progress: 0,
+              isCompleted: false,
+              completionReward: 0,
+              cityName: '',
+              cityLevel: 1
+            };
+          }
+          return {
+            progress: this._currentCity.getCompletionProgress(),
+            isCompleted: this._currentCity.isCompleted,
+            completionReward: this._currentCity.completionReward,
+            cityName: this._currentCity.name,
+            cityLevel: this._currentCity.level
+          };
+        }
+
+        /**
+         * Go back to main scene
+         */;
+        _proto.goBack = function goBack() {
+          this.emit('navigateToScene', 'Main');
+        }
+
+        // Event Handlers
+
+        /**
+         * Handle resource changes
+         */;
+        _proto.onResourceChanged = function onResourceChanged(event) {
+          this.emit('resourceUpdated', event);
+
+          // Update building upgrade availability
+          this.emit('buildingDataUpdated', this.getAllBuildingsData());
+        }
+
+        /**
+         * Handle insufficient resources
+         */;
+        _proto.onInsufficientResources = function onInsufficientResources(event) {
+          this.emit('insufficientResources', event);
+        }
+
+        /**
+         * Handle building upgraded
+         */;
+        _proto.onBuildingUpgraded = function onBuildingUpgraded(event) {
+          this.emit('buildingUpgraded', event);
+
+          // Update all building data
+          this.emit('buildingDataUpdated', this.getAllBuildingsData());
+
+          // Update city progress
+          this.emit('cityProgressUpdated', this.getCityProgress());
+        }
+
+        /**
+         * Handle city completed
+         */;
+        _proto.onCityCompleted = function onCityCompleted(event) {
+          this.emit('cityCompleted', event);
+
+          // Show completion celebration
+          this.emit('showCityCompletion', {
+            cityName: event.cityName,
+            reward: event.reward
+          });
+        }
+
+        /**
+         * Handle current city changed
+         */;
+        _proto.onCurrentCityChanged = function onCurrentCityChanged(event) {
+          this._currentCity = event.city;
+
+          // Setup new city event listeners
+          if (this._currentCity) {
+            this._currentCity.on('buildingUpgraded', this.onBuildingUpgraded, this);
+            this._currentCity.on('cityCompleted', this.onCityCompleted, this);
+          }
+          this.emit('currentCityChanged', event);
+          this.loadCityData();
+        }
+
+        // Getters
+
+        /**
+         * Get current gold amount
+         */;
+        /**
+         * Cleanup resources
+         */
+        _proto.destroy = function destroy() {
+          // Remove event listeners
+          if (this._resourceManager) {
+            this._resourceManager.off('resourceChanged', this.onResourceChanged, this);
+            this._resourceManager.off('insufficientResources', this.onInsufficientResources, this);
+          }
+          if (this._currentCity) {
+            this._currentCity.off('buildingUpgraded', this.onBuildingUpgraded, this);
+            this._currentCity.off('cityCompleted', this.onCityCompleted, this);
+          }
+          if (this._playerModel) {
+            this._playerModel.off('currentCityChanged', this.onCurrentCityChanged, this);
+          }
+
+          // Clear references
+          this._gameService = null;
+          this._resourceManager = null;
+          this._playerModel = null;
+          this._currentCity = null;
+          _BaseViewModel.prototype.destroy.call(this);
+        };
+        _createClass(CityViewModel, [{
+          key: "currentGold",
+          get: function get() {
+            return this._resourceManager ? this._resourceManager.getGold() : 0;
+          }
+
+          /**
+           * Get current city name
+           */
+        }, {
+          key: "currentCityName",
+          get: function get() {
+            return this._currentCity ? this._currentCity.name : '';
+          }
+
+          /**
+           * Get current city level
+           */
+        }, {
+          key: "currentCityLevel",
+          get: function get() {
+            return this._currentCity ? this._currentCity.level : 1;
+          }
+
+          /**
+           * Get city completion progress (0-1)
+           */
+        }, {
+          key: "cityCompletionProgress",
+          get: function get() {
+            return this._currentCity ? this._currentCity.getCompletionProgress() : 0;
+          }
+
+          /**
+           * Check if city is completed
+           */
+        }, {
+          key: "isCityCompleted",
+          get: function get() {
+            return this._currentCity ? this._currentCity.isCompleted : false;
+          }
+
+          /**
+           * Get completion reward
+           */
+        }, {
+          key: "completionReward",
+          get: function get() {
+            return this._currentCity ? this._currentCity.completionReward : 0;
+          }
+
+          /**
+           * Get total upgrade cost for all buildings
+           */
+        }, {
+          key: "totalUpgradeCost",
+          get: function get() {
+            return this._currentCity ? this._currentCity.getTotalUpgradeCost() : 0;
+          }
+
+          /**
+           * Check if all buildings are at max level
+           */
+        }, {
+          key: "areAllBuildingsMaxLevel",
+          get: function get() {
+            return this._currentCity ? this._currentCity.areAllBuildingsMaxLevel() : false;
+          }
+        }]);
+        return CityViewModel;
+      }(BaseViewModel));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/ConfigScene.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
+  var _inheritsLoose, cclegacy, _decorator, director, Component;
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      director = module.director;
+      Component = module.Component;
+    }],
+    execute: function () {
+      var _dec, _class;
+      cclegacy._RF.push({}, "66d91NhnKdHrKQGSP28w7dY", "ConfigScene", undefined);
+      var ccclass = _decorator.ccclass,
+        property = _decorator.property;
+      var ConfigScene = exports('ConfigScene', (_dec = ccclass('ConfigScene'), _dec(_class = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(ConfigScene, _Component);
+        function ConfigScene() {
+          return _Component.apply(this, arguments) || this;
+        }
+        var _proto = ConfigScene.prototype;
+        _proto.onClickBtnPlay = function onClickBtnPlay() {
+          var hostname = window.location.hostname;
+          var isGDVersion = hostname.indexOf("onrender.com") > -1;
+          if (isGDVersion) {
+            var fileSelectionContainer = document.getElementById("fileSelectionContainer");
+            fileSelectionContainer.remove();
+          }
+          director.loadScene('Loading');
+        };
+        return ConfigScene;
+      }(Component)) || _class));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/DebugPanel.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './Logger.ts'], function (exports) {
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, cclegacy, _decorator, Node, Label, Button, Component, logger;
+  return {
+    setters: [function (module) {
+      _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
+      _inheritsLoose = module.inheritsLoose;
+      _initializerDefineProperty = module.initializerDefineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      Node = module.Node;
+      Label = module.Label;
+      Button = module.Button;
+      Component = module.Component;
+    }, function (module) {
+      logger = module.logger;
+    }],
+    execute: function () {
+      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6;
+      cclegacy._RF.push({}, "ebfbcg9OqZACa/ny+s7m52s", "DebugPanel", undefined);
+      var ccclass = _decorator.ccclass,
+        property = _decorator.property;
+
+      /**
+       * Debug Panel for viewing and exporting logs
+       * Add this component to a node in your scene to access debug features
+       */
+      var DebugPanel = exports('DebugPanel', (_dec = ccclass('DebugPanel'), _dec2 = property(Node), _dec3 = property(Label), _dec4 = property(Button), _dec5 = property(Button), _dec6 = property(Button), _dec7 = property(Button), _dec(_class = (_class2 = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(DebugPanel, _Component);
+        function DebugPanel() {
+          var _this;
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+          _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+          _initializerDefineProperty(_this, "debugContainer", _descriptor, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "logDisplay", _descriptor2, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "showLogsButton", _descriptor3, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "exportLogsButton", _descriptor4, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "clearLogsButton", _descriptor5, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "closeButton", _descriptor6, _assertThisInitialized(_this));
+          _this._isVisible = false;
+          return _this;
+        }
+        var _proto = DebugPanel.prototype;
+        _proto.onLoad = function onLoad() {
+          var _this2 = this;
+          this.setupUI();
+          this.bindEvents();
+
+          // Hide panel initially
+          this.hidePanel();
+
+          // Add global access for debugging
+          globalThis.debugPanel = this;
+          globalThis.showDebugPanel = function () {
+            return _this2.showPanel();
+          };
+          globalThis.hideDebugPanel = function () {
+            return _this2.hidePanel();
+          };
+          globalThis.exportLogs = function () {
+            return _this2.exportLogs();
+          };
+          logger.info('DebugPanel initialized - Use showDebugPanel() to open');
+        };
+        _proto.setupUI = function setupUI() {
+          if (this.logDisplay) {
+            this.logDisplay.string = 'Debug logs will appear here...';
+          }
+        };
+        _proto.bindEvents = function bindEvents() {
+          if (this.showLogsButton) {
+            this.showLogsButton.node.on(Button.EventType.CLICK, this.refreshLogs, this);
+          }
+          if (this.exportLogsButton) {
+            this.exportLogsButton.node.on(Button.EventType.CLICK, this.exportLogs, this);
+          }
+          if (this.clearLogsButton) {
+            this.clearLogsButton.node.on(Button.EventType.CLICK, this.clearLogs, this);
+          }
+          if (this.closeButton) {
+            this.closeButton.node.on(Button.EventType.CLICK, this.hidePanel, this);
+          }
+        }
+
+        /**
+         * Show debug panel
+         */;
+        _proto.showPanel = function showPanel() {
+          if (this.debugContainer) {
+            this.debugContainer.active = true;
+            this._isVisible = true;
+            this.refreshLogs();
+            logger.info('Debug panel opened');
+          }
+        }
+
+        /**
+         * Hide debug panel
+         */;
+        _proto.hidePanel = function hidePanel() {
+          if (this.debugContainer) {
+            this.debugContainer.active = false;
+            this._isVisible = false;
+            logger.info('Debug panel closed');
+          }
+        }
+
+        /**
+         * Toggle panel visibility
+         */;
+        _proto.togglePanel = function togglePanel() {
+          if (this._isVisible) {
+            this.hidePanel();
+          } else {
+            this.showPanel();
+          }
+        }
+
+        /**
+         * Refresh log display
+         */;
+        _proto.refreshLogs = function refreshLogs() {
+          if (this.logDisplay) {
+            var recentLogs = logger.getRecentLogs(20); // Show last 20 logs
+            this.logDisplay.string = recentLogs || 'No logs available';
+            logger.info("Refreshed logs display (" + logger.getLogsCount() + " total logs)");
+          }
+        }
+
+        /**
+         * Export logs to localStorage and try to download
+         */;
+        _proto.exportLogs = function exportLogs() {
+          try {
+            // Export to localStorage
+            logger.exportToLocalStorage('coinmaster_debug_logs');
+
+            // Try to download (works in web builds)
+            logger.downloadLogs('coinmaster_debug.log');
+
+            // Also log the recent logs for easy copying
+            var allLogs = logger.getAllLogs();
+            console.log('=== ALL DEBUG LOGS ===');
+            console.log(allLogs);
+            console.log('=== END DEBUG LOGS ===');
+            logger.info('Logs exported successfully');
+          } catch (error) {
+            logger.error("Failed to export logs: " + error);
+          }
+        }
+
+        /**
+         * Clear all logs
+         */;
+        _proto.clearLogs = function clearLogs() {
+          logger.clear();
+          this.refreshLogs();
+          logger.info('All logs cleared');
+        }
+
+        /**
+         * Get logs as string for manual copying
+         */;
+        _proto.getLogsForCopy = function getLogsForCopy() {
+          return logger.getAllLogs();
+        };
+        _proto.onDestroy = function onDestroy() {
+          // Clean up global references
+          if (globalThis.debugPanel === this) {
+            delete globalThis.debugPanel;
+            delete globalThis.showDebugPanel;
+            delete globalThis.hideDebugPanel;
+            delete globalThis.exportLogs;
+          }
+        };
+        return DebugPanel;
+      }(Component), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "debugContainer", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "logDisplay", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "showLogsButton", [_dec4], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "exportLogsButton", [_dec5], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "clearLogsButton", [_dec6], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "closeButton", [_dec7], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      })), _class2)) || _class));
+
+      // Global functions for easy access in console
+      globalThis.getDebugLogs = function () {
+        var logs = logger.getAllLogs();
+        console.log('=== DEBUG LOGS ===');
+        console.log(logs);
+        console.log('=== END LOGS ===');
+        return logs;
+      };
+      globalThis.getRecentDebugLogs = function (count) {
+        if (count === void 0) {
+          count = 20;
+        }
+        var logs = logger.getRecentLogs(count);
+        console.log("=== RECENT " + count + " DEBUG LOGS ===");
+        console.log(logs);
+        console.log('=== END LOGS ===');
+        return logs;
+      };
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/GameConfig.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './SlotMachineConfig.ts', './Logger.ts'], function (exports) {
+  var _extends, _createClass, _asyncToGenerator, _regeneratorRuntime, cclegacy, resources, JsonAsset, SlotMachineConfig, logError, logWarn, logInfo;
+  return {
+    setters: [function (module) {
+      _extends = module.extends;
+      _createClass = module.createClass;
+      _asyncToGenerator = module.asyncToGenerator;
+      _regeneratorRuntime = module.regeneratorRuntime;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      resources = module.resources;
+      JsonAsset = module.JsonAsset;
+    }, function (module) {
+      SlotMachineConfig = module.SlotMachineConfig;
+    }, function (module) {
+      logError = module.logError;
+      logWarn = module.logWarn;
+      logInfo = module.logInfo;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "4d9f60PXBJNyb5CfJnbSHGG", "GameConfig", undefined);
+
+      /**
+       * Building configuration data
+       */
+
+      /**
+       * City configuration data
+       */
+
+      /**
+       * Attack configuration data
+       */
+
+      /**
+       * Raid configuration data
+       */
+
+      /**
+       * Game configuration data structure
+       */
+
+      /**
+       * Game Configuration Manager
+       */
+      var GameConfig = exports('GameConfig', /*#__PURE__*/function () {
+        function GameConfig() {
+          this._config = void 0;
+          this._isLoaded = false;
+        }
+        /**
+         * Get singleton instance
+         */
+        GameConfig.getInstance = function getInstance() {
+          if (!GameConfig._instance) {
+            GameConfig._instance = new GameConfig();
+          }
+          return GameConfig._instance;
+        }
+
+        /**
+         * Load configuration from server or local storage
+         */;
+        var _proto = GameConfig.prototype;
+        _proto.loadConfig = /*#__PURE__*/
+        function () {
+          var _loadConfig = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(serverConfig) {
+            var slotMachineConfig, defaultConfig;
+            return _regeneratorRuntime().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  _context.prev = 0;
+                  slotMachineConfig = SlotMachineConfig.getInstance();
+                  _context.next = 4;
+                  return slotMachineConfig.loadConfig();
+                case 4:
+                  _context.next = 6;
+                  return this.loadDefaultConfig();
+                case 6:
+                  defaultConfig = _context.sent;
+                  if (serverConfig) {
+                    // Merge server config with defaults
+                    this._config = this.mergeConfigs(defaultConfig, serverConfig);
+                    logInfo('Game config loaded from server');
+                  } else {
+                    // Use default config
+                    this._config = defaultConfig;
+                    logInfo('Using default game config');
+                  }
+                  this._config.slotMachine = slotMachineConfig.getDefaultConfig();
+                  this._isLoaded = true;
+                  this.validateConfig();
+                  _context.next = 18;
+                  break;
+                case 13:
+                  _context.prev = 13;
+                  _context.t0 = _context["catch"](0);
+                  logError('Failed to load game config:', _context.t0);
+                  // Fallback to an empty config or handle error appropriately
+                  this._config = {};
+                  this._isLoaded = true;
+                case 18:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee, this, [[0, 13]]);
+          }));
+          function loadConfig(_x) {
+            return _loadConfig.apply(this, arguments);
+          }
+          return loadConfig;
+        }();
+        _proto.loadDefaultConfig = function loadDefaultConfig() {
+          return new Promise(function (resolve, reject) {
+            resources.load('config/game', JsonAsset, function (err, asset) {
+              if (err) {
+                logError('Failed to load default game config:', err);
+                return reject(err);
+              }
+              resolve(asset.json);
+            });
+          });
+        }
+
+        /**
+         * Merge two configuration objects
+         */;
+        _proto.mergeConfigs = function mergeConfigs(defaultConfig, serverConfig) {
+          var merged = _extends({}, defaultConfig);
+
+          // Merge top-level properties
+          Object.keys(serverConfig).forEach(function (key) {
+            if (serverConfig[key] !== undefined) {
+              if (typeof serverConfig[key] === 'object' && !Array.isArray(serverConfig[key])) {
+                merged[key] = _extends({}, merged[key], serverConfig[key]);
+              } else {
+                merged[key] = serverConfig[key];
+              }
+            }
+          });
+          return merged;
+        }
+
+        /**
+         * Validate configuration
+         */;
+        _proto.validateConfig = function validateConfig() {
+          if (!this._config.version) {
+            throw new Error('Config version is required');
+          }
+          if (!this._config.slotMachine || !this._config.slotMachine.symbols || this._config.slotMachine.symbols.length === 0) {
+            throw new Error('Slot machine configuration is invalid');
+          }
+          if (!this._config.cities || this._config.cities.length === 0) {
+            throw new Error('Cities configuration is required');
+          }
+
+          // Validate slot machine configuration
+          var slotConfig = SlotMachineConfig.getInstance();
+          var validation = slotConfig.validateConfig(this._config.slotMachine);
+          if (!validation.isValid) {
+            logWarn('Slot machine configuration validation failed:', validation.errors);
+          }
+        }
+
+        /**
+         * Get full configuration
+         */;
+        _proto.getConfig = function getConfig() {
+          return _extends({}, this._config);
+        }
+
+        /**
+         * Get slot machine configuration
+         */;
+        _proto.getSlotMachineConfig = function getSlotMachineConfig() {
+          return _extends({}, this._config.slotMachine);
+        }
+
+        /**
+         * Get city configuration by level
+         */;
+        _proto.getCityConfig = function getCityConfig(level) {
+          return this._config.cities.find(function (city) {
+            return city.level === level;
+          }) || null;
+        }
+
+        /**
+         * Get all city configurations
+         */;
+        _proto.getCityConfigs = function getCityConfigs() {
+          return [].concat(this._config.cities);
+        }
+
+        /**
+         * Get building configuration
+         */;
+        _proto.getBuildingConfig = function getBuildingConfig(cityLevel, buildingId) {
+          var cityConfig = this.getCityConfig(cityLevel);
+          if (!cityConfig) return null;
+          return cityConfig.buildings.find(function (building) {
+            return building.id === buildingId;
+          }) || null;
+        }
+
+        /**
+         * Get attack configuration
+         */;
+        _proto.getAttackConfig = function getAttackConfig() {
+          return _extends({}, this._config.attack);
+        }
+
+        /**
+         * Get raid configuration
+         */;
+        _proto.getRaidConfig = function getRaidConfig() {
+          return _extends({}, this._config.raid);
+        }
+
+        /**
+         * Get main event configurations
+         */;
+        _proto.getMainEventConfigs = function getMainEventConfigs() {
+          return [].concat(this._config.mainEvents);
+        }
+
+        /**
+         * Get active main event
+         */;
+        _proto.getActiveMainEvent = function getActiveMainEvent() {
+          var currentTime = Date.now();
+          return this._config.mainEvents.find(function (event) {
+            return event.isActive && currentTime >= event.startTime && currentTime <= event.endTime;
+          }) || null;
+        }
+
+        /**
+         * Get resource configuration
+         */;
+        _proto.getResourceConfig = function getResourceConfig() {
+          return _extends({}, this._config.resources);
+        }
+
+        /**
+         * Check if configuration is loaded
+         */;
+        /**
+         * Update configuration (for runtime changes)
+         */
+        _proto.updateConfig = function updateConfig(updates) {
+          this._config = this.mergeConfigs(this._config, updates);
+          this.validateConfig();
+        }
+
+        /**
+         * Reset to default configuration
+         */;
+        _proto.resetToDefault = /*#__PURE__*/
+        function () {
+          var _resetToDefault = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+            return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+              while (1) switch (_context2.prev = _context2.next) {
+                case 0:
+                  _context2.prev = 0;
+                  _context2.next = 3;
+                  return this.loadDefaultConfig();
+                case 3:
+                  this._config = _context2.sent;
+                  this._isLoaded = true;
+                  logInfo('Game config reset to default');
+                  _context2.next = 11;
+                  break;
+                case 8:
+                  _context2.prev = 8;
+                  _context2.t0 = _context2["catch"](0);
+                  logError('Failed to reset game config to default:', _context2.t0);
+                case 11:
+                case "end":
+                  return _context2.stop();
+              }
+            }, _callee2, this, [[0, 8]]);
+          }));
+          function resetToDefault() {
+            return _resetToDefault.apply(this, arguments);
+          }
+          return resetToDefault;
+        }();
+        _createClass(GameConfig, [{
+          key: "isLoaded",
+          get: function get() {
+            return this._isLoaded;
+          }
+
+          /**
+           * Get configuration version
+           */
+        }, {
+          key: "version",
+          get: function get() {
+            return this._config.version;
+          }
+        }]);
+        return GameConfig;
+      }());
+      GameConfig._instance = void 0;
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/GameService.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseService.ts', './ServiceLocator.ts', './PlayerModel.ts', './GameConfig.ts', './Logger.ts'], function (exports) {
+  var _inheritsLoose, _createClass, _asyncToGenerator, _regeneratorRuntime, cclegacy, log, BaseService, ServiceLocator, PlayerModel, GameConfig, logInfo, logError, logWarn;
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _createClass = module.createClass;
+      _asyncToGenerator = module.asyncToGenerator;
+      _regeneratorRuntime = module.regeneratorRuntime;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      log = module.log;
+    }, function (module) {
+      BaseService = module.BaseService;
+    }, function (module) {
+      ServiceLocator = module.ServiceLocator;
+    }, function (module) {
+      PlayerModel = module.PlayerModel;
+    }, function (module) {
+      GameConfig = module.GameConfig;
+    }, function (module) {
+      logInfo = module.logInfo;
+      logError = module.logError;
+      logWarn = module.logWarn;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "9752a1L7WVLfbHz4Q/KJfZp", "GameService", undefined);
+
+      /**
+       * Game-specific network commands
+       */
+      var GameCommand = exports('GameCommand', /*#__PURE__*/function (GameCommand) {
+        GameCommand["GET_PLAYER_DATA"] = "getPlayerData";
+        GameCommand["UPDATE_PLAYER_DATA"] = "updatePlayerData";
+        GameCommand["SPIN_WHEEL"] = "spinWheel";
+        GameCommand["GET_SPIN_CONFIG"] = "getSpinConfig";
+        GameCommand["SPIN_SLOT_MACHINE"] = "spinSlotMachine";
+        GameCommand["GET_SLOT_MACHINE_CONFIG"] = "getSlotMachineConfig";
+        GameCommand["UPGRADE_BUILDING"] = "upgradeBuilding";
+        GameCommand["GET_CITY_DATA"] = "getCityData";
+        GameCommand["ATTACK_PLAYER"] = "attackPlayer";
+        GameCommand["GET_ATTACK_TARGET"] = "getAttackTarget";
+        GameCommand["RAID_PLAYER"] = "raidPlayer";
+        GameCommand["GET_RAID_TARGET"] = "getRaidTarget";
+        GameCommand["GET_MAIN_EVENT"] = "getMainEvent";
+        GameCommand["CLAIM_EVENT_MILESTONE"] = "claimEventMilestone";
+        GameCommand["COLLECT_RESOURCES"] = "collectResources";
+        return GameCommand;
+      }({}));
+
+      /**
+       * Spin request data
+       */
+
+      /**
+       * Building upgrade request data
+       */
+
+      /**
+       * Attack request data
+       */
+
+      /**
+       * Raid request data
+       */
+
+      /**
+       * Game Service - Handles game-specific server communication
+       */
+      var GameService = exports('GameService', /*#__PURE__*/function (_BaseService) {
+        _inheritsLoose(GameService, _BaseService);
+        function GameService() {
+          var _this;
+          _this = _BaseService.call(this) || this;
+          _this._networkService = null;
+          _this._playerModel = null;
+          _this._isOnline = false;
+          _this._autoSaveInterval = null;
+          return _this;
+        }
+
+        /**
+         * Get player model instance
+         */
+        var _proto = GameService.prototype;
+        _proto.getPlayerModel = function getPlayerModel() {
+          return this._playerModel;
+        }
+
+        /**
+         * Initialize Game Service
+         */;
+        _proto.onInitialize = /*#__PURE__*/
+        function () {
+          var _onInitialize = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+            var _this$_networkService,
+              _this2 = this,
+              _this$_networkService2;
+            var serviceLocator;
+            return _regeneratorRuntime().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  logInfo('Initializing Game Service...');
+
+                  // Initialize player model first
+                  this._playerModel = new PlayerModel();
+                  logInfo('Player Model initialized in GameService');
+
+                  // Get network service and determine online status
+                  serviceLocator = ServiceLocator.getInstance();
+                  this._networkService = serviceLocator.getService('NetworkService');
+                  if (this._networkService && this._networkService.isConnected) {
+                    this._isOnline = true;
+                    logInfo('NetworkService found, starting in online mode');
+                    this.setupNetworkEventListeners();
+                  } else {
+                    this._isOnline = false;
+                    logWarn('NetworkService not found or not connected, starting in offline mode');
+                  }
+
+                  // Add listeners for network status changes
+                  (_this$_networkService = this._networkService) == null || _this$_networkService.on('connection', function () {
+                    return _this2.handleNetworkStatusChange(true);
+                  });
+                  (_this$_networkService2 = this._networkService) == null || _this$_networkService2.on('connectionLost', function () {
+                    return _this2.handleNetworkStatusChange(false);
+                  });
+
+                  // Load player data based on network status
+                  _context.next = 10;
+                  return this.loadPlayerData();
+                case 10:
+                  // Start auto-saving player data
+                  this.startAutoSave();
+                  logInfo('Game Service initialized successfully');
+                case 12:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee, this);
+          }));
+          function onInitialize() {
+            return _onInitialize.apply(this, arguments);
+          }
+          return onInitialize;
+        }()
+        /**
+         * Connect to game server
+         */;
+
+        _proto.onConnect = /*#__PURE__*/
+        function () {
+          var _onConnect = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+            return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+              while (1) switch (_context2.prev = _context2.next) {
+                case 0:
+                  if (this._networkService) {
+                    _context2.next = 2;
+                    break;
+                  }
+                  throw new Error('NetworkService not available');
+                case 2:
+                  // Network service handles the actual connection
+                  // This service just needs to be ready for game commands
+                  logInfo('Game Service ready for commands');
+                case 3:
+                case "end":
+                  return _context2.stop();
+              }
+            }, _callee2, this);
+          }));
+          function onConnect() {
+            return _onConnect.apply(this, arguments);
+          }
+          return onConnect;
+        }()
+        /**
+         * Disconnect from game server
+         */;
+
+        _proto.onDisconnect = /*#__PURE__*/
+        function () {
+          var _onDisconnect = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+            return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+              while (1) switch (_context3.prev = _context3.next) {
+                case 0:
+                  logInfo('Game Service disconnected');
+                case 1:
+                case "end":
+                  return _context3.stop();
+              }
+            }, _callee3);
+          }));
+          function onDisconnect() {
+            return _onDisconnect.apply(this, arguments);
+          }
+          return onDisconnect;
+        }()
+        /**
+         * Setup network event listeners
+         */;
+
+        _proto.setupNetworkEventListeners = function setupNetworkEventListeners() {
+          if (!this._networkService) return;
+          this._networkService.on('extensionResponse', this.onExtensionResponse.bind(this));
+          this._networkService.on('connectionLost', this.onConnectionLost.bind(this));
+          this._networkService.on('loggedOut', this.onLoggedOut.bind(this));
+        }
+
+        /**
+         * Handle extension responses
+         */;
+        _proto.onExtensionResponse = function onExtensionResponse(response) {
+          // Handle specific game responses that don't have pending requests
+          switch (response.command) {
+            case 'resourceUpdate':
+              this.emit('resourceUpdate', response.data);
+              break;
+            case 'eventUpdate':
+              this.emit('eventUpdate', response.data);
+              break;
+            case 'playerUpdate':
+              this.emit('playerUpdate', response.data);
+              break;
+          }
+        }
+
+        /**
+         * Handle connection lost
+         */;
+        _proto.onConnectionLost = function onConnectionLost(reason) {
+          this.emit('connectionLost', reason);
+        }
+
+        /**
+         * Handle logout
+         */;
+        _proto.onLoggedOut = function onLoggedOut() {
+          this.emit('loggedOut');
+        }
+
+        /**
+         * Send game request
+         */;
+        _proto.sendGameRequest = /*#__PURE__*/
+        function () {
+          var _sendGameRequest = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(command, data, timeout) {
+            var request, response;
+            return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+              while (1) switch (_context4.prev = _context4.next) {
+                case 0:
+                  logInfo("Sending game command: " + command);
+                  if (this._networkService) {
+                    _context4.next = 4;
+                    break;
+                  }
+                  logWarn("NetworkService not available, simulating response for command: " + command);
+                  // Return mock data for offline mode
+                  return _context4.abrupt("return", this.getMockResponse(command, data));
+                case 4:
+                  logInfo("Sending game command: " + command + " passed");
+                  request = {
+                    command: command,
+                    data: data,
+                    timeout: timeout
+                  };
+                  _context4.next = 8;
+                  return this._networkService.sendRequest(request);
+                case 8:
+                  response = _context4.sent;
+                  if (response.success) {
+                    _context4.next = 11;
+                    break;
+                  }
+                  throw new Error(response.error || 'Unknown server error');
+                case 11:
+                  return _context4.abrupt("return", response.data);
+                case 12:
+                case "end":
+                  return _context4.stop();
+              }
+            }, _callee4, this);
+          }));
+          function sendGameRequest(_x, _x2, _x3) {
+            return _sendGameRequest.apply(this, arguments);
+          }
+          return sendGameRequest;
+        }()
+        /**
+         * Get mock response for offline mode
+         */;
+
+        _proto.getMockResponse = function getMockResponse(command, data) {
+          switch (command) {
+            case GameCommand.GET_PLAYER_DATA:
+              return {
+                playerData: null // Will be handled by LoadingViewModel to create new player
+              };
+
+            case GameCommand.SPIN_SLOT_MACHINE:
+              return this.getMockSlotSpinResult((data == null ? void 0 : data.betMultiplier) || 1);
+            default:
+              return {
+                success: true
+              };
+          }
+        }
+
+        /**
+         * Generate mock slot machine spin result for offline mode
+         */;
+        _proto.getMockSlotSpinResult = function getMockSlotSpinResult(betMultiplier) {
+          // Mock symbols for slot machine
+          var mockSymbols = [{
+            id: 'gold1',
+            type: 'gold',
+            value: 10,
+            weight: 30
+          }, {
+            id: 'gold2',
+            type: 'gold',
+            value: 20,
+            weight: 25
+          }, {
+            id: 'energy1',
+            type: 'energy',
+            value: 5,
+            weight: 20
+          }
+          // { id: 'attack1', type: 'attack', value: 1, weight: 15 },
+          // { id: 'raid1', type: 'raid', value: 1, weight: 10 }
+          ];
+
+          // Generate random reel results (3 reels, 1 row each)
+          var reelResults = [];
+          for (var reel = 0; reel < 3; reel++) {
+            var randomIndex = Math.floor(Math.random() * mockSymbols.length);
+            reelResults.push([mockSymbols[randomIndex]]);
+          }
+
+          // Check for winning combinations
+          var winCombinations = [];
+          var totalPayout = 0;
+
+          // Simple win logic: if all 3 symbols are the same type
+          var firstSymbol = reelResults[0][0];
+          var isWin = reelResults.every(function (reel) {
+            return reel[0].type === firstSymbol.type;
+          });
+          if (isWin) {
+            var basePayout = firstSymbol.value * 3; // 3 matching symbols
+            totalPayout = basePayout;
+            winCombinations.push({
+              paylineId: 'line1',
+              symbols: [firstSymbol, reelResults[1][0], reelResults[2][0]],
+              positions: [[0, 0], [1, 0], [2, 0]],
+              payout: basePayout,
+              multiplier: 1
+            });
+          }
+
+          // Apply bet multiplier
+          var finalPayout = totalPayout * betMultiplier;
+
+          // Determine final reward type based on winning symbol or random
+          var rewardType = 'gold';
+          var rewardAmount = finalPayout;
+          if (isWin) {
+            rewardType = firstSymbol.type;
+            if (rewardType === 'attack' || rewardType === 'raid') {
+              rewardAmount = 1; // Special actions give 1 use
+            }
+          } else {
+            // Even on loss, give small consolation prize
+            rewardAmount = Math.floor(betMultiplier * 2);
+          }
+          var mockSlotSpinResult = {
+            reelResults: reelResults,
+            winCombinations: winCombinations,
+            totalPayout: finalPayout,
+            betMultiplier: betMultiplier,
+            finalReward: {
+              type: rewardType,
+              amount: rewardAmount,
+              multiplier: betMultiplier
+            }
+          };
+          return {
+            slotSpinResult: mockSlotSpinResult
+          };
+        }
+
+        // Player Data Methods
+
+        /**
+         * Get player data from server
+         */;
+        _proto.getPlayerData = /*#__PURE__*/
+        function () {
+          var _getPlayerData = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
+            var data;
+            return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+              while (1) switch (_context5.prev = _context5.next) {
+                case 0:
+                  _context5.next = 2;
+                  return this.sendGameRequest(GameCommand.GET_PLAYER_DATA);
+                case 2:
+                  data = _context5.sent;
+                  return _context5.abrupt("return", data.playerData);
+                case 4:
+                case "end":
+                  return _context5.stop();
+              }
+            }, _callee5, this);
+          }));
+          function getPlayerData() {
+            return _getPlayerData.apply(this, arguments);
+          }
+          return getPlayerData;
+        }()
+        /**
+         * Update player data on server
+         */;
+
+        _proto.updatePlayerData = /*#__PURE__*/
+        function () {
+          var _updatePlayerData = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6(playerData) {
+            return _regeneratorRuntime().wrap(function _callee6$(_context6) {
+              while (1) switch (_context6.prev = _context6.next) {
+                case 0:
+                  _context6.next = 2;
+                  return this.sendGameRequest(GameCommand.UPDATE_PLAYER_DATA, {
+                    playerData: playerData
+                  });
+                case 2:
+                case "end":
+                  return _context6.stop();
+              }
+            }, _callee6, this);
+          }));
+          function updatePlayerData(_x4) {
+            return _updatePlayerData.apply(this, arguments);
+          }
+          return updatePlayerData;
+        }()
+        /**
+         * Get slot machine configuration
+         */;
+
+        _proto.getSlotMachineConfig = /*#__PURE__*/
+        function () {
+          var _getSlotMachineConfig = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7() {
+            var data;
+            return _regeneratorRuntime().wrap(function _callee7$(_context7) {
+              while (1) switch (_context7.prev = _context7.next) {
+                case 0:
+                  _context7.next = 2;
+                  return this.sendGameRequest(GameCommand.GET_SLOT_MACHINE_CONFIG);
+                case 2:
+                  data = _context7.sent;
+                  return _context7.abrupt("return", data.slotMachineConfig);
+                case 4:
+                case "end":
+                  return _context7.stop();
+              }
+            }, _callee7, this);
+          }));
+          function getSlotMachineConfig() {
+            return _getSlotMachineConfig.apply(this, arguments);
+          }
+          return getSlotMachineConfig;
+        }()
+        /**
+         * Perform slot machine spin action
+         */;
+
+        _proto.spinSlotMachine = /*#__PURE__*/
+        function () {
+          var _spinSlotMachine = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8(betMultiplier) {
+            var request, data;
+            return _regeneratorRuntime().wrap(function _callee8$(_context8) {
+              while (1) switch (_context8.prev = _context8.next) {
+                case 0:
+                  request = {
+                    betMultiplier: betMultiplier
+                  };
+                  _context8.next = 3;
+                  return this.sendGameRequest(GameCommand.SPIN_SLOT_MACHINE, request);
+                case 3:
+                  data = _context8.sent;
+                  return _context8.abrupt("return", data.slotSpinResult);
+                case 5:
+                case "end":
+                  return _context8.stop();
+              }
+            }, _callee8, this);
+          }));
+          function spinSlotMachine(_x5) {
+            return _spinSlotMachine.apply(this, arguments);
+          }
+          return spinSlotMachine;
+        }() // City Building Methods
+        /**
+         * Upgrade a building
+         */;
+
+        _proto.upgradeBuilding = /*#__PURE__*/
+        function () {
+          var _upgradeBuilding = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee9(cityId, buildingId) {
+            var request, data;
+            return _regeneratorRuntime().wrap(function _callee9$(_context9) {
+              while (1) switch (_context9.prev = _context9.next) {
+                case 0:
+                  request = {
+                    cityId: cityId,
+                    buildingId: buildingId
+                  };
+                  _context9.next = 3;
+                  return this.sendGameRequest(GameCommand.UPGRADE_BUILDING, request);
+                case 3:
+                  data = _context9.sent;
+                  return _context9.abrupt("return", data);
+                case 5:
+                case "end":
+                  return _context9.stop();
+              }
+            }, _callee9, this);
+          }));
+          function upgradeBuilding(_x6, _x7) {
+            return _upgradeBuilding.apply(this, arguments);
+          }
+          return upgradeBuilding;
+        }()
+        /**
+         * Get city data
+         */;
+
+        _proto.getCityData = /*#__PURE__*/
+        function () {
+          var _getCityData = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee10(cityId) {
+            var data;
+            return _regeneratorRuntime().wrap(function _callee10$(_context10) {
+              while (1) switch (_context10.prev = _context10.next) {
+                case 0:
+                  _context10.next = 2;
+                  return this.sendGameRequest(GameCommand.GET_CITY_DATA, {
+                    cityId: cityId
+                  });
+                case 2:
+                  data = _context10.sent;
+                  return _context10.abrupt("return", data.cityData);
+                case 4:
+                case "end":
+                  return _context10.stop();
+              }
+            }, _callee10, this);
+          }));
+          function getCityData(_x8) {
+            return _getCityData.apply(this, arguments);
+          }
+          return getCityData;
+        }() // Attack Methods
+        /**
+         * Get attack target
+         */;
+
+        _proto.getAttackTarget = /*#__PURE__*/
+        function () {
+          var _getAttackTarget = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee11() {
+            var data;
+            return _regeneratorRuntime().wrap(function _callee11$(_context11) {
+              while (1) switch (_context11.prev = _context11.next) {
+                case 0:
+                  _context11.next = 2;
+                  return this.sendGameRequest(GameCommand.GET_ATTACK_TARGET);
+                case 2:
+                  data = _context11.sent;
+                  return _context11.abrupt("return", data.targetPlayer);
+                case 4:
+                case "end":
+                  return _context11.stop();
+              }
+            }, _callee11, this);
+          }));
+          function getAttackTarget() {
+            return _getAttackTarget.apply(this, arguments);
+          }
+          return getAttackTarget;
+        }()
+        /**
+         * Attack another player
+         */;
+
+        _proto.attackPlayer = /*#__PURE__*/
+        function () {
+          var _attackPlayer = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee12(targetPlayerId, targetBuildingId) {
+            var request, data;
+            return _regeneratorRuntime().wrap(function _callee12$(_context12) {
+              while (1) switch (_context12.prev = _context12.next) {
+                case 0:
+                  request = {
+                    targetPlayerId: targetPlayerId,
+                    targetBuildingId: targetBuildingId
+                  };
+                  _context12.next = 3;
+                  return this.sendGameRequest(GameCommand.ATTACK_PLAYER, request);
+                case 3:
+                  data = _context12.sent;
+                  return _context12.abrupt("return", data.attackResult);
+                case 5:
+                case "end":
+                  return _context12.stop();
+              }
+            }, _callee12, this);
+          }));
+          function attackPlayer(_x9, _x10) {
+            return _attackPlayer.apply(this, arguments);
+          }
+          return attackPlayer;
+        }() // Raid Methods
+        /**
+         * Get raid target
+         */;
+
+        _proto.getRaidTarget = /*#__PURE__*/
+        function () {
+          var _getRaidTarget = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee13() {
+            var data;
+            return _regeneratorRuntime().wrap(function _callee13$(_context13) {
+              while (1) switch (_context13.prev = _context13.next) {
+                case 0:
+                  _context13.next = 2;
+                  return this.sendGameRequest(GameCommand.GET_RAID_TARGET);
+                case 2:
+                  data = _context13.sent;
+                  return _context13.abrupt("return", data.targetPlayer);
+                case 4:
+                case "end":
+                  return _context13.stop();
+              }
+            }, _callee13, this);
+          }));
+          function getRaidTarget() {
+            return _getRaidTarget.apply(this, arguments);
+          }
+          return getRaidTarget;
+        }()
+        /**
+         * Raid another player
+         */;
+
+        _proto.raidPlayer = /*#__PURE__*/
+        function () {
+          var _raidPlayer = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee14(targetPlayerId, chestIndex) {
+            var request, data;
+            return _regeneratorRuntime().wrap(function _callee14$(_context14) {
+              while (1) switch (_context14.prev = _context14.next) {
+                case 0:
+                  request = {
+                    targetPlayerId: targetPlayerId,
+                    chestIndex: chestIndex
+                  };
+                  _context14.next = 3;
+                  return this.sendGameRequest(GameCommand.RAID_PLAYER, request);
+                case 3:
+                  data = _context14.sent;
+                  return _context14.abrupt("return", data.raidResult);
+                case 5:
+                case "end":
+                  return _context14.stop();
+              }
+            }, _callee14, this);
+          }));
+          function raidPlayer(_x11, _x12) {
+            return _raidPlayer.apply(this, arguments);
+          }
+          return raidPlayer;
+        }() // Main Event Methods
+        /**
+         * Get main event data
+         */;
+
+        _proto.getMainEvent = /*#__PURE__*/
+        function () {
+          var _getMainEvent = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee15() {
+            var data;
+            return _regeneratorRuntime().wrap(function _callee15$(_context15) {
+              while (1) switch (_context15.prev = _context15.next) {
+                case 0:
+                  _context15.next = 2;
+                  return this.sendGameRequest(GameCommand.GET_MAIN_EVENT);
+                case 2:
+                  data = _context15.sent;
+                  return _context15.abrupt("return", data.mainEvent);
+                case 4:
+                case "end":
+                  return _context15.stop();
+              }
+            }, _callee15, this);
+          }));
+          function getMainEvent() {
+            return _getMainEvent.apply(this, arguments);
+          }
+          return getMainEvent;
+        }()
+        /**
+         * Claim event milestone reward
+         */;
+
+        _proto.claimEventMilestone = /*#__PURE__*/
+        function () {
+          var _claimEventMilestone = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee16(milestoneId) {
+            var data;
+            return _regeneratorRuntime().wrap(function _callee16$(_context16) {
+              while (1) switch (_context16.prev = _context16.next) {
+                case 0:
+                  _context16.next = 2;
+                  return this.sendGameRequest(GameCommand.CLAIM_EVENT_MILESTONE, {
+                    milestoneId: milestoneId
+                  });
+                case 2:
+                  data = _context16.sent;
+                  return _context16.abrupt("return", data.claimResult);
+                case 4:
+                case "end":
+                  return _context16.stop();
+              }
+            }, _callee16, this);
+          }));
+          function claimEventMilestone(_x13) {
+            return _claimEventMilestone.apply(this, arguments);
+          }
+          return claimEventMilestone;
+        }() // Resource Methods
+        /**
+         * Collect offline resources
+         */;
+
+        _proto.collectResources = /*#__PURE__*/
+        function () {
+          var _collectResources = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee17() {
+            var data;
+            return _regeneratorRuntime().wrap(function _callee17$(_context17) {
+              while (1) switch (_context17.prev = _context17.next) {
+                case 0:
+                  _context17.next = 2;
+                  return this.sendGameRequest(GameCommand.COLLECT_RESOURCES);
+                case 2:
+                  data = _context17.sent;
+                  return _context17.abrupt("return", data.resources);
+                case 4:
+                case "end":
+                  return _context17.stop();
+              }
+            }, _callee17, this);
+          }));
+          function collectResources() {
+            return _collectResources.apply(this, arguments);
+          }
+          return collectResources;
+        }()
+        /**
+         * Handle network status changes
+         */;
+
+        _proto.handleNetworkStatusChange = function handleNetworkStatusChange(isOnline) {
+          if (this._isOnline === isOnline) return;
+          this._isOnline = isOnline;
+          logInfo("Network status changed. Online: " + isOnline);
+          if (isOnline) {
+            // Network is back online, sync data
+            this.syncPlayerData();
+          }
+        }
+
+        /**
+         * Sync player data with the server
+         */;
+        _proto.syncPlayerData = /*#__PURE__*/
+        function () {
+          var _syncPlayerData = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee18() {
+            var serverPlayerData;
+            return _regeneratorRuntime().wrap(function _callee18$(_context18) {
+              while (1) switch (_context18.prev = _context18.next) {
+                case 0:
+                  logInfo('Syncing player data with server...');
+                  if (this._playerModel) {
+                    _context18.next = 3;
+                    break;
+                  }
+                  return _context18.abrupt("return");
+                case 3:
+                  _context18.prev = 3;
+                  _context18.next = 6;
+                  return this.getPlayerData();
+                case 6:
+                  serverPlayerData = _context18.sent;
+                  if (serverPlayerData) {
+                    this._playerModel.initializePlayerData(serverPlayerData);
+                    this.savePlayerDataToLocalStorage(serverPlayerData);
+                    logInfo('Player data synced from server');
+                    this.emit('playerDataSynced', serverPlayerData);
+                  }
+                  _context18.next = 13;
+                  break;
+                case 10:
+                  _context18.prev = 10;
+                  _context18.t0 = _context18["catch"](3);
+                  logError('Failed to sync player data from server:', _context18.t0);
+                case 13:
+                case "end":
+                  return _context18.stop();
+              }
+            }, _callee18, this, [[3, 10]]);
+          }));
+          function syncPlayerData() {
+            return _syncPlayerData.apply(this, arguments);
+          }
+          return syncPlayerData;
+        }()
+        /**
+         * Start auto-saving player data to local storage
+         */;
+
+        _proto.startAutoSave = function startAutoSave() {
+          var _this3 = this;
+          if (this._autoSaveInterval) {
+            this.stopAutoSave();
+          }
+          var autoSaveFrequency = 2000; // 2 seconds
+          this._autoSaveInterval = window.setInterval(function () {
+            _this3.savePlayerDataToLocalStorage();
+          }, autoSaveFrequency);
+          logInfo("Auto-save started with frequency: " + autoSaveFrequency + "ms");
+        }
+
+        /**
+         * Stop auto-saving player data
+         */;
+        _proto.stopAutoSave = function stopAutoSave() {
+          if (this._autoSaveInterval) {
+            window.clearInterval(this._autoSaveInterval);
+            this._autoSaveInterval = null;
+            logInfo('Auto-save stopped');
+          }
+        }
+
+        /**
+         * Save player data to local storage
+         */;
+        _proto.savePlayerDataToLocalStorage = function savePlayerDataToLocalStorage(data) {
+          if (!this._playerModel) return;
+          try {
+            var playerData = data || this._playerModel.toJSON();
+            log('Player data to save:', playerData);
+            if (playerData) {
+              localStorage.setItem('playerData', JSON.stringify(playerData));
+              logInfo('Player data saved to local storage');
+            }
+          } catch (error) {
+            logError('Failed to save player data to local storage:', error);
+          }
+        }
+
+        /**
+         * Load player data from local storage
+         */;
+        _proto.loadPlayerDataFromLocalStorage = function loadPlayerDataFromLocalStorage() {
+          try {
+            var playerDataJson = localStorage.getItem('playerData');
+            if (playerDataJson) {
+              var playerData = JSON.parse(playerDataJson);
+              logInfo('Player data loaded from local storage');
+              return playerData;
+            }
+          } catch (error) {
+            logError('Failed to load player data from local storage:', error);
+          }
+          return null;
+        }
+
+        /**
+         * Check if service is ready for game commands
+         */;
+        /**
+         * Load player data from server or create new player
+         */
+        _proto.loadPlayerData = /*#__PURE__*/
+        function () {
+          var _loadPlayerData = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee19() {
+            var serverPlayerData, localPlayerData;
+            return _regeneratorRuntime().wrap(function _callee19$(_context19) {
+              while (1) switch (_context19.prev = _context19.next) {
+                case 0:
+                  if (this._playerModel) {
+                    _context19.next = 2;
+                    break;
+                  }
+                  return _context19.abrupt("return");
+                case 2:
+                  _context19.prev = 2;
+                  if (!this._isOnline) {
+                    _context19.next = 16;
+                    break;
+                  }
+                  // Online mode: prioritize server data
+                  logInfo('Online mode: attempting to load player data from server...');
+                  _context19.next = 7;
+                  return this.getPlayerData();
+                case 7:
+                  serverPlayerData = _context19.sent;
+                  if (!serverPlayerData) {
+                    _context19.next = 15;
+                    break;
+                  }
+                  this._playerModel.initializePlayerData(serverPlayerData);
+                  this.savePlayerDataToLocalStorage(serverPlayerData);
+                  logInfo('Player data loaded from server and saved to local storage');
+                  return _context19.abrupt("return");
+                case 15:
+                  logWarn('No player data found on server, falling back to local storage.');
+                case 16:
+                  // Offline mode or server fetch failed: try local storage
+                  logInfo('Offline mode or server fetch failed: attempting to load player data from local storage...');
+                  localPlayerData = this.loadPlayerDataFromLocalStorage();
+                  if (!localPlayerData) {
+                    _context19.next = 22;
+                    break;
+                  }
+                  this._playerModel.initializePlayerData(localPlayerData);
+                  logInfo('Player data loaded from local storage');
+                  return _context19.abrupt("return");
+                case 22:
+                  // No local data found, create new player
+                  logInfo('No local player data found, creating a new player.');
+                  this.createNewPlayer();
+                  this.savePlayerDataToLocalStorage(); // Save the new player data
+                  logInfo('New player created and saved to local storage');
+                  _context19.next = 34;
+                  break;
+                case 28:
+                  _context19.prev = 28;
+                  _context19.t0 = _context19["catch"](2);
+                  logError('An error occurred while loading player data:', _context19.t0);
+                  logInfo('Falling back to creating a new player due to error.');
+                  this.createNewPlayer();
+                  this.savePlayerDataToLocalStorage();
+                // Save the new player data
+                case 34:
+                case "end":
+                  return _context19.stop();
+              }
+            }, _callee19, this, [[2, 28]]);
+          }));
+          function loadPlayerData() {
+            return _loadPlayerData.apply(this, arguments);
+          }
+          return loadPlayerData;
+        }()
+        /**
+         * Create new player with default data
+         */;
+
+        _proto.createNewPlayer = function createNewPlayer() {
+          if (!this._playerModel) return;
+          var gameConfig = GameConfig.getInstance();
+          var resourceConfig = gameConfig.getResourceConfig();
+          var newPlayerData = {
+            id: this.generatePlayerId(),
+            name: 'Player',
+            level: 1,
+            experience: 0,
+            resources: {
+              gold: resourceConfig.startingGold,
+              energy: resourceConfig.startingEnergy,
+              maxEnergy: resourceConfig.maxEnergy,
+              lastEnergyRegenTime: Date.now()
+            },
+            currentCityId: 'city_1',
+            cities: [],
+            mainEvent: gameConfig.getActiveMainEvent() || gameConfig.getMainEventConfigs()[0],
+            lastLoginTime: Date.now(),
+            createdTime: Date.now()
+          };
+          this._playerModel.initializePlayerData(newPlayerData);
+        }
+
+        /**
+         * Generate unique player ID
+         */;
+        _proto.generatePlayerId = function generatePlayerId() {
+          var timestamp = Date.now();
+          var random = Math.floor(Math.random() * 10000);
+          return "player_" + timestamp + "_" + random;
+        }
+
+        /**
+         * Cleanup resources
+         */;
+        _proto.destroy = function destroy() {
+          if (this._networkService) {
+            this._networkService.off('extensionResponse', this.onExtensionResponse, this);
+            this._networkService.off('connectionLost', this.onConnectionLost, this);
+            this._networkService.off('loggedOut', this.onLoggedOut, this);
+            // Stop auto-save
+            this.stopAutoSave();
+          }
+
+          // Cleanup player model
+          if (this._playerModel) {
+            this._playerModel.destroy();
+            this._playerModel = null;
+          }
+          this._networkService = null;
+          _BaseService.prototype.destroy.call(this);
+        };
+        _createClass(GameService, [{
+          key: "isReady",
+          get: function get() {
+            return this._networkService !== null && this._networkService.isConnectedToServer && this._networkService.isLoggedIn;
+          }
+        }]);
+        return GameService;
+      }(BaseService));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/index.ts", ['cc', './ResourceModel.ts', './BuildingModel.ts', './CityModel.ts', './MainEventModel.ts', './SlotMachineModel.ts', './PlayerModel.ts'], function (exports) {
+  var cclegacy;
+  return {
+    setters: [function (module) {
+      cclegacy = module.cclegacy;
+    }, function (module) {
+      exports('ResourceModel', module.ResourceModel);
+    }, function (module) {
+      exports('BuildingModel', module.BuildingModel);
+    }, function (module) {
+      exports('CityModel', module.CityModel);
+    }, function (module) {
+      exports('MainEventModel', module.MainEventModel);
+    }, function (module) {
+      exports('SlotMachineModel', module.SlotMachineModel);
+    }, function (module) {
+      exports('PlayerModel', module.PlayerModel);
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "06454/e+ltIjrhCLhRcxKwZ", "index", undefined);
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/index2.ts", ['cc', './BaseModel.ts', './BaseViewModel.ts', './BaseView.ts', './BaseService.ts', './ServiceLocator.ts'], function (exports) {
+  var cclegacy;
+  return {
+    setters: [function (module) {
+      cclegacy = module.cclegacy;
+    }, function (module) {
+      exports('BaseModel', module.BaseModel);
+    }, function (module) {
+      exports('BaseViewModel', module.BaseViewModel);
+    }, function (module) {
+      exports('BaseView', module.BaseView);
+    }, function (module) {
+      exports('BaseService', module.BaseService);
+    }, function (module) {
+      exports('ServiceLocator', module.ServiceLocator);
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "b5bf01errtKNId1G/7OyEas", "index", undefined);
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/index3.ts", ['cc', './NetworkService.ts', './GameService.ts'], function (exports) {
+  var cclegacy;
+  return {
+    setters: [function (module) {
+      cclegacy = module.cclegacy;
+    }, function (module) {
+      exports('NetworkService', module.NetworkService);
+    }, function (module) {
+      var _setter = {};
+      _setter.GameCommand = module.GameCommand;
+      _setter.GameService = module.GameService;
+      exports(_setter);
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "e9876k1nu5CMokcZ4rKNbYB", "index", undefined);
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/LoadingView.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseView.ts', './LoadingViewModel.ts', './Logger.ts'], function (exports) {
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _asyncToGenerator, _regeneratorRuntime, cclegacy, _decorator, Label, ProgressBar, Node, Button, director, Color, BaseView, LoadingStep, LoadingViewModel, logInfo, logWarn, logError, logDebug;
+  return {
+    setters: [function (module) {
+      _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
+      _inheritsLoose = module.inheritsLoose;
+      _initializerDefineProperty = module.initializerDefineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+      _asyncToGenerator = module.asyncToGenerator;
+      _regeneratorRuntime = module.regeneratorRuntime;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      Label = module.Label;
+      ProgressBar = module.ProgressBar;
+      Node = module.Node;
+      Button = module.Button;
+      director = module.director;
+      Color = module.Color;
+    }, function (module) {
+      BaseView = module.BaseView;
+    }, function (module) {
+      LoadingStep = module.LoadingStep;
+      LoadingViewModel = module.LoadingViewModel;
+    }, function (module) {
+      logInfo = module.logInfo;
+      logWarn = module.logWarn;
+      logError = module.logError;
+      logDebug = module.logDebug;
+    }],
+    execute: function () {
+      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9;
+      cclegacy._RF.push({}, "825f7fOjdlHnqNu8GP7dsDJ", "LoadingView", undefined);
+      var ccclass = _decorator.ccclass,
+        property = _decorator.property;
+
+      /**
+       * Loading View - UI for loading scene
+       */
+      var LoadingView = exports('LoadingView', (_dec = ccclass('LoadingView'), _dec2 = property(Label), _dec3 = property(Label), _dec4 = property(Label), _dec5 = property(ProgressBar), _dec6 = property(Node), _dec7 = property(Node), _dec8 = property(Label), _dec9 = property(Button), _dec10 = property(Node), _dec(_class = (_class2 = /*#__PURE__*/function (_BaseView) {
+        _inheritsLoose(LoadingView, _BaseView);
+        function LoadingView() {
+          var _this;
+          _this = _BaseView.call(this) || this;
+          _initializerDefineProperty(_this, "titleLabel", _descriptor, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "messageLabel", _descriptor2, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "progressLabel", _descriptor3, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "progressBar", _descriptor4, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "loadingContainer", _descriptor5, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "errorContainer", _descriptor6, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "errorLabel", _descriptor7, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "retryButton", _descriptor8, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "loadingSpinner", _descriptor9, _assertThisInitialized(_this));
+          _this._viewModel = null;
+          _this._spinnerRotation = 0;
+          logInfo('LoadingView: Constructor called');
+          return _this;
+        }
+        var _proto = LoadingView.prototype;
+        _proto.onLoad = function onLoad() {
+          logInfo('LoadingView: onLoad called');
+          _BaseView.prototype.onLoad.call(this);
+        }
+
+        /**
+         * Setup UI components
+         */;
+        _proto.setupUI = function setupUI() {
+          logInfo('LoadingView: Setting up UI...');
+
+          // Initialize UI state
+          this.showLoadingUI();
+          this.hideErrorUI();
+
+          // Set initial text
+          if (this.titleLabel) {
+            this.titleLabel.string = 'Coin Master';
+            logInfo('LoadingView: Title label set');
+          } else {
+            logWarn('LoadingView: Title label not found');
+          }
+          if (this.messageLabel) {
+            this.messageLabel.string = 'Initializing...';
+            logInfo('LoadingView: Message label set');
+          } else {
+            logWarn('LoadingView: Message label not found');
+          }
+          if (this.progressLabel) {
+            this.progressLabel.string = '0%';
+            logInfo('LoadingView: Progress label set');
+          } else {
+            logWarn('LoadingView: Progress label not found');
+          }
+          if (this.progressBar) {
+            this.progressBar.progress = 0;
+            logInfo('LoadingView: Progress bar set');
+          } else {
+            logWarn('LoadingView: Progress bar not found');
+          }
+
+          // Start spinner animation
+          this.startSpinnerAnimation();
+          logInfo('LoadingView: UI setup complete');
+        }
+
+        /**
+         * Bind UI events
+         */;
+        _proto.bindEvents = function bindEvents() {
+          if (this.retryButton) {
+            this.retryButton.node.on(Button.EventType.CLICK, this.onRetryClicked, this);
+          }
+        }
+
+        /**
+         * Update UI based on data changes
+         */;
+        _proto.updateUI = function updateUI(key, value, oldValue) {
+          // Handle ViewModel data changes if needed
+        }
+
+        /**
+         * Refresh entire UI
+         */;
+        _proto.refreshUI = function refreshUI() {
+          if (this._viewModel) {
+            var progress = this._viewModel.getLoadingProgress();
+            this.updateProgress(progress);
+          }
+        }
+
+        /**
+         * Set ViewModel and setup event listeners
+         */;
+        _proto.setViewModel = function setViewModel(viewModel) {
+          _BaseView.prototype.setViewModel.call(this, viewModel);
+          this._viewModel = viewModel;
+          if (this._viewModel) {
+            this._viewModel.on('progressUpdated', this.onProgressUpdated, this);
+            this._viewModel.on('loadingComplete', this.onLoadingComplete, this);
+            this._viewModel.on('loadingError', this.onLoadingError, this);
+          }
+        }
+
+        /**
+         * Handle progress update
+         */;
+        _proto.onProgressUpdated = function onProgressUpdated(progressData) {
+          logInfo("LoadingView: Progress update received: " + progressData.step + " - " + Math.round(progressData.progress * 100) + "% - " + progressData.message);
+          this.updateProgress(progressData);
+        }
+
+        /**
+         * Handle loading complete
+         */;
+        _proto.onLoadingComplete = function onLoadingComplete(data) {
+          // Hide loading UI immediately
+          this.hideLoadingUI();
+
+          // Small delay before transitioning
+          this.scheduleOnce(function () {
+            // Load Main scene directly - this will destroy current scene
+            director.loadScene('Main', function (loadError) {
+              if (loadError) {
+                logError('LoadingView: Failed to load Main scene:', loadError);
+              }
+            });
+          }, 0.5);
+        }
+
+        /**
+         * Handle loading error
+         */;
+        _proto.onLoadingError = function onLoadingError(data) {
+          this.showErrorUI();
+          this.hideLoadingUI();
+          if (this.errorLabel) {
+            this.errorLabel.string = data.error || 'An error occurred during loading';
+          }
+        }
+
+        /**
+         * Update progress display
+         */;
+        _proto.updateProgress = function updateProgress(progressData) {
+          var step = progressData.step,
+            progress = progressData.progress,
+            message = progressData.message,
+            error = progressData.error;
+          logInfo("LoadingView: Updating progress - " + step + " - " + Math.round(progress * 100) + "% - " + message);
+
+          // Update progress bar
+          if (this.progressBar) {
+            this.progressBar.progress = progress;
+            logDebug("LoadingView: Progress bar updated to " + progress);
+          } else {
+            logWarn('LoadingView: Progress bar not available');
+          }
+
+          // Update progress label
+          if (this.progressLabel) {
+            this.progressLabel.string = Math.round(progress * 100) + "%";
+            logDebug("LoadingView: Progress label updated to " + Math.round(progress * 100) + "%");
+          } else {
+            logWarn('LoadingView: Progress label not available');
+          }
+
+          // Update message
+          if (this.messageLabel) {
+            this.messageLabel.string = message;
+            logDebug("LoadingView: Message label updated to: " + message);
+          } else {
+            logWarn('LoadingView: Message label not available');
+          }
+
+          // Handle error state
+          if (step === LoadingStep.ERROR && error) {
+            this.onLoadingError({
+              error: error
+            });
+          }
+
+          // Update message color based on step
+          this.updateMessageColor(step);
+        }
+
+        /**
+         * Update message color based on loading step
+         */;
+        _proto.updateMessageColor = function updateMessageColor(step) {
+          if (!this.messageLabel) return;
+          switch (step) {
+            case LoadingStep.ERROR:
+              this.messageLabel.color = Color.RED;
+              break;
+            case LoadingStep.COMPLETE:
+              this.messageLabel.color = Color.GREEN;
+              break;
+            default:
+              this.messageLabel.color = Color.WHITE;
+              break;
+          }
+        }
+
+        /**
+         * Show loading UI
+         */;
+        _proto.showLoadingUI = function showLoadingUI() {
+          if (this.loadingContainer) {
+            this.loadingContainer.active = true;
+          }
+        }
+
+        /**
+         * Hide loading UI
+         */;
+        _proto.hideLoadingUI = function hideLoadingUI() {
+          if (this.loadingContainer) {
+            this.loadingContainer.active = false;
+          }
+        }
+
+        /**
+         * Show error UI
+         */;
+        _proto.showErrorUI = function showErrorUI() {
+          if (this.errorContainer) {
+            this.errorContainer.active = true;
+          }
+        }
+
+        /**
+         * Hide error UI
+         */;
+        _proto.hideErrorUI = function hideErrorUI() {
+          if (this.errorContainer) {
+            this.errorContainer.active = false;
+          }
+        }
+
+        /**
+         * Start spinner animation
+         */;
+        _proto.startSpinnerAnimation = function startSpinnerAnimation() {
+          if (this.loadingSpinner) {
+            this.schedule(this.updateSpinner, 0.016); // ~60 FPS
+          }
+        }
+
+        /**
+         * Update spinner rotation
+         */;
+        _proto.updateSpinner = function updateSpinner() {
+          if (this.loadingSpinner && this.loadingSpinner.active) {
+            this._spinnerRotation += 180 * 0.016; // 180 degrees per second
+            if (this._spinnerRotation >= 360) {
+              this._spinnerRotation -= 360;
+            }
+            this.loadingSpinner.angle = -this._spinnerRotation;
+          }
+        }
+
+        /**
+         * Handle retry button click
+         */;
+        _proto.onRetryClicked = /*#__PURE__*/
+        function () {
+          var _onRetryClicked = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+            return _regeneratorRuntime().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  if (!this._viewModel) {
+                    _context.next = 5;
+                    break;
+                  }
+                  this.showLoadingUI();
+                  this.hideErrorUI();
+                  _context.next = 5;
+                  return this._viewModel.executeCommand('retry');
+                case 5:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee, this);
+          }));
+          function onRetryClicked() {
+            return _onRetryClicked.apply(this, arguments);
+          }
+          return onRetryClicked;
+        }()
+        /**
+         * Called when component starts
+         */;
+
+        _proto.start = function start() {
+          logInfo('LoadingView: start() called');
+          this.onShow();
+        }
+
+        /**
+         * Called when view is shown
+         */;
+        _proto.onShow = function onShow() {
+          logInfo('LoadingView: onShow called');
+          _BaseView.prototype.onShow.call(this);
+
+          // Initialize ViewModel if not already done
+          if (!this._viewModel) {
+            logInfo('LoadingView: Creating new LoadingViewModel');
+            this._viewModel = new LoadingViewModel();
+            this.setViewModel(this._viewModel);
+            logInfo('LoadingView: Initializing LoadingViewModel');
+            this._viewModel.initialize();
+          } else {
+            logInfo('LoadingView: ViewModel already exists');
+          }
+        }
+
+        /**
+         * Called when view is hidden
+         */;
+        _proto.onHide = function onHide() {
+          _BaseView.prototype.onHide.call(this);
+
+          // Stop spinner animation
+          this.unschedule(this.updateSpinner);
+        }
+
+        /**
+         * Cleanup on destroy
+         */;
+        _proto.onDestroy = function onDestroy() {
+          // Safely remove event listeners
+          if (this._viewModel) {
+            this._viewModel.off('progressUpdated', this.onProgressUpdated, this);
+            this._viewModel.off('loadingComplete', this.onLoadingComplete, this);
+            this._viewModel.off('loadingError', this.onLoadingError, this);
+          }
+
+          // Stop spinner animation
+          this.unschedule(this.updateSpinner);
+          _BaseView.prototype.onDestroy.call(this);
+        };
+        return LoadingView;
+      }(BaseView), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "titleLabel", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "messageLabel", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "progressLabel", [_dec4], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "progressBar", [_dec5], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "loadingContainer", [_dec6], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "errorContainer", [_dec7], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, "errorLabel", [_dec8], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, "retryButton", [_dec9], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, "loadingSpinner", [_dec10], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      })), _class2)) || _class));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/LoadingViewModel.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseViewModel.ts', './ServiceLocator.ts', './NetworkService.ts', './GameService.ts', './ResourceManager.ts', './GameConfig.ts', './Logger.ts'], function (exports) {
+  var _inheritsLoose, _createClass, _asyncToGenerator, _regeneratorRuntime, cclegacy, BaseViewModel, ServiceLocator, NetworkService, GameService, ResourceManager, GameConfig, logInfo, logError;
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _createClass = module.createClass;
+      _asyncToGenerator = module.asyncToGenerator;
+      _regeneratorRuntime = module.regeneratorRuntime;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+    }, function (module) {
+      BaseViewModel = module.BaseViewModel;
+    }, function (module) {
+      ServiceLocator = module.ServiceLocator;
+    }, function (module) {
+      NetworkService = module.NetworkService;
+    }, function (module) {
+      GameService = module.GameService;
+    }, function (module) {
+      ResourceManager = module.ResourceManager;
+    }, function (module) {
+      GameConfig = module.GameConfig;
+    }, function (module) {
+      logInfo = module.logInfo;
+      logError = module.logError;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "1a2b2ZXLsVNQLsL8bEWOqXN", "LoadingViewModel", undefined);
+
+      /**
+       * Loading step enumeration
+       */
+      var LoadingStep = exports('LoadingStep', /*#__PURE__*/function (LoadingStep) {
+        LoadingStep["INITIALIZING"] = "initializing";
+        LoadingStep["LOADING_RESOURCES"] = "loading_resources";
+        LoadingStep["CONNECTING_SERVER"] = "connecting_server";
+        LoadingStep["LOGGING_IN"] = "logging_in";
+        LoadingStep["LOADING_CONFIG"] = "loading_config";
+        LoadingStep["LOADING_PLAYER_DATA"] = "loading_player_data";
+        LoadingStep["FINALIZING"] = "finalizing";
+        LoadingStep["COMPLETE"] = "complete";
+        LoadingStep["ERROR"] = "error";
+        return LoadingStep;
+      }({}));
+
+      /**
+       * Loading progress data
+       */
+
+      /**
+       * Loading ViewModel - Handles loading scene logic
+       */
+      var LoadingViewModel = exports('LoadingViewModel', /*#__PURE__*/function (_BaseViewModel) {
+        _inheritsLoose(LoadingViewModel, _BaseViewModel);
+        function LoadingViewModel() {
+          var _this;
+          _this = _BaseViewModel.call(this) || this;
+          _this._currentStep = LoadingStep.INITIALIZING;
+          _this._progress = 0;
+          _this._message = '';
+          _this._error = '';
+          _this._playerModel = null;
+          return _this;
+        }
+
+        /**
+         * Initialize ViewModel
+         */
+        var _proto = LoadingViewModel.prototype;
+        _proto.onInitialize = function onInitialize() {
+          logInfo('LoadingViewModel: onInitialize called');
+          var api = "https://github.com/temuchjn/remote-config-server/raw/refs/heads/main/paytable.json";
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', api, true);
+          xhr.onload = function () {
+            console.log(xhr.responseText);
+          };
+          xhr.send();
+          this.startLoadingProcess();
+        }
+
+        /**
+         * Execute command
+         */;
+        _proto.executeCommand = /*#__PURE__*/
+        function () {
+          var _executeCommand = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(command) {
+            return _regeneratorRuntime().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  _context.t0 = command;
+                  _context.next = _context.t0 === 'retry' ? 3 : _context.t0 === 'getProgress' ? 4 : 5;
+                  break;
+                case 3:
+                  return _context.abrupt("return", this.retryLoading());
+                case 4:
+                  return _context.abrupt("return", this.getLoadingProgress());
+                case 5:
+                  throw new Error("Unknown command: " + command);
+                case 6:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee, this);
+          }));
+          function executeCommand(_x) {
+            return _executeCommand.apply(this, arguments);
+          }
+          return executeCommand;
+        }()
+        /**
+         * Start the loading process
+         */;
+
+        _proto.startLoadingProcess = /*#__PURE__*/
+        function () {
+          var _startLoadingProcess = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+            return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+              while (1) switch (_context2.prev = _context2.next) {
+                case 0:
+                  logInfo('LoadingViewModel: Starting loading process...');
+                  _context2.prev = 1;
+                  logInfo('LoadingViewModel: Step 1 - Load resources');
+                  _context2.next = 5;
+                  return this.loadResources();
+                case 5:
+                  logInfo('LoadingViewModel: Step 2 - Load game config');
+                  _context2.next = 8;
+                  return this.loadGameConfig();
+                case 8:
+                  logInfo('LoadingViewModel: Step 3 - Initialize services');
+                  _context2.next = 11;
+                  return this.initializeServices();
+                case 11:
+                  logInfo('LoadingViewModel: Step 4 - Connect to server');
+                  _context2.next = 14;
+                  return this.connectToServer();
+                case 14:
+                  logInfo('LoadingViewModel: Step 5 - Login to server');
+                  _context2.next = 17;
+                  return this.loginToServer();
+                case 17:
+                  logInfo('LoadingViewModel: Step 6 - Load player data');
+                  _context2.next = 20;
+                  return this.loadPlayerData();
+                case 20:
+                  logInfo('LoadingViewModel: Step 7 - Finalize loading');
+                  _context2.next = 23;
+                  return this.finalizeLoading();
+                case 23:
+                  logInfo('LoadingViewModel: Step 8 - Complete loading');
+                  this.completeLoading();
+                  _context2.next = 31;
+                  break;
+                case 27:
+                  _context2.prev = 27;
+                  _context2.t0 = _context2["catch"](1);
+                  logError('LoadingViewModel: Error in loading process:', _context2.t0);
+                  this.handleLoadingError(_context2.t0);
+                case 31:
+                case "end":
+                  return _context2.stop();
+              }
+            }, _callee2, this, [[1, 27]]);
+          }));
+          function startLoadingProcess() {
+            return _startLoadingProcess.apply(this, arguments);
+          }
+          return startLoadingProcess;
+        }()
+        /**
+         * Initialize services
+         */;
+
+        _proto.initializeServices = /*#__PURE__*/
+        function () {
+          var _initializeServices = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+            var serviceLocator;
+            return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+              while (1) switch (_context3.prev = _context3.next) {
+                case 0:
+                  this.updateProgress(LoadingStep.INITIALIZING, 0.3, 'Initializing services...');
+                  serviceLocator = ServiceLocator.getInstance();
+                  serviceLocator.registerService('NetworkService', new NetworkService());
+                  serviceLocator.registerService('GameService', new GameService());
+                  serviceLocator.registerService('ResourceManager', new ResourceManager());
+
+                  // Initialize all services
+                  _context3.next = 7;
+                  return serviceLocator.initializeAllServices();
+                case 7:
+                  this.updateProgress(LoadingStep.INITIALIZING, 0.4, 'Services initialized');
+                case 8:
+                case "end":
+                  return _context3.stop();
+              }
+            }, _callee3, this);
+          }));
+          function initializeServices() {
+            return _initializeServices.apply(this, arguments);
+          }
+          return initializeServices;
+        }()
+        /**
+         * Load game resources
+         */;
+
+        _proto.loadResources = /*#__PURE__*/
+        function () {
+          var _loadResources = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+            return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+              while (1) switch (_context4.prev = _context4.next) {
+                case 0:
+                  this.updateProgress(LoadingStep.LOADING_RESOURCES, 0.0, 'Loading game resources...');
+
+                  // Simulate resource loading (in real implementation, load actual assets)
+                  _context4.next = 3;
+                  return this.simulateAsyncOperation(1000);
+                case 3:
+                  this.updateProgress(LoadingStep.LOADING_RESOURCES, 0.2, 'Resources loaded');
+                case 4:
+                case "end":
+                  return _context4.stop();
+              }
+            }, _callee4, this);
+          }));
+          function loadResources() {
+            return _loadResources.apply(this, arguments);
+          }
+          return loadResources;
+        }()
+        /**
+         * Connect to server
+         */;
+
+        _proto.connectToServer = /*#__PURE__*/
+        function () {
+          var _connectToServer = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
+            var serviceLocator, networkService, config;
+            return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+              while (1) switch (_context5.prev = _context5.next) {
+                case 0:
+                  this.updateProgress(LoadingStep.CONNECTING_SERVER, 0.4, 'Connecting to server...');
+                  serviceLocator = ServiceLocator.getInstance();
+                  networkService = serviceLocator.getService('NetworkService');
+                  if (networkService) {
+                    _context5.next = 5;
+                    break;
+                  }
+                  throw new Error('NetworkService not found');
+                case 5:
+                  // Set connection configuration
+                  config = {
+                    host: 'localhost',
+                    // Replace with actual server host
+                    port: 9933,
+                    // Replace with actual server port
+                    zone: 'CoinMaster',
+                    // Replace with actual zone name
+                    useSSL: false,
+                    debug: true
+                  };
+                  networkService.setConfig(config);
+
+                  // Connect to server
+                  _context5.next = 9;
+                  return networkService.connect();
+                case 9:
+                  this.updateProgress(LoadingStep.CONNECTING_SERVER, 0.55, 'Connected to server');
+                case 10:
+                case "end":
+                  return _context5.stop();
+              }
+            }, _callee5, this);
+          }));
+          function connectToServer() {
+            return _connectToServer.apply(this, arguments);
+          }
+          return connectToServer;
+        }()
+        /**
+         * Login to server
+         */;
+
+        _proto.loginToServer = /*#__PURE__*/
+        function () {
+          var _loginToServer = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6() {
+            var serviceLocator, networkService, username, password;
+            return _regeneratorRuntime().wrap(function _callee6$(_context6) {
+              while (1) switch (_context6.prev = _context6.next) {
+                case 0:
+                  this.updateProgress(LoadingStep.LOGGING_IN, 0.55, 'Logging in...');
+                  serviceLocator = ServiceLocator.getInstance();
+                  networkService = serviceLocator.getService('NetworkService');
+                  if (networkService) {
+                    _context6.next = 5;
+                    break;
+                  }
+                  throw new Error('NetworkService not found');
+                case 5:
+                  // Generate or get user credentials
+                  username = this.generateUsername();
+                  password = ''; // Empty password for guest login
+                  _context6.next = 9;
+                  return networkService.login(username, password);
+                case 9:
+                  this.updateProgress(LoadingStep.LOGGING_IN, 0.7, 'Logged in successfully');
+                case 10:
+                case "end":
+                  return _context6.stop();
+              }
+            }, _callee6, this);
+          }));
+          function loginToServer() {
+            return _loginToServer.apply(this, arguments);
+          }
+          return loginToServer;
+        }()
+        /**
+         * Load game configuration
+         */;
+
+        _proto.loadGameConfig = /*#__PURE__*/
+        function () {
+          var _loadGameConfig = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7() {
+            var gameConfig;
+            return _regeneratorRuntime().wrap(function _callee7$(_context7) {
+              while (1) switch (_context7.prev = _context7.next) {
+                case 0:
+                  this.updateProgress(LoadingStep.LOADING_CONFIG, 0.2, 'Loading game configuration...');
+                  gameConfig = GameConfig.getInstance(); // Load default config
+                  if (gameConfig.isLoaded) {
+                    _context7.next = 5;
+                    break;
+                  }
+                  _context7.next = 5;
+                  return gameConfig.loadConfig();
+                case 5:
+                  this.updateProgress(LoadingStep.LOADING_CONFIG, 0.3, 'Configuration loaded');
+                case 6:
+                case "end":
+                  return _context7.stop();
+              }
+            }, _callee7, this);
+          }));
+          function loadGameConfig() {
+            return _loadGameConfig.apply(this, arguments);
+          }
+          return loadGameConfig;
+        }()
+        /**
+         * Load player data
+         */;
+
+        _proto.loadPlayerData = /*#__PURE__*/
+        function () {
+          var _loadPlayerData = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8() {
+            var serviceLocator, gameService, resourceManager;
+            return _regeneratorRuntime().wrap(function _callee8$(_context8) {
+              while (1) switch (_context8.prev = _context8.next) {
+                case 0:
+                  this.updateProgress(LoadingStep.LOADING_PLAYER_DATA, 0.7, 'Loading player data...');
+                  serviceLocator = ServiceLocator.getInstance();
+                  gameService = serviceLocator.getService('GameService');
+                  resourceManager = serviceLocator.getService('ResourceManager'); // Get player model from GameService (it's already initialized there)
+                  this._playerModel = (gameService == null ? void 0 : gameService.getPlayerModel()) || null;
+                  if (this._playerModel) {
+                    _context8.next = 8;
+                    break;
+                  }
+                  logError('Failed to get PlayerModel from GameService');
+                  throw new Error('PlayerModel not available from GameService');
+                case 8:
+                  if (!resourceManager) {
+                    _context8.next = 11;
+                    break;
+                  }
+                  _context8.next = 11;
+                  return resourceManager.connect();
+                case 11:
+                  this.updateProgress(LoadingStep.LOADING_PLAYER_DATA, 0.9, 'Player data loaded');
+                case 12:
+                case "end":
+                  return _context8.stop();
+              }
+            }, _callee8, this);
+          }));
+          function loadPlayerData() {
+            return _loadPlayerData.apply(this, arguments);
+          }
+          return loadPlayerData;
+        }()
+        /**
+         * Finalize loading
+         */;
+
+        _proto.finalizeLoading = /*#__PURE__*/
+        function () {
+          var _finalizeLoading = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee9() {
+            var serviceLocator;
+            return _regeneratorRuntime().wrap(function _callee9$(_context9) {
+              while (1) switch (_context9.prev = _context9.next) {
+                case 0:
+                  this.updateProgress(LoadingStep.FINALIZING, 0.9, 'Finalizing...');
+
+                  // Connect all services
+                  serviceLocator = ServiceLocator.getInstance();
+                  _context9.next = 4;
+                  return serviceLocator.connectAllServices();
+                case 4:
+                  _context9.next = 6;
+                  return this.simulateAsyncOperation(500);
+                case 6:
+                  this.updateProgress(LoadingStep.FINALIZING, 1.0, 'Ready to play!');
+                case 7:
+                case "end":
+                  return _context9.stop();
+              }
+            }, _callee9, this);
+          }));
+          function finalizeLoading() {
+            return _finalizeLoading.apply(this, arguments);
+          }
+          return finalizeLoading;
+        }()
+        /**
+         * Complete loading process
+         */;
+
+        _proto.completeLoading = function completeLoading() {
+          this.updateProgress(LoadingStep.COMPLETE, 1.0, 'Loading complete!');
+          logInfo('LoadingViewModel: Emitting loadingComplete event...');
+          this.emit('loadingComplete', {
+            playerModel: this._playerModel
+          });
+          logInfo('LoadingViewModel: loadingComplete event emitted');
+        }
+
+        /**
+         * Handle loading error
+         */;
+        _proto.handleLoadingError = function handleLoadingError(error) {
+          logError('Loading error:', error);
+          this._error = error.message || 'Unknown error occurred';
+          this.updateProgress(LoadingStep.ERROR, this._progress, 'Loading failed', this._error);
+          this.emit('loadingError', {
+            error: this._error
+          });
+        }
+
+        /**
+         * Retry loading process
+         */;
+        _proto.retryLoading = /*#__PURE__*/
+        function () {
+          var _retryLoading = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee10() {
+            return _regeneratorRuntime().wrap(function _callee10$(_context10) {
+              while (1) switch (_context10.prev = _context10.next) {
+                case 0:
+                  this._error = '';
+                  this._progress = 0;
+                  this._currentStep = LoadingStep.INITIALIZING;
+                  _context10.next = 5;
+                  return this.startLoadingProcess();
+                case 5:
+                case "end":
+                  return _context10.stop();
+              }
+            }, _callee10, this);
+          }));
+          function retryLoading() {
+            return _retryLoading.apply(this, arguments);
+          }
+          return retryLoading;
+        }()
+        /**
+         * Update loading progress
+         */;
+
+        _proto.updateProgress = function updateProgress(step, progress, message, error) {
+          this._currentStep = step;
+          this._progress = progress;
+          this._message = message;
+          if (error) {
+            this._error = error;
+          }
+          var progressData = {
+            step: step,
+            progress: progress,
+            message: message,
+            error: error
+          };
+          logInfo("LoadingViewModel: Emitting progressUpdated - " + step + " - " + Math.round(progress * 100) + "% - " + message);
+          this.emit('progressUpdated', progressData);
+          logInfo("Loading: " + step + " - " + Math.round(progress * 100) + "% - " + message);
+        }
+
+        /**
+         * Get current loading progress
+         */;
+        _proto.getLoadingProgress = function getLoadingProgress() {
+          return {
+            step: this._currentStep,
+            progress: this._progress,
+            message: this._message,
+            error: this._error
+          };
+        }
+
+        /**
+         * Generate unique username
+         */;
+        _proto.generateUsername = function generateUsername() {
+          var timestamp = Date.now();
+          var random = Math.floor(Math.random() * 1000);
+          return "Player_" + timestamp + "_" + random;
+        }
+
+        /**
+         * Simulate async operation (for demo purposes)
+         */;
+        _proto.simulateAsyncOperation = function simulateAsyncOperation(duration) {
+          return new Promise(function (resolve) {
+            setTimeout(resolve, duration);
+          });
+        }
+
+        /**
+         * Get player model
+         */;
+        _proto.getPlayerModel = function getPlayerModel() {
+          return this._playerModel;
+        }
+
+        /**
+         * Check if loading is complete
+         */;
+        _createClass(LoadingViewModel, [{
+          key: "isComplete",
+          get: function get() {
+            return this._currentStep === LoadingStep.COMPLETE;
+          }
+
+          /**
+           * Check if loading has error
+           */
+        }, {
+          key: "hasError",
+          get: function get() {
+            return this._currentStep === LoadingStep.ERROR;
+          }
+        }]);
+        return LoadingViewModel;
+      }(BaseViewModel));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/Logger.ts", ['cc'], function (exports) {
+  var cclegacy;
+  return {
+    setters: [function (module) {
+      cclegacy = module.cclegacy;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "3df77Qb219M0qX1GSsu2YDH", "Logger", undefined);
+      /**
+       * Custom Logger utility for debugging
+       * Stores logs in memory and provides export functionality
+       */
+      var Logger = exports('Logger', /*#__PURE__*/function () {
+        function Logger() {
+          this._logs = [];
+          this._maxLogs = 1000;
+          this._enabled = true;
+        }
+
+        /**
+         * Get singleton instance
+         */
+        Logger.getInstance = function getInstance() {
+          if (!Logger._instance) {
+            Logger._instance = new Logger();
+          }
+          return Logger._instance;
+        }
+
+        /**
+         * Log a message
+         */;
+        var _proto = Logger.prototype;
+        _proto.log = function log(message, category) {
+          if (category === void 0) {
+            category = 'INFO';
+          }
+          if (!this._enabled) return;
+          var timestamp = new Date().toISOString();
+          var logEntry = "[" + timestamp + "] [" + category + "] " + message;
+
+          // Add to internal storage
+          this._logs.push(logEntry);
+
+          // Keep only recent logs
+          if (this._logs.length > this._maxLogs) {
+            this._logs.shift();
+          }
+
+          // Also output to console for immediate viewing
+          console.log(logEntry);
+        }
+
+        /**
+         * Log info message
+         */;
+        _proto.info = function info(message) {
+          this.log(message, 'INFO');
+        }
+
+        /**
+         * Log warning message
+         */;
+        _proto.warn = function warn(message) {
+          var warnMessage = '';
+          if (typeof message === 'string') {
+            warnMessage = message;
+          } else {
+            warnMessage = String(message);
+          }
+
+          // Add additional arguments if provided
+          for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+            args[_key - 1] = arguments[_key];
+          }
+          if (args.length > 0) {
+            warnMessage += ' ' + args.map(function (arg) {
+              return String(arg);
+            }).join(' ');
+          }
+          this.log(warnMessage, 'WARN');
+        }
+
+        /**
+         * Log error message
+         */;
+        _proto.error = function error(message) {
+          var errorMessage = '';
+          if (typeof message === 'string') {
+            errorMessage = message;
+          } else if (message instanceof Error) {
+            errorMessage = message.message;
+          } else {
+            errorMessage = String(message);
+          }
+
+          // Add additional arguments if provided
+          for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+            args[_key2 - 1] = arguments[_key2];
+          }
+          if (args.length > 0) {
+            errorMessage += ' ' + args.map(function (arg) {
+              return String(arg);
+            }).join(' ');
+          }
+          this.log(errorMessage, 'ERROR');
+        }
+
+        /**
+         * Log debug message
+         */;
+        _proto.debug = function debug(message) {
+          this.log(message, 'DEBUG');
+        }
+
+        /**
+         * Get all logs as string
+         */;
+        _proto.getAllLogs = function getAllLogs() {
+          return this._logs.join('\n');
+        }
+
+        /**
+         * Get recent logs (last N entries)
+         */;
+        _proto.getRecentLogs = function getRecentLogs(count) {
+          if (count === void 0) {
+            count = 50;
+          }
+          var recentLogs = this._logs.slice(-count);
+          return recentLogs.join('\n');
+        }
+
+        /**
+         * Clear all logs
+         */;
+        _proto.clear = function clear() {
+          this._logs = [];
+        }
+
+        /**
+         * Enable/disable logging
+         */;
+        _proto.setEnabled = function setEnabled(enabled) {
+          this._enabled = enabled;
+        }
+
+        /**
+         * Get logs count
+         */;
+        _proto.getLogsCount = function getLogsCount() {
+          return this._logs.length;
+        }
+
+        /**
+         * Export logs to localStorage for easy access
+         */;
+        _proto.exportToLocalStorage = function exportToLocalStorage(key) {
+          if (key === void 0) {
+            key = 'coinmaster_debug_logs';
+          }
+          try {
+            if (typeof localStorage !== 'undefined') {
+              localStorage.setItem(key, this.getAllLogs());
+              this.info("Logs exported to localStorage with key: " + key);
+            } else {
+              this.warn('localStorage not available');
+            }
+          } catch (error) {
+            this.error("Failed to export logs: " + error);
+          }
+        }
+
+        /**
+         * Create a downloadable log file (for web builds)
+         */;
+        _proto.downloadLogs = function downloadLogs(filename) {
+          if (filename === void 0) {
+            filename = 'coinmaster_debug.log';
+          }
+          try {
+            var logContent = this.getAllLogs();
+            var blob = new Blob([logContent], {
+              type: 'text/plain'
+            });
+            var url = URL.createObjectURL(blob);
+
+            // Create temporary download link
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            this.info("Logs downloaded as: " + filename);
+          } catch (error) {
+            this.error("Failed to download logs: " + error);
+          }
+        }
+
+        /**
+         * Get logs filtered by category
+         */;
+        _proto.getLogsByCategory = function getLogsByCategory(category) {
+          var filteredLogs = this._logs.filter(function (log) {
+            return log.includes("[" + category + "]");
+          });
+          return filteredLogs.join('\n');
+        }
+
+        /**
+         * Get logs filtered by search term
+         */;
+        _proto.searchLogs = function searchLogs(searchTerm) {
+          var filteredLogs = this._logs.filter(function (log) {
+            return log.toLowerCase().includes(searchTerm.toLowerCase());
+          });
+          return filteredLogs.join('\n');
+        };
+        return Logger;
+      }());
+
+      // Global logger instance for easy access
+      Logger._instance = void 0;
+      var logger = exports('logger', Logger.getInstance());
+
+      // Convenience functions
+      var logInfo = exports('logInfo', function logInfo(message) {
+        return logger.info(message);
+      });
+      var logWarn = exports('logWarn', function logWarn(message) {
+        for (var _len3 = arguments.length, args = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
+          args[_key3 - 1] = arguments[_key3];
+        }
+        return logger.warn.apply(logger, [message].concat(args));
+      });
+      var logError = exports('logError', function logError(message) {
+        for (var _len4 = arguments.length, args = new Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
+          args[_key4 - 1] = arguments[_key4];
+        }
+        return logger.error.apply(logger, [message].concat(args));
+      });
+      var logDebug = exports('logDebug', function logDebug(message) {
+        return logger.debug(message);
+      });
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/main", ['./CheatComponent.ts', './ReelComponent.ts', './RevealWave.ts', './SlotMachineComponent.ts', './AnimationConfig.ts', './GameConfig.ts', './SlotMachineConfig.ts', './ResourceManagerExample.ts', './BaseModel.ts', './BaseService.ts', './BaseView.ts', './BaseViewModel.ts', './ServiceLocator.ts', './index2.ts', './ResourceManager.ts', './BuildingModel.ts', './CityModel.ts', './MainEventModel.ts', './PlayerModel.ts', './ResourceModel.ts', './SlotMachineModel.ts', './index.ts', './ConfigScene.ts', './PreviewDragonBone.ts', './AttackView.ts', './AttackViewModel.ts', './CityView.ts', './CityViewModel.ts', './LoadingView.ts', './LoadingViewModel.ts', './MainView.ts', './MainViewModel.ts', './RaidView.ts', './RaidViewModel.ts', './GameService.ts', './NetworkService.ts', './index3.ts', './SimpleCityModelTest.ts', './DebugPanel.ts', './Logger.ts', './SlotMachineUtils.ts', './StringUtils.ts'], function () {
+  return {
+    setters: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+    execute: function () {}
+  };
+});
+
+System.register("chunks:///_virtual/MainEventModel.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseModel.ts'], function (exports) {
+  var _inheritsLoose, _createForOfIteratorHelperLoose, _createClass, cclegacy, BaseModel;
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _createForOfIteratorHelperLoose = module.createForOfIteratorHelperLoose;
+      _createClass = module.createClass;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+    }, function (module) {
+      BaseModel = module.BaseModel;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "05666IZHdRK264kHZAqXEKD", "MainEventModel", undefined);
+
+      /**
+       * Event milestone data structure
+       */
+
+      /**
+       * Main event data structure
+       */
+
+      /**
+       * Main Event Model - Handles event progression and rewards
+       */
+      var MainEventModel = exports('MainEventModel', /*#__PURE__*/function (_BaseModel) {
+        _inheritsLoose(MainEventModel, _BaseModel);
+        function MainEventModel() {
+          var _this;
+          _this = _BaseModel.call(this) || this;
+          _this.initializeDefaults();
+          return _this;
+        }
+
+        /**
+         * Initialize default values
+         */
+        var _proto = MainEventModel.prototype;
+        _proto.initializeDefaults = function initializeDefaults() {
+          this.setData('id', '');
+          this.setData('name', '');
+          this.setData('description', '');
+          this.setData('itemType', '');
+          this.setData('currentItems', 0);
+          this.setData('milestones', []);
+          this.setData('isActive', false);
+          this.setData('startTime', 0);
+          this.setData('endTime', 0);
+        }
+
+        /**
+         * Get event ID
+         */;
+        /**
+         * Add items to the event
+         */
+        _proto.addItems = function addItems(amount) {
+          if (this.isActive && amount > 0) {
+            this.currentItems += amount;
+            this.emit('itemsAdded', {
+              amount: amount,
+              totalItems: this.currentItems,
+              eventId: this.id
+            });
+          }
+        }
+
+        /**
+         * Get current milestone (next unclaimed milestone)
+         */;
+        _proto.getCurrentMilestone = function getCurrentMilestone() {
+          var milestones = this.milestones;
+          for (var _iterator = _createForOfIteratorHelperLoose(milestones), _step; !(_step = _iterator()).done;) {
+            var milestone = _step.value;
+            if (!milestone.isClaimed) {
+              return milestone;
+            }
+          }
+          return null;
+        }
+
+        /**
+         * Get next milestone after current
+         */;
+        _proto.getNextMilestone = function getNextMilestone() {
+          var milestones = this.milestones;
+          var foundCurrent = false;
+          for (var _iterator2 = _createForOfIteratorHelperLoose(milestones), _step2; !(_step2 = _iterator2()).done;) {
+            var milestone = _step2.value;
+            if (foundCurrent && !milestone.isClaimed) {
+              return milestone;
+            }
+            if (!milestone.isClaimed) {
+              foundCurrent = true;
+            }
+          }
+          return null;
+        }
+
+        /**
+         * Check if current milestone can be claimed
+         */;
+        _proto.canClaimCurrentMilestone = function canClaimCurrentMilestone() {
+          var currentMilestone = this.getCurrentMilestone();
+          return currentMilestone !== null && this.currentItems >= currentMilestone.requiredItems;
+        }
+
+        /**
+         * Claim current milestone reward
+         */;
+        _proto.claimCurrentMilestone = function claimCurrentMilestone() {
+          var currentMilestone = this.getCurrentMilestone();
+          if (currentMilestone && this.canClaimCurrentMilestone()) {
+            // Mark milestone as claimed
+            var milestones = this.milestones;
+            var milestoneIndex = milestones.findIndex(function (m) {
+              return m.id === currentMilestone.id;
+            });
+            if (milestoneIndex >= 0) {
+              milestones[milestoneIndex].isClaimed = true;
+              this.setData('milestones', [].concat(milestones));
+              this.emit('milestoneClaimed', {
+                milestone: currentMilestone,
+                eventId: this.id
+              });
+              return currentMilestone;
+            }
+          }
+          return null;
+        }
+
+        /**
+         * Get event progress (0-1) for current milestone
+         */;
+        _proto.getCurrentMilestoneProgress = function getCurrentMilestoneProgress() {
+          var currentMilestone = this.getCurrentMilestone();
+          if (!currentMilestone) {
+            return 1; // All milestones completed
+          }
+
+          return Math.min(1, this.currentItems / currentMilestone.requiredItems);
+        }
+
+        /**
+         * Get overall event progress (0-1)
+         */;
+        _proto.getOverallProgress = function getOverallProgress() {
+          var milestones = this.milestones;
+          if (milestones.length === 0) {
+            return 0;
+          }
+          var claimedCount = milestones.filter(function (m) {
+            return m.isClaimed;
+          }).length;
+          return claimedCount / milestones.length;
+        }
+
+        /**
+         * Check milestone progress and emit events
+         */;
+        _proto.checkMilestoneProgress = function checkMilestoneProgress() {
+          var currentMilestone = this.getCurrentMilestone();
+          if (currentMilestone && this.currentItems >= currentMilestone.requiredItems) {
+            this.emit('milestoneReached', {
+              milestone: currentMilestone,
+              eventId: this.id
+            });
+          }
+        }
+
+        /**
+         * Get remaining time in milliseconds
+         */;
+        _proto.getRemainingTime = function getRemainingTime() {
+          if (!this.isActive) {
+            return 0;
+          }
+          var currentTime = Date.now();
+          var endTime = this.endTime;
+          return Math.max(0, endTime - currentTime);
+        }
+
+        /**
+         * Check if event has expired
+         */;
+        _proto.hasExpired = function hasExpired() {
+          var currentTime = Date.now();
+          var endTime = this.endTime;
+          return endTime > 0 && currentTime > endTime;
+        }
+
+        /**
+         * Initialize event with server data
+         */;
+        _proto.initializeEvent = function initializeEvent(eventData) {
+          this.initialize(eventData);
+          if (this.isActive) {
+            this.emit('eventStarted', {
+              eventId: this.id
+            });
+          }
+        }
+
+        /**
+         * End the current event
+         */;
+        _proto.endEvent = function endEvent() {
+          this.setData('isActive', false);
+          this.emit('eventEnded', {
+            eventId: this.id
+          });
+        }
+
+        /**
+         * Validate model data
+         */;
+        _proto.validate = function validate() {
+          var id = this.id;
+          var name = this.name;
+          var itemType = this.itemType;
+          var currentItems = this.currentItems;
+          var milestones = this.milestones;
+          var startTime = this.startTime;
+          var endTime = this.endTime;
+
+          // Basic validation
+          if (!id || !name || !itemType || currentItems < 0) {
+            return false;
+          }
+
+          // Time validation
+          if (startTime > 0 && endTime > 0 && startTime >= endTime) {
+            return false;
+          }
+
+          // Milestones validation
+          if (!Array.isArray(milestones)) {
+            return false;
+          }
+          for (var _iterator3 = _createForOfIteratorHelperLoose(milestones), _step3; !(_step3 = _iterator3()).done;) {
+            var milestone = _step3.value;
+            if (!milestone.id || milestone.requiredItems < 0 || !milestone.reward) {
+              return false;
+            }
+          }
+          return true;
+        }
+
+        /**
+         * Serialize to JSON
+         */;
+        _proto.toJSON = function toJSON() {
+          return {
+            id: this.id,
+            name: this.name,
+            description: this.description,
+            itemType: this.itemType,
+            currentItems: this.currentItems,
+            milestones: [].concat(this.milestones),
+            isActive: this.getData('isActive') || false,
+            startTime: this.startTime,
+            endTime: this.endTime
+          };
+        }
+
+        /**
+         * Deserialize from JSON
+         */;
+        _proto.fromJSON = function fromJSON(data) {
+          this.initializeEvent(data);
+        };
+        _createClass(MainEventModel, [{
+          key: "id",
+          get: function get() {
+            return this.getData('id') || '';
+          }
+
+          /**
+           * Get event name
+           */
+        }, {
+          key: "name",
+          get: function get() {
+            return this.getData('name') || '';
+          }
+
+          /**
+           * Get event description
+           */
+        }, {
+          key: "description",
+          get: function get() {
+            return this.getData('description') || '';
+          }
+
+          /**
+           * Get item type for this event
+           */
+        }, {
+          key: "itemType",
+          get: function get() {
+            return this.getData('itemType') || '';
+          }
+
+          /**
+           * Get current item count
+           */
+        }, {
+          key: "currentItems",
+          get: function get() {
+            return this.getData('currentItems') || 0;
+          }
+
+          /**
+           * Set current item count
+           */,
+          set: function set(value) {
+            var oldValue = this.currentItems;
+            this.setData('currentItems', Math.max(0, value));
+            if (value > oldValue) {
+              this.checkMilestoneProgress();
+            }
+          }
+
+          /**
+           * Get all milestones
+           */
+        }, {
+          key: "milestones",
+          get: function get() {
+            return this.getData('milestones') || [];
+          }
+
+          /**
+           * Check if event is active
+           */
+        }, {
+          key: "isActive",
+          get: function get() {
+            var isActive = this.getData('isActive') || false;
+            var currentTime = Date.now();
+            var startTime = this.getData('startTime') || 0;
+            var endTime = this.getData('endTime') || 0;
+            return isActive && currentTime >= startTime && currentTime <= endTime;
+          }
+
+          /**
+           * Get event start time
+           */
+        }, {
+          key: "startTime",
+          get: function get() {
+            return this.getData('startTime') || 0;
+          }
+
+          /**
+           * Get event end time
+           */
+        }, {
+          key: "endTime",
+          get: function get() {
+            return this.getData('endTime') || 0;
+          }
+        }]);
+        return MainEventModel;
+      }(BaseModel));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/MainView.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseView.ts', './MainViewModel.ts', './Logger.ts', './SlotMachineComponent.ts', './CheatComponent.ts'], function (exports) {
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _asyncToGenerator, _regeneratorRuntime, cclegacy, _decorator, SpriteAtlas, Label, Node, ProgressBar, Button, Tween, tween, director, BaseView, MainViewModel, logError, SlotMachineComponent, CheatComponent;
+  return {
+    setters: [function (module) {
+      _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
+      _inheritsLoose = module.inheritsLoose;
+      _initializerDefineProperty = module.initializerDefineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+      _asyncToGenerator = module.asyncToGenerator;
+      _regeneratorRuntime = module.regeneratorRuntime;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      SpriteAtlas = module.SpriteAtlas;
+      Label = module.Label;
+      Node = module.Node;
+      ProgressBar = module.ProgressBar;
+      Button = module.Button;
+      Tween = module.Tween;
+      tween = module.tween;
+      director = module.director;
+    }, function (module) {
+      BaseView = module.BaseView;
+    }, function (module) {
+      MainViewModel = module.MainViewModel;
+    }, function (module) {
+      logError = module.logError;
+    }, function (module) {
+      SlotMachineComponent = module.SlotMachineComponent;
+    }, function (module) {
+      CheatComponent = module.CheatComponent;
+    }],
+    execute: function () {
+      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15;
+      cclegacy._RF.push({}, "3976ax0WAxBZqcZXrh3/tDy", "MainView", undefined);
+      var ccclass = _decorator.ccclass,
+        property = _decorator.property;
+      var MainView = exports('MainView', (_dec = ccclass('MainView'), _dec2 = property([SpriteAtlas]), _dec3 = property(Label), _dec4 = property(Label), _dec5 = property(Label), _dec6 = property(Label), _dec7 = property(Node), _dec8 = property(Node), _dec9 = property(Label), _dec10 = property(Label), _dec11 = property(ProgressBar), _dec12 = property(Button), _dec13 = property(Button), _dec14 = property(Node), _dec15 = property(CheatComponent), _dec16 = property(Label), _dec(_class = (_class2 = /*#__PURE__*/function (_BaseView) {
+        _inheritsLoose(MainView, _BaseView);
+        function MainView() {
+          var _this;
+          _this = _BaseView.call(this) || this;
+          _initializerDefineProperty(_this, "spriteAtlases", _descriptor, _assertThisInitialized(_this));
+          // Resource Display
+          _initializerDefineProperty(_this, "goldLabel", _descriptor2, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "energyLabel", _descriptor3, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "energyRegenLabel", _descriptor4, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "playerLevelLabel", _descriptor5, _assertThisInitialized(_this));
+          // Slot Machine UI
+          _initializerDefineProperty(_this, "slotMachineNode", _descriptor6, _assertThisInitialized(_this));
+          // Main Event UI
+          _initializerDefineProperty(_this, "mainEventContainer", _descriptor7, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "eventNameLabel", _descriptor8, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "eventProgressLabel", _descriptor9, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "eventProgressBar", _descriptor10, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "claimMilestoneButton", _descriptor11, _assertThisInitialized(_this));
+          // Navigation Buttons
+          _initializerDefineProperty(_this, "cityButton", _descriptor12, _assertThisInitialized(_this));
+          // Notification UI
+          _initializerDefineProperty(_this, "notificationContainer", _descriptor13, _assertThisInitialized(_this));
+          //Cheat UI
+          _initializerDefineProperty(_this, "cheatContainer", _descriptor14, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "notificationLabel", _descriptor15, _assertThisInitialized(_this));
+          _this._viewModel = null;
+          _this._slotMachineComponent = null;
+          return _this;
+        }
+        var _proto = MainView.prototype;
+        _proto.onLoad = function onLoad() {
+          _BaseView.prototype.onLoad.call(this);
+          this._slotMachineComponent = this.slotMachineNode.getComponent(SlotMachineComponent);
+        };
+        _proto.start = function start() {
+          this.onShow();
+        };
+        _proto.setupUI = function setupUI() {
+          try {
+            this.updateResourceDisplay();
+            this.updateEventDisplay();
+            this.hideNotification();
+            this.startEnergyRegenTimer();
+          } catch (error) {
+            logError('MainView: Error during UI setup:', error);
+          }
+        };
+        _proto.bindEvents = function bindEvents() {
+          if (this.claimMilestoneButton) {
+            this.claimMilestoneButton.node.on(Button.EventType.CLICK, this.onClaimMilestoneClicked, this);
+          }
+          if (this.cityButton) {
+            this.cityButton.node.on(Button.EventType.CLICK, this.onCityClicked, this);
+          }
+        };
+        _proto.updateUI = function updateUI(key, value, oldValue) {
+          // This can be used for specific UI updates if needed
+        };
+        _proto.refreshUI = function refreshUI() {
+          this.updateResourceDisplay();
+          this.updateEventDisplay();
+        };
+        _proto.setViewModel = function setViewModel(viewModel) {
+          _BaseView.prototype.setViewModel.call(this, viewModel);
+          this._viewModel = viewModel;
+          if (this._viewModel) {
+            this.setupViewModelEvents();
+            if (this._slotMachineComponent) {
+              this._slotMachineComponent.setViewModel(this._viewModel);
+            }
+          }
+        };
+        _proto.setupViewModelEvents = function setupViewModelEvents() {
+          if (!this._viewModel) return;
+          this._viewModel.on('dataLoaded', this.onDataLoaded, this);
+          this._viewModel.on('resourceUpdated', this.onResourceUpdated, this);
+          this._viewModel.on('milestoneReached', this.onMilestoneReached, this);
+          this._viewModel.on('milestoneClaimed', this.onMilestoneClaimed, this);
+          this._viewModel.on('insufficientEnergy', this.onInsufficientEnergy, this);
+          this._viewModel.on('navigateToScene', this.onNavigateToScene, this);
+          this._viewModel.on('attackRewardReceived', this.onAttackRewardReceived, this);
+          this._viewModel.on('raidRewardReceived', this.onRaidRewardReceived, this);
+          this._viewModel.on('spinCompleted', this.onSpinCompleted, this);
+        };
+        _proto.updateResourceDisplay = function updateResourceDisplay() {
+          if (!this._viewModel) return;
+          if (this.goldLabel) {
+            this.goldLabel.string = this.formatNumber(this._viewModel.currentGold);
+          }
+          if (this.energyLabel) {
+            var str = this._viewModel.currentEnergy > this._viewModel.maxEnergy ? "" + this._viewModel.currentEnergy : this._viewModel.currentEnergy + "/" + this._viewModel.maxEnergy;
+            this.energyLabel.string = str;
+          }
+          if (this.playerLevelLabel) {
+            this.playerLevelLabel.string = "" + this._viewModel.playerLevel;
+          }
+        };
+        _proto.updateEnergyRegenCountdown = function updateEnergyRegenCountdown() {
+          if (!this._viewModel || !this.energyRegenLabel) return;
+
+          // Get time until next energy regeneration in milliseconds
+          var timeUntilRegen = this._viewModel.getTimeUntilNextEnergyRegen();
+          if (this._viewModel.currentEnergy >= this._viewModel.maxEnergy) {
+            // Energy is full or regeneration is due
+            this.energyRegenLabel.string = "Full";
+            return;
+          }
+
+          // Convert milliseconds to seconds
+          var totalSeconds = Math.ceil(timeUntilRegen / 1000);
+
+          // Format as "Xm Ys" or "Xs"
+          var minutes = Math.floor(totalSeconds / 60);
+          var seconds = totalSeconds % 60;
+          if (minutes > 0) {
+            this.energyRegenLabel.string = minutes + "m " + seconds + "s";
+          } else {
+            this.energyRegenLabel.string = seconds + "s";
+          }
+        };
+        _proto.startEnergyRegenTimer = function startEnergyRegenTimer() {
+          // Clear any existing timer
+          this.stopEnergyRegenTimer();
+
+          // Update immediately
+          this.updateEnergyRegenCountdown();
+
+          // Schedule periodic updates every second using Cocos Creator's scheduling system
+          this.schedule(this.updateEnergyRegenCountdown, 1.0);
+        };
+        _proto.stopEnergyRegenTimer = function stopEnergyRegenTimer() {
+          // Unschedule the energy regeneration countdown update
+          this.unschedule(this.updateEnergyRegenCountdown);
+        };
+        _proto.updateEventDisplay = function updateEventDisplay() {
+          if (!this._viewModel) return;
+          if (this.eventProgressBar) {
+            this.eventProgressBar.progress = this._viewModel.eventProgress;
+          }
+          if (this.eventProgressLabel) {
+            var progress = Math.round(this._viewModel.eventProgress * 100);
+            this.eventProgressLabel.string = progress + "%";
+          }
+          if (this.claimMilestoneButton) {
+            this.claimMilestoneButton.interactable = this._viewModel.canClaimMilestone;
+          }
+        };
+        _proto.showNotification = function showNotification(message, duration) {
+          var _this2 = this;
+          if (duration === void 0) {
+            duration = 2.0;
+          }
+          if (this.notificationContainer && this.notificationLabel) {
+            this.notificationLabel.string = message;
+            this.notificationContainer.active = true;
+            Tween.stopAllByTarget(this.notificationContainer);
+            tween(this.notificationContainer).delay(duration).call(function () {
+              _this2.hideNotification();
+            }).start();
+          }
+        };
+        _proto.hideNotification = function hideNotification() {
+          if (this.notificationContainer) {
+            this.notificationContainer.active = false;
+          }
+        };
+        _proto.formatNumber = function formatNumber(num) {
+          if (num >= 1000000) {
+            return (num / 1000000).toFixed(1) + 'M';
+          } else if (num >= 1000) {
+            return (num / 1000).toFixed(1) + 'K';
+          }
+          return num.toString();
+        }
+
+        // Event Handlers
+        ;
+
+        _proto.onDataLoaded = function onDataLoaded() {
+          this.refreshUI();
+        };
+        _proto.onResourceUpdated = function onResourceUpdated() {
+          this.updateResourceDisplay();
+          this.startEnergyRegenTimer(); // Restart timer when resources change
+        };
+
+        _proto.onSpinCompleted = function onSpinCompleted(spinResult) {
+          var reward = spinResult.finalReward;
+          var message = '';
+          switch (reward.type) {
+            case 'gold':
+              message = "+" + reward.amount + " Gold!";
+              break;
+            case 'energy':
+              message = "+" + reward.amount + " Energy!";
+              break;
+            case 'event_item':
+              message = "+" + reward.amount + " Event Items!";
+              break;
+            case 'attack':
+              message = 'Attack Unlocked!';
+              break;
+            case 'raid':
+              message = 'Raid Unlocked!';
+              break;
+          }
+          this.showNotification(message);
+          this.updateResourceDisplay();
+        };
+        _proto.onMilestoneReached = function onMilestoneReached() {
+          this.showNotification('Milestone Reached! Claim your reward!');
+          this.updateEventDisplay();
+        };
+        _proto.onMilestoneClaimed = function onMilestoneClaimed(event) {
+          var reward = event.milestone.reward;
+          this.showNotification("Claimed: " + reward.amount + " " + reward.type + "!");
+          this.updateEventDisplay();
+          this.updateResourceDisplay();
+        };
+        _proto.onInsufficientEnergy = function onInsufficientEnergy(event) {
+          this.showNotification("Need " + event.required + " energy, have " + event.available);
+        };
+        _proto.onNavigateToScene = function onNavigateToScene(sceneName) {
+          director.loadScene(sceneName);
+        };
+        _proto.onAttackRewardReceived = function onAttackRewardReceived() {
+          this.showNotification('Attack available! Tap Attack button!');
+        };
+        _proto.onRaidRewardReceived = function onRaidRewardReceived() {
+          this.showNotification('Raid available! Tap Raid button!');
+        }
+
+        // Button Event Handlers
+        ;
+
+        _proto.onClaimMilestoneClicked = /*#__PURE__*/
+        function () {
+          var _onClaimMilestoneClicked = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+            return _regeneratorRuntime().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  if (!this._viewModel) {
+                    _context.next = 3;
+                    break;
+                  }
+                  _context.next = 3;
+                  return this._viewModel.executeCommand('claimMilestone');
+                case 3:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee, this);
+          }));
+          function onClaimMilestoneClicked() {
+            return _onClaimMilestoneClicked.apply(this, arguments);
+          }
+          return onClaimMilestoneClicked;
+        }();
+        _proto.onCityClicked = function onCityClicked() {
+          if (this._viewModel) {
+            this._viewModel.executeCommand('navigateToCity');
+          }
+        };
+        _proto.onCheatClicked = function onCheatClicked() {
+          this.cheatContainer.show();
+        };
+        _proto.onShow = function onShow() {
+          _BaseView.prototype.onShow.call(this);
+          if (!this._viewModel) {
+            this._viewModel = new MainViewModel();
+            this.setViewModel(this._viewModel);
+            this._viewModel.initialize();
+          }
+        };
+        _proto.onDestroy = function onDestroy() {
+          // Stop the energy regeneration timer
+          this.stopEnergyRegenTimer();
+          if (this._viewModel) {
+            this._viewModel.off('dataLoaded', this.onDataLoaded, this);
+            this._viewModel.off('resourceUpdated', this.onResourceUpdated, this);
+            this._viewModel.off('milestoneReached', this.onMilestoneReached, this);
+            this._viewModel.off('milestoneClaimed', this.onMilestoneClaimed, this);
+            this._viewModel.off('insufficientEnergy', this.onInsufficientEnergy, this);
+            this._viewModel.off('navigateToScene', this.onNavigateToScene, this);
+            this._viewModel.off('attackRewardReceived', this.onAttackRewardReceived, this);
+            this._viewModel.off('raidRewardReceived', this.onRaidRewardReceived, this);
+            this._viewModel.off('spinCompleted', this.onSpinCompleted, this);
+          }
+          _BaseView.prototype.onDestroy.call(this);
+        };
+        return MainView;
+      }(BaseView), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "spriteAtlases", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "goldLabel", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "energyLabel", [_dec4], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "energyRegenLabel", [_dec5], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "playerLevelLabel", [_dec6], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "slotMachineNode", [_dec7], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, "mainEventContainer", [_dec8], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, "eventNameLabel", [_dec9], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, "eventProgressLabel", [_dec10], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, "eventProgressBar", [_dec11], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, "claimMilestoneButton", [_dec12], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor12 = _applyDecoratedDescriptor(_class2.prototype, "cityButton", [_dec13], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor13 = _applyDecoratedDescriptor(_class2.prototype, "notificationContainer", [_dec14], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor14 = _applyDecoratedDescriptor(_class2.prototype, "cheatContainer", [_dec15], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor15 = _applyDecoratedDescriptor(_class2.prototype, "notificationLabel", [_dec16], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      })), _class2)) || _class));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/MainViewModel.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseViewModel.ts', './ServiceLocator.ts', './PlayerModel.ts', './SlotMachineModel.ts', './GameConfig.ts', './AnimationConfig.ts', './Logger.ts', './StringUtils.ts'], function (exports) {
+  var _inheritsLoose, _createClass, _asyncToGenerator, _regeneratorRuntime, cclegacy, BaseViewModel, ServiceLocator, PlayerModel, SlotMachineModel, SlotRewardType, GameConfig, AnimationConfig, logError, StringUtils;
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _createClass = module.createClass;
+      _asyncToGenerator = module.asyncToGenerator;
+      _regeneratorRuntime = module.regeneratorRuntime;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+    }, function (module) {
+      BaseViewModel = module.BaseViewModel;
+    }, function (module) {
+      ServiceLocator = module.ServiceLocator;
+    }, function (module) {
+      PlayerModel = module.PlayerModel;
+    }, function (module) {
+      SlotMachineModel = module.SlotMachineModel;
+      SlotRewardType = module.SlotRewardType;
+    }, function (module) {
+      GameConfig = module.GameConfig;
+    }, function (module) {
+      AnimationConfig = module.AnimationConfig;
+    }, function (module) {
+      logError = module.logError;
+    }, function (module) {
+      StringUtils = module.StringUtils;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "e4de49BZ0lFgpMLiS3rhzFI", "MainViewModel", undefined);
+
+      /**
+       * Main Scene ViewModel - Handles main game screen logic
+       */
+      var MainViewModel = exports('MainViewModel', /*#__PURE__*/function (_BaseViewModel) {
+        _inheritsLoose(MainViewModel, _BaseViewModel);
+        function MainViewModel() {
+          var _this;
+          _this = _BaseViewModel.call(this) || this;
+          _this._gameService = null;
+          _this._resourceManager = null;
+          _this._playerModel = null;
+          _this._slotMachineModel = null;
+          _this._mainEventModel = null;
+          _this._animationConfig = null;
+          return _this;
+        }
+
+        /**
+         * Initialize ViewModel
+         */
+        var _proto = MainViewModel.prototype;
+        _proto.onInitialize = function onInitialize() {
+          this.setupServices();
+          this.setupModels();
+          this.setupEventListeners();
+          this.loadInitialData();
+        }
+
+        /**
+         * Setup services
+         */;
+        _proto.setupServices = function setupServices() {
+          var serviceLocator = ServiceLocator.getInstance();
+          this._gameService = serviceLocator.getService('GameService');
+          this._resourceManager = serviceLocator.getService('ResourceManager');
+          this._animationConfig = AnimationConfig.getInstance();
+          if (!this._gameService) {
+            logError('GameService not found');
+          }
+          if (!this._resourceManager) {
+            logError('ResourceManager not found');
+          }
+        }
+
+        /**
+         * Setup models
+         */;
+        _proto.setupModels = function setupModels() {
+          // Get player model from GameService (single source of truth)
+          var serviceLocator = ServiceLocator.getInstance();
+          var gameService = serviceLocator.getService('GameService');
+          if (gameService) {
+            this._playerModel = gameService.getPlayerModel();
+          }
+          if (!this._playerModel) {
+            logError('MainViewModel failed to get PlayerModel from GameService. This is a critical error.');
+            // Fallback to a new instance to prevent crashes, but this indicates an architectural problem.
+            this._playerModel = new PlayerModel();
+          }
+
+          // Initialize slot machine model
+          this._slotMachineModel = new SlotMachineModel();
+
+          // Get main event model from player
+          if (this._playerModel) {
+            this._mainEventModel = this._playerModel.mainEvent;
+          }
+        }
+
+        /**
+         * Setup event listeners
+         */;
+        _proto.setupEventListeners = function setupEventListeners() {
+          // Resource manager events
+          if (this._resourceManager) {
+            this._resourceManager.on('resourceChanged', this.onResourceChanged, this);
+            this._resourceManager.on('insufficientResources', this.onInsufficientResources, this);
+          }
+
+          // Slot machine events
+          if (this._slotMachineModel) {
+            this._slotMachineModel.on('spinStarted', this.onSpinStarted, this);
+            this._slotMachineModel.on('spinCompleted', this.onSpinCompleted, this);
+            this._slotMachineModel.on('autoSpinStateChanged', this.onAutoSpinStateChanged, this);
+          }
+
+          // Main event events
+          if (this._mainEventModel) {
+            this._mainEventModel.on('itemsAdded', this.onEventItemsAdded, this);
+            this._mainEventModel.on('milestoneReached', this.onMilestoneReached, this);
+            this._mainEventModel.on('milestoneClaimed', this.onMilestoneClaimed, this);
+          }
+
+          // Player model events
+          if (this._playerModel) {
+            this._playerModel.on('levelUp', this.onPlayerLevelUp, this);
+            this._playerModel.on('currentCityChanged', this.onCurrentCityChanged, this);
+          }
+        }
+
+        /**
+         * Load initial data
+         */;
+        _proto.loadInitialData = /*#__PURE__*/
+        function () {
+          var _loadInitialData = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+            return _regeneratorRuntime().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  _context.prev = 0;
+                  _context.next = 3;
+                  return this.loadSlotMachineConfig();
+                case 3:
+                  _context.next = 5;
+                  return this.refreshPlayerData();
+                case 5:
+                  this.emit('dataLoaded');
+                  _context.next = 12;
+                  break;
+                case 8:
+                  _context.prev = 8;
+                  _context.t0 = _context["catch"](0);
+                  logError('Failed to load initial data:', _context.t0);
+                  this.emit('dataLoadError', _context.t0);
+                case 12:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee, this, [[0, 8]]);
+          }));
+          function loadInitialData() {
+            return _loadInitialData.apply(this, arguments);
+          }
+          return loadInitialData;
+        }()
+        /**
+         * Load slot machine configuration
+         */;
+
+        _proto.loadSlotMachineConfig = /*#__PURE__*/
+        function () {
+          var _loadSlotMachineConfig = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+            var config, gameConfig, _gameConfig, _config;
+            return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+              while (1) switch (_context2.prev = _context2.next) {
+                case 0:
+                  if (this._slotMachineModel) {
+                    _context2.next = 2;
+                    break;
+                  }
+                  return _context2.abrupt("return");
+                case 2:
+                  _context2.prev = 2;
+                  if (!(this._gameService && this._gameService.isReady)) {
+                    _context2.next = 9;
+                    break;
+                  }
+                  _context2.next = 6;
+                  return this._gameService.getSlotMachineConfig();
+                case 6:
+                  config = _context2.sent;
+                  _context2.next = 11;
+                  break;
+                case 9:
+                  // Load from local config
+                  gameConfig = GameConfig.getInstance();
+                  config = gameConfig.getSlotMachineConfig();
+                case 11:
+                  this._slotMachineModel.loadConfiguration(config);
+                  this.emit('slotMachineConfigLoaded', config);
+                  _context2.next = 21;
+                  break;
+                case 15:
+                  _context2.prev = 15;
+                  _context2.t0 = _context2["catch"](2);
+                  logError('Failed to load slot machine config:', _context2.t0);
+                  // Fallback to default config
+                  _gameConfig = GameConfig.getInstance();
+                  _config = _gameConfig.getSlotMachineConfig();
+                  this._slotMachineModel.loadConfiguration(_config);
+                case 21:
+                case "end":
+                  return _context2.stop();
+              }
+            }, _callee2, this, [[2, 15]]);
+          }));
+          function loadSlotMachineConfig() {
+            return _loadSlotMachineConfig.apply(this, arguments);
+          }
+          return loadSlotMachineConfig;
+        }()
+        /**
+         * Refresh player data
+         */;
+
+        _proto.refreshPlayerData = /*#__PURE__*/
+        function () {
+          var _refreshPlayerData = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+            var playerData;
+            return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+              while (1) switch (_context3.prev = _context3.next) {
+                case 0:
+                  if (this._playerModel) {
+                    _context3.next = 2;
+                    break;
+                  }
+                  return _context3.abrupt("return");
+                case 2:
+                  _context3.prev = 2;
+                  if (!(this._gameService && this._gameService.isReady)) {
+                    _context3.next = 8;
+                    break;
+                  }
+                  _context3.next = 6;
+                  return this._gameService.getPlayerData();
+                case 6:
+                  playerData = _context3.sent;
+                  this._playerModel.initializePlayerData(playerData);
+                case 8:
+                  this.emit('playerDataRefreshed');
+                  _context3.next = 14;
+                  break;
+                case 11:
+                  _context3.prev = 11;
+                  _context3.t0 = _context3["catch"](2);
+                  logError('Failed to refresh player data:', _context3.t0);
+                case 14:
+                case "end":
+                  return _context3.stop();
+              }
+            }, _callee3, this, [[2, 11]]);
+          }));
+          function refreshPlayerData() {
+            return _refreshPlayerData.apply(this, arguments);
+          }
+          return refreshPlayerData;
+        }()
+        /**
+         * Execute command
+         */;
+
+        _proto.executeCommand = /*#__PURE__*/
+        function () {
+          var _executeCommand = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(command) {
+            var _args4 = arguments;
+            return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+              while (1) switch (_context4.prev = _context4.next) {
+                case 0:
+                  _context4.t0 = command;
+                  _context4.next = _context4.t0 === 'spin' ? 3 : _context4.t0 === 'setBetMultiplier' ? 4 : _context4.t0 === 'increaseBetMultiplier' ? 5 : _context4.t0 === 'decreaseBetMultiplier' ? 6 : _context4.t0 === 'changeBetMultiplier' ? 7 : _context4.t0 === 'claimMilestone' ? 8 : _context4.t0 === 'navigateToCity' ? 9 : _context4.t0 === 'navigateToAttack' ? 10 : _context4.t0 === 'navigateToRaid' ? 11 : _context4.t0 === 'startAutoSpin' ? 12 : _context4.t0 === 'stopAutoSpin' ? 13 : _context4.t0 === 'refreshData' ? 14 : 15;
+                  break;
+                case 3:
+                  return _context4.abrupt("return", this.performSpin());
+                case 4:
+                  return _context4.abrupt("return", this.setBetMultiplier(_args4.length <= 1 ? undefined : _args4[1]));
+                case 5:
+                  return _context4.abrupt("return", this.increaseBetMultiplier());
+                case 6:
+                  return _context4.abrupt("return", this.decreaseBetMultiplier());
+                case 7:
+                  return _context4.abrupt("return", this.changeBetMultiplier());
+                case 8:
+                  return _context4.abrupt("return", this.claimEventMilestone());
+                case 9:
+                  return _context4.abrupt("return", this.navigateToCity());
+                case 10:
+                  return _context4.abrupt("return", this.navigateToAttack());
+                case 11:
+                  return _context4.abrupt("return", this.navigateToRaid());
+                case 12:
+                  return _context4.abrupt("return", this.startAutoSpin());
+                case 13:
+                  return _context4.abrupt("return", this.stopAutoSpin());
+                case 14:
+                  return _context4.abrupt("return", this.refreshPlayerData());
+                case 15:
+                  throw new Error("Unknown command: " + command);
+                case 16:
+                case "end":
+                  return _context4.stop();
+              }
+            }, _callee4, this);
+          }));
+          function executeCommand(_x) {
+            return _executeCommand.apply(this, arguments);
+          }
+          return executeCommand;
+        }()
+        /**
+         * Perform slot machine spin action
+         */;
+
+        _proto.performSpin = /*#__PURE__*/
+        function () {
+          var _performSpin = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
+            var energyCost, spinResult;
+            return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+              while (1) switch (_context5.prev = _context5.next) {
+                case 0:
+                  if (!(!this._slotMachineModel || !this._resourceManager || !this._gameService)) {
+                    _context5.next = 2;
+                    break;
+                  }
+                  return _context5.abrupt("return", null);
+                case 2:
+                  if (!this._slotMachineModel.isSpinning) {
+                    _context5.next = 4;
+                    break;
+                  }
+                  return _context5.abrupt("return", null);
+                case 4:
+                  // Check if player has enough energy
+                  energyCost = this._slotMachineModel.getTotalEnergyCost();
+                  if (this._resourceManager.hasEnoughEnergy(energyCost)) {
+                    _context5.next = 8;
+                    break;
+                  }
+                  this.emit('insufficientEnergy', {
+                    required: energyCost,
+                    available: this._resourceManager.getEnergy()
+                  });
+                  return _context5.abrupt("return", null);
+                case 8:
+                  _context5.prev = 8;
+                  _context5.next = 11;
+                  return this._resourceManager.spendEnergy(energyCost, 'slot_machine');
+                case 11:
+                  // Generate the result before starting the spin
+                  spinResult = this._slotMachineModel.generateSpinResult(); // Start the spin, passing the result so the view can animate
+                  this._slotMachineModel.startSpin(spinResult);
+                  return _context5.abrupt("return", spinResult);
+                case 16:
+                  _context5.prev = 16;
+                  _context5.t0 = _context5["catch"](8);
+                  logError('Spin failed:', _context5.t0);
+                  // Refund energy on failure
+                  _context5.next = 21;
+                  return this._resourceManager.addEnergy(energyCost, 'spin_refund');
+                case 21:
+                  this._slotMachineModel.resetSpin();
+                  this.emit('spinError', _context5.t0);
+                  return _context5.abrupt("return", null);
+                case 24:
+                case "end":
+                  return _context5.stop();
+              }
+            }, _callee5, this, [[8, 16]]);
+          }));
+          function performSpin() {
+            return _performSpin.apply(this, arguments);
+          }
+          return performSpin;
+        }()
+        /**
+         * Set bet multiplier
+         */;
+
+        _proto.setBetMultiplier = function setBetMultiplier(multiplier) {
+          if (!this._slotMachineModel) return false;
+          var availableMultipliers = this._slotMachineModel.availableMultipliers;
+          if (availableMultipliers.includes(multiplier)) {
+            this._slotMachineModel.selectedMultiplier = multiplier;
+            this.emit('betMultiplierChanged', multiplier);
+            return true;
+          }
+          return false;
+        }
+
+        /**
+         * Increase bet multiplier to next value in the array
+         */;
+        _proto.increaseBetMultiplier = function increaseBetMultiplier() {
+          if (!this._slotMachineModel || !this._resourceManager) return false;
+          var multiplierArray = [1, 2, 5, 10, 20, 40, 50, 100, 250];
+          var currentMultiplier = this._slotMachineModel.selectedMultiplier;
+          var currentIndex = multiplierArray.indexOf(currentMultiplier);
+          if (currentIndex === -1) {
+            // If the current multiplier is not in the array, do nothing.
+            return false;
+          }
+
+          // If the current value is the max, do nothing.
+          if (currentIndex >= multiplierArray.length - 1) {
+            return false;
+          }
+          var nextMultiplier = multiplierArray[currentIndex + 1];
+
+          // Calculate energy cost with the new multiplier
+          var energyCostPerSpin = this._slotMachineModel.energyCostPerSpin;
+          var newEnergyCost = energyCostPerSpin * nextMultiplier;
+          var currentEnergy = this._resourceManager.getEnergy();
+
+          // Check if player has enough energy for the new multiplier
+          if (newEnergyCost > currentEnergy) {
+            // Emit event to notify UI that increase was blocked due to insufficient energy
+            this.emit('betMultiplierIncreaseBlocked', {
+              requiredEnergy: newEnergyCost,
+              availableEnergy: currentEnergy,
+              blockedMultiplier: nextMultiplier
+            });
+            return false;
+          }
+
+          // Energy validation passed, apply the new multiplier
+          this._slotMachineModel.selectedMultiplier = nextMultiplier;
+          this.emit('betMultiplierChanged', this._slotMachineModel.selectedMultiplier);
+          return true;
+        }
+
+        /**
+         * Decrease bet multiplier to previous value in the array
+         */;
+        _proto.decreaseBetMultiplier = function decreaseBetMultiplier() {
+          if (!this._slotMachineModel) return false;
+          var multiplierArray = [1, 2, 5, 10, 20, 40, 50, 100, 250];
+          var currentMultiplier = this._slotMachineModel.selectedMultiplier;
+          var currentIndex = multiplierArray.indexOf(currentMultiplier);
+          if (currentIndex === -1) {
+            // If the current multiplier is not in the array, do nothing.
+            return false;
+          }
+
+          // If the current value is not the min, decrement it.
+          if (currentIndex > 0) {
+            this._slotMachineModel.selectedMultiplier = multiplierArray[currentIndex - 1];
+            this.emit('betMultiplierChanged', this._slotMachineModel.selectedMultiplier);
+            return true;
+          }
+          return false;
+        }
+
+        /**
+         * Change bet multiplier to next available level in ascending order
+         * When maximum is reached, wrap around to minimum level
+         */;
+        _proto.changeBetMultiplier = function changeBetMultiplier() {
+          if (!this._slotMachineModel || !this._resourceManager) return false;
+          var multiplierArray = [1, 2, 5, 10, 20, 40, 50, 100, 250];
+          var currentMultiplier = this._slotMachineModel.selectedMultiplier;
+          var currentIndex = multiplierArray.indexOf(currentMultiplier);
+          if (currentIndex === -1) {
+            // If the current multiplier is not in the array, set to minimum
+            this._slotMachineModel.selectedMultiplier = multiplierArray[0];
+            this.emit('betMultiplierChanged', this._slotMachineModel.selectedMultiplier);
+            return true;
+          }
+
+          // Calculate next multiplier index (wrap around to 0 if at maximum)
+          var nextIndex = (currentIndex + 1) % multiplierArray.length;
+          var nextMultiplier = multiplierArray[nextIndex];
+
+          // Calculate energy cost with the new multiplier
+          var energyCostPerSpin = this._slotMachineModel.energyCostPerSpin;
+          var newEnergyCost = energyCostPerSpin * nextMultiplier;
+          var currentEnergy = this._resourceManager.getEnergy();
+
+          // Check if player has enough energy for the new multiplier
+          if (newEnergyCost > currentEnergy) {
+            nextMultiplier = multiplierArray[0];
+          }
+
+          // Energy validation passed, apply the new multiplier
+          this._slotMachineModel.selectedMultiplier = nextMultiplier;
+          this.emit('betMultiplierChanged', this._slotMachineModel.selectedMultiplier);
+          return true;
+        }
+
+        /**
+         * Claim event milestone
+         */;
+        _proto.claimEventMilestone = /*#__PURE__*/
+        function () {
+          var _claimEventMilestone = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6() {
+            var currentMilestone, claimedMilestone, reward;
+            return _regeneratorRuntime().wrap(function _callee6$(_context6) {
+              while (1) switch (_context6.prev = _context6.next) {
+                case 0:
+                  if (!(!this._mainEventModel || !this._gameService)) {
+                    _context6.next = 2;
+                    break;
+                  }
+                  return _context6.abrupt("return", false);
+                case 2:
+                  currentMilestone = this._mainEventModel.getCurrentMilestone();
+                  if (!(!currentMilestone || !this._mainEventModel.canClaimCurrentMilestone())) {
+                    _context6.next = 5;
+                    break;
+                  }
+                  return _context6.abrupt("return", false);
+                case 5:
+                  _context6.prev = 5;
+                  _context6.next = 8;
+                  return this._gameService.claimEventMilestone(currentMilestone.id);
+                case 8:
+                  // Process claim locally
+                  claimedMilestone = this._mainEventModel.claimCurrentMilestone();
+                  if (!(claimedMilestone && this._resourceManager)) {
+                    _context6.next = 19;
+                    break;
+                  }
+                  // Award milestone reward
+                  reward = claimedMilestone.reward;
+                  if (!(reward.type === 'gold')) {
+                    _context6.next = 16;
+                    break;
+                  }
+                  _context6.next = 14;
+                  return this._resourceManager.addGold(reward.amount, 'event_milestone');
+                case 14:
+                  _context6.next = 19;
+                  break;
+                case 16:
+                  if (!(reward.type === 'energy')) {
+                    _context6.next = 19;
+                    break;
+                  }
+                  _context6.next = 19;
+                  return this._resourceManager.addEnergy(reward.amount, 'event_milestone');
+                case 19:
+                  return _context6.abrupt("return", true);
+                case 22:
+                  _context6.prev = 22;
+                  _context6.t0 = _context6["catch"](5);
+                  logError('Failed to claim milestone:', _context6.t0);
+                  this.emit('milestoneClaimError', _context6.t0);
+                  return _context6.abrupt("return", false);
+                case 27:
+                case "end":
+                  return _context6.stop();
+              }
+            }, _callee6, this, [[5, 22]]);
+          }));
+          function claimEventMilestone() {
+            return _claimEventMilestone.apply(this, arguments);
+          }
+          return claimEventMilestone;
+        }()
+        /**
+         * Navigate to city building scene
+         */;
+
+        _proto.navigateToCity = function navigateToCity() {
+          this.emit('navigateToScene', 'City');
+        }
+
+        /**
+         * Navigate to attack scene
+         */;
+        _proto.navigateToAttack = function navigateToAttack() {
+          this.emit('navigateToScene', 'Attack');
+        }
+
+        /**
+         * Navigate to raid scene
+         */;
+        _proto.navigateToRaid = function navigateToRaid() {
+          this.emit('navigateToScene', 'Raid');
+        }
+
+        // Event Handlers
+
+        /**
+         * Handle resource changes
+         */;
+        _proto.onResourceChanged = function onResourceChanged(event) {
+          this.emit('resourceUpdated', event);
+        }
+
+        /**
+         * Handle insufficient resources
+         */;
+        _proto.onInsufficientResources = function onInsufficientResources(event) {
+          this.emit('insufficientResources', event);
+        }
+
+        /**
+         * Handle spin started
+         */;
+        _proto.onSpinStarted = function onSpinStarted(event) {
+          this.emit('spinStarted', event);
+        }
+
+        /**
+         * Handle spin completed
+         */;
+        _proto.onSpinCompleted = function onSpinCompleted(spinResult) {
+          var _this$_slotMachineMod,
+            _this2 = this;
+          this.processSpinReward(spinResult);
+          this.emit('spinCompleted', spinResult);
+
+          // Check if auto-spin is pending and should be activated
+          if ((_this$_slotMachineMod = this._slotMachineModel) != null && _this$_slotMachineMod.isAutoSpinPending) {
+            // Check energy before activating pending auto-spin
+            if (this._resourceManager && this._slotMachineModel.canAffordSpin(this._resourceManager.getEnergy())) {
+              if (this._slotMachineModel.activatePendingAutoSpin()) {
+                // Auto-spin was successfully activated, start the first spin
+                var autoSpinDelay = this._animationConfig.getUIConfig().autoSpinDelay;
+                setTimeout(function () {
+                  return _this2.performSpin();
+                }, autoSpinDelay);
+              }
+            } else {
+              // Insufficient energy for pending auto-spin, clear it
+              this._slotMachineModel.clearPendingAutoSpin();
+            }
+          }
+          // Handle auto-spin continuation (if already active)
+          else if (this.isAutoSpinning && this._slotMachineModel && this._resourceManager) {
+            if (this._slotMachineModel.canContinueAutoSpin(this._resourceManager.getEnergy())) {
+              // Add a delay before the next auto-spin, adjusted for speed multiplier
+              var _autoSpinDelay = this._animationConfig.getUIConfig().autoSpinDelay;
+              setTimeout(function () {
+                return _this2.performSpin();
+              }, _autoSpinDelay);
+            } else {
+              // Insufficient energy, stop auto-spin gracefully
+              this._slotMachineModel.stopAutoSpinDueToInsufficientEnergy();
+            }
+          }
+        }
+
+        /**
+         * Start auto-spin
+         */;
+        _proto.startAutoSpin = function startAutoSpin() {
+          var _this$_slotMachineMod2;
+          if (!this._slotMachineModel || !this._resourceManager) {
+            return;
+          }
+
+          // If already auto-spinning, do nothing
+          if ((_this$_slotMachineMod2 = this._slotMachineModel.autoSpinState) != null && _this$_slotMachineMod2.isActive) {
+            return;
+          }
+
+          // Check if player has enough energy before starting auto-spin
+          var energyCost = this._slotMachineModel.getTotalEnergyCost();
+          if (!this._resourceManager.hasEnoughEnergy(energyCost)) {
+            this._slotMachineModel.stopAutoSpinDueToInsufficientEnergy();
+            return;
+          }
+
+          // If a manual spin is in progress, queue the auto-spin for later
+          if (this._slotMachineModel.isSpinning) {
+            this._slotMachineModel.queueAutoSpin();
+            return;
+          }
+
+          // Start auto-spin immediately
+          this._slotMachineModel.startAutoSpin();
+          this.performSpin();
+        }
+
+        /**
+         * Stop auto-spin
+         */;
+        _proto.stopAutoSpin = function stopAutoSpin() {
+          if (this._slotMachineModel) {
+            // Clear any pending auto-spin and stop active auto-spin
+            this._slotMachineModel.clearPendingAutoSpin();
+            this._slotMachineModel.stopAutoSpin();
+          }
+        }
+
+        /**
+         * Process spin reward
+         */;
+        _proto.processSpinReward = /*#__PURE__*/
+        function () {
+          var _processSpinReward = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7(spinResult) {
+            var reward;
+            return _regeneratorRuntime().wrap(function _callee7$(_context7) {
+              while (1) switch (_context7.prev = _context7.next) {
+                case 0:
+                  if (!(!this._resourceManager || !this._mainEventModel)) {
+                    _context7.next = 2;
+                    break;
+                  }
+                  return _context7.abrupt("return");
+                case 2:
+                  reward = spinResult.finalReward;
+                  _context7.prev = 3;
+                  _context7.t0 = reward.type;
+                  _context7.next = _context7.t0 === SlotRewardType.GOLD ? 7 : _context7.t0 === SlotRewardType.ENERGY ? 10 : _context7.t0 === SlotRewardType.TOKEN ? 13 : _context7.t0 === SlotRewardType.ATTACK ? 15 : _context7.t0 === SlotRewardType.STEAL ? 17 : _context7.t0 === SlotRewardType.SHIELD ? 19 : 20;
+                  break;
+                case 7:
+                  _context7.next = 9;
+                  return this._resourceManager.addGold(reward.amount, 'spin_reward');
+                case 9:
+                  return _context7.abrupt("break", 20);
+                case 10:
+                  _context7.next = 12;
+                  return this._resourceManager.addEnergy(reward.amount, 'spin_reward');
+                case 12:
+                  return _context7.abrupt("break", 20);
+                case 13:
+                  this._mainEventModel.addItems(reward.amount);
+                  return _context7.abrupt("break", 20);
+                case 15:
+                  this.emit('attackRewardReceived');
+                  return _context7.abrupt("break", 20);
+                case 17:
+                  this.emit('raidRewardReceived');
+                  return _context7.abrupt("break", 20);
+                case 19:
+                  return _context7.abrupt("break", 20);
+                case 20:
+                  _context7.next = 25;
+                  break;
+                case 22:
+                  _context7.prev = 22;
+                  _context7.t1 = _context7["catch"](3);
+                  logError('Failed to process spin reward:', _context7.t1);
+                case 25:
+                case "end":
+                  return _context7.stop();
+              }
+            }, _callee7, this, [[3, 22]]);
+          }));
+          function processSpinReward(_x2) {
+            return _processSpinReward.apply(this, arguments);
+          }
+          return processSpinReward;
+        }()
+        /**
+         * Handle event items added
+         */;
+
+        _proto.onEventItemsAdded = function onEventItemsAdded(event) {
+          this.emit('eventItemsAdded', event);
+        }
+
+        /**
+         * Handle milestone reached
+         */;
+        _proto.onMilestoneReached = function onMilestoneReached(event) {
+          this.emit('milestoneReached', event);
+        }
+
+        /**
+         * Handle milestone claimed
+         */;
+        _proto.onMilestoneClaimed = function onMilestoneClaimed(event) {
+          this.emit('milestoneClaimed', event);
+        }
+
+        /**
+         * Handle player level up
+         */;
+        _proto.onPlayerLevelUp = function onPlayerLevelUp(event) {
+          this.emit('playerLevelUp', event);
+        }
+
+        /**
+         * Handle current city changed
+         */;
+        _proto.onCurrentCityChanged = function onCurrentCityChanged(event) {
+          this.emit('currentCityChanged', event);
+        }
+
+        /**
+         * Process spin result from component (called by SlotMachineComponent when all reels complete)
+         */;
+        _proto.processSpinResultFromComponent = function processSpinResultFromComponent(spinResult) {
+          if (this._slotMachineModel) {
+            this._slotMachineModel.processSpinResult(spinResult);
+          }
+        }
+
+        /**
+         * Handle auto-spin state changes from the model
+         */;
+        _proto.onAutoSpinStateChanged = function onAutoSpinStateChanged(payload) {
+          var reason = payload.reason;
+          if (reason === 'STARTED') {
+            var _this$_animationConfi;
+            (_this$_animationConfi = this._animationConfig) == null || _this$_animationConfi.setProfile('autoSpin');
+            this.emit('animationProfileChanged', 'autoSpin');
+          } else if (reason === 'STOPPED_USER' || reason === 'STOPPED_NO_ENERGY') {
+            var _this$_animationConfi2;
+            (_this$_animationConfi2 = this._animationConfig) == null || _this$_animationConfi2.setProfile('normal');
+            this.emit('animationProfileChanged', 'normal');
+          }
+
+          // Propagate the consolidated event to the view
+          this.emit('autoSpinStateChanged', payload);
+        }
+
+        // Getters
+
+        /**
+         * Get current gold amount
+         */;
+        /**
+         * Get time until next energy regeneration (in milliseconds)
+         */
+        _proto.getTimeUntilNextEnergyRegen = function getTimeUntilNextEnergyRegen() {
+          return this._resourceManager ? this._resourceManager.getTimeUntilNextEnergyRegen() : 0;
+        }
+
+        /**
+         * Get current bet multiplier
+         */;
+        _proto.getDisplayResultText = function getDisplayResultText(spinResult) {
+          var text = StringUtils.formatNumberWithCommas(spinResult.finalReward.amount) + " " + spinResult.finalReward.type;
+          if (spinResult.finalReward.type == SlotRewardType.ATTACK || spinResult.finalReward.type == SlotRewardType.STEAL) {
+            text = ("" + spinResult.finalReward.type).toUpperCase();
+          }
+          return text;
+        }
+
+        /**
+         * Cleanup resources
+         */;
+        _proto.destroy = function destroy() {
+          // Remove event listeners
+          if (this._resourceManager) {
+            this._resourceManager.off('resourceChanged', this.onResourceChanged, this);
+            this._resourceManager.off('insufficientResources', this.onInsufficientResources, this);
+          }
+          if (this._slotMachineModel) {
+            this._slotMachineModel.off('spinStarted', this.onSpinStarted, this);
+            this._slotMachineModel.off('spinCompleted', this.onSpinCompleted, this);
+            this._slotMachineModel.off('autoSpinStateChanged', this.onAutoSpinStateChanged, this);
+          }
+          if (this._mainEventModel) {
+            this._mainEventModel.off('itemsAdded', this.onEventItemsAdded, this);
+            this._mainEventModel.off('milestoneReached', this.onMilestoneReached, this);
+            this._mainEventModel.off('milestoneClaimed', this.onMilestoneClaimed, this);
+          }
+          if (this._playerModel) {
+            this._playerModel.off('levelUp', this.onPlayerLevelUp, this);
+            this._playerModel.off('currentCityChanged', this.onCurrentCityChanged, this);
+          }
+
+          // Clear references
+          this._gameService = null;
+          this._resourceManager = null;
+          this._playerModel = null;
+          this._slotMachineModel = null;
+          this._mainEventModel = null;
+          _BaseViewModel.prototype.destroy.call(this);
+        };
+        _createClass(MainViewModel, [{
+          key: "currentGold",
+          get: function get() {
+            return this._resourceManager ? this._resourceManager.getGold() : 0;
+          }
+
+          /**
+           * Get current energy amount
+           */
+        }, {
+          key: "currentEnergy",
+          get: function get() {
+            return this._resourceManager ? this._resourceManager.getEnergy() : 0;
+          }
+
+          /**
+           * Get maximum energy
+           */
+        }, {
+          key: "maxEnergy",
+          get: function get() {
+            return this._resourceManager ? this._resourceManager.getMaxEnergy() : 50;
+          }
+        }, {
+          key: "currentBetMultiplier",
+          get: function get() {
+            return this._slotMachineModel ? this._slotMachineModel.selectedMultiplier : 1;
+          }
+
+          /**
+           * Get available bet multipliers
+           */
+        }, {
+          key: "availableBetMultipliers",
+          get: function get() {
+            return this._slotMachineModel ? this._slotMachineModel.availableMultipliers : [1];
+          }
+
+          /**
+           * Get slot machine symbols
+           */
+        }, {
+          key: "symbols",
+          get: function get() {
+            return this._slotMachineModel ? this._slotMachineModel.symbols : [];
+          }
+
+          /**
+           * Get spin energy cost
+           */
+        }, {
+          key: "spinEnergyCost",
+          get: function get() {
+            return this._slotMachineModel ? this._slotMachineModel.getTotalEnergyCost() : 1;
+          }
+
+          /**
+           * Check if spinning
+           */
+        }, {
+          key: "isSpinning",
+          get: function get() {
+            return this._slotMachineModel ? this._slotMachineModel.isSpinning : false;
+          }
+
+          /**
+           * Get last spin result
+           */
+        }, {
+          key: "lastSpinResult",
+          get: function get() {
+            return this._slotMachineModel ? this._slotMachineModel.lastSpinResult : null;
+          }
+
+          /**
+           * Check if auto-spinning
+           */
+        }, {
+          key: "isAutoSpinning",
+          get: function get() {
+            var _this$_slotMachineMod3;
+            return ((_this$_slotMachineMod3 = this._slotMachineModel) == null || (_this$_slotMachineMod3 = _this$_slotMachineMod3.autoSpinState) == null ? void 0 : _this$_slotMachineMod3.isActive) || false;
+          }
+
+          /**
+           * Check if auto-spin is pending
+           */
+        }, {
+          key: "isAutoSpinPending",
+          get: function get() {
+            var _this$_slotMachineMod4;
+            return ((_this$_slotMachineMod4 = this._slotMachineModel) == null ? void 0 : _this$_slotMachineMod4.isAutoSpinPending) || false;
+          }
+
+          /**
+           * Get auto-spin state
+           */
+        }, {
+          key: "autoSpinState",
+          get: function get() {
+            return this._slotMachineModel ? this._slotMachineModel.autoSpinState : null;
+          }
+
+          /**
+           * Get current event progress
+           */
+        }, {
+          key: "eventProgress",
+          get: function get() {
+            return this._mainEventModel ? this._mainEventModel.getCurrentMilestoneProgress() : 0;
+          }
+
+          /**
+           * Check if milestone can be claimed
+           */
+        }, {
+          key: "canClaimMilestone",
+          get: function get() {
+            return this._mainEventModel ? this._mainEventModel.canClaimCurrentMilestone() : false;
+          }
+
+          /**
+           * Get player level
+           */
+        }, {
+          key: "playerLevel",
+          get: function get() {
+            return this._playerModel ? this._playerModel.level : 1;
+          }
+        }]);
+        return MainViewModel;
+      }(BaseViewModel));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/NetworkService.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseService.ts', './Logger.ts'], function (exports) {
+  var _inheritsLoose, _createForOfIteratorHelperLoose, _createClass, _asyncToGenerator, _regeneratorRuntime, cclegacy, BaseService, logInfo, logError, logWarn;
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _createForOfIteratorHelperLoose = module.createForOfIteratorHelperLoose;
+      _createClass = module.createClass;
+      _asyncToGenerator = module.asyncToGenerator;
+      _regeneratorRuntime = module.regeneratorRuntime;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+    }, function (module) {
+      BaseService = module.BaseService;
+    }, function (module) {
+      logInfo = module.logInfo;
+      logError = module.logError;
+      logWarn = module.logWarn;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "ebba7QrxxFKZr7VmwX12Q9d", "NetworkService", undefined);
+
+      /**
+       * Network request data structure
+       */
+
+      /**
+       * Network response data structure
+       */
+
+      /**
+       * SmartFox connection configuration
+       */
+
+      /**
+       * Network Service - Handles SmartFox server communication
+       */
+      var NetworkService = exports('NetworkService', /*#__PURE__*/function (_BaseService) {
+        _inheritsLoose(NetworkService, _BaseService);
+        function NetworkService() {
+          var _this;
+          _this = _BaseService.call(this) || this;
+          _this._sfs = null;
+          _this._config = null;
+          _this._pendingRequests = new Map();
+          _this._requestIdCounter = 0;
+          return _this;
+        }
+
+        /**
+         * Initialize SmartFox service
+         */
+        var _proto = NetworkService.prototype;
+        _proto.onInitialize = /*#__PURE__*/
+        function () {
+          var _onInitialize = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+            return _regeneratorRuntime().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  logInfo('Initializing Network Service...');
+                  // return;
+
+                  // Initialize SmartFox
+                  if (typeof SFS2X !== 'undefined') {
+                    this._sfs = new SFS2X.SmartFox();
+                    this.setupSmartFoxEvents();
+                    logInfo('SmartFox initialized successfully');
+                  } else {
+                    logWarn('SmartFox library not found, running in offline mode');
+                    // Don't throw error, just continue without SmartFox
+                    // This allows the game to run in offline/demo mode
+                  }
+
+                case 2:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee, this);
+          }));
+          function onInitialize() {
+            return _onInitialize.apply(this, arguments);
+          }
+          return onInitialize;
+        }()
+        /**
+         * Setup SmartFox event listeners
+         */;
+
+        _proto.setupSmartFoxEvents = function setupSmartFoxEvents() {
+          if (!this._sfs) return;
+
+          // Connection events
+          this._sfs.addEventListener(SFS2X.SFSEvent.CONNECTION, this.onConnection.bind(this));
+          this._sfs.addEventListener(SFS2X.SFSEvent.CONNECTION_LOST, this.onConnectionLost.bind(this));
+
+          // Login events
+          this._sfs.addEventListener(SFS2X.SFSEvent.LOGIN, this.onLogin.bind(this));
+          this._sfs.addEventListener(SFS2X.SFSEvent.LOGIN_ERROR, this.onLoginError.bind(this));
+          this._sfs.addEventListener(SFS2X.SFSEvent.LOGOUT, this.onLogout.bind(this));
+
+          // Extension response events
+          this._sfs.addEventListener(SFS2X.SFSEvent.EXTENSION_RESPONSE, this.onExtensionResponse.bind(this));
+
+          // Error events
+          this._sfs.addEventListener(SFS2X.SFSEvent.SOCKET_ERROR, this.onSocketError.bind(this));
+        }
+
+        /**
+         * Connect to SmartFox server
+         */;
+        _proto.onConnect = /*#__PURE__*/
+        function () {
+          var _onConnect = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+            var _this2 = this;
+            return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+              while (1) switch (_context2.prev = _context2.next) {
+                case 0:
+                  return _context2.abrupt("return", new Promise(function (resolve, reject) {
+                    if (!_this2._sfs) {
+                      logWarn('SmartFox not available, skipping connection');
+                      resolve(); // Resolve immediately in offline mode
+                      return;
+                    }
+                    if (!_this2._config) {
+                      logWarn('SmartFox config not set, skipping connection');
+                      resolve(); // Resolve instead of reject for offline mode
+                      return;
+                    }
+                    logInfo("Connecting to SmartFox server: " + _this2._config.host + ":" + _this2._config.port);
+
+                    // Set connection timeout
+                    var connectionTimeout = setTimeout(function () {
+                      _this2._sfs.removeEventListener(SFS2X.SFSEvent.CONNECTION, onConnected);
+                      _this2._sfs.removeEventListener(SFS2X.SFSEvent.SOCKET_ERROR, onConnectionError);
+                      logWarn('Connection timeout, continuing in offline mode');
+                      resolve(); // Resolve instead of reject to continue in offline mode
+                    }, 5000); // 5 second timeout
+
+                    // Set up one-time connection handlers
+                    var onConnected = function onConnected() {
+                      clearTimeout(connectionTimeout);
+                      _this2._sfs.removeEventListener(SFS2X.SFSEvent.CONNECTION, onConnected);
+                      _this2._sfs.removeEventListener(SFS2X.SFSEvent.SOCKET_ERROR, onConnectionError);
+                      logInfo('Successfully connected to SmartFox server');
+                      resolve();
+                    };
+                    var onConnectionError = function onConnectionError(event) {
+                      clearTimeout(connectionTimeout);
+                      _this2._sfs.removeEventListener(SFS2X.SFSEvent.CONNECTION, onConnected);
+                      _this2._sfs.removeEventListener(SFS2X.SFSEvent.SOCKET_ERROR, onConnectionError);
+                      logWarn("Connection failed: " + event.data + ", continuing in offline mode");
+                      resolve(); // Resolve instead of reject to continue in offline mode
+                    };
+
+                    _this2._sfs.addEventListener(SFS2X.SFSEvent.CONNECTION, onConnected);
+                    _this2._sfs.addEventListener(SFS2X.SFSEvent.SOCKET_ERROR, onConnectionError);
+
+                    // Connect to server
+                    try {
+                      _this2._sfs.connect(_this2._config.host, _this2._config.port);
+                    } catch (error) {
+                      clearTimeout(connectionTimeout);
+                      logWarn("Connection error: " + error + ", continuing in offline mode");
+                      resolve(); // Resolve instead of reject to continue in offline mode
+                    }
+                  }));
+
+                case 1:
+                case "end":
+                  return _context2.stop();
+              }
+            }, _callee2);
+          }));
+          function onConnect() {
+            return _onConnect.apply(this, arguments);
+          }
+          return onConnect;
+        }()
+        /**
+         * Disconnect from SmartFox server
+         */;
+
+        _proto.onDisconnect = /*#__PURE__*/
+        function () {
+          var _onDisconnect = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+            var _this3 = this;
+            return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+              while (1) switch (_context3.prev = _context3.next) {
+                case 0:
+                  return _context3.abrupt("return", new Promise(function (resolve) {
+                    if (_this3._sfs && _this3._sfs.isConnected) {
+                      var onDisconnected = function onDisconnected() {
+                        _this3._sfs.removeEventListener(SFS2X.SFSEvent.CONNECTION_LOST, onDisconnected);
+                        resolve();
+                      };
+                      _this3._sfs.addEventListener(SFS2X.SFSEvent.CONNECTION_LOST, onDisconnected);
+                      _this3._sfs.disconnect();
+                    } else {
+                      resolve();
+                    }
+                  }));
+                case 1:
+                case "end":
+                  return _context3.stop();
+              }
+            }, _callee3);
+          }));
+          function onDisconnect() {
+            return _onDisconnect.apply(this, arguments);
+          }
+          return onDisconnect;
+        }()
+        /**
+         * Set connection configuration
+         */;
+
+        _proto.setConfig = function setConfig(config) {
+          this._config = config;
+        }
+
+        /**
+         * Login to SmartFox zone
+         */;
+        _proto.login = /*#__PURE__*/
+        function () {
+          var _login = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(username, password, zone) {
+            var _this4 = this;
+            return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+              while (1) switch (_context4.prev = _context4.next) {
+                case 0:
+                  if (password === void 0) {
+                    password = '';
+                  }
+                  return _context4.abrupt("return", new Promise(function (resolve, reject) {
+                    var _this4$_config;
+                    if (!_this4._sfs) {
+                      logWarn('SmartFox not available, simulating login success');
+                      // Simulate successful login in offline mode
+                      resolve({
+                        user: {
+                          name: username,
+                          id: Math.floor(Math.random() * 10000),
+                          isGuest: true
+                        },
+                        zone: zone || 'CoinMaster'
+                      });
+                      return;
+                    }
+                    if (!_this4._sfs.isConnected) {
+                      logWarn('Not connected to server, simulating login success');
+                      // Simulate successful login in offline mode instead of rejecting
+                      resolve({
+                        user: {
+                          name: username,
+                          id: Math.floor(Math.random() * 10000),
+                          isGuest: true
+                        },
+                        zone: zone || 'CoinMaster'
+                      });
+                      return;
+                    }
+                    var targetZone = zone || ((_this4$_config = _this4._config) == null ? void 0 : _this4$_config.zone) || 'BasicExamples';
+
+                    // Set login timeout
+                    var loginTimeout = setTimeout(function () {
+                      _this4._sfs.removeEventListener(SFS2X.SFSEvent.LOGIN, onLoginSuccess);
+                      _this4._sfs.removeEventListener(SFS2X.SFSEvent.LOGIN_ERROR, onLoginFailed);
+                      logWarn('Login timeout, simulating login success');
+                      resolve({
+                        user: {
+                          name: username,
+                          id: Math.floor(Math.random() * 10000),
+                          isGuest: true
+                        },
+                        zone: targetZone
+                      });
+                    }, 5000); // 5 second timeout
+
+                    var onLoginSuccess = function onLoginSuccess(event) {
+                      clearTimeout(loginTimeout);
+                      _this4._sfs.removeEventListener(SFS2X.SFSEvent.LOGIN, onLoginSuccess);
+                      _this4._sfs.removeEventListener(SFS2X.SFSEvent.LOGIN_ERROR, onLoginFailed);
+                      resolve(event.data);
+                    };
+                    var onLoginFailed = function onLoginFailed(event) {
+                      clearTimeout(loginTimeout);
+                      _this4._sfs.removeEventListener(SFS2X.SFSEvent.LOGIN, onLoginSuccess);
+                      _this4._sfs.removeEventListener(SFS2X.SFSEvent.LOGIN_ERROR, onLoginFailed);
+                      logWarn("Login failed: " + event.data.errorMessage + ", simulating login success");
+                      // Simulate successful login instead of rejecting
+                      resolve({
+                        user: {
+                          name: username,
+                          id: Math.floor(Math.random() * 10000),
+                          isGuest: true
+                        },
+                        zone: targetZone
+                      });
+                    };
+                    _this4._sfs.addEventListener(SFS2X.SFSEvent.LOGIN, onLoginSuccess);
+                    _this4._sfs.addEventListener(SFS2X.SFSEvent.LOGIN_ERROR, onLoginFailed);
+                    try {
+                      _this4._sfs.send(new SFS2X.LoginRequest(username, password, null, targetZone));
+                    } catch (error) {
+                      clearTimeout(loginTimeout);
+                      logWarn("Login error: " + error + ", simulating login success");
+                      resolve({
+                        user: {
+                          name: username,
+                          id: Math.floor(Math.random() * 10000),
+                          isGuest: true
+                        },
+                        zone: targetZone
+                      });
+                    }
+                  }));
+                case 2:
+                case "end":
+                  return _context4.stop();
+              }
+            }, _callee4);
+          }));
+          function login(_x, _x2, _x3) {
+            return _login.apply(this, arguments);
+          }
+          return login;
+        }()
+        /**
+         * Send extension request to server
+         */;
+
+        _proto.sendRequest = /*#__PURE__*/
+        function () {
+          var _sendRequest = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5(request) {
+            var _this5 = this;
+            return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+              while (1) switch (_context5.prev = _context5.next) {
+                case 0:
+                  return _context5.abrupt("return", new Promise(function (_resolve, _reject) {
+                    if (!_this5._sfs || !_this5._sfs.isConnected) {
+                      _reject(new Error('Not connected to server'));
+                      return;
+                    }
+                    var requestId = _this5.generateRequestId();
+                    var timeout = request.timeout || 10000; // 10 seconds default timeout
+
+                    // Store pending request
+                    var timeoutHandle = setTimeout(function () {
+                      _this5._pendingRequests["delete"](requestId);
+                      _reject(new Error("Request timeout: " + request.command));
+                    }, timeout);
+                    _this5._pendingRequests.set(requestId, {
+                      resolve: function resolve(response) {
+                        clearTimeout(timeoutHandle);
+                        _resolve(response);
+                      },
+                      reject: function reject(error) {
+                        clearTimeout(timeoutHandle);
+                        _reject(error);
+                      },
+                      timeout: timeoutHandle
+                    });
+
+                    // Prepare request data
+                    var requestData = new SFS2X.SFSObject();
+                    requestData.putUtfString('requestId', requestId);
+                    if (request.data) {
+                      for (var key in request.data) {
+                        _this5.putDataToSFSObject(requestData, key, request.data[key]);
+                      }
+                    }
+
+                    // Send extension request
+                    var extRequest = new SFS2X.ExtensionRequest(request.command, requestData);
+                    _this5._sfs.send(extRequest);
+                  }));
+                case 1:
+                case "end":
+                  return _context5.stop();
+              }
+            }, _callee5);
+          }));
+          function sendRequest(_x4) {
+            return _sendRequest.apply(this, arguments);
+          }
+          return sendRequest;
+        }()
+        /**
+         * Generate unique request ID
+         */;
+
+        _proto.generateRequestId = function generateRequestId() {
+          return "req_" + ++this._requestIdCounter + "_" + Date.now();
+        }
+
+        /**
+         * Put data to SFSObject with type detection
+         */;
+        _proto.putDataToSFSObject = function putDataToSFSObject(sfsObj, key, value) {
+          if (value === null || value === undefined) {
+            return;
+          }
+          switch (typeof value) {
+            case 'string':
+              sfsObj.putUtfString(key, value);
+              break;
+            case 'number':
+              if (Number.isInteger(value)) {
+                sfsObj.putInt(key, value);
+              } else {
+                sfsObj.putDouble(key, value);
+              }
+              break;
+            case 'boolean':
+              sfsObj.putBool(key, value);
+              break;
+            case 'object':
+              if (Array.isArray(value)) {
+                var sfsArray = new SFS2X.SFSArray();
+                for (var _iterator = _createForOfIteratorHelperLoose(value), _step; !(_step = _iterator()).done;) {
+                  var item = _step.value;
+                  this.addDataToSFSArray(sfsArray, item);
+                }
+                sfsObj.putSFSArray(key, sfsArray);
+              } else {
+                var nestedObj = new SFS2X.SFSObject();
+                for (var nestedKey in value) {
+                  this.putDataToSFSObject(nestedObj, nestedKey, value[nestedKey]);
+                }
+                sfsObj.putSFSObject(key, nestedObj);
+              }
+              break;
+          }
+        }
+
+        /**
+         * Add data to SFSArray with type detection
+         */;
+        _proto.addDataToSFSArray = function addDataToSFSArray(sfsArray, value) {
+          if (value === null || value === undefined) {
+            return;
+          }
+          switch (typeof value) {
+            case 'string':
+              sfsArray.addUtfString(value);
+              break;
+            case 'number':
+              if (Number.isInteger(value)) {
+                sfsArray.addInt(value);
+              } else {
+                sfsArray.addDouble(value);
+              }
+              break;
+            case 'boolean':
+              sfsArray.addBool(value);
+              break;
+            case 'object':
+              if (Array.isArray(value)) {
+                var nestedArray = new SFS2X.SFSArray();
+                for (var _iterator2 = _createForOfIteratorHelperLoose(value), _step2; !(_step2 = _iterator2()).done;) {
+                  var item = _step2.value;
+                  this.addDataToSFSArray(nestedArray, item);
+                }
+                sfsArray.addSFSArray(nestedArray);
+              } else {
+                var nestedObj = new SFS2X.SFSObject();
+                for (var key in value) {
+                  this.putDataToSFSObject(nestedObj, key, value[key]);
+                }
+                sfsArray.addSFSObject(nestedObj);
+              }
+              break;
+          }
+        }
+
+        /**
+         * Convert SFSObject to plain JavaScript object
+         */;
+        _proto.sfsObjectToPlainObject = function sfsObjectToPlainObject(sfsObj) {
+          if (!sfsObj) return null;
+          var result = {};
+          var keys = sfsObj.getKeys();
+          for (var _iterator3 = _createForOfIteratorHelperLoose(keys), _step3; !(_step3 = _iterator3()).done;) {
+            var key = _step3.value;
+            var value = sfsObj.get(key);
+            result[key] = this.convertSFSValue(value);
+          }
+          return result;
+        }
+
+        /**
+         * Convert SFS value to JavaScript value
+         */;
+        _proto.convertSFSValue = function convertSFSValue(value) {
+          if (!value) return null;
+          if (value.getTypeId) {
+            var typeId = value.getTypeId();
+            switch (typeId) {
+              case SFS2X.SFSDataType.SFS_OBJECT:
+                return this.sfsObjectToPlainObject(value);
+              case SFS2X.SFSDataType.SFS_ARRAY:
+                return this.sfsArrayToPlainArray(value);
+              default:
+                return value;
+            }
+          }
+          return value;
+        }
+
+        /**
+         * Convert SFSArray to plain JavaScript array
+         */;
+        _proto.sfsArrayToPlainArray = function sfsArrayToPlainArray(sfsArray) {
+          if (!sfsArray) return [];
+          var result = [];
+          var size = sfsArray.size();
+          for (var i = 0; i < size; i++) {
+            var value = sfsArray.get(i);
+            result.push(this.convertSFSValue(value));
+          }
+          return result;
+        }
+
+        // SmartFox Event Handlers
+        ;
+
+        _proto.onConnection = function onConnection(event) {
+          logInfo('Connected to SmartFox server');
+          this.emit('connected');
+        };
+        _proto.onConnectionLost = function onConnectionLost(event) {
+          logInfo("Connection lost: " + event.data);
+          this.emit('connectionLost', event.data);
+        };
+        _proto.onLogin = function onLogin(event) {
+          logInfo("Logged in successfully: " + event.data);
+          this.emit('loggedIn', event.data);
+        };
+        _proto.onLoginError = function onLoginError(event) {
+          logError('Login error:', event.data);
+          this.emit('loginError', event.data);
+        };
+        _proto.onLogout = function onLogout(event) {
+          logInfo('Logged out');
+          this.emit('loggedOut');
+        };
+        _proto.onExtensionResponse = function onExtensionResponse(event) {
+          var command = event.data.cmd;
+          var params = event.data.params;
+          var requestId = params ? params.getUtfString('requestId') : null;
+          var success = params ? params.getBool('success') : false;
+          var error = params ? params.getUtfString('error') : null;
+          var errorCode = params ? params.getInt('errorCode') : 0;
+          var response = {
+            success: success,
+            command: command,
+            data: params ? this.sfsObjectToPlainObject(params) : null,
+            error: error,
+            errorCode: errorCode
+          };
+
+          // Handle pending request
+          if (requestId && this._pendingRequests.has(requestId)) {
+            var pendingRequest = this._pendingRequests.get(requestId);
+            this._pendingRequests["delete"](requestId);
+            if (success) {
+              pendingRequest.resolve(response);
+            } else {
+              pendingRequest.reject(new Error(error || 'Unknown server error'));
+            }
+          }
+
+          // Emit general response event
+          this.emit('extensionResponse', response);
+        };
+        _proto.onSocketError = function onSocketError(event) {
+          logError('Socket error:', event.data);
+          this.emit('socketError', event.data);
+        }
+
+        /**
+         * Check if connected to server
+         */;
+        /**
+         * Get current user
+         */
+        _proto.getCurrentUser = function getCurrentUser() {
+          return this._sfs ? this._sfs.mySelf : null;
+        }
+
+        /**
+         * Cleanup resources
+         */;
+        _proto.destroy = function destroy() {
+          // Clear pending requests
+          for (var _iterator4 = _createForOfIteratorHelperLoose(this._pendingRequests), _step4; !(_step4 = _iterator4()).done;) {
+            var _step4$value = _step4.value,
+              requestId = _step4$value[0],
+              request = _step4$value[1];
+            clearTimeout(request.timeout);
+            request.reject(new Error('Service destroyed'));
+          }
+          this._pendingRequests.clear();
+
+          // Disconnect and cleanup SmartFox
+          if (this._sfs) {
+            if (this._sfs.isConnected) {
+              this._sfs.disconnect();
+            }
+            this._sfs = null;
+          }
+          _BaseService.prototype.destroy.call(this);
+        };
+        _createClass(NetworkService, [{
+          key: "isConnectedToServer",
+          get: function get() {
+            return this._sfs && this._sfs.isConnected;
+          }
+
+          /**
+           * Check if logged in
+           */
+        }, {
+          key: "isLoggedIn",
+          get: function get() {
+            return this._sfs && this._sfs.mySelf !== null;
+          }
+        }]);
+        return NetworkService;
+      }(BaseService));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/PlayerModel.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseModel.ts', './ResourceModel.ts', './CityModel.ts', './MainEventModel.ts'], function (exports) {
+  var _inheritsLoose, _createForOfIteratorHelperLoose, _createClass, cclegacy, BaseModel, ResourceModel, CityModel, MainEventModel;
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _createForOfIteratorHelperLoose = module.createForOfIteratorHelperLoose;
+      _createClass = module.createClass;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+    }, function (module) {
+      BaseModel = module.BaseModel;
+    }, function (module) {
+      ResourceModel = module.ResourceModel;
+    }, function (module) {
+      CityModel = module.CityModel;
+    }, function (module) {
+      MainEventModel = module.MainEventModel;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "b07cbNahI5JBIJTWLWeGFgE", "PlayerModel", undefined);
+
+      /**
+       * Player data structure
+       */
+
+      /**
+       * Player Model - Main player data container
+       */
+      var PlayerModel = exports('PlayerModel', /*#__PURE__*/function (_BaseModel) {
+        _inheritsLoose(PlayerModel, _BaseModel);
+        function PlayerModel() {
+          var _this;
+          _this = _BaseModel.call(this) || this;
+          _this._resourceModel = void 0;
+          _this._currentCity = null;
+          _this._cities = new Map();
+          _this._mainEventModel = void 0;
+          _this._resourceModel = new ResourceModel();
+          _this._mainEventModel = new MainEventModel();
+          _this.initializeDefaults();
+          _this.setupEventListeners();
+          return _this;
+        }
+
+        /**
+         * Initialize default values
+         */
+        var _proto = PlayerModel.prototype;
+        _proto.initializeDefaults = function initializeDefaults() {
+          this.setData('id', '');
+          this.setData('name', '');
+          this.setData('level', 1);
+          this.setData('experience', 0);
+          this.setData('currentCityId', '');
+          this.setData('lastLoginTime', Date.now());
+          this.setData('createdTime', Date.now());
+        }
+
+        /**
+         * Setup event listeners for sub-models
+         */;
+        _proto.setupEventListeners = function setupEventListeners() {
+          var _this2 = this;
+          // Resource model events
+          this._resourceModel.on('dataChanged', function (event) {
+            _this2.emit('resourceChanged', event);
+          });
+
+          // Main event model events
+          this._mainEventModel.on('itemsAdded', function (event) {
+            _this2.emit('eventItemsAdded', event);
+          });
+          this._mainEventModel.on('milestoneClaimed', function (event) {
+            _this2.emit('eventMilestoneClaimed', event);
+          });
+          this._mainEventModel.on('milestoneReached', function (event) {
+            _this2.emit('eventMilestoneReached', event);
+          });
+        }
+
+        /**
+         * Get player ID
+         */;
+        /**
+         * Set current city
+         */
+        _proto.setCurrentCity = function setCurrentCity(cityId) {
+          var city = this._cities.get(cityId);
+          if (city) {
+            this._currentCity = city;
+            this.setData('currentCityId', cityId);
+            this.emit('currentCityChanged', {
+              cityId: cityId,
+              city: city
+            });
+            return true;
+          }
+          return false;
+        }
+
+        /**
+         * Get all cities
+         */;
+        _proto.getCities = function getCities() {
+          return Array.from(this._cities.values());
+        }
+
+        /**
+         * Get city by ID
+         */;
+        _proto.getCity = function getCity(cityId) {
+          return this._cities.get(cityId) || null;
+        }
+
+        /**
+         * Add a new city
+         */;
+        _proto.addCity = function addCity(city) {
+          var _this3 = this;
+          this._cities.set(city.id, city);
+
+          // Set up city event listeners
+          city.on('cityCompleted', function (event) {
+            _this3.onCityCompleted(event);
+          });
+          city.on('buildingUpgraded', function (event) {
+            _this3.emit('buildingUpgraded', event);
+          });
+
+          // If this is the first city, set it as current
+          if (this._cities.size === 1) {
+            this.setCurrentCity(city.id);
+          }
+          this.emit('cityAdded', {
+            cityId: city.id,
+            city: city
+          });
+        }
+
+        /**
+         * Handle city completion
+         */;
+        _proto.onCityCompleted = function onCityCompleted(event) {
+          var cityId = event.cityId,
+            reward = event.reward;
+
+          // Award completion reward
+          this._resourceModel.addGold(reward);
+
+          // Create next city
+          var completedCity = this._cities.get(cityId);
+          if (completedCity) {
+            var nextCityLevel = completedCity.level + 1;
+            var nextCity = new CityModel(nextCityLevel);
+            this.addCity(nextCity);
+            this.setCurrentCity(nextCity.id);
+          }
+          this.emit('cityCompleted', event);
+        }
+
+        /**
+         * Get main event model
+         */;
+        /**
+         * Update last login time
+         */
+        _proto.updateLastLoginTime = function updateLastLoginTime() {
+          this.setData('lastLoginTime', Date.now());
+        }
+
+        /**
+         * Get account creation time
+         */;
+        /**
+         * Add experience points
+         */
+        _proto.addExperience = function addExperience(amount) {
+          if (amount > 0) {
+            this.experience += amount;
+            this.checkLevelUp();
+          }
+        }
+
+        /**
+         * Check if player should level up
+         */;
+        _proto.checkLevelUp = function checkLevelUp() {
+          var requiredExp = this.getRequiredExperienceForLevel(this.level + 1);
+          if (this.experience >= requiredExp) {
+            this.level += 1;
+            this.emit('levelUp', {
+              newLevel: this.level,
+              experience: this.experience
+            });
+          }
+        }
+
+        /**
+         * Get required experience for a specific level
+         */;
+        _proto.getRequiredExperienceForLevel = function getRequiredExperienceForLevel(level) {
+          // Simple exponential formula: level^2 * 100
+          return Math.pow(level, 2) * 100;
+        }
+
+        /**
+         * Get progress to next level (0-1)
+         */;
+        _proto.getLevelProgress = function getLevelProgress() {
+          var currentLevelExp = this.getRequiredExperienceForLevel(this.level);
+          var nextLevelExp = this.getRequiredExperienceForLevel(this.level + 1);
+          var expInCurrentLevel = this.experience - currentLevelExp;
+          var expNeededForNextLevel = nextLevelExp - currentLevelExp;
+          return Math.max(0, Math.min(1, expInCurrentLevel / expNeededForNextLevel));
+        }
+
+        /**
+         * Initialize player with server data
+         */;
+        _proto.initializePlayerData = function initializePlayerData(data) {
+          // Set basic player data
+          this.id = data.id || '';
+          this.name = data.name || '';
+          this.level = data.level || 1;
+          this.experience = data.experience || 0;
+          this.setData('lastLoginTime', data.lastLoginTime || Date.now());
+          this.setData('createdTime', data.createdTime || Date.now());
+
+          // Initialize resources
+          if (data.resources) {
+            this._resourceModel.fromJSON(data.resources);
+          }
+
+          // Initialize cities
+          this._cities.clear();
+          if (data.cities && data.cities.length > 0) {
+            for (var _iterator = _createForOfIteratorHelperLoose(data.cities), _step; !(_step = _iterator()).done;) {
+              var cityData = _step.value;
+              var city = new CityModel(cityData.level);
+              city.fromJSON(cityData);
+              this.addCity(city);
+            }
+          } else {
+            // Create first city if no cities exist
+            var firstCity = new CityModel(1);
+            this.addCity(firstCity);
+          }
+
+          // Set current city
+          if (data.currentCityId) {
+            this.setCurrentCity(data.currentCityId);
+          }
+
+          // Initialize main event
+          if (data.mainEvent) {
+            this._mainEventModel.fromJSON(data.mainEvent);
+          }
+          this.emit('playerDataInitialized', data);
+        }
+
+        /**
+         * Validate model data
+         */;
+        _proto.validate = function validate() {
+          var id = this.id;
+          var name = this.name;
+          var level = this.level;
+          var experience = this.experience;
+
+          // Basic validation
+          if (!id || !name || level < 1 || experience < 0) {
+            return false;
+          }
+
+          // Validate sub-models
+          if (!this._resourceModel.validate()) {
+            return false;
+          }
+          if (!this._mainEventModel.validate()) {
+            return false;
+          }
+
+          // Validate cities
+          for (var _iterator2 = _createForOfIteratorHelperLoose(this._cities.values()), _step2; !(_step2 = _iterator2()).done;) {
+            var city = _step2.value;
+            if (!city.validate()) {
+              return false;
+            }
+          }
+          return true;
+        }
+
+        /**
+         * Serialize to JSON
+         */;
+        _proto.toJSON = function toJSON() {
+          var cities = [];
+          for (var _iterator3 = _createForOfIteratorHelperLoose(this._cities.values()), _step3; !(_step3 = _iterator3()).done;) {
+            var city = _step3.value;
+            cities.push(city.toJSON());
+          }
+          return {
+            id: this.id,
+            name: this.name,
+            level: this.level,
+            experience: this.experience,
+            resources: this._resourceModel.toJSON(),
+            currentCityId: this.currentCityId,
+            cities: cities,
+            mainEvent: this._mainEventModel.toJSON(),
+            lastLoginTime: this.lastLoginTime,
+            createdTime: this.createdTime
+          };
+        }
+
+        /**
+         * Deserialize from JSON
+         */;
+        _proto.fromJSON = function fromJSON(data) {
+          this.initializePlayerData(data);
+        }
+
+        /**
+         * Cleanup resources
+         */;
+        _proto.destroy = function destroy() {
+          if (this._resourceModel) {
+            this._resourceModel.destroy();
+          }
+          if (this._mainEventModel) {
+            this._mainEventModel.reset();
+          }
+          for (var _iterator4 = _createForOfIteratorHelperLoose(this._cities.values()), _step4; !(_step4 = _iterator4()).done;) {
+            var city = _step4.value;
+            city.destroy();
+          }
+          this._cities.clear();
+          this._currentCity = null;
+          _BaseModel.prototype.reset.call(this);
+        };
+        _createClass(PlayerModel, [{
+          key: "id",
+          get: function get() {
+            return this.getData('id') || '';
+          }
+
+          /**
+           * Set player ID
+           */,
+          set: function set(value) {
+            this.setData('id', value);
+          }
+
+          /**
+           * Get player name
+           */
+        }, {
+          key: "name",
+          get: function get() {
+            return this.getData('name') || '';
+          }
+
+          /**
+           * Set player name
+           */,
+          set: function set(value) {
+            this.setData('name', value);
+          }
+
+          /**
+           * Get player level
+           */
+        }, {
+          key: "level",
+          get: function get() {
+            return this.getData('level') || 1;
+          }
+
+          /**
+           * Set player level
+           */,
+          set: function set(value) {
+            this.setData('level', Math.max(1, value));
+          }
+
+          /**
+           * Get player experience
+           */
+        }, {
+          key: "experience",
+          get: function get() {
+            return this.getData('experience') || 0;
+          }
+
+          /**
+           * Set player experience
+           */,
+          set: function set(value) {
+            this.setData('experience', Math.max(0, value));
+          }
+
+          /**
+           * Get resource model
+           */
+        }, {
+          key: "resources",
+          get: function get() {
+            return this._resourceModel;
+          }
+
+          /**
+           * Get current city ID
+           */
+        }, {
+          key: "currentCityId",
+          get: function get() {
+            return this.getData('currentCityId') || '';
+          }
+
+          /**
+           * Get current city
+           */
+        }, {
+          key: "currentCity",
+          get: function get() {
+            return this._currentCity;
+          }
+        }, {
+          key: "mainEvent",
+          get: function get() {
+            return this._mainEventModel;
+          }
+
+          /**
+           * Get last login time
+           */
+        }, {
+          key: "lastLoginTime",
+          get: function get() {
+            return this.getData('lastLoginTime') || Date.now();
+          }
+        }, {
+          key: "createdTime",
+          get: function get() {
+            return this.getData('createdTime') || Date.now();
+          }
+        }]);
+        return PlayerModel;
+      }(BaseModel));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/PreviewDragonBone.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, cclegacy, _decorator, dragonBones, Node, EditBox, log, resources, Component, instantiate, Label, v3, UITransform, Button;
+  return {
+    setters: [function (module) {
+      _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
+      _inheritsLoose = module.inheritsLoose;
+      _initializerDefineProperty = module.initializerDefineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      dragonBones = module.dragonBones;
+      Node = module.Node;
+      EditBox = module.EditBox;
+      log = module.log;
+      resources = module.resources;
+      Component = module.Component;
+      instantiate = module.instantiate;
+      Label = module.Label;
+      v3 = module.v3;
+      UITransform = module.UITransform;
+      Button = module.Button;
+    }],
+    execute: function () {
+      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5;
+      cclegacy._RF.push({}, "06e691DAuhIs7yTLNfN0A+f", "PreviewDragonBone", undefined);
+      var ccclass = _decorator.ccclass,
+        property = _decorator.property;
+      var PreviewDragonBone = exports('PreviewDragonBone', (_dec = ccclass('PreviewDragonBone'), _dec2 = property(dragonBones.ArmatureDisplay), _dec3 = property(Node), _dec4 = property(EditBox), _dec5 = property(Node), _dec6 = property(Node), _dec(_class = (_class2 = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(PreviewDragonBone, _Component);
+        function PreviewDragonBone() {
+          var _this;
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+          _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+          _initializerDefineProperty(_this, "armatureDisplay", _descriptor, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "armatureNode", _descriptor2, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "inputAnim", _descriptor3, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "buttonsContainer", _descriptor4, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "templateBtn", _descriptor5, _assertThisInitialized(_this));
+          return _this;
+        }
+        var _proto = PreviewDragonBone.prototype;
+        _proto.start = function start() {
+          this.armatureDisplay.playAnimation('idle', 0);
+          this.armatureNode.on(Node.EventType.TOUCH_START, this.onTouchStart, this);
+          this.armatureNode.on(Node.EventType.TOUCH_MOVE, this.onTouchMove, this);
+          this.armatureNode.on(Node.EventType.TOUCH_END, this.onTouchEnd, this);
+          this.armatureNode.on(Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
+          this.listAllAnimButton();
+        };
+        _proto.onTouchStart = function onTouchStart() {
+          log('onTouchStart');
+        };
+        _proto.onTouchMove = function onTouchMove(event) {
+          var delta = event.getUIDelta();
+          this.armatureNode.x += delta.x;
+          this.armatureNode.y += delta.y;
+        };
+        _proto.onTouchEnd = function onTouchEnd() {
+          log('onTouchEnd');
+        };
+        _proto.listAllAnimButton = function listAllAnimButton() {
+          var _this2 = this;
+          var animNames = this.armatureDisplay.getAnimationNames(this.armatureDisplay.armatureName);
+          var templateBtn = this.templateBtn;
+          log("templateBtn", templateBtn);
+          var _loop = function _loop() {
+            var btn = instantiate(templateBtn);
+            btn.active = true;
+            btn.name = animNames[i];
+            btn.getChildByName('Label').getComponent(Label).string = animNames[i];
+            _this2.buttonsContainer.addChild(btn);
+            btn.position = v3(templateBtn.x + i * (templateBtn.getComponent(UITransform).width + 10), 0, 0);
+            btn.on(Button.EventType.CLICK, function () {
+              _this2.armatureDisplay.playAnimation(btn.name, -1);
+            }, _this2);
+          };
+          for (var i = 0; i < animNames.length; i++) {
+            _loop();
+          }
+        };
+        _proto.onClickLoad = function onClickLoad() {
+          var _this3 = this;
+          var texFile = "fish/Fish" + this.inputAnim.string + "_tex";
+          resources.load(texFile, dragonBones.DragonBonesAtlasAsset, function (err, atlasAsset) {
+            if (err) {
+              log("load error", err);
+              return;
+            }
+            var jsonFile = "fish/Fish" + _this3.inputAnim.string + "_ske";
+            resources.load(jsonFile, dragonBones.DragonBonesAsset, function (err, asset) {
+              if (err) {
+                log("load error", err);
+                return;
+              }
+              _this3.armatureDisplay.dragonAsset = asset;
+              _this3.armatureDisplay.dragonAtlasAsset = atlasAsset;
+              _this3.listAllAnimButton();
+            });
+          });
+        };
+        return PreviewDragonBone;
+      }(Component), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "armatureDisplay", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "armatureNode", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "inputAnim", [_dec4], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "buttonsContainer", [_dec5], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "templateBtn", [_dec6], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      })), _class2)) || _class));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/RaidView.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseView.ts', './RaidViewModel.ts'], function (exports) {
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _createForOfIteratorHelperLoose, _asyncToGenerator, _regeneratorRuntime, cclegacy, _decorator, Label, Node, Sprite, Button, Color, tween, v3, director, BaseView, RaidViewModel;
+  return {
+    setters: [function (module) {
+      _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
+      _inheritsLoose = module.inheritsLoose;
+      _initializerDefineProperty = module.initializerDefineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+      _createForOfIteratorHelperLoose = module.createForOfIteratorHelperLoose;
+      _asyncToGenerator = module.asyncToGenerator;
+      _regeneratorRuntime = module.regeneratorRuntime;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      Label = module.Label;
+      Node = module.Node;
+      Sprite = module.Sprite;
+      Button = module.Button;
+      Color = module.Color;
+      tween = module.tween;
+      v3 = module.v3;
+      director = module.director;
+    }, function (module) {
+      BaseView = module.BaseView;
+    }, function (module) {
+      RaidViewModel = module.RaidViewModel;
+    }],
+    execute: function () {
+      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _dec20, _dec21, _dec22, _dec23, _dec24, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19, _descriptor20, _descriptor21, _descriptor22, _descriptor23;
+      cclegacy._RF.push({}, "cd871t1u4pK8JkaC6hobPDL", "RaidView", undefined);
+      var ccclass = _decorator.ccclass,
+        property = _decorator.property;
+
+      /**
+       * Raid View - UI for raid scene
+       */
+      var RaidView = exports('RaidView', (_dec = ccclass('RaidView'), _dec2 = property(Label), _dec3 = property(Label), _dec4 = property(Node), _dec5 = property(Label), _dec6 = property(Label), _dec7 = property(Label), _dec8 = property([Node]), _dec9 = property([Sprite]), _dec10 = property([Label]), _dec11 = property([Label]), _dec12 = property([Button]), _dec13 = property([Node]), _dec14 = property(Button), _dec15 = property(Button), _dec16 = property(Node), _dec17 = property(Label), _dec18 = property(Node), _dec19 = property(Label), _dec20 = property(Label), _dec21 = property(Label), _dec22 = property(Button), _dec23 = property(Node), _dec24 = property(Label), _dec(_class = (_class2 = /*#__PURE__*/function (_BaseView) {
+        _inheritsLoose(RaidView, _BaseView);
+        function RaidView() {
+          var _this;
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+          _this = _BaseView.call.apply(_BaseView, [this].concat(args)) || this;
+          // Header UI
+          _initializerDefineProperty(_this, "goldLabel", _descriptor, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "raidsRemainingLabel", _descriptor2, _assertThisInitialized(_this));
+          // Target Info UI
+          _initializerDefineProperty(_this, "targetInfoContainer", _descriptor3, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "targetPlayerNameLabel", _descriptor4, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "targetPlayerLevelLabel", _descriptor5, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "targetCityNameLabel", _descriptor6, _assertThisInitialized(_this));
+          // Chests UI
+          _initializerDefineProperty(_this, "chestNodes", _descriptor7, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "chestSprites", _descriptor8, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "chestTypeLabels", _descriptor9, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "rewardLabels", _descriptor10, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "raidButtons", _descriptor11, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "openedOverlays", _descriptor12, _assertThisInitialized(_this));
+          // Action Buttons
+          _initializerDefineProperty(_this, "newTargetButton", _descriptor13, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "backButton", _descriptor14, _assertThisInitialized(_this));
+          // Loading UI
+          _initializerDefineProperty(_this, "loadingContainer", _descriptor15, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "loadingLabel", _descriptor16, _assertThisInitialized(_this));
+          // Result UI
+          _initializerDefineProperty(_this, "resultContainer", _descriptor17, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "resultTitleLabel", _descriptor18, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "resultMessageLabel", _descriptor19, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "resultRewardLabel", _descriptor20, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "resultCloseButton", _descriptor21, _assertThisInitialized(_this));
+          // Notification UI
+          _initializerDefineProperty(_this, "notificationContainer", _descriptor22, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "notificationLabel", _descriptor23, _assertThisInitialized(_this));
+          _this._viewModel = null;
+          _this._currentTarget = null;
+          return _this;
+        }
+        var _proto = RaidView.prototype;
+        /**
+         * Setup UI components
+         */
+        _proto.setupUI = function setupUI() {
+          // Initialize UI state
+          this.updateHeaderDisplay();
+          this.hideTargetInfo();
+          this.hideAllChests();
+          this.hideResultUI();
+          this.hideNotification();
+          this.showLoading('Loading target...');
+        }
+
+        /**
+         * Bind UI events
+         */;
+        _proto.bindEvents = function bindEvents() {
+          var _this2 = this;
+          // Action buttons
+          if (this.newTargetButton) {
+            this.newTargetButton.node.on(Button.EventType.CLICK, this.onNewTargetClicked, this);
+          }
+          if (this.backButton) {
+            this.backButton.node.on(Button.EventType.CLICK, this.onBackClicked, this);
+          }
+
+          // Raid buttons
+          var _loop = function _loop(i) {
+            var button = _this2.raidButtons[i];
+            if (button) {
+              button.node.on(Button.EventType.CLICK, function () {
+                return _this2.onRaidClicked(i);
+              }, _this2);
+            }
+          };
+          for (var i = 0; i < this.raidButtons.length; i++) {
+            _loop(i);
+          }
+
+          // Result close button
+          if (this.resultCloseButton) {
+            this.resultCloseButton.node.on(Button.EventType.CLICK, this.onResultCloseClicked, this);
+          }
+        }
+
+        /**
+         * Update UI based on data changes
+         */;
+        _proto.updateUI = function updateUI(key, value, oldValue) {
+          // Handle ViewModel data changes if needed
+        }
+
+        /**
+         * Refresh entire UI
+         */;
+        _proto.refreshUI = function refreshUI() {
+          this.updateHeaderDisplay();
+          this.updateTargetDisplay();
+          this.updateChestsDisplay();
+        }
+
+        /**
+         * Set ViewModel and setup event listeners
+         */;
+        _proto.setViewModel = function setViewModel(viewModel) {
+          _BaseView.prototype.setViewModel.call(this, viewModel);
+          this._viewModel = viewModel;
+          if (this._viewModel) {
+            this.setupViewModelEvents();
+          }
+        }
+
+        /**
+         * Setup ViewModel event listeners
+         */;
+        _proto.setupViewModelEvents = function setupViewModelEvents() {
+          if (!this._viewModel) return;
+          this._viewModel.on('loadingTarget', this.onLoadingTarget, this);
+          this._viewModel.on('targetLoaded', this.onTargetLoaded, this);
+          this._viewModel.on('targetLoadError', this.onTargetLoadError, this);
+          this._viewModel.on('resourceUpdated', this.onResourceUpdated, this);
+          this._viewModel.on('raidStarted', this.onRaidStarted, this);
+          this._viewModel.on('raidCompleted', this.onRaidCompleted, this);
+          this._viewModel.on('raidError', this.onRaidError, this);
+          this._viewModel.on('chestAlreadyOpened', this.onChestAlreadyOpened, this);
+          this._viewModel.on('noRaidsRemaining', this.onNoRaidsRemaining, this);
+          this._viewModel.on('navigateToScene', this.onNavigateToScene, this);
+        }
+
+        /**
+         * Update header display
+         */;
+        _proto.updateHeaderDisplay = function updateHeaderDisplay() {
+          if (!this._viewModel) return;
+
+          // Update gold display
+          if (this.goldLabel) {
+            this.goldLabel.string = this.formatNumber(this._viewModel.currentGold);
+          }
+
+          // Update raids remaining
+          if (this.raidsRemainingLabel) {
+            this.raidsRemainingLabel.string = "Raids: " + this._viewModel.raidsRemaining;
+          }
+        }
+
+        /**
+         * Update target display
+         */;
+        _proto.updateTargetDisplay = function updateTargetDisplay() {
+          if (!this._viewModel || !this._currentTarget) {
+            this.hideTargetInfo();
+            return;
+          }
+          this.showTargetInfo();
+          if (this.targetPlayerNameLabel) {
+            this.targetPlayerNameLabel.string = this._currentTarget.playerName;
+          }
+          if (this.targetPlayerLevelLabel) {
+            this.targetPlayerLevelLabel.string = "Level " + this._currentTarget.playerLevel;
+          }
+          if (this.targetCityNameLabel) {
+            this.targetCityNameLabel.string = this._currentTarget.cityName;
+          }
+        }
+
+        /**
+         * Update chests display
+         */;
+        _proto.updateChestsDisplay = function updateChestsDisplay() {
+          if (!this._currentTarget) {
+            this.hideAllChests();
+            return;
+          }
+          var chests = this._currentTarget.chests;
+          for (var i = 0; i < chests.length && i < this.chestNodes.length; i++) {
+            var chest = chests[i];
+            this.updateChestUI(i, chest);
+          }
+
+          // Hide unused chest slots
+          for (var _i = chests.length; _i < this.chestNodes.length; _i++) {
+            if (this.chestNodes[_i]) {
+              this.chestNodes[_i].active = false;
+            }
+          }
+        }
+
+        /**
+         * Update individual chest UI
+         */;
+        _proto.updateChestUI = function updateChestUI(index, chest) {
+          // Show chest node
+          if (this.chestNodes[index]) {
+            this.chestNodes[index].active = true;
+          }
+
+          // Update chest type label
+          if (this.chestTypeLabels[index]) {
+            this.chestTypeLabels[index].string = this.getChestDisplayName(chest.chestType);
+          }
+
+          // Update reward label
+          if (this.rewardLabels[index]) {
+            this.rewardLabels[index].string = this.formatNumber(chest.potentialReward) + " Gold";
+          }
+
+          // Update raid button
+          if (this.raidButtons[index]) {
+            var _this$_viewModel, _this$_viewModel2;
+            this.raidButtons[index].interactable = !chest.isOpened && ((_this$_viewModel = this._viewModel) == null ? void 0 : _this$_viewModel.hasRaidsRemaining) && !((_this$_viewModel2 = this._viewModel) != null && _this$_viewModel2.isRaiding);
+          }
+
+          // Update opened overlay
+          if (this.openedOverlays[index]) {
+            this.openedOverlays[index].active = chest.isOpened;
+          }
+
+          // Update chest sprite
+          this.updateChestSprite(index, chest);
+        }
+
+        /**
+         * Update chest sprite based on type and state
+         */;
+        _proto.updateChestSprite = function updateChestSprite(index, chest) {
+          if (!this.chestSprites[index]) return;
+          var sprite = this.chestSprites[index];
+          if (chest.isOpened) {
+            sprite.color = Color.GRAY;
+          } else {
+            // Color based on chest type
+            var chestColors = {
+              'bronze': new Color().fromHEX('#CD7F32'),
+              'silver': new Color().fromHEX('#C0C0C0'),
+              'gold': new Color().fromHEX('#FFD700'),
+              'diamond': new Color().fromHEX('#B9F2FF')
+            };
+            sprite.color = chestColors[chest.chestType] || Color.WHITE;
+          }
+        }
+
+        /**
+         * Get chest display name
+         */;
+        _proto.getChestDisplayName = function getChestDisplayName(chestType) {
+          var chestNames = {
+            'bronze': 'Bronze Chest',
+            'silver': 'Silver Chest',
+            'gold': 'Gold Chest',
+            'diamond': 'Diamond Chest'
+          };
+          return chestNames[chestType] || 'Chest';
+        }
+
+        /**
+         * Show loading UI
+         */;
+        _proto.showLoading = function showLoading(message) {
+          if (this.loadingContainer) {
+            this.loadingContainer.active = true;
+          }
+          if (this.loadingLabel) {
+            this.loadingLabel.string = message;
+          }
+        }
+
+        /**
+         * Hide loading UI
+         */;
+        _proto.hideLoading = function hideLoading() {
+          if (this.loadingContainer) {
+            this.loadingContainer.active = false;
+          }
+        }
+
+        /**
+         * Show target info
+         */;
+        _proto.showTargetInfo = function showTargetInfo() {
+          if (this.targetInfoContainer) {
+            this.targetInfoContainer.active = true;
+          }
+        }
+
+        /**
+         * Hide target info
+         */;
+        _proto.hideTargetInfo = function hideTargetInfo() {
+          if (this.targetInfoContainer) {
+            this.targetInfoContainer.active = false;
+          }
+        }
+
+        /**
+         * Hide all chests
+         */;
+        _proto.hideAllChests = function hideAllChests() {
+          for (var _iterator = _createForOfIteratorHelperLoose(this.chestNodes), _step; !(_step = _iterator()).done;) {
+            var chestNode = _step.value;
+            if (chestNode) {
+              chestNode.active = false;
+            }
+          }
+        }
+
+        /**
+         * Show raid result
+         */;
+        _proto.showRaidResult = function showRaidResult(result) {
+          if (this.resultContainer) {
+            this.resultContainer.active = true;
+          }
+          if (this.resultTitleLabel) {
+            this.resultTitleLabel.string = result.success ? 'Raid Successful!' : 'Raid Failed!';
+          }
+          if (this.resultMessageLabel) {
+            this.resultMessageLabel.string = result.message;
+          }
+          if (this.resultRewardLabel) {
+            if (result.goldEarned > 0) {
+              this.resultRewardLabel.string = "+" + this.formatNumber(result.goldEarned) + " Gold";
+              this.resultRewardLabel.node.active = true;
+            } else {
+              this.resultRewardLabel.node.active = false;
+            }
+          }
+        }
+
+        /**
+         * Hide raid result
+         */;
+        _proto.hideResultUI = function hideResultUI() {
+          if (this.resultContainer) {
+            this.resultContainer.active = false;
+          }
+        }
+
+        /**
+         * Show notification
+         */;
+        _proto.showNotification = function showNotification(message, duration) {
+          var _this3 = this;
+          if (duration === void 0) {
+            duration = 3.0;
+          }
+          if (this.notificationContainer && this.notificationLabel) {
+            this.notificationLabel.string = message;
+            this.notificationContainer.active = true;
+
+            // Auto-hide after duration
+            this.scheduleOnce(function () {
+              _this3.hideNotification();
+            }, duration);
+          }
+        }
+
+        /**
+         * Hide notification
+         */;
+        _proto.hideNotification = function hideNotification() {
+          if (this.notificationContainer) {
+            this.notificationContainer.active = false;
+          }
+        }
+
+        /**
+         * Format number for display
+         */;
+        _proto.formatNumber = function formatNumber(num) {
+          if (num >= 1000000) {
+            return (num / 1000000).toFixed(1) + 'M';
+          } else if (num >= 1000) {
+            return (num / 1000).toFixed(1) + 'K';
+          }
+          return num.toString();
+        }
+
+        /**
+         * Animate chest opening
+         */;
+        _proto.animateChestOpening = function animateChestOpening(chestIndex) {
+          if (chestIndex < 0 || chestIndex >= this.chestNodes.length) return;
+          var chestNode = this.chestNodes[chestIndex];
+          if (!chestNode) return;
+
+          // Scale animation
+          tween(chestNode).to(0.2, {
+            scale: v3(1.2, 1.2, 1)
+          }).to(0.3, {
+            scale: v3(1.0, 1.0, 1)
+          }).start();
+
+          // Rotation animation
+          tween(chestNode).to(0.1, {
+            angle: -10
+          }).to(0.1, {
+            angle: 10
+          }).to(0.1, {
+            angle: -5
+          }).to(0.1, {
+            angle: 5
+          }).to(0.1, {
+            angle: 0
+          }).start();
+        }
+
+        // Event Handlers
+
+        /**
+         * Handle loading target
+         */;
+        _proto.onLoadingTarget = function onLoadingTarget(isLoading) {
+          if (isLoading) {
+            this.showLoading('Loading target...');
+            this.hideTargetInfo();
+            this.hideAllChests();
+          } else {
+            this.hideLoading();
+          }
+        }
+
+        /**
+         * Handle target loaded
+         */;
+        _proto.onTargetLoaded = function onTargetLoaded(target) {
+          this._currentTarget = target;
+          this.hideLoading();
+          this.refreshUI();
+        }
+
+        /**
+         * Handle target load error
+         */;
+        _proto.onTargetLoadError = function onTargetLoadError(error) {
+          this.hideLoading();
+          this.showNotification('Failed to load target. Using offline mode.');
+        }
+
+        /**
+         * Handle resource updated
+         */;
+        _proto.onResourceUpdated = function onResourceUpdated(event) {
+          this.updateHeaderDisplay();
+        }
+
+        /**
+         * Handle raid started
+         */;
+        _proto.onRaidStarted = function onRaidStarted(event) {
+          this.animateChestOpening(event.chestIndex);
+          this.showNotification("Raiding " + event.targetPlayer + "...");
+          this.updateChestsDisplay(); // Update button states
+        }
+
+        /**
+         * Handle raid completed
+         */;
+        _proto.onRaidCompleted = function onRaidCompleted(result) {
+          this.showRaidResult(result);
+          this.updateHeaderDisplay();
+          this.updateChestsDisplay();
+        }
+
+        /**
+         * Handle raid error
+         */;
+        _proto.onRaidError = function onRaidError(event) {
+          this.showNotification("Raid failed: " + event.error);
+          this.updateChestsDisplay();
+        }
+
+        /**
+         * Handle chest already opened
+         */;
+        _proto.onChestAlreadyOpened = function onChestAlreadyOpened(event) {
+          this.showNotification('Chest is already opened!');
+        }
+
+        /**
+         * Handle no raids remaining
+         */;
+        _proto.onNoRaidsRemaining = function onNoRaidsRemaining() {
+          this.showNotification('No raids remaining! Get a new target.');
+        }
+
+        /**
+         * Handle navigate to scene
+         */;
+        _proto.onNavigateToScene = function onNavigateToScene(sceneName) {
+          director.loadScene(sceneName);
+        }
+
+        // Button Event Handlers
+
+        /**
+         * Handle new target button click
+         */;
+        _proto.onNewTargetClicked = /*#__PURE__*/
+        function () {
+          var _onNewTargetClicked = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+            return _regeneratorRuntime().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  if (!this._viewModel) {
+                    _context.next = 3;
+                    break;
+                  }
+                  _context.next = 3;
+                  return this._viewModel.executeCommand('getNewTarget');
+                case 3:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee, this);
+          }));
+          function onNewTargetClicked() {
+            return _onNewTargetClicked.apply(this, arguments);
+          }
+          return onNewTargetClicked;
+        }()
+        /**
+         * Handle back button click
+         */;
+
+        _proto.onBackClicked = function onBackClicked() {
+          if (this._viewModel) {
+            this._viewModel.executeCommand('goBack');
+          }
+        }
+
+        /**
+         * Handle raid button click
+         */;
+        _proto.onRaidClicked = /*#__PURE__*/
+        function () {
+          var _onRaidClicked = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(chestIndex) {
+            var chest;
+            return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+              while (1) switch (_context2.prev = _context2.next) {
+                case 0:
+                  if (!(!this._viewModel || !this._currentTarget)) {
+                    _context2.next = 2;
+                    break;
+                  }
+                  return _context2.abrupt("return");
+                case 2:
+                  chest = this._currentTarget.chests[chestIndex];
+                  if (!chest) {
+                    _context2.next = 6;
+                    break;
+                  }
+                  _context2.next = 6;
+                  return this._viewModel.executeCommand('raidChest', chest.chestIndex);
+                case 6:
+                case "end":
+                  return _context2.stop();
+              }
+            }, _callee2, this);
+          }));
+          function onRaidClicked(_x) {
+            return _onRaidClicked.apply(this, arguments);
+          }
+          return onRaidClicked;
+        }()
+        /**
+         * Handle result close button click
+         */;
+
+        _proto.onResultCloseClicked = function onResultCloseClicked() {
+          this.hideResultUI();
+        }
+
+        /**
+         * Called when view is shown
+         */;
+        _proto.onShow = function onShow() {
+          _BaseView.prototype.onShow.call(this);
+
+          // Initialize ViewModel if not already done
+          if (!this._viewModel) {
+            this._viewModel = new RaidViewModel();
+            this.setViewModel(this._viewModel);
+            this._viewModel.initialize();
+          }
+        }
+
+        /**
+         * Cleanup on destroy
+         */;
+        _proto.onDestroy = function onDestroy() {
+          // Remove button event listeners
+          if (this.newTargetButton) {
+            this.newTargetButton.node.off(Button.EventType.CLICK, this.onNewTargetClicked, this);
+          }
+          if (this.backButton) {
+            this.backButton.node.off(Button.EventType.CLICK, this.onBackClicked, this);
+          }
+          for (var i = 0; i < this.raidButtons.length; i++) {
+            var button = this.raidButtons[i];
+            if (button) {
+              button.node.off(Button.EventType.CLICK);
+            }
+          }
+          if (this.resultCloseButton) {
+            this.resultCloseButton.node.off(Button.EventType.CLICK, this.onResultCloseClicked, this);
+          }
+
+          // Remove ViewModel event listeners
+          if (this._viewModel) {
+            this._viewModel.off('loadingTarget', this.onLoadingTarget, this);
+            this._viewModel.off('targetLoaded', this.onTargetLoaded, this);
+            this._viewModel.off('targetLoadError', this.onTargetLoadError, this);
+            this._viewModel.off('resourceUpdated', this.onResourceUpdated, this);
+            this._viewModel.off('raidStarted', this.onRaidStarted, this);
+            this._viewModel.off('raidCompleted', this.onRaidCompleted, this);
+            this._viewModel.off('raidError', this.onRaidError, this);
+            this._viewModel.off('chestAlreadyOpened', this.onChestAlreadyOpened, this);
+            this._viewModel.off('noRaidsRemaining', this.onNoRaidsRemaining, this);
+            this._viewModel.off('navigateToScene', this.onNavigateToScene, this);
+          }
+          _BaseView.prototype.onDestroy.call(this);
+        };
+        return RaidView;
+      }(BaseView), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "goldLabel", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "raidsRemainingLabel", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "targetInfoContainer", [_dec4], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "targetPlayerNameLabel", [_dec5], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "targetPlayerLevelLabel", [_dec6], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "targetCityNameLabel", [_dec7], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, "chestNodes", [_dec8], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, "chestSprites", [_dec9], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, "chestTypeLabels", [_dec10], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, "rewardLabels", [_dec11], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, "raidButtons", [_dec12], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _descriptor12 = _applyDecoratedDescriptor(_class2.prototype, "openedOverlays", [_dec13], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _descriptor13 = _applyDecoratedDescriptor(_class2.prototype, "newTargetButton", [_dec14], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor14 = _applyDecoratedDescriptor(_class2.prototype, "backButton", [_dec15], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor15 = _applyDecoratedDescriptor(_class2.prototype, "loadingContainer", [_dec16], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor16 = _applyDecoratedDescriptor(_class2.prototype, "loadingLabel", [_dec17], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor17 = _applyDecoratedDescriptor(_class2.prototype, "resultContainer", [_dec18], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor18 = _applyDecoratedDescriptor(_class2.prototype, "resultTitleLabel", [_dec19], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor19 = _applyDecoratedDescriptor(_class2.prototype, "resultMessageLabel", [_dec20], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor20 = _applyDecoratedDescriptor(_class2.prototype, "resultRewardLabel", [_dec21], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor21 = _applyDecoratedDescriptor(_class2.prototype, "resultCloseButton", [_dec22], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor22 = _applyDecoratedDescriptor(_class2.prototype, "notificationContainer", [_dec23], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor23 = _applyDecoratedDescriptor(_class2.prototype, "notificationLabel", [_dec24], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      })), _class2)) || _class));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/RaidViewModel.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseViewModel.ts', './ServiceLocator.ts', './Logger.ts'], function (exports) {
+  var _inheritsLoose, _createClass, _asyncToGenerator, _regeneratorRuntime, cclegacy, BaseViewModel, ServiceLocator, logError;
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _createClass = module.createClass;
+      _asyncToGenerator = module.asyncToGenerator;
+      _regeneratorRuntime = module.regeneratorRuntime;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+    }, function (module) {
+      BaseViewModel = module.BaseViewModel;
+    }, function (module) {
+      ServiceLocator = module.ServiceLocator;
+    }, function (module) {
+      logError = module.logError;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "4b62ce8dZVI3LLONEZ1oUWw", "RaidViewModel", undefined);
+
+      /**
+       * Raid target player data
+       */
+
+      /**
+       * Raid chest data
+       */
+
+      /**
+       * Raid result data
+       */
+
+      /**
+       * Raid ViewModel - Handles raid scene logic
+       */
+      var RaidViewModel = exports('RaidViewModel', /*#__PURE__*/function (_BaseViewModel) {
+        _inheritsLoose(RaidViewModel, _BaseViewModel);
+        // Default raids per session
+
+        function RaidViewModel() {
+          var _this;
+          _this = _BaseViewModel.call(this) || this;
+          _this._gameService = null;
+          _this._resourceManager = null;
+          _this._raidTarget = null;
+          _this._isRaiding = false;
+          _this._raidsRemaining = 3;
+          return _this;
+        }
+
+        /**
+         * Initialize ViewModel
+         */
+        var _proto = RaidViewModel.prototype;
+        _proto.onInitialize = function onInitialize() {
+          this.setupServices();
+          this.setupEventListeners();
+          this.loadRaidTarget();
+        }
+
+        /**
+         * Setup services
+         */;
+        _proto.setupServices = function setupServices() {
+          var serviceLocator = ServiceLocator.getInstance();
+          this._gameService = serviceLocator.getService('GameService');
+          this._resourceManager = serviceLocator.getService('ResourceManager');
+          if (!this._gameService) {
+            logError('GameService not found');
+          }
+          if (!this._resourceManager) {
+            logError('ResourceManager not found');
+          }
+        }
+
+        /**
+         * Setup event listeners
+         */;
+        _proto.setupEventListeners = function setupEventListeners() {
+          // Resource manager events
+          if (this._resourceManager) {
+            this._resourceManager.on('resourceChanged', this.onResourceChanged, this);
+          }
+        }
+
+        /**
+         * Load raid target from server
+         */;
+        _proto.loadRaidTarget = /*#__PURE__*/
+        function () {
+          var _loadRaidTarget = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+            var targetData;
+            return _regeneratorRuntime().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  _context.prev = 0;
+                  this.emit('loadingTarget', true);
+                  if (!(this._gameService && this._gameService.isReady)) {
+                    _context.next = 9;
+                    break;
+                  }
+                  _context.next = 5;
+                  return this._gameService.getRaidTarget();
+                case 5:
+                  targetData = _context.sent;
+                  this._raidTarget = this.processTargetData(targetData);
+                  _context.next = 10;
+                  break;
+                case 9:
+                  // Generate mock target for offline mode
+                  this._raidTarget = this.generateMockTarget();
+                case 10:
+                  this.emit('targetLoaded', this._raidTarget);
+                  this.emit('loadingTarget', false);
+                  _context.next = 21;
+                  break;
+                case 14:
+                  _context.prev = 14;
+                  _context.t0 = _context["catch"](0);
+                  logError('Failed to load raid target:', _context.t0);
+                  this.emit('targetLoadError', _context.t0);
+                  this.emit('loadingTarget', false);
+
+                  // Fallback to mock target
+                  this._raidTarget = this.generateMockTarget();
+                  this.emit('targetLoaded', this._raidTarget);
+                case 21:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee, this, [[0, 14]]);
+          }));
+          function loadRaidTarget() {
+            return _loadRaidTarget.apply(this, arguments);
+          }
+          return loadRaidTarget;
+        }()
+        /**
+         * Process target data from server
+         */;
+
+        _proto.processTargetData = function processTargetData(serverData) {
+          var _serverData$chests;
+          return {
+            playerId: serverData.playerId || 'unknown',
+            playerName: serverData.playerName || 'Unknown Player',
+            playerLevel: serverData.playerLevel || 1,
+            cityName: serverData.cityName || 'Unknown City',
+            chests: ((_serverData$chests = serverData.chests) == null ? void 0 : _serverData$chests.map(function (chest, index) {
+              return {
+                chestIndex: index,
+                isOpened: chest.isOpened || false,
+                potentialReward: chest.potentialReward || 100,
+                chestType: chest.chestType || 'bronze'
+              };
+            })) || []
+          };
+        }
+
+        /**
+         * Generate mock target for testing/offline mode
+         */;
+        _proto.generateMockTarget = function generateMockTarget() {
+          var playerNames = ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'];
+          var cityNames = ['Village', 'Town', 'City', 'Metropolis', 'Capital'];
+          var chestTypes = ['bronze', 'silver', 'gold', 'diamond'];
+          var randomName = playerNames[Math.floor(Math.random() * playerNames.length)];
+          var randomCity = cityNames[Math.floor(Math.random() * cityNames.length)];
+          var randomLevel = Math.floor(Math.random() * 10) + 1;
+          var chests = [];
+          var chestCount = 3; // Default 3 chests per raid
+
+          for (var i = 0; i < chestCount; i++) {
+            var chestType = chestTypes[Math.floor(Math.random() * chestTypes.length)];
+            var baseReward = this.getChestBaseReward(chestType);
+            var potentialReward = Math.floor(baseReward * (0.5 + Math.random() * 1.0));
+            chests.push({
+              chestIndex: i,
+              isOpened: Math.random() < 0.1,
+              // 10% chance of being already opened
+              potentialReward: potentialReward,
+              chestType: chestType
+            });
+          }
+          return {
+            playerId: "player_" + Date.now(),
+            playerName: randomName,
+            playerLevel: randomLevel,
+            cityName: randomCity,
+            chests: chests
+          };
+        }
+
+        /**
+         * Get base reward for chest type
+         */;
+        _proto.getChestBaseReward = function getChestBaseReward(chestType) {
+          var baseRewards = {
+            'bronze': 100,
+            'silver': 250,
+            'gold': 500,
+            'diamond': 1000
+          };
+          return baseRewards[chestType] || 100;
+        }
+
+        /**
+         * Execute command
+         */;
+        _proto.executeCommand = /*#__PURE__*/
+        function () {
+          var _executeCommand = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(command) {
+            var _args2 = arguments;
+            return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+              while (1) switch (_context2.prev = _context2.next) {
+                case 0:
+                  _context2.t0 = command;
+                  _context2.next = _context2.t0 === 'raidChest' ? 3 : _context2.t0 === 'getNewTarget' ? 4 : _context2.t0 === 'goBack' ? 5 : _context2.t0 === 'refreshTarget' ? 6 : 7;
+                  break;
+                case 3:
+                  return _context2.abrupt("return", this.raidChest(_args2.length <= 1 ? undefined : _args2[1]));
+                case 4:
+                  return _context2.abrupt("return", this.getNewTarget());
+                case 5:
+                  return _context2.abrupt("return", this.goBack());
+                case 6:
+                  return _context2.abrupt("return", this.loadRaidTarget());
+                case 7:
+                  throw new Error("Unknown command: " + command);
+                case 8:
+                case "end":
+                  return _context2.stop();
+              }
+            }, _callee2, this);
+          }));
+          function executeCommand(_x) {
+            return _executeCommand.apply(this, arguments);
+          }
+          return executeCommand;
+        }()
+        /**
+         * Raid a specific chest
+         */;
+
+        _proto.raidChest = /*#__PURE__*/
+        function () {
+          var _raidChest = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(chestIndex) {
+            var chest, raidResult, serverResult;
+            return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+              while (1) switch (_context3.prev = _context3.next) {
+                case 0:
+                  if (!(!this._raidTarget || this._isRaiding)) {
+                    _context3.next = 2;
+                    break;
+                  }
+                  return _context3.abrupt("return", null);
+                case 2:
+                  chest = this._raidTarget.chests.find(function (c) {
+                    return c.chestIndex === chestIndex;
+                  });
+                  if (chest) {
+                    _context3.next = 6;
+                    break;
+                  }
+                  logError("Chest not found: " + chestIndex);
+                  return _context3.abrupt("return", null);
+                case 6:
+                  if (!chest.isOpened) {
+                    _context3.next = 9;
+                    break;
+                  }
+                  this.emit('chestAlreadyOpened', {
+                    chestIndex: chestIndex
+                  });
+                  return _context3.abrupt("return", null);
+                case 9:
+                  if (!(this._raidsRemaining <= 0)) {
+                    _context3.next = 12;
+                    break;
+                  }
+                  this.emit('noRaidsRemaining');
+                  return _context3.abrupt("return", null);
+                case 12:
+                  _context3.prev = 12;
+                  this._isRaiding = true;
+                  this.emit('raidStarted', {
+                    chestIndex: chestIndex,
+                    targetPlayer: this._raidTarget.playerName
+                  });
+                  if (!(this._gameService && this._gameService.isReady)) {
+                    _context3.next = 22;
+                    break;
+                  }
+                  _context3.next = 18;
+                  return this._gameService.raidPlayer(this._raidTarget.playerId, chestIndex);
+                case 18:
+                  serverResult = _context3.sent;
+                  raidResult = this.processRaidResult(serverResult, chestIndex, chest);
+                  _context3.next = 23;
+                  break;
+                case 22:
+                  // Generate mock raid result
+                  raidResult = this.generateMockRaidResult(chestIndex, chest);
+                case 23:
+                  _context3.next = 25;
+                  return this.processRaidSuccess(raidResult);
+                case 25:
+                  this._raidsRemaining--;
+                  this._isRaiding = false;
+                  this.emit('raidCompleted', raidResult);
+                  return _context3.abrupt("return", raidResult);
+                case 31:
+                  _context3.prev = 31;
+                  _context3.t0 = _context3["catch"](12);
+                  logError('Raid failed:', _context3.t0);
+                  this._isRaiding = false;
+                  this.emit('raidError', {
+                    chestIndex: chestIndex,
+                    error: _context3.t0.message
+                  });
+                  return _context3.abrupt("return", null);
+                case 37:
+                case "end":
+                  return _context3.stop();
+              }
+            }, _callee3, this, [[12, 31]]);
+          }));
+          function raidChest(_x2) {
+            return _raidChest.apply(this, arguments);
+          }
+          return raidChest;
+        }()
+        /**
+         * Process raid result from server
+         */;
+
+        _proto.processRaidResult = function processRaidResult(serverResult, chestIndex, chest) {
+          return {
+            success: serverResult.success || false,
+            chestIndex: chestIndex,
+            goldEarned: serverResult.goldEarned || 0,
+            chestType: chest.chestType,
+            message: serverResult.message || 'Raid completed'
+          };
+        }
+
+        /**
+         * Generate mock raid result
+         */;
+        _proto.generateMockRaidResult = function generateMockRaidResult(chestIndex, chest) {
+          var success = Math.random() < 0.6; // 60% success rate
+          var goldEarned = success ? Math.floor(chest.potentialReward * (0.3 + Math.random() * 0.7)) : 0;
+          return {
+            success: success,
+            chestIndex: chestIndex,
+            goldEarned: goldEarned,
+            chestType: chest.chestType,
+            message: success ? "Found " + goldEarned + " gold in the " + chest.chestType + " chest!" : 'The chest was empty! Better luck next time.'
+          };
+        }
+
+        /**
+         * Process successful raid
+         */;
+        _proto.processRaidSuccess = /*#__PURE__*/
+        function () {
+          var _processRaidSuccess = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(raidResult) {
+            var chest;
+            return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+              while (1) switch (_context4.prev = _context4.next) {
+                case 0:
+                  if (this._raidTarget) {
+                    _context4.next = 2;
+                    break;
+                  }
+                  return _context4.abrupt("return");
+                case 2:
+                  // Mark chest as opened
+                  chest = this._raidTarget.chests.find(function (c) {
+                    return c.chestIndex === raidResult.chestIndex;
+                  });
+                  if (chest) {
+                    chest.isOpened = true;
+                  }
+
+                  // Award gold if earned
+                  if (!(raidResult.success && raidResult.goldEarned > 0 && this._resourceManager)) {
+                    _context4.next = 7;
+                    break;
+                  }
+                  _context4.next = 7;
+                  return this._resourceManager.addGold(raidResult.goldEarned, 'raid_reward');
+                case 7:
+                case "end":
+                  return _context4.stop();
+              }
+            }, _callee4, this);
+          }));
+          function processRaidSuccess(_x3) {
+            return _processRaidSuccess.apply(this, arguments);
+          }
+          return processRaidSuccess;
+        }()
+        /**
+         * Get new raid target
+         */;
+
+        _proto.getNewTarget = /*#__PURE__*/
+        function () {
+          var _getNewTarget = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
+            return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+              while (1) switch (_context5.prev = _context5.next) {
+                case 0:
+                  this._raidTarget = null;
+                  this._raidsRemaining = 3; // Reset raids
+                  _context5.next = 4;
+                  return this.loadRaidTarget();
+                case 4:
+                case "end":
+                  return _context5.stop();
+              }
+            }, _callee5, this);
+          }));
+          function getNewTarget() {
+            return _getNewTarget.apply(this, arguments);
+          }
+          return getNewTarget;
+        }()
+        /**
+         * Go back to main scene
+         */;
+
+        _proto.goBack = function goBack() {
+          this.emit('navigateToScene', 'Main');
+        }
+
+        // Event Handlers
+
+        /**
+         * Handle resource changes
+         */;
+        _proto.onResourceChanged = function onResourceChanged(event) {
+          this.emit('resourceUpdated', event);
+        }
+
+        // Getters
+
+        /**
+         * Get current raid target
+         */;
+        /**
+         * Cleanup resources
+         */
+        _proto.destroy = function destroy() {
+          // Remove event listeners
+          if (this._resourceManager) {
+            this._resourceManager.off('resourceChanged', this.onResourceChanged, this);
+          }
+
+          // Clear references
+          this._gameService = null;
+          this._resourceManager = null;
+          this._raidTarget = null;
+          this._isRaiding = false;
+          _BaseViewModel.prototype.destroy.call(this);
+        };
+        _createClass(RaidViewModel, [{
+          key: "raidTarget",
+          get: function get() {
+            return this._raidTarget;
+          }
+
+          /**
+           * Get current gold amount
+           */
+        }, {
+          key: "currentGold",
+          get: function get() {
+            return this._resourceManager ? this._resourceManager.getGold() : 0;
+          }
+
+          /**
+           * Check if currently raiding
+           */
+        }, {
+          key: "isRaiding",
+          get: function get() {
+            return this._isRaiding;
+          }
+
+          /**
+           * Get remaining raids
+           */
+        }, {
+          key: "raidsRemaining",
+          get: function get() {
+            return this._raidsRemaining;
+          }
+
+          /**
+           * Check if has raids remaining
+           */
+        }, {
+          key: "hasRaidsRemaining",
+          get: function get() {
+            return this._raidsRemaining > 0;
+          }
+
+          /**
+           * Get target player name
+           */
+        }, {
+          key: "targetPlayerName",
+          get: function get() {
+            return this._raidTarget ? this._raidTarget.playerName : '';
+          }
+
+          /**
+           * Get target city name
+           */
+        }, {
+          key: "targetCityName",
+          get: function get() {
+            return this._raidTarget ? this._raidTarget.cityName : '';
+          }
+
+          /**
+           * Get target player level
+           */
+        }, {
+          key: "targetPlayerLevel",
+          get: function get() {
+            return this._raidTarget ? this._raidTarget.playerLevel : 1;
+          }
+
+          /**
+           * Get available chests for raid
+           */
+        }, {
+          key: "availableChests",
+          get: function get() {
+            if (!this._raidTarget) return [];
+            return this._raidTarget.chests.filter(function (chest) {
+              return !chest.isOpened;
+            });
+          }
+
+          /**
+           * Get opened chests
+           */
+        }, {
+          key: "openedChests",
+          get: function get() {
+            if (!this._raidTarget) return [];
+            return this._raidTarget.chests.filter(function (chest) {
+              return chest.isOpened;
+            });
+          }
+
+          /**
+           * Get total potential reward
+           */
+        }, {
+          key: "totalPotentialReward",
+          get: function get() {
+            if (!this._raidTarget) return 0;
+            return this.availableChests.reduce(function (total, chest) {
+              return total + chest.potentialReward;
+            }, 0);
+          }
+
+          /**
+           * Check if all chests are opened
+           */
+        }, {
+          key: "areAllChestsOpened",
+          get: function get() {
+            if (!this._raidTarget) return false;
+            return this._raidTarget.chests.every(function (chest) {
+              return chest.isOpened;
+            });
+          }
+        }]);
+        return RaidViewModel;
+      }(BaseViewModel));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/ReelComponent.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './AnimationConfig.ts'], function (exports) {
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _createForOfIteratorHelperLoose, cclegacy, _decorator, Node, Prefab, instantiate, v3, Sprite, Label, resources, SpriteFrame, tween, Vec3, Component, AnimationConfig;
+  return {
+    setters: [function (module) {
+      _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
+      _inheritsLoose = module.inheritsLoose;
+      _initializerDefineProperty = module.initializerDefineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+      _createForOfIteratorHelperLoose = module.createForOfIteratorHelperLoose;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      Node = module.Node;
+      Prefab = module.Prefab;
+      instantiate = module.instantiate;
+      v3 = module.v3;
+      Sprite = module.Sprite;
+      Label = module.Label;
+      resources = module.resources;
+      SpriteFrame = module.SpriteFrame;
+      tween = module.tween;
+      Vec3 = module.Vec3;
+      Component = module.Component;
+    }, function (module) {
+      AnimationConfig = module.AnimationConfig;
+    }],
+    execute: function () {
+      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6;
+      cclegacy._RF.push({}, "0fadbUifFxBlKLJPjsen265", "ReelComponent", undefined);
+      var ccclass = _decorator.ccclass,
+        property = _decorator.property;
+      var ReelComponent = exports('ReelComponent', (_dec = ccclass('ReelComponent'), _dec2 = property(Node), _dec3 = property(Prefab), _dec4 = property({
+        tooltip: 'The height of a single symbol. This determines the layout and stopping positions.'
+      }), _dec5 = property({
+        tooltip: 'The number of symbols visible in the final display area.'
+      }), _dec6 = property({
+        tooltip: 'Number of buffer symbols to instantiate above the visible area for smooth looping.'
+      }), _dec7 = property({
+        tooltip: 'Number of buffer symbols to instantiate below the visible area for smooth looping.'
+      }), _dec(_class = (_class2 = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(ReelComponent, _Component);
+        function ReelComponent() {
+          var _this;
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+          _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+          // #region Editor Properties
+          _initializerDefineProperty(_this, "symbolContainer", _descriptor, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "symbolPrefab", _descriptor2, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "symbolHeight", _descriptor3, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "visibleSymbolCount", _descriptor4, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "topBufferSymbols", _descriptor5, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "bottomBufferSymbols", _descriptor6, _assertThisInitialized(_this));
+          // #endregion
+          // #region Private Properties
+          _this._symbolNodes = [];
+          _this._isSpinning = false;
+          _this._reelIndex = 0;
+          _this._symbols = [];
+          _this._finalSymbols = [];
+          _this._spinElapsedTime = 0;
+          _this._spinDelay = 0;
+          _this._spinPhase = 'acceleration';
+          _this._targetYPositions = [];
+          _this._anticipationSymbolsSet = false;
+          _this._animationConfig = void 0;
+          _this._reelConfig = void 0;
+          return _this;
+        }
+        var _proto = ReelComponent.prototype;
+        // #endregion
+        // #region Initialization
+        _proto.initialize = function initialize(reelIndex, symbols) {
+          this._reelIndex = reelIndex;
+          this._symbols = [].concat(symbols);
+          this._animationConfig = AnimationConfig.getInstance();
+          this.updateConfig();
+          this.setupReel();
+        }
+
+        /**
+         * Updates the reel's animation configuration from the central AnimationConfig manager.
+         * This should be called when the animation profile changes.
+         */;
+        _proto.updateConfig = function updateConfig() {
+          if (!this._animationConfig) {
+            this._animationConfig = AnimationConfig.getInstance();
+          }
+          this._reelConfig = this._animationConfig.getReelConfig(this._reelIndex);
+        };
+        _proto.setupReel = function setupReel() {
+          if (!this.symbolContainer) return;
+          this.symbolContainer.removeAllChildren();
+          this._symbolNodes = [];
+          var totalSymbols = this.visibleSymbolCount + this.topBufferSymbols + this.bottomBufferSymbols;
+          for (var i = 0; i < totalSymbols; i++) {
+            var symbolNode = this.createSymbolNode(i);
+            if (symbolNode) {
+              this.symbolContainer.addChild(symbolNode);
+              this._symbolNodes.push(symbolNode);
+              var y = (this.visibleSymbolCount + this.topBufferSymbols - 1 - i) * this.symbolHeight;
+              symbolNode.setPosition(0, y);
+            }
+          }
+          this.populateWithRandomSymbols();
+        };
+        _proto.createSymbolNode = function createSymbolNode(index) {
+          if (!this.symbolPrefab) return null;
+          var symbolNode = instantiate(this.symbolPrefab);
+          symbolNode.name = "Symbol_" + index;
+          return symbolNode;
+        }
+
+        // #endregion
+
+        // #region Symbol Management
+        ;
+
+        _proto.populateWithRandomSymbols = function populateWithRandomSymbols() {
+          if (this._symbols.length === 0) return;
+          for (var _iterator = _createForOfIteratorHelperLoose(this._symbolNodes), _step; !(_step = _iterator()).done;) {
+            var symbolNode = _step.value;
+            this.setSymbolDisplay(symbolNode, this.getRandomSymbol());
+          }
+        };
+        _proto.getRandomSymbol = function getRandomSymbol() {
+          if (this._symbols.length === 0) return {
+            id: 0,
+            type: '?',
+            name: '?',
+            priority: 0
+          };
+          var randomIndex = Math.floor(Math.random() * this._symbols.length);
+          return this._symbols[randomIndex];
+        };
+        _proto.setSymbolDisplay = function setSymbolDisplay(symbolNode, symbol, isBlurred) {
+          if (isBlurred === void 0) {
+            isBlurred = false;
+          }
+          if (!symbolNode) return;
+          symbolNode.scale = isBlurred ? v3(1, 1.2, 1) : v3(1, 1, 1);
+          var sprite = symbolNode.getComponentInChildren(Sprite);
+          if (sprite) {
+            this.setSymbolSprite(sprite, symbol, isBlurred);
+          }
+          var label = symbolNode.getComponentInChildren(Label);
+          if (label) label.string = symbol.name;
+          symbolNode.symbolData = symbol;
+        };
+        _proto.setSymbolSprite = function setSymbolSprite(sprite, symbol, isBlurred) {
+          var _this2 = this;
+          // Construct the image path based on whether the blurred version is requested
+          var imagePath = "texture/symbol/" + (isBlurred ? 'blur/' : '') + symbol.id + "/spriteFrame";
+
+          // Load the sprite frame from resources
+          resources.load(imagePath, SpriteFrame, function (err, spriteFrame) {
+            if (err) {
+              // If loading the blurred asset fails, try loading the normal one as a fallback
+              if (isBlurred) {
+                console.warn("Failed to load blurred sprite for symbol ID " + symbol.id + ", trying normal sprite.", err);
+                _this2.setSymbolSprite(sprite, symbol, false); // Fallback to normal sprite
+              } else {
+                console.warn("Failed to load normal sprite for symbol ID " + symbol.id + ":", err);
+              }
+              return;
+            }
+
+            // Successfully loaded - assign the sprite frame
+            if (sprite && sprite.isValid) {
+              sprite.spriteFrame = spriteFrame;
+            }
+          });
+        }
+
+        // #endregion
+
+        // #region Spin Lifecycle
+        ;
+
+        _proto.update = function update(dt) {
+          var _this3 = this;
+          this.updateCurve();
+          if (!this._isSpinning) return;
+          this._spinElapsedTime += dt;
+          if (this._spinElapsedTime < this._spinDelay) {
+            return;
+          }
+          var actualSpinTime = this._spinElapsedTime - this._spinDelay;
+          var _this$_reelConfig = this._reelConfig,
+            spinDuration = _this$_reelConfig.spinDuration,
+            accelerationDuration = _this$_reelConfig.accelerationDuration,
+            decelerationDuration = _this$_reelConfig.decelerationDuration;
+          var constantSpinTime = spinDuration - accelerationDuration - decelerationDuration;
+          if (actualSpinTime < accelerationDuration) {
+            this._spinPhase = 'acceleration';
+          } else if (actualSpinTime < accelerationDuration + constantSpinTime) {
+            this._spinPhase = 'constant';
+          } else if (this._spinPhase !== 'deceleration' && actualSpinTime < spinDuration) {
+            this._spinPhase = 'deceleration';
+            this._targetYPositions = this._symbolNodes.map(function (_, i) {
+              return (_this3.visibleSymbolCount + _this3.topBufferSymbols - 1 - i) * _this3.symbolHeight;
+            });
+
+            // Revert all symbols to their normal sprites when deceleration begins
+            for (var _iterator2 = _createForOfIteratorHelperLoose(this._symbolNodes), _step2; !(_step2 = _iterator2()).done;) {
+              var symbolNode = _step2.value;
+              var symbolData = symbolNode.symbolData;
+              if (symbolData) {
+                this.setSymbolDisplay(symbolNode, symbolData, false);
+              }
+            }
+          }
+          var currentSpeed = this.calculateCurrentSpeed(actualSpinTime);
+          if (this._spinPhase === 'deceleration' && !this._anticipationSymbolsSet) {
+            this.setAnticipationSymbols();
+            this._anticipationSymbolsSet = true;
+          }
+          this.moveSymbols(currentSpeed, dt);
+        };
+        _proto.calculateCurrentSpeed = function calculateCurrentSpeed(actualSpinTime) {
+          var _this$_reelConfig2 = this._reelConfig,
+            spinSpeed = _this$_reelConfig2.spinSpeed,
+            spinDuration = _this$_reelConfig2.spinDuration,
+            accelerationDuration = _this$_reelConfig2.accelerationDuration,
+            decelerationDuration = _this$_reelConfig2.decelerationDuration;
+          var constantSpinTime = spinDuration - accelerationDuration - decelerationDuration;
+          switch (this._spinPhase) {
+            case 'acceleration':
+              var accelerationRatio = actualSpinTime / accelerationDuration;
+              return spinSpeed * this.easeInQuad(accelerationRatio);
+            case 'constant':
+              return spinSpeed;
+            case 'deceleration':
+              var decelerationStart = accelerationDuration + constantSpinTime;
+              var decelerationProgress = (actualSpinTime - decelerationStart) / decelerationDuration;
+              return spinSpeed * (1 - this.easeOutCubic(decelerationProgress));
+            default:
+              return 0;
+          }
+        };
+        _proto.easeInQuad = function easeInQuad(t) {
+          return t * t;
+        };
+        _proto.easeOutCubic = function easeOutCubic(t) {
+          return 1 - Math.pow(1 - t, 3);
+        };
+        _proto.setAnticipationSymbols = function setAnticipationSymbols() {
+          var sortedNodes = [].concat(this._symbolNodes).sort(function (a, b) {
+            return b.y - a.y;
+          });
+          var anticipationDistance = this._reelConfig.anticipationDistance;
+          for (var i = 0; i < Math.min(this._finalSymbols.length, sortedNodes.length); i++) {
+            var nodeIndex = Math.floor(i + this.topBufferSymbols + anticipationDistance / this.symbolHeight);
+            if (sortedNodes[nodeIndex]) {
+              this.setSymbolDisplay(sortedNodes[nodeIndex], this._finalSymbols[i]);
+            }
+          }
+        };
+        _proto.moveSymbols = function moveSymbols(currentSpeed, dt) {
+          var _this4 = this;
+          if (this._spinPhase === 'deceleration') {
+            var _loop = function _loop() {
+                var symbolNode = _step3.value;
+                var nextY = symbolNode.y - currentSpeed * dt;
+                var targetY = _this4._targetYPositions.find(function (y) {
+                  return symbolNode.y >= y && nextY < y;
+                });
+                if (targetY !== undefined) {
+                  _this4.endSpin();
+                  return {
+                    v: void 0
+                  };
+                }
+              },
+              _ret;
+            for (var _iterator3 = _createForOfIteratorHelperLoose(this._symbolNodes), _step3; !(_step3 = _iterator3()).done;) {
+              _ret = _loop();
+              if (_ret) return _ret.v;
+            }
+          }
+          var totalReelHeight = this._symbolNodes.length * this.symbolHeight;
+          var bottomBoundary = -this.symbolHeight * (this.bottomBufferSymbols + 1);
+          for (var _iterator4 = _createForOfIteratorHelperLoose(this._symbolNodes), _step4; !(_step4 = _iterator4()).done;) {
+            var symbolNode = _step4.value;
+            symbolNode.y -= currentSpeed * dt;
+            if (symbolNode.y < bottomBoundary) {
+              symbolNode.y += totalReelHeight;
+              if (this._spinPhase !== 'deceleration') {
+                var isBlurred = this._spinPhase === 'constant';
+                this.setSymbolDisplay(symbolNode, this.getRandomSymbol(), isBlurred);
+              }
+            }
+          }
+        };
+        _proto.updateCurve = function updateCurve() {
+          if (this._reelIndex == 0) {
+            for (var i = 0; i < this._symbolNodes.length; i++) {
+              var symbolNode = this._symbolNodes[i];
+              var dY = symbolNode.y;
+              symbolNode.x = dY * 0.1;
+              // const scale = 1 - Math.abs(dY) * 0.0001;
+              // symbolNode.scale = v3(scale, scale, 1);
+            }
+          } else if (this._reelIndex == 2) {
+            for (var _i = 0; _i < this._symbolNodes.length; _i++) {
+              var _symbolNode = this._symbolNodes[_i];
+              var _dY = _symbolNode.y;
+              _symbolNode.x = -_dY * 0.1;
+              // const scale = 1 - Math.abs(dY) * 0.0001;
+              // symbolNode.scale = v3(scale, scale, 1);
+            }
+          }
+        };
+
+        _proto.startSpin = function startSpin(finalSymbols) {
+          if (this._isSpinning) return;
+          this._isSpinning = true;
+          this._spinElapsedTime = 0;
+          this._spinPhase = 'acceleration';
+          this._anticipationSymbolsSet = false;
+          this._finalSymbols = [].concat(finalSymbols);
+          this._spinDelay = this._reelConfig.delayReel;
+        };
+        _proto.endSpin = function endSpin() {
+          var _this5 = this;
+          if (!this._isSpinning) return;
+          this._isSpinning = false;
+          this._symbolNodes.sort(function (a, b) {
+            return b.y - a.y;
+          });
+          var allAnimationsDone = new Promise(function (resolve) {
+            var completedAnimations = 0;
+            var totalAnimations = _this5._symbolNodes.length;
+            if (totalAnimations === 0) {
+              resolve();
+              return;
+            }
+            var _loop2 = function _loop2() {
+              var symbolNode = _this5._symbolNodes[i];
+              var targetY = (_this5.visibleSymbolCount + _this5.topBufferSymbols - 1 - i) * _this5.symbolHeight;
+
+              // Check if this node is for a visible symbol
+              if (i >= _this5.topBufferSymbols && i < _this5.topBufferSymbols + _this5.visibleSymbolCount) {
+                var finalSymbolIndexInResult = i - _this5.topBufferSymbols;
+                if (finalSymbolIndexInResult < _this5._finalSymbols.length) {
+                  _this5.setSymbolDisplay(symbolNode, _this5._finalSymbols[finalSymbolIndexInResult]);
+                } else {
+                  // Fallback for safety
+                  _this5.setSymbolDisplay(symbolNode, _this5.getRandomSymbol());
+                }
+              } else {
+                // This is a buffer symbol, so set it to a random one
+                _this5.setSymbolDisplay(symbolNode, _this5.getRandomSymbol());
+              }
+              var _this5$_reelConfig = _this5._reelConfig,
+                bounceDuration = _this5$_reelConfig.bounceDuration,
+                bounceIntensity = _this5$_reelConfig.bounceIntensity;
+              tween(symbolNode).to(bounceDuration, {
+                y: targetY
+              }, {
+                easing: function easing(k) {
+                  var s = bounceIntensity * 5.67;
+                  return --k * k * ((s + 1) * k + s) + 1;
+                }
+              }).call(function () {
+                completedAnimations++;
+                if (completedAnimations === totalAnimations) {
+                  resolve();
+                }
+              }).start();
+            };
+            for (var i = 0; i < _this5._symbolNodes.length; i++) {
+              _loop2();
+            }
+          });
+          allAnimationsDone.then(function () {
+            return _this5.onSpinComplete();
+          });
+        };
+        _proto.onSpinComplete = function onSpinComplete() {
+          this.node.emit('reelSpinComplete', {
+            reelIndex: this._reelIndex,
+            finalSymbols: this._finalSymbols
+          });
+        };
+        _proto.highlightWinningSymbols = function highlightWinningSymbols(winningPositions) {
+          var duration = this._animationConfig.getUIConfig().winAnimationDuration;
+          for (var _iterator5 = _createForOfIteratorHelperLoose(winningPositions), _step5; !(_step5 = _iterator5()).done;) {
+            var position = _step5.value;
+            if (this._symbolNodes[position]) {
+              var symbolNode = this._symbolNodes[position];
+              tween(symbolNode).to(duration, {
+                scale: new Vec3(1.2, 1.2, 1)
+              }).to(duration, {
+                scale: new Vec3(1, 1, 1)
+              }).to(duration, {
+                scale: new Vec3(1.2, 1.2, 1)
+              }).to(duration, {
+                scale: new Vec3(1, 1, 1)
+              }).start();
+            }
+          }
+        }
+
+        // #endregion
+
+        // #region Cleanup
+        ;
+
+        _proto.onDestroy = function onDestroy() {
+          this.unscheduleAllCallbacks();
+          this._symbolNodes = [];
+          this._symbols = [];
+          this._finalSymbols = [];
+        }
+
+        // #endregion
+        ;
+
+        return ReelComponent;
+      }(Component), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "symbolContainer", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "symbolPrefab", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "symbolHeight", [_dec4], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return 100;
+        }
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "visibleSymbolCount", [_dec5], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return 1;
+        }
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "topBufferSymbols", [_dec6], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return 2;
+        }
+      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "bottomBufferSymbols", [_dec7], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return 2;
+        }
+      })), _class2)) || _class));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/ResourceManager.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseService.ts', './ResourceModel.ts', './ServiceLocator.ts', './Logger.ts'], function (exports) {
+  var _inheritsLoose, _asyncToGenerator, _regeneratorRuntime, cclegacy, BaseService, ResourceType, ServiceLocator, logInfo, logError;
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _asyncToGenerator = module.asyncToGenerator;
+      _regeneratorRuntime = module.regeneratorRuntime;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+    }, function (module) {
+      BaseService = module.BaseService;
+    }, function (module) {
+      ResourceType = module.ResourceType;
+    }, function (module) {
+      ServiceLocator = module.ServiceLocator;
+    }, function (module) {
+      logInfo = module.logInfo;
+      logError = module.logError;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "6e1a5uynJpF36SgxNC+cet1", "ResourceManager", undefined);
+
+      /**
+       * Resource transaction data
+       */
+
+      /**
+       * Resource change event data
+       */
+
+      /**
+       * Resource Manager - Handles all resource operations and synchronization
+       */
+      var ResourceManager = exports('ResourceManager', /*#__PURE__*/function (_BaseService) {
+        _inheritsLoose(ResourceManager, _BaseService);
+        function ResourceManager() {
+          var _this;
+          _this = _BaseService.call(this) || this;
+          _this._resourceModel = null;
+          _this._gameService = null;
+          _this._playerModel = null;
+          _this._transactionHistory = [];
+          _this._syncTimer = 0;
+          _this.SYNC_INTERVAL = 30000;
+          // 30 seconds
+          _this.MAX_TRANSACTION_HISTORY = 100;
+          return _this;
+        }
+
+        /**
+         * Initialize Resource Manager
+         */
+        var _proto = ResourceManager.prototype;
+        _proto.onInitialize = /*#__PURE__*/
+        function () {
+          var _onInitialize = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+            var serviceLocator;
+            return _regeneratorRuntime().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  logInfo('Initializing Resource Manager...');
+
+                  // Get game service
+                  serviceLocator = ServiceLocator.getInstance();
+                  this._gameService = serviceLocator.getService('GameService');
+                  if (this._gameService) {
+                    _context.next = 6;
+                    break;
+                  }
+                  logError('GameService not found - ResourceManager cannot initialize without it');
+                  throw new Error('GameService instance required for ResourceManager initialization');
+                case 6:
+                  // Get PlayerModel from GameService (single source of truth)
+                  this._playerModel = this._gameService.getPlayerModel();
+                  if (this._playerModel) {
+                    _context.next = 10;
+                    break;
+                  }
+                  logError('PlayerModel not found in GameService - ResourceManager cannot initialize without it');
+                  throw new Error('PlayerModel instance required for ResourceManager initialization');
+                case 10:
+                  // Use PlayerModel's ResourceModel as the single source of truth
+                  this._resourceModel = this._playerModel.resources;
+                  logInfo('ResourceManager using PlayerModel\'s ResourceModel as single source of truth');
+                  this.setupResourceModelEvents();
+
+                  // Start periodic sync only if game service is available
+                  if (this._gameService) {
+                    this.startPeriodicSync();
+                  }
+                  logInfo('Resource Manager initialized successfully');
+                case 15:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee, this);
+          }));
+          function onInitialize() {
+            return _onInitialize.apply(this, arguments);
+          }
+          return onInitialize;
+        }()
+        /**
+         * Connect and sync with server
+         */;
+
+        _proto.onConnect = /*#__PURE__*/
+        function () {
+          var _onConnect = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+            return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+              while (1) switch (_context2.prev = _context2.next) {
+                case 0:
+                  if (!(this._gameService && this._gameService.isReady)) {
+                    _context2.next = 3;
+                    break;
+                  }
+                  _context2.next = 3;
+                  return this.syncWithServer();
+                case 3:
+                case "end":
+                  return _context2.stop();
+              }
+            }, _callee2, this);
+          }));
+          function onConnect() {
+            return _onConnect.apply(this, arguments);
+          }
+          return onConnect;
+        }()
+        /**
+         * Disconnect
+         */;
+
+        _proto.onDisconnect = /*#__PURE__*/
+        function () {
+          var _onDisconnect = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+            return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+              while (1) switch (_context3.prev = _context3.next) {
+                case 0:
+                  this.stopPeriodicSync();
+                case 1:
+                case "end":
+                  return _context3.stop();
+              }
+            }, _callee3, this);
+          }));
+          function onDisconnect() {
+            return _onDisconnect.apply(this, arguments);
+          }
+          return onDisconnect;
+        }()
+        /**
+         * Setup resource model event listeners
+         */;
+
+        _proto.setupResourceModelEvents = function setupResourceModelEvents() {
+          var _this2 = this;
+          if (!this._resourceModel) return;
+          this._resourceModel.on('goldChanged', function (event) {
+            _this2.onResourceChanged(ResourceType.GOLD, event.oldValue, event.value, 'model_update');
+          });
+          this._resourceModel.on('energyChanged', function (event) {
+            _this2.onResourceChanged(ResourceType.ENERGY, event.oldValue, event.value, 'model_update');
+          });
+        }
+
+        /**
+         * Handle resource change events
+         */;
+        _proto.onResourceChanged = function onResourceChanged(type, oldValue, newValue, reason) {
+          var change = newValue - oldValue;
+          var changeEvent = {
+            type: type,
+            oldValue: oldValue,
+            newValue: newValue,
+            change: change,
+            reason: reason
+          };
+          this.emit('resourceChanged', changeEvent);
+
+          // Log significant changes
+          if (Math.abs(change) > 0) {
+            logInfo("Resource changed: " + type + " " + (change > 0 ? '+' : '') + change + " (" + oldValue + " -> " + newValue + ") - " + reason);
+          }
+        }
+
+        /**
+         * Start periodic sync with server
+         */;
+        _proto.startPeriodicSync = function startPeriodicSync() {
+          var _this3 = this;
+          this._syncTimer = setInterval(function () {
+            if (_this3._gameService && _this3._gameService.isReady) {
+              _this3.syncWithServer()["catch"](function (error) {
+                logError('Periodic sync failed:', error);
+              });
+            }
+          }, this.SYNC_INTERVAL);
+        }
+
+        /**
+         * Stop periodic sync
+         */;
+        _proto.stopPeriodicSync = function stopPeriodicSync() {
+          if (this._syncTimer) {
+            clearInterval(this._syncTimer);
+            this._syncTimer = 0;
+          }
+        }
+
+        /**
+         * Sync resources with server
+         */;
+        _proto.syncWithServer = /*#__PURE__*/
+        function () {
+          var _syncWithServer = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+            var playerData;
+            return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+              while (1) switch (_context4.prev = _context4.next) {
+                case 0:
+                  if (!(!this._gameService || !this._resourceModel || !this._playerModel)) {
+                    _context4.next = 2;
+                    break;
+                  }
+                  return _context4.abrupt("return");
+                case 2:
+                  _context4.prev = 2;
+                  _context4.next = 5;
+                  return this._gameService.getPlayerData();
+                case 5:
+                  playerData = _context4.sent;
+                  if (playerData.resources) {
+                    // Update the PlayerModel's ResourceModel (single source of truth)
+                    this._resourceModel.fromJSON(playerData.resources);
+                    this.emit('syncCompleted', playerData.resources);
+                    logInfo('Resources synced with server successfully');
+                  }
+                  _context4.next = 13;
+                  break;
+                case 9:
+                  _context4.prev = 9;
+                  _context4.t0 = _context4["catch"](2);
+                  logError('Failed to sync resources with server:', _context4.t0);
+                  this.emit('syncFailed', _context4.t0);
+                case 13:
+                case "end":
+                  return _context4.stop();
+              }
+            }, _callee4, this, [[2, 9]]);
+          }));
+          function syncWithServer() {
+            return _syncWithServer.apply(this, arguments);
+          }
+          return syncWithServer;
+        }()
+        /**
+         * Get current resource model
+         */;
+
+        _proto.getResourceModel = function getResourceModel() {
+          return this._resourceModel;
+        }
+
+        /**
+         * Get current gold amount
+         */;
+        _proto.getGold = function getGold() {
+          return this._resourceModel ? this._resourceModel.gold : 0;
+        }
+
+        /**
+         * Get current energy amount
+         */;
+        _proto.getEnergy = function getEnergy() {
+          return this._resourceModel ? this._resourceModel.energy : 0;
+        }
+
+        /**
+         * Get maximum energy capacity
+         */;
+        _proto.getMaxEnergy = function getMaxEnergy() {
+          return this._resourceModel ? this._resourceModel.maxEnergy : 50;
+        }
+
+        /**
+         * Add gold with transaction logging
+         */;
+        _proto.addGold = /*#__PURE__*/
+        function () {
+          var _addGold = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5(amount, reason) {
+            var oldGold, transaction;
+            return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+              while (1) switch (_context5.prev = _context5.next) {
+                case 0:
+                  if (reason === void 0) {
+                    reason = 'manual_add';
+                  }
+                  if (!(!this._resourceModel || amount <= 0)) {
+                    _context5.next = 3;
+                    break;
+                  }
+                  return _context5.abrupt("return", false);
+                case 3:
+                  oldGold = this._resourceModel.gold;
+                  this._resourceModel.addGold(amount);
+                  transaction = {
+                    type: ResourceType.GOLD,
+                    amount: amount,
+                    reason: reason,
+                    timestamp: Date.now(),
+                    success: true
+                  };
+                  this.addTransaction(transaction);
+
+                  // Sync with server if connected
+                  if (!(this._gameService && this._gameService.isReady)) {
+                    _context5.next = 19;
+                    break;
+                  }
+                  _context5.prev = 8;
+                  _context5.next = 11;
+                  return this._gameService.updatePlayerData({
+                    resources: this._resourceModel.toJSON()
+                  });
+                case 11:
+                  _context5.next = 19;
+                  break;
+                case 13:
+                  _context5.prev = 13;
+                  _context5.t0 = _context5["catch"](8);
+                  logError('Failed to sync gold addition with server:', _context5.t0);
+                  // Rollback on server sync failure
+                  this._resourceModel.gold = oldGold;
+                  transaction.success = false;
+                  return _context5.abrupt("return", false);
+                case 19:
+                  return _context5.abrupt("return", true);
+                case 20:
+                case "end":
+                  return _context5.stop();
+              }
+            }, _callee5, this, [[8, 13]]);
+          }));
+          function addGold(_x, _x2) {
+            return _addGold.apply(this, arguments);
+          }
+          return addGold;
+        }()
+        /**
+         * Spend gold with validation and transaction logging
+         */;
+
+        _proto.spendGold = /*#__PURE__*/
+        function () {
+          var _spendGold = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6(amount, reason) {
+            var _transaction, oldGold, success, transaction;
+            return _regeneratorRuntime().wrap(function _callee6$(_context6) {
+              while (1) switch (_context6.prev = _context6.next) {
+                case 0:
+                  if (reason === void 0) {
+                    reason = 'manual_spend';
+                  }
+                  if (!(!this._resourceModel || amount <= 0)) {
+                    _context6.next = 3;
+                    break;
+                  }
+                  return _context6.abrupt("return", false);
+                case 3:
+                  if (this._resourceModel.hasEnoughGold(amount)) {
+                    _context6.next = 8;
+                    break;
+                  }
+                  _transaction = {
+                    type: ResourceType.GOLD,
+                    amount: -amount,
+                    reason: reason,
+                    timestamp: Date.now(),
+                    success: false
+                  };
+                  this.addTransaction(_transaction);
+                  this.emit('insufficientResources', {
+                    type: ResourceType.GOLD,
+                    required: amount,
+                    available: this._resourceModel.gold
+                  });
+                  return _context6.abrupt("return", false);
+                case 8:
+                  oldGold = this._resourceModel.gold;
+                  success = this._resourceModel.spendGold(amount);
+                  transaction = {
+                    type: ResourceType.GOLD,
+                    amount: -amount,
+                    reason: reason,
+                    timestamp: Date.now(),
+                    success: success
+                  };
+                  this.addTransaction(transaction);
+
+                  // Sync with server if connected
+                  if (!(success && this._gameService && this._gameService.isReady)) {
+                    _context6.next = 24;
+                    break;
+                  }
+                  _context6.prev = 13;
+                  _context6.next = 16;
+                  return this._gameService.updatePlayerData({
+                    resources: this._resourceModel.toJSON()
+                  });
+                case 16:
+                  _context6.next = 24;
+                  break;
+                case 18:
+                  _context6.prev = 18;
+                  _context6.t0 = _context6["catch"](13);
+                  logError('Failed to sync gold spending with server:', _context6.t0);
+                  // Rollback on server sync failure
+                  this._resourceModel.gold = oldGold;
+                  transaction.success = false;
+                  return _context6.abrupt("return", false);
+                case 24:
+                  return _context6.abrupt("return", success);
+                case 25:
+                case "end":
+                  return _context6.stop();
+              }
+            }, _callee6, this, [[13, 18]]);
+          }));
+          function spendGold(_x3, _x4) {
+            return _spendGold.apply(this, arguments);
+          }
+          return spendGold;
+        }()
+        /**
+         * Add energy with transaction logging
+         */;
+
+        _proto.addEnergy = /*#__PURE__*/
+        function () {
+          var _addEnergy = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7(amount, reason) {
+            var oldEnergy, transaction;
+            return _regeneratorRuntime().wrap(function _callee7$(_context7) {
+              while (1) switch (_context7.prev = _context7.next) {
+                case 0:
+                  if (reason === void 0) {
+                    reason = 'manual_add';
+                  }
+                  if (!(!this._resourceModel || amount <= 0)) {
+                    _context7.next = 3;
+                    break;
+                  }
+                  return _context7.abrupt("return", false);
+                case 3:
+                  oldEnergy = this._resourceModel.energy;
+                  this._resourceModel.addEnergy(amount);
+                  transaction = {
+                    type: ResourceType.ENERGY,
+                    amount: amount,
+                    reason: reason,
+                    timestamp: Date.now(),
+                    success: true
+                  };
+                  this.addTransaction(transaction);
+
+                  // Sync with server if connected
+                  if (!(this._gameService && this._gameService.isReady)) {
+                    _context7.next = 19;
+                    break;
+                  }
+                  _context7.prev = 8;
+                  _context7.next = 11;
+                  return this._gameService.updatePlayerData({
+                    resources: this._resourceModel.toJSON()
+                  });
+                case 11:
+                  _context7.next = 19;
+                  break;
+                case 13:
+                  _context7.prev = 13;
+                  _context7.t0 = _context7["catch"](8);
+                  logError('Failed to sync energy addition with server:', _context7.t0);
+                  // Rollback on server sync failure
+                  this._resourceModel.energy = oldEnergy;
+                  transaction.success = false;
+                  return _context7.abrupt("return", false);
+                case 19:
+                  return _context7.abrupt("return", true);
+                case 20:
+                case "end":
+                  return _context7.stop();
+              }
+            }, _callee7, this, [[8, 13]]);
+          }));
+          function addEnergy(_x5, _x6) {
+            return _addEnergy.apply(this, arguments);
+          }
+          return addEnergy;
+        }()
+        /**
+         * Spend energy with validation and transaction logging
+         */;
+
+        _proto.spendEnergy = /*#__PURE__*/
+        function () {
+          var _spendEnergy = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8(amount, reason) {
+            var _transaction2, oldEnergy, success, transaction;
+            return _regeneratorRuntime().wrap(function _callee8$(_context8) {
+              while (1) switch (_context8.prev = _context8.next) {
+                case 0:
+                  if (reason === void 0) {
+                    reason = 'manual_spend';
+                  }
+                  if (!(!this._resourceModel || amount <= 0)) {
+                    _context8.next = 3;
+                    break;
+                  }
+                  return _context8.abrupt("return", false);
+                case 3:
+                  if (this._resourceModel.hasEnoughEnergy(amount)) {
+                    _context8.next = 8;
+                    break;
+                  }
+                  _transaction2 = {
+                    type: ResourceType.ENERGY,
+                    amount: -amount,
+                    reason: reason,
+                    timestamp: Date.now(),
+                    success: false
+                  };
+                  this.addTransaction(_transaction2);
+                  this.emit('insufficientResources', {
+                    type: ResourceType.ENERGY,
+                    required: amount,
+                    available: this._resourceModel.energy
+                  });
+                  return _context8.abrupt("return", false);
+                case 8:
+                  oldEnergy = this._resourceModel.energy;
+                  success = this._resourceModel.spendEnergy(amount);
+                  transaction = {
+                    type: ResourceType.ENERGY,
+                    amount: -amount,
+                    reason: reason,
+                    timestamp: Date.now(),
+                    success: success
+                  };
+                  this.addTransaction(transaction);
+
+                  // Sync with server if connected
+                  if (!(success && this._gameService && this._gameService.isReady)) {
+                    _context8.next = 24;
+                    break;
+                  }
+                  _context8.prev = 13;
+                  _context8.next = 16;
+                  return this._gameService.updatePlayerData({
+                    resources: this._resourceModel.toJSON()
+                  });
+                case 16:
+                  _context8.next = 24;
+                  break;
+                case 18:
+                  _context8.prev = 18;
+                  _context8.t0 = _context8["catch"](13);
+                  logError('Failed to sync energy spending with server:', _context8.t0);
+                  // Rollback on server sync failure
+                  this._resourceModel.energy = oldEnergy;
+                  transaction.success = false;
+                  return _context8.abrupt("return", false);
+                case 24:
+                  return _context8.abrupt("return", success);
+                case 25:
+                case "end":
+                  return _context8.stop();
+              }
+            }, _callee8, this, [[13, 18]]);
+          }));
+          function spendEnergy(_x7, _x8) {
+            return _spendEnergy.apply(this, arguments);
+          }
+          return spendEnergy;
+        }()
+        /**
+         * Check if player has enough resources
+         */;
+
+        _proto.hasEnoughGold = function hasEnoughGold(amount) {
+          return this._resourceModel ? this._resourceModel.hasEnoughGold(amount) : false;
+        }
+
+        /**
+         * Check if player has enough energy
+         */;
+        _proto.hasEnoughEnergy = function hasEnoughEnergy(amount) {
+          return this._resourceModel ? this._resourceModel.hasEnoughEnergy(amount) : false;
+        }
+
+        /**
+         * Get time until next energy regeneration
+         */;
+        _proto.getTimeUntilNextEnergyRegen = function getTimeUntilNextEnergyRegen() {
+          return this._resourceModel ? this._resourceModel.getTimeUntilNextRegen() : 0;
+        }
+
+        /**
+         * Add transaction to history
+         */;
+        _proto.addTransaction = function addTransaction(transaction) {
+          this._transactionHistory.push(transaction);
+
+          // Keep history size manageable
+          if (this._transactionHistory.length > this.MAX_TRANSACTION_HISTORY) {
+            this._transactionHistory.shift();
+          }
+          this.emit('transactionAdded', transaction);
+        }
+
+        /**
+         * Get transaction history
+         */;
+        _proto.getTransactionHistory = function getTransactionHistory(type, limit) {
+          var history = this._transactionHistory;
+          if (type) {
+            history = history.filter(function (t) {
+              return t.type === type;
+            });
+          }
+          if (limit && limit > 0) {
+            history = history.slice(-limit);
+          }
+          return [].concat(history);
+        }
+
+        /**
+         * Clear transaction history
+         */;
+        _proto.clearTransactionHistory = function clearTransactionHistory() {
+          this._transactionHistory = [];
+          this.emit('transactionHistoryCleared');
+        }
+
+        /**
+         * Get resource statistics
+         */;
+        _proto.getResourceStats = function getResourceStats() {
+          var goldTransactions = this._transactionHistory.filter(function (t) {
+            return t.type === ResourceType.GOLD && t.success;
+          });
+          var energyTransactions = this._transactionHistory.filter(function (t) {
+            return t.type === ResourceType.ENERGY && t.success;
+          });
+          var goldEarned = goldTransactions.filter(function (t) {
+            return t.amount > 0;
+          }).reduce(function (sum, t) {
+            return sum + t.amount;
+          }, 0);
+          var goldSpent = goldTransactions.filter(function (t) {
+            return t.amount < 0;
+          }).reduce(function (sum, t) {
+            return sum + Math.abs(t.amount);
+          }, 0);
+          var energyEarned = energyTransactions.filter(function (t) {
+            return t.amount > 0;
+          }).reduce(function (sum, t) {
+            return sum + t.amount;
+          }, 0);
+          var energySpent = energyTransactions.filter(function (t) {
+            return t.amount < 0;
+          }).reduce(function (sum, t) {
+            return sum + Math.abs(t.amount);
+          }, 0);
+          return {
+            currentGold: this.getGold(),
+            currentEnergy: this.getEnergy(),
+            maxEnergy: this.getMaxEnergy(),
+            goldEarned: goldEarned,
+            goldSpent: goldSpent,
+            goldNet: goldEarned - goldSpent,
+            energyEarned: energyEarned,
+            energySpent: energySpent,
+            energyNet: energyEarned - energySpent,
+            timeUntilNextEnergyRegen: this.getTimeUntilNextEnergyRegen(),
+            transactionCount: this._transactionHistory.length
+          };
+        }
+
+        /**
+         * Cleanup resources
+         */;
+        _proto.destroy = function destroy() {
+          this.stopPeriodicSync();
+
+          // Don't destroy the ResourceModel as it's owned by PlayerModel
+          // Just clear our reference to it
+          this._resourceModel = null;
+          this._playerModel = null;
+          this._gameService = null;
+          this._transactionHistory = [];
+          _BaseService.prototype.destroy.call(this);
+        };
+        return ResourceManager;
+      }(BaseService));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/ResourceManagerExample.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './ServiceLocator.ts', './Logger.ts'], function (exports) {
+  var _asyncToGenerator, _regeneratorRuntime, cclegacy, ServiceLocator, logInfo;
+  return {
+    setters: [function (module) {
+      _asyncToGenerator = module.asyncToGenerator;
+      _regeneratorRuntime = module.regeneratorRuntime;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+    }, function (module) {
+      ServiceLocator = module.ServiceLocator;
+    }, function (module) {
+      logInfo = module.logInfo;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "dfe48Nm2WpDcbG8NfuDsnMS", "ResourceManagerExample", undefined);
+
+      /**
+       * Example class showing proper resource management flow
+       */
+      var ResourceManagerExample = exports('ResourceManagerExample', /*#__PURE__*/function () {
+        function ResourceManagerExample() {}
+        /**
+         * Demonstrate the corrected architecture where ResourceManager 
+         * uses PlayerModel's ResourceModel as single source of truth
+         */
+        ResourceManagerExample.demonstrateCorrectArchitecture = /*#__PURE__*/
+        function () {
+          var _demonstrateCorrectArchitecture = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+            var serviceLocator, gameService, playerModel, resourceManager, goldFromPlayer, goldFromManager, success, newGoldFromPlayer, newGoldFromManager, initialEnergy, energySpent, newEnergy, playerEnergy;
+            return _regeneratorRuntime().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  logInfo('=== ResourceManager Architecture Demo ===');
+
+                  // 1. Get GameService instance (which owns PlayerModel)
+                  serviceLocator = ServiceLocator.getInstance();
+                  gameService = serviceLocator.getService('GameService');
+                  if (gameService) {
+                    _context.next = 6;
+                    break;
+                  }
+                  logInfo('ERROR: GameService not initialized');
+                  return _context.abrupt("return");
+                case 6:
+                  // 2. Get PlayerModel from GameService
+                  playerModel = gameService.getPlayerModel();
+                  if (playerModel) {
+                    _context.next = 10;
+                    break;
+                  }
+                  logInfo('ERROR: PlayerModel not found in GameService');
+                  return _context.abrupt("return");
+                case 10:
+                  // 3. Get ResourceManager service
+                  resourceManager = serviceLocator.getService('ResourceManager');
+                  if (resourceManager) {
+                    _context.next = 14;
+                    break;
+                  }
+                  logInfo('ERROR: ResourceManager service not found');
+                  return _context.abrupt("return");
+                case 14:
+                  logInfo('✓ All components initialized successfully');
+
+                  // 4. Demonstrate single source of truth
+                  logInfo('\n--- Demonstrating Single Source of Truth ---');
+
+                  // Check initial gold from both sources
+                  goldFromPlayer = playerModel.resources.gold;
+                  goldFromManager = resourceManager.getGold();
+                  logInfo("Initial Gold - PlayerModel: " + goldFromPlayer + ", ResourceManager: " + goldFromManager);
+                  logInfo("Same instance? " + (playerModel.resources === resourceManager.getResourceModel()));
+
+                  // 5. Perform resource operation through ResourceManager
+                  logInfo('\n--- Adding 100 gold through ResourceManager ---');
+                  _context.next = 23;
+                  return resourceManager.addGold(100, 'demo_reward');
+                case 23:
+                  success = _context.sent;
+                  if (success) {
+                    // Check gold from both sources after operation
+                    newGoldFromPlayer = playerModel.resources.gold;
+                    newGoldFromManager = resourceManager.getGold();
+                    logInfo("After adding gold - PlayerModel: " + newGoldFromPlayer + ", ResourceManager: " + newGoldFromManager);
+                    logInfo("\u2713 Both sources show same value: " + (newGoldFromPlayer === newGoldFromManager));
+                  } else {
+                    logInfo('✗ Failed to add gold');
+                  }
+
+                  // 6. Demonstrate energy operations
+                  logInfo('\n--- Testing Energy Operations ---');
+                  initialEnergy = resourceManager.getEnergy();
+                  logInfo("Initial Energy: " + initialEnergy);
+
+                  // Spend some energy
+                  _context.next = 30;
+                  return resourceManager.spendEnergy(5, 'demo_action');
+                case 30:
+                  energySpent = _context.sent;
+                  if (energySpent) {
+                    newEnergy = resourceManager.getEnergy();
+                    playerEnergy = playerModel.resources.energy;
+                    logInfo("After spending 5 energy - ResourceManager: " + newEnergy + ", PlayerModel: " + playerEnergy);
+                    logInfo("\u2713 Consistent values: " + (newEnergy === playerEnergy));
+                  }
+                  logInfo('\n=== Demo Complete ===');
+                case 33:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee);
+          }));
+          function demonstrateCorrectArchitecture() {
+            return _demonstrateCorrectArchitecture.apply(this, arguments);
+          }
+          return demonstrateCorrectArchitecture;
+        }()
+        /**
+         * Demonstrate what would happen with the old broken architecture
+         * (for comparison purposes - this shows the problem we fixed)
+         */;
+
+        ResourceManagerExample.demonstrateBrokenArchitecture = function demonstrateBrokenArchitecture() {
+          logInfo('\n=== OLD BROKEN ARCHITECTURE (for comparison) ===');
+          logInfo('In the old architecture:');
+          logInfo('1. ResourceManager created: new ResourceModel() // Instance A');
+          logInfo('2. PlayerModel created: new ResourceModel()     // Instance B');
+          logInfo('3. ResourceManager.addGold(100) -> updates Instance A');
+          logInfo('4. PlayerModel.resources.gold -> returns value from Instance B');
+          logInfo('5. Result: INCONSISTENT DATA! Instance A ≠ Instance B');
+          logInfo('');
+          logInfo('NEW FIXED ARCHITECTURE:');
+          logInfo('1. PlayerModel creates: new ResourceModel()     // Single Instance');
+          logInfo('2. ResourceManager gets reference to PlayerModel.resources');
+          logInfo('3. ResourceManager.addGold(100) -> updates Single Instance');
+          logInfo('4. PlayerModel.resources.gold -> returns value from Same Instance');
+          logInfo('5. Result: CONSISTENT DATA! ✓');
+        };
+        return ResourceManagerExample;
+      }());
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/ResourceModel.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './GameConfig.ts', './BaseModel.ts', './Logger.ts'], function (exports) {
+  var _inheritsLoose, _createClass, cclegacy, GameConfig, BaseModel, logInfo;
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _createClass = module.createClass;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+    }, function (module) {
+      GameConfig = module.GameConfig;
+    }, function (module) {
+      BaseModel = module.BaseModel;
+    }, function (module) {
+      logInfo = module.logInfo;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "abc9dw0OmhIvITLBBpLksiD", "ResourceModel", undefined);
+
+      /**
+       * Resource types in the game
+       */
+      var ResourceType = exports('ResourceType', /*#__PURE__*/function (ResourceType) {
+        ResourceType["GOLD"] = "gold";
+        ResourceType["ENERGY"] = "energy";
+        return ResourceType;
+      }({}));
+
+      /**
+       * Resource data structure
+       */
+
+      /**
+       * Resource Model - Manages Gold and Energy
+       */
+      var ResourceModel = exports('ResourceModel', /*#__PURE__*/function (_BaseModel) {
+        _inheritsLoose(ResourceModel, _BaseModel);
+        function ResourceModel() {
+          var _this;
+          _this = _BaseModel.call(this) || this;
+          _this._energyRegenTimer = 0;
+          _this.RESOURCE_CONFIG = GameConfig.getInstance().getResourceConfig();
+          _this.initializeDefaults();
+          _this.startEnergyRegeneration();
+          return _this;
+        }
+
+        /**
+         * Initialize default values
+         */
+        var _proto = ResourceModel.prototype;
+        _proto.initializeDefaults = function initializeDefaults() {
+          this.setData('gold', 0);
+          this.setData('energy', this.RESOURCE_CONFIG.maxEnergy);
+          this.setData('maxEnergy', this.RESOURCE_CONFIG.maxEnergy);
+          this.setData('lastEnergyRegenTime', Date.now());
+        }
+
+        /**
+         * Get current gold amount
+         */;
+        /**
+         * Add gold
+         */
+        _proto.addGold = function addGold(amount) {
+          this.gold += amount;
+        }
+
+        /**
+         * Spend gold
+         */;
+        _proto.spendGold = function spendGold(amount) {
+          if (this.gold >= amount) {
+            this.gold -= amount;
+            return true;
+          }
+          return false;
+        }
+
+        /**
+         * Add energy
+         */;
+        _proto.addEnergy = function addEnergy(amount) {
+          this.energy += amount;
+        }
+
+        /**
+         * Spend energy
+         */;
+        _proto.spendEnergy = function spendEnergy(amount) {
+          if (this.energy >= amount) {
+            this.energy -= amount;
+            return true;
+          }
+          return false;
+        }
+
+        /**
+         * Check if player has enough resources
+         */;
+        _proto.hasEnoughGold = function hasEnoughGold(amount) {
+          return this.gold >= amount;
+        }
+
+        /**
+         * Check if player has enough energy
+         */;
+        _proto.hasEnoughEnergy = function hasEnoughEnergy(amount) {
+          return this.energy >= amount;
+        }
+
+        /**
+         * Start energy regeneration timer
+         */;
+        _proto.startEnergyRegeneration = function startEnergyRegeneration() {
+          var _this2 = this;
+          // Calculate missed regenerations since last time
+          this.calculateMissedRegeneration();
+
+          // Start periodic regeneration
+          this._energyRegenTimer = setInterval(function () {
+            _this2.calculateMissedRegeneration();
+          }, 1000);
+        }
+
+        /**
+         * Calculate and apply missed energy regeneration
+         */;
+        _proto.calculateMissedRegeneration = function calculateMissedRegeneration() {
+          var lastRegenTime = this.getData('lastEnergyRegenTime') || Date.now();
+          var currentTime = Date.now();
+          var timeDiff = currentTime - lastRegenTime;
+          if (timeDiff >= this.RESOURCE_CONFIG.energyRegenInterval) {
+            var missedRegens = Math.floor(timeDiff / this.RESOURCE_CONFIG.energyRegenInterval);
+            var energyToAdd = Math.min(missedRegens, this.maxEnergy - this.energy);
+            if (energyToAdd > 0) {
+              this.energy += energyToAdd;
+              logInfo("Regenerated " + energyToAdd + " energy from missed time");
+            }
+            this.setData('lastEnergyRegenTime', currentTime);
+          }
+        }
+
+        /**
+         * Get time until next energy regeneration (in milliseconds)
+         */;
+        _proto.getTimeUntilNextRegen = function getTimeUntilNextRegen() {
+          if (this.energy >= this.maxEnergy) {
+            return 0;
+          }
+          var lastRegenTime = this.getData('lastEnergyRegenTime') || Date.now();
+          var nextRegenTime = lastRegenTime + this.RESOURCE_CONFIG.energyRegenInterval;
+          var currentTime = Date.now();
+          return Math.max(0, nextRegenTime - currentTime);
+        }
+
+        /**
+         * Validate model data
+         */;
+        _proto.validate = function validate() {
+          var gold = this.gold;
+          var energy = this.energy;
+          var maxEnergy = this.maxEnergy;
+          return gold >= 0 && energy >= 0 && maxEnergy > 0 && energy <= maxEnergy * 2; // Allow some overflow
+        }
+
+        /**
+         * Cleanup resources
+         */;
+        _proto.destroy = function destroy() {
+          if (this._energyRegenTimer) {
+            clearInterval(this._energyRegenTimer);
+            this._energyRegenTimer = 0;
+          }
+          _BaseModel.prototype.reset.call(this);
+        }
+
+        /**
+         * Serialize to JSON
+         */;
+        _proto.toJSON = function toJSON() {
+          return {
+            gold: this.gold,
+            energy: this.energy,
+            lastEnergyRegenTime: this.getData('lastEnergyRegenTime') || Date.now()
+          };
+        }
+
+        /**
+         * Deserialize from JSON
+         */;
+        _proto.fromJSON = function fromJSON(data) {
+          this.gold = data.gold || 0;
+          this.energy = data.energy || 0;
+          this.setData('lastEnergyRegenTime', data.lastEnergyRegenTime || Date.now());
+
+          // Recalculate missed regeneration
+          this.calculateMissedRegeneration();
+        };
+        _createClass(ResourceModel, [{
+          key: "gold",
+          get: function get() {
+            return this.getData('gold') || 0;
+          }
+
+          /**
+           * Set gold amount
+           */,
+          set: function set(value) {
+            this.setData('gold', Math.max(0, value));
+          }
+
+          /**
+           * Get current energy amount
+           */
+        }, {
+          key: "energy",
+          get: function get() {
+            return this.getData('energy') || 0;
+          }
+
+          /**
+           * Set energy amount
+           */,
+          set: function set(value) {
+            var maxEnergy = this.maxEnergy;
+            this.setData('energy', Math.max(0, value));
+            // Update last regen time if energy is at max
+            if (value >= maxEnergy) {
+              this.setData('lastEnergyRegenTime', Date.now());
+            }
+          }
+
+          /**
+           * Get maximum energy capacity
+           */
+        }, {
+          key: "maxEnergy",
+          get: function get() {
+            return this.getData('maxEnergy') || this.RESOURCE_CONFIG.maxEnergy;
+          }
+
+          /**
+           * Set maximum energy capacity
+           */,
+          set: function set(value) {
+            this.setData('maxEnergy', Math.max(1, value));
+          }
+        }]);
+        return ResourceModel;
+      }(BaseModel));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/RevealWave.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, cclegacy, _decorator, Sprite, log, Component;
+  return {
+    setters: [function (module) {
+      _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
+      _inheritsLoose = module.inheritsLoose;
+      _initializerDefineProperty = module.initializerDefineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      Sprite = module.Sprite;
+      log = module.log;
+      Component = module.Component;
+    }],
+    execute: function () {
+      var _dec, _dec2, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7;
+      cclegacy._RF.push({}, "c60bbOCpWZGR7aIz78tdm2k", "RevealWave", undefined);
+      var ccclass = _decorator.ccclass,
+        property = _decorator.property;
+      var RevealWave = exports('RevealWave', (_dec = ccclass('RevealWave'), _dec2 = property(Sprite), _dec(_class = (_class2 = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(RevealWave, _Component);
+        function RevealWave() {
+          var _this;
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+          _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+          _initializerDefineProperty(_this, "sprite", _descriptor, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "duration", _descriptor2, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "waveAmplitude", _descriptor3, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "waveFrequency", _descriptor4, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "roundness", _descriptor5, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "edgeSoftness", _descriptor6, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "waveSpeed", _descriptor7, _assertThisInitialized(_this));
+          // tốc độ chạy pha (rad/giây)
+          _this._mat = null;
+          _this._time = 0;
+          return _this;
+        }
+        var _proto = RevealWave.prototype;
+        _proto.update = function update(dt) {
+          if (!this._mat) return;
+          this._time += dt;
+          var t = Math.min(this._time / this.duration, 1.0);
+          this._mat.setProperty('reveal', t);
+          log("reveal ", this._mat.getProperty('reveal'), t);
+          if (t < 1.0) {
+            var phase = this._time * this.waveSpeed;
+            this._mat.setProperty('wavePhase', phase);
+            log('wavePhase ', phase);
+          } else {
+            // Khóa full ảnh: tắt sóng và dừng update
+            this._mat.setProperty('reveal', 1.0);
+            this._mat.setProperty('waveAmplitude', 0.0);
+            this._mat.setProperty('edgeSoftness', 0.0);
+            this.enabled = false;
+          }
+        };
+        _proto.restart = function restart() {
+          var _this$sprite;
+          var sp = (_this$sprite = this.sprite) != null ? _this$sprite : this.getComponent(Sprite);
+          if (!sp || !sp.customMaterial) return; // cần gán Custom Material dùng effect ở trên
+
+          // Lấy material instance từ Sprite (tránh clone shared asset)
+          var inst = sp.material;
+          // Fallback nếu môi trường không expose .material
+          // @ts-ignore
+          if (!inst && sp.getMaterialInstance) inst = sp.getMaterialInstance(0);
+          this._mat = inst;
+
+          // Khởi tạo tham số shader
+          this._mat.setProperty('reveal', 0.0);
+          this._mat.setProperty('waveAmplitude', this.waveAmplitude);
+          this._mat.setProperty('waveFrequency', this.waveFrequency);
+          this._mat.setProperty('roundness', this.roundness);
+          this._mat.setProperty('edgeSoftness', this.edgeSoftness);
+          this._mat.setProperty('wavePhase', 0.0);
+          this._time = 0;
+          this.enabled = true;
+        };
+        _proto.stop = function stop() {
+          this.enabled = false;
+        };
+        return RevealWave;
+      }(Component), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "sprite", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "duration", [property], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return 2.0;
+        }
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "waveAmplitude", [property], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return 0.08;
+        }
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "waveFrequency", [property], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return 8.0;
+        }
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "roundness", [property], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return 2.0;
+        }
+      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "edgeSoftness", [property], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return 0.05;
+        }
+      }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, "waveSpeed", [property], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return 4.0;
+        }
+      })), _class2)) || _class));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/ServiceLocator.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './Logger.ts'], function (exports) {
+  var _createForOfIteratorHelperLoose, _asyncToGenerator, _regeneratorRuntime, cclegacy, logWarn, logError;
+  return {
+    setters: [function (module) {
+      _createForOfIteratorHelperLoose = module.createForOfIteratorHelperLoose;
+      _asyncToGenerator = module.asyncToGenerator;
+      _regeneratorRuntime = module.regeneratorRuntime;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+    }, function (module) {
+      logWarn = module.logWarn;
+      logError = module.logError;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "54db839dB1JkIxlZ3v2tUJ6", "ServiceLocator", undefined);
+
+      /**
+       * Service Locator pattern implementation for dependency injection
+       */
+      var ServiceLocator = exports('ServiceLocator', /*#__PURE__*/function () {
+        function ServiceLocator() {
+          this._services = new Map();
+        }
+
+        /**
+         * Get singleton instance
+         */
+        ServiceLocator.getInstance = function getInstance() {
+          if (!ServiceLocator._instance) {
+            ServiceLocator._instance = new ServiceLocator();
+          }
+          return ServiceLocator._instance;
+        }
+
+        /**
+         * Register a service
+         */;
+        var _proto = ServiceLocator.prototype;
+        _proto.registerService = function registerService(name, service) {
+          if (this._services.has(name)) {
+            logWarn("Service " + name + " is already registered. Replacing existing service.");
+            var existingService = this._services.get(name);
+            if (existingService) {
+              existingService.destroy();
+            }
+          }
+          this._services.set(name, service);
+        }
+
+        /**
+         * Get a service by name
+         */;
+        _proto.getService = function getService(name) {
+          var service = this._services.get(name);
+          return service || null;
+        }
+
+        /**
+         * Check if service exists
+         */;
+        _proto.hasService = function hasService(name) {
+          return this._services.has(name);
+        }
+
+        /**
+         * Unregister a service
+         */;
+        _proto.unregisterService = function unregisterService(name) {
+          var service = this._services.get(name);
+          if (service) {
+            service.destroy();
+            this._services["delete"](name);
+          }
+        }
+
+        /**
+         * Initialize all registered services
+         */;
+        _proto.initializeAllServices = /*#__PURE__*/
+        function () {
+          var _initializeAllServices = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+            var initPromises, _loop, _iterator, _step;
+            return _regeneratorRuntime().wrap(function _callee$(_context2) {
+              while (1) switch (_context2.prev = _context2.next) {
+                case 0:
+                  initPromises = [];
+                  _loop = /*#__PURE__*/_regeneratorRuntime().mark(function _loop() {
+                    var _step$value, name, service;
+                    return _regeneratorRuntime().wrap(function _loop$(_context) {
+                      while (1) switch (_context.prev = _context.next) {
+                        case 0:
+                          _step$value = _step.value, name = _step$value[0], service = _step$value[1];
+                          if (!service.isInitialized) {
+                            initPromises.push(service.initialize()["catch"](function (error) {
+                              logError("Failed to initialize service " + name + ":", error);
+                              throw error;
+                            }));
+                          }
+                        case 2:
+                        case "end":
+                          return _context.stop();
+                      }
+                    }, _loop);
+                  });
+                  _iterator = _createForOfIteratorHelperLoose(this._services);
+                case 3:
+                  if ((_step = _iterator()).done) {
+                    _context2.next = 7;
+                    break;
+                  }
+                  return _context2.delegateYield(_loop(), "t0", 5);
+                case 5:
+                  _context2.next = 3;
+                  break;
+                case 7:
+                  _context2.next = 9;
+                  return Promise.all(initPromises);
+                case 9:
+                case "end":
+                  return _context2.stop();
+              }
+            }, _callee, this);
+          }));
+          function initializeAllServices() {
+            return _initializeAllServices.apply(this, arguments);
+          }
+          return initializeAllServices;
+        }()
+        /**
+         * Connect all services that support connection
+         */;
+
+        _proto.connectAllServices = /*#__PURE__*/
+        function () {
+          var _connectAllServices = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+            var connectPromises, _loop2, _iterator2, _step2;
+            return _regeneratorRuntime().wrap(function _callee2$(_context4) {
+              while (1) switch (_context4.prev = _context4.next) {
+                case 0:
+                  connectPromises = [];
+                  _loop2 = /*#__PURE__*/_regeneratorRuntime().mark(function _loop2() {
+                    var _step2$value, name, service;
+                    return _regeneratorRuntime().wrap(function _loop2$(_context3) {
+                      while (1) switch (_context3.prev = _context3.next) {
+                        case 0:
+                          _step2$value = _step2.value, name = _step2$value[0], service = _step2$value[1];
+                          if (service.isInitialized && !service.isConnected) {
+                            connectPromises.push(service.connect()["catch"](function (error) {
+                              logError("Failed to connect service " + name + ":", error);
+                              throw error;
+                            }));
+                          }
+                        case 2:
+                        case "end":
+                          return _context3.stop();
+                      }
+                    }, _loop2);
+                  });
+                  _iterator2 = _createForOfIteratorHelperLoose(this._services);
+                case 3:
+                  if ((_step2 = _iterator2()).done) {
+                    _context4.next = 7;
+                    break;
+                  }
+                  return _context4.delegateYield(_loop2(), "t0", 5);
+                case 5:
+                  _context4.next = 3;
+                  break;
+                case 7:
+                  _context4.next = 9;
+                  return Promise.all(connectPromises);
+                case 9:
+                case "end":
+                  return _context4.stop();
+              }
+            }, _callee2, this);
+          }));
+          function connectAllServices() {
+            return _connectAllServices.apply(this, arguments);
+          }
+          return connectAllServices;
+        }()
+        /**
+         * Cleanup all services
+         */;
+
+        _proto.destroyAllServices = function destroyAllServices() {
+          for (var _iterator3 = _createForOfIteratorHelperLoose(this._services), _step3; !(_step3 = _iterator3()).done;) {
+            var _step3$value = _step3.value,
+              name = _step3$value[0],
+              service = _step3$value[1];
+            try {
+              service.destroy();
+            } catch (error) {
+              logError("Error destroying service " + name + ":", error);
+            }
+          }
+          this._services.clear();
+        }
+
+        /**
+         * Get all registered service names
+         */;
+        _proto.getServiceNames = function getServiceNames() {
+          return Array.from(this._services.keys());
+        };
+        return ServiceLocator;
+      }());
+      ServiceLocator._instance = void 0;
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/SimpleCityModelTest.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './CityModel.ts', './GameConfig.ts', './Logger.ts'], function (exports) {
+  var _asyncToGenerator, _regeneratorRuntime, cclegacy, CityModel, GameConfig, logInfo, logError;
+  return {
+    setters: [function (module) {
+      _asyncToGenerator = module.asyncToGenerator;
+      _regeneratorRuntime = module.regeneratorRuntime;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+    }, function (module) {
+      CityModel = module.CityModel;
+    }, function (module) {
+      GameConfig = module.GameConfig;
+    }, function (module) {
+      logInfo = module.logInfo;
+      logError = module.logError;
+    }],
+    execute: function () {
+      exports('runSimpleCityModelTests', runSimpleCityModelTests);
+      cclegacy._RF.push({}, "e5f6g7h8-i9j0-1234-efgh-567890123456", "SimpleCityModelTest", undefined);
+
+      /**
+       * Simple test to verify the refactored CityModel works with existing GameConfig
+       */
+      var SimpleCityModelTest = exports('SimpleCityModelTest', /*#__PURE__*/function () {
+        function SimpleCityModelTest() {}
+        /**
+         * Test that CityModel uses GameConfig correctly
+         */
+        SimpleCityModelTest.testCityModelWithGameConfig = /*#__PURE__*/
+        function () {
+          var _testCityModelWithGameConfig = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+            var gameConfig, village, villageBuildings, town, townBuildings, expectedTypes, expectedCount, villageHouse, townHouse, villageData, newVillage;
+            return _regeneratorRuntime().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  _context.prev = 0;
+                  logInfo('Testing CityModel with GameConfig...');
+
+                  // Initialize GameConfig
+                  gameConfig = GameConfig.getInstance();
+                  _context.next = 5;
+                  return gameConfig.loadConfig();
+                case 5:
+                  // Test Level 1 City (Village)
+                  village = new CityModel('test_village', 'Test Village', 1);
+                  villageBuildings = village.getBuildings();
+                  logInfo("Level 1 Village: " + villageBuildings.length + " buildings");
+                  villageBuildings.forEach(function (building, index) {
+                    logInfo("  " + (index + 1) + ". " + building.name + " (" + building.type + ") - Cost: " + building.baseCost);
+                  });
+
+                  // Test Level 2 City (Town)
+                  town = new CityModel('test_town', 'Test Town', 2);
+                  townBuildings = town.getBuildings();
+                  logInfo("Level 2 Town: " + townBuildings.length + " buildings");
+                  townBuildings.forEach(function (building, index) {
+                    logInfo("  " + (index + 1) + ". " + building.name + " (" + building.type + ") - Cost: " + building.baseCost);
+                  });
+
+                  // Verify backward compatibility - should match original hardcoded values
+                  expectedTypes = ['house', 'shop', 'factory', 'tower', 'castle'];
+                  expectedCount = 5;
+                  if (!(villageBuildings.length !== expectedCount)) {
+                    _context.next = 17;
+                    break;
+                  }
+                  throw new Error("Expected " + expectedCount + " buildings, got " + villageBuildings.length);
+                case 17:
+                  villageBuildings.forEach(function (building, index) {
+                    if (building.type !== expectedTypes[index]) {
+                      throw new Error("Expected building type " + expectedTypes[index] + ", got " + building.type);
+                    }
+                  });
+
+                  // Test building costs are from configuration
+                  villageHouse = villageBuildings.find(function (b) {
+                    return b.type === 'house';
+                  });
+                  townHouse = townBuildings.find(function (b) {
+                    return b.type === 'house';
+                  });
+                  if (!(villageHouse && townHouse)) {
+                    _context.next = 25;
+                    break;
+                  }
+                  logInfo("Village house cost: " + villageHouse.baseCost);
+                  logInfo("Town house cost: " + townHouse.baseCost);
+                  if (!(townHouse.baseCost <= villageHouse.baseCost)) {
+                    _context.next = 25;
+                    break;
+                  }
+                  throw new Error('Town buildings should cost more than village buildings');
+                case 25:
+                  if (village.validate()) {
+                    _context.next = 27;
+                    break;
+                  }
+                  throw new Error('Village validation failed');
+                case 27:
+                  if (town.validate()) {
+                    _context.next = 29;
+                    break;
+                  }
+                  throw new Error('Town validation failed');
+                case 29:
+                  // Test serialization
+                  villageData = village.toJSON();
+                  newVillage = new CityModel('temp', 'temp', 1);
+                  newVillage.fromJSON(villageData);
+                  if (!(newVillage.getBuildings().length !== village.getBuildings().length)) {
+                    _context.next = 34;
+                    break;
+                  }
+                  throw new Error('Serialization failed - building count mismatch');
+                case 34:
+                  logInfo('✅ All tests passed! CityModel successfully uses GameConfig.');
+                  _context.next = 41;
+                  break;
+                case 37:
+                  _context.prev = 37;
+                  _context.t0 = _context["catch"](0);
+                  logError('❌ Test failed:', _context.t0);
+                  throw _context.t0;
+                case 41:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee, null, [[0, 37]]);
+          }));
+          function testCityModelWithGameConfig() {
+            return _testCityModelWithGameConfig.apply(this, arguments);
+          }
+          return testCityModelWithGameConfig;
+        }()
+        /**
+         * Test fallback behavior when no config is available
+         */;
+
+        SimpleCityModelTest.testFallbackBehavior = function testFallbackBehavior() {
+          try {
+            logInfo('Testing fallback behavior...');
+
+            // Test with a city level that doesn't exist in config
+            var unknownCity = new CityModel('unknown_city', 'Unknown City', 99);
+            var buildings = unknownCity.getBuildings();
+
+            // Should fallback to default values
+            var expectedTypes = ['house', 'shop', 'factory', 'tower', 'castle'];
+            var expectedCount = 5;
+            if (buildings.length !== expectedCount) {
+              throw new Error("Fallback failed: Expected " + expectedCount + " buildings, got " + buildings.length);
+            }
+            buildings.forEach(function (building, index) {
+              if (building.type !== expectedTypes[index]) {
+                throw new Error("Fallback failed: Expected building type " + expectedTypes[index] + ", got " + building.type);
+              }
+            });
+            logInfo('✅ Fallback behavior works correctly.');
+          } catch (error) {
+            logError('❌ Fallback test failed:', error);
+            throw error;
+          }
+        };
+        return SimpleCityModelTest;
+      }());
+
+      /**
+       * Run all tests
+       */
+      function runSimpleCityModelTests() {
+        return _runSimpleCityModelTests.apply(this, arguments);
+      }
+      function _runSimpleCityModelTests() {
+        _runSimpleCityModelTests = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+          return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+            while (1) switch (_context2.prev = _context2.next) {
+              case 0:
+                logInfo('=== Running Simple CityModel Tests ===');
+                _context2.next = 3;
+                return SimpleCityModelTest.testCityModelWithGameConfig();
+              case 3:
+                SimpleCityModelTest.testFallbackBehavior();
+                logInfo('=== All Simple CityModel Tests Completed Successfully! ===');
+              case 5:
+              case "end":
+                return _context2.stop();
+            }
+          }, _callee2);
+        }));
+        return _runSimpleCityModelTests.apply(this, arguments);
+      }
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/SlotMachineComponent.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './ReelComponent.ts', './AnimationConfig.ts', './RevealWave.ts'], function (exports) {
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _createForOfIteratorHelperLoose, _asyncToGenerator, _regeneratorRuntime, cclegacy, _decorator, Node, Button, Label, UIOpacity, Tween, tween, log, Vec3, Component, ReelComponent, AnimationConfig, RevealWave;
+  return {
+    setters: [function (module) {
+      _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
+      _inheritsLoose = module.inheritsLoose;
+      _initializerDefineProperty = module.initializerDefineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+      _createForOfIteratorHelperLoose = module.createForOfIteratorHelperLoose;
+      _asyncToGenerator = module.asyncToGenerator;
+      _regeneratorRuntime = module.regeneratorRuntime;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      Node = module.Node;
+      Button = module.Button;
+      Label = module.Label;
+      UIOpacity = module.UIOpacity;
+      Tween = module.Tween;
+      tween = module.tween;
+      log = module.log;
+      Vec3 = module.Vec3;
+      Component = module.Component;
+    }, function (module) {
+      ReelComponent = module.ReelComponent;
+    }, function (module) {
+      AnimationConfig = module.AnimationConfig;
+    }, function (module) {
+      RevealWave = module.RevealWave;
+    }],
+    execute: function () {
+      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11;
+      cclegacy._RF.push({}, "76923hm7JhMgLe6lmDG3Omp", "SlotMachineComponent", undefined);
+      var ccclass = _decorator.ccclass,
+        property = _decorator.property;
+      var SlotMachineComponent = exports('SlotMachineComponent', (_dec = ccclass('SlotMachineComponent'), _dec2 = property(Node), _dec3 = property(Button), _dec4 = property(Label), _dec5 = property(Button), _dec6 = property(Button), _dec7 = property(Label), _dec8 = property(Button), _dec9 = property(Label), _dec10 = property(Button), _dec11 = property(UIOpacity), _dec12 = property(RevealWave), _dec(_class = (_class2 = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(SlotMachineComponent, _Component);
+        function SlotMachineComponent() {
+          var _this;
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+          _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+          _initializerDefineProperty(_this, "reelsContainer", _descriptor, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "spinButton", _descriptor2, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "spinButtonLabel", _descriptor3, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "betIncreaseButton", _descriptor4, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "betDecreaseButton", _descriptor5, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "betMultiplierLabel", _descriptor6, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "betChangeButton", _descriptor7, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "winLabel", _descriptor8, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "autoSpinButton", _descriptor9, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "autoSpinButtonOpacity", _descriptor10, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "autoSpinWave", _descriptor11, _assertThisInitialized(_this));
+          _this.reelComponents = [];
+          _this._viewModel = null;
+          _this._animationConfig = void 0;
+          // Reel completion tracking
+          _this._reelCompletionStates = [false, false, false];
+          _this._currentSpinResult = null;
+          // Suspense spinning tracking
+          _this._suspenseSpinActive = false;
+          _this._firstTwoReelsMatch = false;
+          _this._originalBetButtonPos = null;
+          _this._originalSpinButtonPos = null;
+          _this._spinButtonState = 'idle';
+          return _this;
+        }
+        var _proto = SlotMachineComponent.prototype;
+        _proto.setViewModel = function setViewModel(viewModel) {
+          this._viewModel = viewModel;
+          this.setupEventListeners();
+          // updateUI() will now be called by the 'dataLoaded' event to prevent premature UI updates.
+        };
+
+        _proto.onLoad = function onLoad() {
+          this.reelComponents = this.reelsContainer.getComponentsInChildren(ReelComponent);
+          this._animationConfig = AnimationConfig.getInstance();
+          if (this.betChangeButton) {
+            this._originalBetButtonPos = this.betChangeButton.node.position.clone();
+          }
+          if (this.spinButton) {
+            this._originalSpinButtonPos = this.spinButton.node.position.clone();
+          }
+          this.bindEvents();
+        };
+        _proto.onDestroy = function onDestroy() {
+          this.unbindEvents();
+        };
+        _proto.bindEvents = function bindEvents() {
+          if (this.spinButton) {
+            // this.spinButton.node.on(Button.EventType.CLICK, this.onSpinClicked, this);
+            this.spinButton.node.on(Node.EventType.TOUCH_START, this.onSpinTouchStart, this);
+            this.spinButton.node.on(Node.EventType.TOUCH_END, this.onSpinTouchEnd, this);
+            this.spinButton.node.on(Node.EventType.TOUCH_CANCEL, this.onSpinTouchEnd, this);
+          }
+          if (this.betIncreaseButton) {
+            this.betIncreaseButton.node.on(Button.EventType.CLICK, this.onBetIncreaseClicked, this);
+          }
+          if (this.betDecreaseButton) {
+            this.betDecreaseButton.node.on(Button.EventType.CLICK, this.onBetDecreaseClicked, this);
+          }
+          if (this.betChangeButton) {
+            this.betChangeButton.node.on(Node.EventType.TOUCH_START, this.onBetChangeTouchStart, this);
+          }
+          if (this.autoSpinButton) {
+            this.autoSpinButton.node.on(Button.EventType.CLICK, this.onAutoSpinClicked, this);
+          }
+        };
+        _proto.unbindEvents = function unbindEvents() {
+          if (this._viewModel) {
+            this._viewModel.off('dataLoaded', this.onDataLoaded, this);
+            this._viewModel.off('spinStarted', this.onSpinStarted, this);
+            this._viewModel.off('spinCompleted', this.onSpinCompleted, this);
+            this._viewModel.off('betMultiplierChanged', this.updateUI, this);
+            this._viewModel.off('betMultiplierIncreaseBlocked', this.onBetMultiplierIncreaseBlocked, this);
+            this._viewModel.off('resourceUpdated', this.updateUI, this);
+            this._viewModel.off('autoSpinStateChanged', this.onAutoSpinStateChanged, this);
+          }
+        };
+        _proto.setupEventListeners = function setupEventListeners() {
+          if (!this._viewModel) return;
+          this.unbindEvents(); // Ensure no duplicate listeners
+          this._viewModel.on('dataLoaded', this.onDataLoaded, this);
+          this._viewModel.on('spinStarted', this.onSpinStarted, this);
+          this._viewModel.on('spinCompleted', this.onSpinCompleted, this);
+          this._viewModel.on('betMultiplierChanged', this.updateUI, this);
+          this._viewModel.on('betMultiplierIncreaseBlocked', this.onBetMultiplierIncreaseBlocked, this);
+          this._viewModel.on('resourceUpdated', this.updateUI, this);
+          this._viewModel.on('autoSpinStateChanged', this.onAutoSpinStateChanged, this);
+          this._viewModel.on('animationProfileChanged', this.onAnimationProfileChanged, this);
+        };
+        _proto.onDataLoaded = function onDataLoaded() {
+          if (!this._viewModel) return;
+          var symbols = this._viewModel.symbols;
+          for (var i = 0; i < this.reelComponents.length; i++) {
+            var reel = this.reelComponents[i];
+            reel.initialize(i, symbols);
+            // Listen for completion events from each reel
+            reel.node.on('reelSpinComplete', this.onReelSpinComplete, this);
+          }
+          this.updateUI();
+        };
+        _proto.onSpinStarted = function onSpinStarted(spinResult) {
+          if (!this._viewModel) return;
+
+          // Reset reel completion tracking for new spin
+          this._reelCompletionStates = [false, false, false];
+          this._currentSpinResult = spinResult;
+
+          // Check for suspense spinning conditions (only during manual spins, not auto-spin)
+          var isAutoSpinning = this._viewModel.isAutoSpinning;
+          this._firstTwoReelsMatch = this.checkFirstTwoReelsMatch(spinResult);
+          this._suspenseSpinActive = !isAutoSpinning && this._firstTwoReelsMatch && this.shouldTriggerSuspenseSpin();
+          // Apply suspense animation profile if needed
+          if (this._suspenseSpinActive) {
+            this._animationConfig.setProfile('suspense');
+            // Update all reel configurations immediately
+            for (var _iterator = _createForOfIteratorHelperLoose(this.reelComponents), _step; !(_step = _iterator()).done;) {
+              var reel = _step.value;
+              reel.updateConfig();
+            }
+          }
+          var reelResults = spinResult.reelResults;
+          if (reelResults && reelResults.length > 0) {
+            var finalSymbolsArray = reelResults[0];
+            for (var i = 0; i < this.reelComponents.length; i++) {
+              var _reel = this.reelComponents[i];
+              var finalSymbolForReel = finalSymbolsArray[i] ? [finalSymbolsArray[i]] : [];
+              _reel.startSpin(finalSymbolForReel);
+            }
+          }
+          this.updateUI();
+        }
+
+        /**
+         * Handle individual reel spin completion
+         */;
+        _proto.onReelSpinComplete = function onReelSpinComplete(event) {
+          var reelIndex = event.reelIndex;
+
+          // Mark this reel as completed
+          if (reelIndex >= 0 && reelIndex < this._reelCompletionStates.length) {
+            this._reelCompletionStates[reelIndex] = true;
+
+            // Check if all reels have completed
+            if (this._reelCompletionStates.every(function (completed) {
+              return completed;
+            })) {
+              this.onAllReelsCompleted();
+            }
+          }
+        }
+
+        /**
+         * Handle when all reels have completed spinning
+         */;
+        _proto.onAllReelsCompleted = function onAllReelsCompleted() {
+          if (this._currentSpinResult && this._viewModel) {
+            // Reset animation profile to normal after suspense spin
+            if (this._suspenseSpinActive) {
+              this._animationConfig.setProfile('normal');
+              // Update all reel configurations back to normal
+              for (var _iterator2 = _createForOfIteratorHelperLoose(this.reelComponents), _step2; !(_step2 = _iterator2()).done;) {
+                var reel = _step2.value;
+                reel.updateConfig();
+              }
+              this._suspenseSpinActive = false;
+            }
+
+            // Process the spin result now that all reels are done
+            this._viewModel.processSpinResultFromComponent(this._currentSpinResult);
+
+            // Clear the current spin result
+            this._currentSpinResult = null;
+          }
+        }
+
+        /**
+         * Check if the first two reels show matching symbols
+         */;
+        _proto.checkFirstTwoReelsMatch = function checkFirstTwoReelsMatch(spinResult) {
+          if (!spinResult.reelResults || spinResult.reelResults.length === 0) {
+            return false;
+          }
+          var finalSymbolsArray = spinResult.reelResults[0];
+          if (finalSymbolsArray.length < 2) {
+            return false;
+          }
+          var firstSymbol = finalSymbolsArray[0];
+          var secondSymbol = finalSymbolsArray[1];
+
+          // Check if symbols match by comparing their type or id
+          return firstSymbol.type === secondSymbol.type || firstSymbol.id === secondSymbol.id;
+        }
+
+        /**
+         * Determine if suspense spin should be triggered (50% chance)
+         */;
+        _proto.shouldTriggerSuspenseSpin = function shouldTriggerSuspenseSpin() {
+          return true;
+          // return Math.random() < 0.5;
+        };
+
+        _proto.onSpinClicked = /*#__PURE__*/function () {
+          var _onSpinClicked = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+            return _regeneratorRuntime().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  if (!this._viewModel) {
+                    _context.next = 3;
+                    break;
+                  }
+                  _context.next = 3;
+                  return this._viewModel.executeCommand('spin');
+                case 3:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee, this);
+          }));
+          function onSpinClicked() {
+            return _onSpinClicked.apply(this, arguments);
+          }
+          return onSpinClicked;
+        }();
+        _proto.onSpinTouchStart = /*#__PURE__*/function () {
+          var _onSpinTouchStart = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+            var _this2 = this;
+            return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+              while (1) switch (_context2.prev = _context2.next) {
+                case 0:
+                  if (this._originalSpinButtonPos) {
+                    _context2.next = 2;
+                    break;
+                  }
+                  return _context2.abrupt("return");
+                case 2:
+                  if (!(this._spinButtonState != 'idle')) {
+                    _context2.next = 4;
+                    break;
+                  }
+                  return _context2.abrupt("return");
+                case 4:
+                  this._spinButtonState = 'down';
+                  tween(this.spinButton.node).to(0.2, {
+                    y: this._originalSpinButtonPos.y - 45
+                  }, {
+                    easing: 'sineIn'
+                  }).call(function () {
+                    if (_this2._spinButtonState == 'up' || !_this2.hasEnoughEnergy()) {
+                      _this2.showSpinButtonUp();
+                    } else {
+                      _this2.activateAutoSpinButton();
+                    }
+                  }).start();
+                  if (!this._viewModel) {
+                    _context2.next = 9;
+                    break;
+                  }
+                  _context2.next = 9;
+                  return this._viewModel.executeCommand('spin');
+                case 9:
+                case "end":
+                  return _context2.stop();
+              }
+            }, _callee2, this);
+          }));
+          function onSpinTouchStart() {
+            return _onSpinTouchStart.apply(this, arguments);
+          }
+          return onSpinTouchStart;
+        }();
+        _proto.showSpinButtonUp = function showSpinButtonUp() {
+          var _this3 = this;
+          Tween.stopAllByTarget(this.spinButton.node);
+          this.spinButton.node.active = true;
+          tween(this.spinButton.node).to(0.2, {
+            position: this._originalSpinButtonPos
+          }, {
+            easing: 'sineOut'
+          }).call(function () {
+            _this3._spinButtonState = 'idle';
+          }).start();
+        };
+        _proto.activateAutoSpinButton = function activateAutoSpinButton() {
+          var _this4 = this;
+          this._spinButtonState = 'prepare_auto';
+          this.autoSpinButton.node.active = true;
+          this.autoSpinButtonOpacity.opacity = 200;
+          this.autoSpinWave.restart();
+          log('activateAutoSpinButton ');
+          tween(this.autoSpinButtonOpacity).to(1, {
+            opacity: 255
+          }).call(function () {
+            _this4.spinButton.node.active = false;
+            _this4._spinButtonState = 'auto';
+            _this4.onAutoSpinClicked();
+          }).start();
+        };
+        _proto.deactivateAutoSpinButton = function deactivateAutoSpinButton() {
+          log("deactivateAutoSpinButton ", this._spinButtonState);
+          Tween.stopAllByTarget(this.autoSpinButtonOpacity);
+          this.autoSpinButton.node.active = false;
+          this._spinButtonState = 'up';
+          this.showSpinButtonUp();
+        };
+        _proto.onSpinTouchEnd = /*#__PURE__*/function () {
+          var _onSpinTouchEnd = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+            return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+              while (1) switch (_context3.prev = _context3.next) {
+                case 0:
+                  if (this._originalSpinButtonPos) {
+                    _context3.next = 2;
+                    break;
+                  }
+                  return _context3.abrupt("return");
+                case 2:
+                  if (this._spinButtonState == 'down') {
+                    this._spinButtonState = 'up';
+                  } else if (this._spinButtonState == 'prepare_auto') {
+                    this.deactivateAutoSpinButton();
+                  }
+                case 3:
+                case "end":
+                  return _context3.stop();
+              }
+            }, _callee3, this);
+          }));
+          function onSpinTouchEnd() {
+            return _onSpinTouchEnd.apply(this, arguments);
+          }
+          return onSpinTouchEnd;
+        }();
+        _proto.onBetIncreaseClicked = function onBetIncreaseClicked() {
+          if (this._viewModel) {
+            this._viewModel.executeCommand('increaseBetMultiplier');
+          }
+        };
+        _proto.onBetDecreaseClicked = function onBetDecreaseClicked() {
+          if (this._viewModel) {
+            this._viewModel.executeCommand('decreaseBetMultiplier');
+          }
+        };
+        _proto.onBetChangeTouchStart = function onBetChangeTouchStart() {
+          var _this5 = this;
+          if (!this._originalBetButtonPos) return;
+          Tween.stopAllByTarget(this.betChangeButton.node);
+          tween(this.betChangeButton.node).to(0.1, {
+            position: new Vec3(this._originalBetButtonPos.x, this._originalBetButtonPos.y - 16, this._originalBetButtonPos.z)
+          }).call(function () {
+            if (_this5._viewModel) {
+              _this5._viewModel.executeCommand('changeBetMultiplier');
+            }
+          }).to(0.1, {
+            position: this._originalBetButtonPos
+          }).start();
+        };
+        _proto.onSpinCompleted = function onSpinCompleted(spinResult) {
+          this.updateUI();
+          this.showWinResults(spinResult);
+        };
+        _proto.onAutoSpinClicked = function onAutoSpinClicked() {
+          if (!this._viewModel) return;
+
+          // If auto-spin is active or pending, stop it
+          if (this._viewModel.isAutoSpinning || this._viewModel.isAutoSpinPending) {
+            this._viewModel.executeCommand('stopAutoSpin');
+          } else {
+            // Start auto-spin (will queue if manual spin is in progress)
+            this._viewModel.executeCommand('startAutoSpin');
+          }
+        };
+        _proto.onAutoSpinStateChanged = function onAutoSpinStateChanged(payload) {
+          var _this6 = this;
+          var reason = payload.reason;
+
+          // Always update the main UI
+          this.updateUI();
+          if (reason) log("onAutoSpinStateChanged on reason ", reason, payload);
+          if (reason && reason != 'STARTED' && reason != 'QUEUED') {
+            log("deactivateAutoSpinButton on reason ", reason, payload);
+            this.deactivateAutoSpinButton();
+          }
+
+          // Handle specific feedback based on the reason
+          if (reason === 'STARTED') {
+            this._animationConfig.setProfile('autoSpin');
+          } else if (reason === 'STOPPED_USER' || reason === 'QUEUE_CLEARED') {
+            this._animationConfig.setProfile('normal');
+          } else if (reason === 'STOPPED_NO_ENERGY') {
+            this._animationConfig.setProfile('normal');
+            // Show visual feedback that auto-spin stopped due to lack of energy
+            if (this.spinButtonLabel) {
+              this.spinButtonLabel.string = 'NO ENERGY';
+              this.scheduleOnce(function () {
+                _this6.updateSpinButton();
+              }, 2.0);
+            }
+          }
+        };
+        _proto.onAnimationProfileChanged = function onAnimationProfileChanged() {
+          for (var _iterator3 = _createForOfIteratorHelperLoose(this.reelComponents), _step3; !(_step3 = _iterator3()).done;) {
+            var reel = _step3.value;
+            reel.updateConfig();
+          }
+        };
+        _proto.onBetMultiplierIncreaseBlocked = function onBetMultiplierIncreaseBlocked(event) {
+          var _this7 = this;
+          // Visual feedback when multiplier increase is blocked due to insufficient energy
+          if (this.betIncreaseButton) {
+            // Temporarily disable the button and provide visual feedback
+            this.betIncreaseButton.interactable = false;
+
+            // Re-enable after a short delay
+            this.scheduleOnce(function () {
+              if (_this7.betIncreaseButton && _this7._viewModel && !_this7._viewModel.isSpinning) {
+                _this7.betIncreaseButton.interactable = true;
+              }
+            }, 0.5);
+          }
+
+          // Optional: Log the blocked attempt for debugging
+          console.log("Bet increase blocked: Need " + event.requiredEnergy + " energy, have " + event.availableEnergy);
+        };
+        _proto.updateUI = function updateUI() {
+          this.updateSpinButton();
+          this.updateBetMultiplierDisplay();
+          this.updateAutoSpinDisplay();
+        };
+        _proto.updateAutoSpinDisplay = function updateAutoSpinDisplay() {
+          if (!this._viewModel || !this.autoSpinButton) return;
+          var isAutoSpinning = this._viewModel.isAutoSpinning;
+          var isAutoSpinPending = this._viewModel.isAutoSpinPending;
+
+          // Auto-spin button is always interactable (allows queuing and stopping)
+          this.autoSpinButton.interactable = true;
+
+          // Update auto-spin button label based on state
+          var autoSpinButtonLabel = this.autoSpinButton.getComponentInChildren(Label);
+          if (autoSpinButtonLabel) {
+            if (isAutoSpinning) {
+              autoSpinButtonLabel.string = 'STOP';
+            } else if (isAutoSpinPending) {
+              autoSpinButtonLabel.string = 'QUEUED';
+            } else {
+              autoSpinButtonLabel.string = 'AUTO';
+            }
+          }
+        };
+        _proto.updateSpinButton = function updateSpinButton() {
+          if (!this._viewModel || !this.spinButton || !this.spinButtonLabel) return;
+          var energyCost = this._viewModel.spinEnergyCost;
+          var hasEnoughEnergy = this._viewModel.currentEnergy >= energyCost;
+          var isSpinning = this._viewModel.isSpinning;
+          var isAutoSpinning = this._viewModel.isAutoSpinning;
+          this.spinButton.interactable = hasEnoughEnergy && !isSpinning && !isAutoSpinning;
+          if (isAutoSpinning) {
+            this.spinButtonLabel.string = 'AUTO-SPINNING';
+          } else if (isSpinning) {
+            this.spinButtonLabel.string = 'SPINNING...';
+          } else if (!hasEnoughEnergy) {
+            this.spinButtonLabel.string = 'NOT ENOUGH ENERGY';
+          } else {
+            this.spinButtonLabel.string = "SPIN (" + energyCost + " Energy)";
+          }
+        };
+        _proto.updateBetMultiplierDisplay = function updateBetMultiplierDisplay() {
+          if (!this._viewModel) return;
+          var currentMultiplier = this._viewModel.currentBetMultiplier;
+          var isSpinning = this._viewModel.isSpinning;
+          var isAutoSpinning = this._viewModel.isAutoSpinning;
+
+          // Update multiplier label
+          if (this.betMultiplierLabel) {
+            this.betMultiplierLabel.string = "x" + currentMultiplier;
+          }
+          var multiplierArray = this._viewModel.availableBetMultipliers;
+          var currentIndex = multiplierArray.indexOf(currentMultiplier);
+          var canIncrease = !isSpinning && !isAutoSpinning && currentIndex < multiplierArray.length - 1;
+          var canDecrease = !isSpinning && !isAutoSpinning && currentIndex > 0;
+          if (this.betIncreaseButton) {
+            this.betIncreaseButton.interactable = canIncrease;
+          }
+          if (this.betDecreaseButton) {
+            this.betDecreaseButton.interactable = canDecrease;
+          }
+        };
+        _proto.showWinResults = function showWinResults(spinResult) {
+          if (!this.winLabel) return;
+          if (spinResult.totalPayout > 0) {
+            log("Show win results ", spinResult);
+            this.winLabel.string = this._viewModel.getDisplayResultText(spinResult);
+            this.winLabel.node.active = true;
+
+            // Get adjusted duration for speed multiplier
+            var adjustedDuration = this._animationConfig.getUIConfig().winAnimationDuration;
+            tween(this.winLabel.node).to(adjustedDuration, {
+              scale: new Vec3(1.2, 1.2, 1)
+            }).to(adjustedDuration, {
+              scale: new Vec3(1, 1, 1)
+            }).start();
+          } else {
+            this.winLabel.string = '';
+            this.winLabel.node.active = false;
+          }
+        };
+        _proto.hasEnoughEnergy = function hasEnoughEnergy() {
+          var energyCost = this._viewModel.spinEnergyCost;
+          var hasEnoughEnergy = this._viewModel.currentEnergy >= energyCost;
+          return hasEnoughEnergy;
+        };
+        return SlotMachineComponent;
+      }(Component), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "reelsContainer", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "spinButton", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "spinButtonLabel", [_dec4], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "betIncreaseButton", [_dec5], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "betDecreaseButton", [_dec6], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "betMultiplierLabel", [_dec7], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, "betChangeButton", [_dec8], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, "winLabel", [_dec9], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, "autoSpinButton", [_dec10], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, "autoSpinButtonOpacity", [_dec11], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, "autoSpinWave", [_dec12], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      })), _class2)) || _class));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/SlotMachineConfig.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './SlotMachineUtils.ts'], function (exports) {
+  var _asyncToGenerator, _regeneratorRuntime, cclegacy, resources, JsonAsset, SlotMachineUtils;
+  return {
+    setters: [function (module) {
+      _asyncToGenerator = module.asyncToGenerator;
+      _regeneratorRuntime = module.regeneratorRuntime;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      resources = module.resources;
+      JsonAsset = module.JsonAsset;
+    }, function (module) {
+      SlotMachineUtils = module.SlotMachineUtils;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "1c7fbhMBLNP+ptX5IN4N+2p", "SlotMachineConfig", undefined);
+
+      /**
+       * Slot Machine Configuration
+       */
+      var SlotMachineConfig = exports('SlotMachineConfig', /*#__PURE__*/function () {
+        function SlotMachineConfig() {
+          this.symbols = [];
+          this.paytable = [];
+        }
+
+        /**
+         * Get singleton instance
+         */
+        SlotMachineConfig.getInstance = function getInstance() {
+          if (!SlotMachineConfig._instance) {
+            SlotMachineConfig._instance = new SlotMachineConfig();
+          }
+          return SlotMachineConfig._instance;
+        }
+
+        /**
+         * Load configuration from JSON files
+         */;
+        var _proto = SlotMachineConfig.prototype;
+        _proto.loadConfig = /*#__PURE__*/
+        function () {
+          var _loadConfig = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+            var _this = this;
+            return _regeneratorRuntime().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  if (!(window.symbols && window.paytable)) {
+                    _context.next = 4;
+                    break;
+                  }
+                  // bản design
+                  this.symbols = window.symbols.filter(function (symbol) {
+                    return symbol.id != 0;
+                  }); // loại bỏ dấu ?
+                  this.paytable = window.paytable;
+                  return _context.abrupt("return");
+                case 4:
+                  return _context.abrupt("return", new Promise(function (resolve, reject) {
+                    resources.loadDir('config', JsonAsset, function (err, assets) {
+                      if (err) {
+                        console.error('Failed to load config files:', err);
+                        return reject(err);
+                      }
+                      var symbolsAsset = assets.find(function (a) {
+                        return a.name === 'symbols';
+                      });
+                      var paytableAsset = assets.find(function (a) {
+                        return a.name === 'paytable';
+                      });
+                      if (symbolsAsset && symbolsAsset.json) {
+                        _this.symbols = symbolsAsset.json.filter(function (symbol) {
+                          return symbol.id != 0;
+                        }); // loại bỏ dấu ?
+                      } else {
+                        console.error('symbols.json not found or is empty.');
+                      }
+                      if (paytableAsset && paytableAsset.json) {
+                        _this.paytable = paytableAsset.json;
+                      } else {
+                        console.error('paytable.json not found or is empty.');
+                      }
+                      resolve();
+                    });
+                  }));
+                case 5:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee, this);
+          }));
+          function loadConfig() {
+            return _loadConfig.apply(this, arguments);
+          }
+          return loadConfig;
+        }()
+        /**
+         * Get default slot machine configuration
+         */;
+
+        _proto.getDefaultConfig = function getDefaultConfig() {
+          return {
+            reelCount: 3,
+            rowCount: 1,
+            symbols: this.symbols,
+            energyCostPerSpin: 1,
+            availableMultipliers: [1, 2, 5, 10, 20, 40, 50, 100, 250],
+            paytable: this.paytable
+          };
+        }
+
+        /**
+         * Get configuration for specific level
+         */;
+        _proto.getConfigForLevel = function getConfigForLevel(level) {
+          var baseConfig = this.getDefaultConfig();
+
+          // Adjust configuration based on player level
+          if (level >= 10) {
+            // Add higher multipliers for higher level players
+            baseConfig.availableMultipliers = [1, 2, 5, 10, 20, 40, 50, 100, 250];
+          }
+          if (level >= 20) {
+            // Reduce energy cost for experienced players
+            baseConfig.energyCostPerSpin = 1;
+          }
+
+          // For 1x3 slot machine, we don't need advanced paylines
+          // Keep the single payline for all levels
+
+          return baseConfig;
+        }
+
+        /**
+         * Validate configuration
+         */;
+        _proto.validateConfig = function validateConfig(config) {
+          return SlotMachineUtils.validateConfiguration(config.symbols, config.paytable, config.reelCount, config.rowCount);
+        }
+
+        /**
+         * Get configuration for testing
+         */;
+        _proto.getTestConfig = function getTestConfig() {
+          var config = this.getDefaultConfig();
+
+          // Reduce energy cost for testing
+          config.energyCostPerSpin = 1;
+          config.availableMultipliers = [1, 2, 5, 10, 20, 40, 50, 100, 250];
+          return config;
+        }
+
+        /**
+         * Create configuration from server data
+         */;
+        _proto.createConfigFromServerData = function createConfigFromServerData(serverData) {
+          try {
+            return {
+              reelCount: serverData.reelCount || 3,
+              rowCount: serverData.rowCount || 1,
+              symbols: serverData.symbols || [],
+              energyCostPerSpin: serverData.energyCostPerSpin || 1,
+              availableMultipliers: serverData.availableMultipliers || [1, 2, 5, 10, 20, 40, 50, 100, 250],
+              paytable: serverData.paytable || []
+            };
+          } catch (error) {
+            console.warn('Failed to parse server config, using default:', error);
+            return this.getDefaultConfig();
+          }
+        };
+        return SlotMachineConfig;
+      }());
+      SlotMachineConfig._instance = null;
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/SlotMachineModel.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseModel.ts'], function (exports) {
+  var _inheritsLoose, _extends, _createForOfIteratorHelperLoose, _createClass, cclegacy, BaseModel;
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _extends = module.extends;
+      _createForOfIteratorHelperLoose = module.createForOfIteratorHelperLoose;
+      _createClass = module.createClass;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+    }, function (module) {
+      BaseModel = module.BaseModel;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "d03bdpQG8pJ8bT6/mW1ZKaV", "SlotMachineModel", undefined);
+      var SlotRewardType = exports('SlotRewardType', /*#__PURE__*/function (SlotRewardType) {
+        SlotRewardType["ATTACK"] = "Attack";
+        SlotRewardType["STEAL"] = "Steal";
+        SlotRewardType["SHIELD"] = "Shield";
+        SlotRewardType["GOLD"] = "Gold";
+        SlotRewardType["ENERGY"] = "Energy";
+        SlotRewardType["TOKEN"] = "Token";
+        return SlotRewardType;
+      }({}));
+
+      /**
+       * Slot machine reward data structure
+       */
+
+      /**
+       * Slot machine symbol configuration
+       */
+
+      /**
+       * Paytable entry configuration
+       */
+
+      /**
+       * Slot machine configuration
+       */
+
+      /**
+       * Slot machine spin result
+       */
+
+      /**
+       * Auto-spin state
+       */
+
+      /**
+       * Reasons for auto-spin state changes
+       */
+
+      /**
+       * Payload for the autoSpinStateChanged event
+       */
+
+      /**
+       * Slot Machine Model - Handles slot machine configuration and game logic
+       */
+      var SlotMachineModel = exports('SlotMachineModel', /*#__PURE__*/function (_BaseModel) {
+        _inheritsLoose(SlotMachineModel, _BaseModel);
+        function SlotMachineModel() {
+          var _this;
+          _this = _BaseModel.call(this) || this;
+          _this.DEFAULT_ENERGY_COST = 1;
+          _this.DEFAULT_MULTIPLIERS = [1, 2, 5, 10, 20, 40, 50, 100, 250];
+          _this.DEFAULT_REEL_COUNT = 3;
+          _this.DEFAULT_ROW_COUNT = 1;
+          _this.initializeDefaults();
+          return _this;
+        }
+
+        /**
+         * Initialize default values
+         */
+        var _proto = SlotMachineModel.prototype;
+        _proto.initializeDefaults = function initializeDefaults() {
+          this.setData('reelCount', this.DEFAULT_REEL_COUNT);
+          this.setData('rowCount', this.DEFAULT_ROW_COUNT);
+          this.setData('symbols', []);
+          this.setData('energyCostPerSpin', this.DEFAULT_ENERGY_COST);
+          this.setData('availableMultipliers', [].concat(this.DEFAULT_MULTIPLIERS));
+          this.setData('selectedMultiplier', 1);
+          this.setData('isSpinning', false);
+          this.setData('lastSpinResult', null);
+          this.setData('paytable', []);
+          this.setData('autoSpinState', {
+            isActive: false,
+            isPending: false
+          });
+        }
+
+        /**
+         * Get reel count
+         */;
+        /**
+         * Calculate total energy cost for current bet
+         */
+        _proto.getTotalEnergyCost = function getTotalEnergyCost() {
+          return this.energyCostPerSpin * this.selectedMultiplier;
+        }
+
+        /**
+         * Check if player can afford the spin
+         */;
+        _proto.canAffordSpin = function canAffordSpin(currentEnergy) {
+          return currentEnergy >= this.getTotalEnergyCost();
+        }
+
+        /**
+         * Start spinning animation
+         */;
+        _proto.startSpin = function startSpin(result) {
+          // Prevent starting a new spin if already spinning
+          if (this.isSpinning) {
+            return;
+          }
+          this.setData('isSpinning', true);
+          this.setData('lastSpinResult', result); // Store result before emitting
+          this.emit('spinStarted', result);
+        }
+
+        /**
+         * Process spin result from server
+         */;
+        _proto.processSpinResult = function processSpinResult(result) {
+          // Calculate final reward with bet multiplier
+          var finalReward = {
+            type: result.finalReward.type,
+            amount: result.totalPayout * result.betMultiplier,
+            multiplier: result.betMultiplier
+          };
+          var processedResult = _extends({}, result, {
+            finalReward: finalReward
+          });
+          this.setData('lastSpinResult', processedResult);
+          this.setData('isSpinning', false);
+          this.emit('spinCompleted', processedResult);
+        }
+
+        /**
+         * Generate a complete random spin result (for testing/offline mode)
+         */;
+        _proto.generateSpinResult = function generateSpinResult() {
+          var paytable = this.paytable;
+          var totalWeight = paytable.reduce(function (sum, entry) {
+            return sum + entry.weight;
+          }, 0);
+          var randomValue = Math.random() * totalWeight;
+          var selectedPayline = null;
+          for (var _iterator = _createForOfIteratorHelperLoose(paytable), _step; !(_step = _iterator()).done;) {
+            var entry = _step.value;
+            randomValue -= entry.weight;
+            if (randomValue <= 0) {
+              selectedPayline = entry;
+              break;
+            }
+          }
+          if (!selectedPayline) {
+            selectedPayline = paytable[paytable.length - 1];
+          }
+          var reelResults = [[]];
+          var symbols = this.symbols;
+          var zeroPrioritySymbols = symbols.filter(function (s) {
+            return s.priority === 0;
+          });
+          var slots = [selectedPayline.slot1, selectedPayline.slot2, selectedPayline.slot3];
+          var _loop = function _loop() {
+            var symbolType = slots[i];
+            if (symbolType === '?') {
+              var randomSymbol = zeroPrioritySymbols[Math.floor(Math.random() * zeroPrioritySymbols.length)];
+              symbolType = randomSymbol.type;
+            }
+            var symbol = symbols.find(function (s) {
+              return s.type === symbolType;
+            });
+            if (symbol) {
+              reelResults[0].push(symbol);
+            }
+          };
+          for (var i = 0; i < slots.length; i++) {
+            _loop();
+          }
+          var spinResult = {
+            reelResults: reelResults,
+            totalPayout: selectedPayline.rewardAmount,
+            betMultiplier: this.selectedMultiplier,
+            finalReward: {
+              type: selectedPayline.rewardType,
+              amount: selectedPayline.rewardAmount
+            }
+          };
+          return spinResult;
+        }
+
+        /**
+         * Load configuration from server data
+         */;
+        _proto.loadConfiguration = function loadConfiguration(config) {
+          this.setData('reelCount', config.reelCount);
+          this.setData('rowCount', config.rowCount);
+          this.symbols = config.symbols;
+          this.energyCostPerSpin = config.energyCostPerSpin;
+          this.availableMultipliers = config.availableMultipliers;
+          this.paytable = config.paytable;
+
+          // Reset selected multiplier to first available
+          if (config.availableMultipliers.length > 0) {
+            this.selectedMultiplier = config.availableMultipliers[0];
+          }
+          this.emit('configurationLoaded', config);
+        }
+
+        /**
+         * Reset spin state
+         */;
+        _proto.resetSpin = function resetSpin() {
+          this.setData('isSpinning', false);
+          this.setData('lastSpinResult', null);
+          this.emit('spinReset');
+        }
+
+        /**
+         * Get reward display text
+         */;
+        _proto.getRewardDisplayText = function getRewardDisplayText(reward) {
+          switch (reward.type) {
+            case SlotRewardType.GOLD:
+              return reward.amount + " Gold";
+            case SlotRewardType.ENERGY:
+              return reward.amount + " Energy";
+            case SlotRewardType.TOKEN:
+              return reward.amount + " Event Items";
+            case SlotRewardType.ATTACK:
+              return 'Attack';
+            case SlotRewardType.STEAL:
+              return 'Raid';
+            case SlotRewardType.SHIELD:
+              return 'Shield';
+            default:
+              return 'Unknown Reward';
+          }
+        }
+
+        /**
+         * Validate model data
+         */;
+        _proto.validate = function validate() {
+          var symbols = this.symbols;
+          var paytable = this.paytable;
+          var energyCost = this.energyCostPerSpin;
+          var multipliers = this.availableMultipliers;
+          var selectedMultiplier = this.selectedMultiplier;
+
+          // Basic validation
+          if (energyCost <= 0 || !Array.isArray(symbols) || !Array.isArray(paytable) || !Array.isArray(multipliers)) {
+            return false;
+          }
+
+          // Validate symbols
+          if (symbols.length === 0) {
+            return false;
+          }
+          for (var _iterator2 = _createForOfIteratorHelperLoose(symbols), _step2; !(_step2 = _iterator2()).done;) {
+            var symbol = _step2.value;
+            if (symbol.id === undefined || !symbol.type) {
+              return false;
+            }
+          }
+
+          // Validate paytable
+          for (var _iterator3 = _createForOfIteratorHelperLoose(paytable), _step3; !(_step3 = _iterator3()).done;) {
+            var entry = _step3.value;
+            if (!entry.payId || !entry.slot1 || !entry.slot2 || !entry.slot3 || entry.weight <= 0) {
+              return false;
+            }
+          }
+
+          // Validate multipliers
+          if (multipliers.length === 0 || !multipliers.includes(selectedMultiplier)) {
+            return false;
+          }
+          return true;
+        }
+
+        /**
+         * Serialize to JSON
+         */;
+        _proto.toJSON = function toJSON() {
+          return {
+            reelCount: this.reelCount,
+            rowCount: this.rowCount,
+            symbols: this.symbols,
+            energyCostPerSpin: this.energyCostPerSpin,
+            availableMultipliers: this.availableMultipliers,
+            selectedMultiplier: this.selectedMultiplier,
+            isSpinning: this.isSpinning,
+            lastSpinResult: this.lastSpinResult,
+            paytable: this.paytable,
+            autoSpinState: this.autoSpinState
+          };
+        }
+
+        /**
+         * Deserialize from JSON
+         */;
+        _proto.fromJSON = function fromJSON(data) {
+          this.setData('reelCount', data.reelCount || this.DEFAULT_REEL_COUNT);
+          this.setData('rowCount', data.rowCount || this.DEFAULT_ROW_COUNT);
+          this.symbols = data.symbols || [];
+          this.energyCostPerSpin = data.energyCostPerSpin || this.DEFAULT_ENERGY_COST;
+          this.availableMultipliers = data.availableMultipliers || [].concat(this.DEFAULT_MULTIPLIERS);
+          this.selectedMultiplier = data.selectedMultiplier || 1;
+          this.setData('isSpinning', data.isSpinning || false);
+          this.setData('lastSpinResult', data.lastSpinResult || null);
+          this.paytable = data.paytable || [];
+          this.autoSpinState = data.autoSpinState || null;
+        }
+
+        /**
+         * Start auto-spin
+         */;
+        _proto.startAutoSpin = function startAutoSpin() {
+          var _this$autoSpinState;
+          // Prevent auto-spin from starting if already active
+          if ((_this$autoSpinState = this.autoSpinState) != null && _this$autoSpinState.isActive) {
+            return;
+          }
+
+          // Prevent auto-spin from starting if a manual spin is in progress
+          if (this.isSpinning) {
+            return;
+          }
+          this.autoSpinState = {
+            isActive: true,
+            isPending: false
+          };
+          this.emit('autoSpinStateChanged', {
+            newState: this.autoSpinState,
+            reason: 'STARTED'
+          });
+        }
+
+        /**
+         * Stop auto-spin
+         */;
+        _proto.stopAutoSpin = function stopAutoSpin() {
+          var _this$autoSpinState2;
+          if (!((_this$autoSpinState2 = this.autoSpinState) != null && _this$autoSpinState2.isActive)) {
+            return; // Not active
+          }
+
+          if (this.autoSpinState) {
+            this.autoSpinState.isActive = false;
+            this.autoSpinState.isPending = false;
+            this.emit('autoSpinStateChanged', {
+              newState: this.autoSpinState,
+              reason: 'STOPPED_USER'
+            });
+          }
+        }
+
+        /**
+         * Stop auto-spin due to insufficient energy
+         */;
+        _proto.stopAutoSpinDueToInsufficientEnergy = function stopAutoSpinDueToInsufficientEnergy() {
+          var _this$autoSpinState3;
+          if (!((_this$autoSpinState3 = this.autoSpinState) != null && _this$autoSpinState3.isActive)) {
+            return; // Not active
+          }
+
+          if (this.autoSpinState) {
+            this.autoSpinState.isActive = false;
+            this.autoSpinState.isPending = false; // Also clear pending
+            this.emit('autoSpinStateChanged', {
+              newState: this.autoSpinState,
+              reason: 'STOPPED_NO_ENERGY'
+            });
+          }
+        }
+
+        /**
+         * Check if auto-spin can continue
+         */;
+        _proto.canContinueAutoSpin = function canContinueAutoSpin(currentEnergy) {
+          var _this$autoSpinState4;
+          if (!((_this$autoSpinState4 = this.autoSpinState) != null && _this$autoSpinState4.isActive)) {
+            return false;
+          }
+
+          // The only condition to stop is insufficient energy
+          return this.canAffordSpin(currentEnergy);
+        }
+
+        /**
+         * Queue auto-spin to start after current manual spin completes
+         */;
+        _proto.queueAutoSpin = function queueAutoSpin() {
+          if (!this.autoSpinState) {
+            this.autoSpinState = {
+              isActive: false,
+              isPending: false
+            };
+          }
+
+          // Set pending flag if not already active
+          if (!this.autoSpinState.isActive) {
+            this.autoSpinState.isPending = true;
+            this.emit('autoSpinStateChanged', {
+              newState: this.autoSpinState,
+              reason: 'QUEUED'
+            });
+          }
+        }
+
+        /**
+         * Check if auto-spin is pending
+         */;
+        /**
+         * Activate pending auto-spin (called when manual spin completes)
+         */
+        _proto.activatePendingAutoSpin = function activatePendingAutoSpin() {
+          var _this$autoSpinState5;
+          if (!((_this$autoSpinState5 = this.autoSpinState) != null && _this$autoSpinState5.isPending)) {
+            return false;
+          }
+
+          // Don't activate if currently spinning
+          if (this.isSpinning) {
+            return false;
+          }
+          this.autoSpinState.isActive = true;
+          this.autoSpinState.isPending = false;
+          this.emit('autoSpinStateChanged', {
+            newState: this.autoSpinState,
+            reason: 'STARTED'
+          });
+          return true;
+        }
+
+        /**
+         * Clear pending auto-spin without activating it
+         */;
+        _proto.clearPendingAutoSpin = function clearPendingAutoSpin() {
+          var _this$autoSpinState6;
+          if ((_this$autoSpinState6 = this.autoSpinState) != null && _this$autoSpinState6.isPending) {
+            this.autoSpinState.isPending = false;
+            this.emit('autoSpinStateChanged', {
+              newState: this.autoSpinState,
+              reason: 'QUEUE_CLEARED'
+            });
+          }
+        };
+        _createClass(SlotMachineModel, [{
+          key: "reelCount",
+          get: function get() {
+            return this.getData('reelCount') || this.DEFAULT_REEL_COUNT;
+          }
+
+          /**
+           * Get row count
+           */
+        }, {
+          key: "rowCount",
+          get: function get() {
+            return this.getData('rowCount') || this.DEFAULT_ROW_COUNT;
+          }
+
+          /**
+           * Get available symbols
+           */
+        }, {
+          key: "symbols",
+          get: function get() {
+            return this.getData('symbols') || [];
+          }
+
+          /**
+           * Set available symbols
+           */,
+          set: function set(value) {
+            this.setData('symbols', [].concat(value));
+          }
+
+          /**
+           * Get energy cost per spin
+           */
+        }, {
+          key: "energyCostPerSpin",
+          get: function get() {
+            return this.getData('energyCostPerSpin') || this.DEFAULT_ENERGY_COST;
+          }
+
+          /**
+           * Set energy cost per spin
+           */,
+          set: function set(value) {
+            this.setData('energyCostPerSpin', Math.max(1, value));
+          }
+
+          /**
+           * Get available bet multipliers
+           */
+        }, {
+          key: "availableMultipliers",
+          get: function get() {
+            return this.getData('availableMultipliers') || [].concat(this.DEFAULT_MULTIPLIERS);
+          }
+
+          /**
+           * Set available bet multipliers
+           */,
+          set: function set(value) {
+            this.setData('availableMultipliers', [].concat(value));
+          }
+
+          /**
+           * Get selected bet multiplier
+           */
+        }, {
+          key: "selectedMultiplier",
+          get: function get() {
+            return this.getData('selectedMultiplier') || 1;
+          }
+
+          /**
+           * Set selected bet multiplier
+           */,
+          set: function set(value) {
+            var availableMultipliers = this.availableMultipliers;
+            if (availableMultipliers.includes(value)) {
+              this.setData('selectedMultiplier', value);
+            }
+          }
+
+          /**
+           * Check if slot machine is currently spinning
+           */
+        }, {
+          key: "isSpinning",
+          get: function get() {
+            return this.getData('isSpinning') || false;
+          }
+
+          /**
+           * Get last spin result
+           */
+        }, {
+          key: "lastSpinResult",
+          get: function get() {
+            return this.getData('lastSpinResult') || null;
+          }
+
+          /**
+           * Get paytable
+           */
+        }, {
+          key: "paytable",
+          get: function get() {
+            return this.getData('paytable') || [];
+          }
+
+          /**
+           * Set paytable
+           */,
+          set: function set(value) {
+            this.setData('paytable', [].concat(value));
+          }
+
+          /**
+           * Get auto-spin state
+           */
+        }, {
+          key: "autoSpinState",
+          get: function get() {
+            return this.getData('autoSpinState') || null;
+          }
+
+          /**
+           * Set auto-spin state
+           */,
+          set: function set(value) {
+            this.setData('autoSpinState', value);
+          }
+        }, {
+          key: "isAutoSpinPending",
+          get: function get() {
+            var _this$autoSpinState7;
+            return ((_this$autoSpinState7 = this.autoSpinState) == null ? void 0 : _this$autoSpinState7.isPending) || false;
+          }
+        }]);
+        return SlotMachineModel;
+      }(BaseModel));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/SlotMachineUtils.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
+  var _createForOfIteratorHelperLoose, cclegacy;
+  return {
+    setters: [function (module) {
+      _createForOfIteratorHelperLoose = module.createForOfIteratorHelperLoose;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "ab7baA9PCBP6rZYHjYdbVUm", "SlotMachineUtils", undefined);
+      /**
+       * Slot Machine Utilities - Helper functions for slot machine logic
+       */
+      var SlotMachineUtils = exports('SlotMachineUtils', /*#__PURE__*/function () {
+        function SlotMachineUtils() {}
+        /**
+         * Format payout display text
+         */
+        SlotMachineUtils.formatPayoutText = function formatPayoutText(amount) {
+          if (amount >= 1000000) {
+            return (amount / 1000000).toFixed(1) + "M";
+          } else if (amount >= 1000) {
+            return (amount / 1000).toFixed(1) + "K";
+          } else {
+            return amount.toString();
+          }
+        };
+        SlotMachineUtils.formatPayoutSeperated = function formatPayoutSeperated(amount) {
+          return amount.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+        }
+
+        /**
+         * Validate slot machine configuration
+         */;
+        SlotMachineUtils.validateConfiguration = function validateConfiguration(symbols, paytable, reelCount, rowCount) {
+          var errors = [];
+
+          // Validate symbols
+          if (!symbols || symbols.length === 0) {
+            errors.push('No symbols defined');
+          } else {
+            for (var _iterator = _createForOfIteratorHelperLoose(symbols), _step; !(_step = _iterator()).done;) {
+              var symbol = _step.value;
+              if (symbol.id === undefined || !symbol.type) {
+                errors.push("Invalid symbol: " + JSON.stringify(symbol));
+              }
+            }
+          }
+
+          // Validate paytable
+          if (!paytable || paytable.length === 0) {
+            errors.push('No paytable defined');
+          } else {
+            for (var _iterator2 = _createForOfIteratorHelperLoose(paytable), _step2; !(_step2 = _iterator2()).done;) {
+              var entry = _step2.value;
+              if (!entry.payId || !entry.slot1 || !entry.slot2 || !entry.slot3 || entry.weight <= 0) {
+                errors.push("Invalid paytable entry: " + entry.payId);
+              }
+            }
+          }
+
+          // Validate reel and row counts
+          if (reelCount <= 0 || rowCount <= 0) {
+            errors.push('Invalid reel or row count');
+          }
+          return {
+            isValid: errors.length === 0,
+            errors: errors
+          };
+        };
+        return SlotMachineUtils;
+      }());
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/StringUtils.ts", ['cc'], function (exports) {
+  var cclegacy, _decorator;
+  return {
+    setters: [function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+    }],
+    execute: function () {
+      var _dec, _class;
+      cclegacy._RF.push({}, "f4eb29pLYxA/5xwy6jF3nUT", "StringUtils", undefined);
+      var ccclass = _decorator.ccclass,
+        property = _decorator.property;
+      var StringUtils = exports('StringUtils', (_dec = ccclass('StringUtils'), _dec(_class = /*#__PURE__*/function () {
+        function StringUtils() {}
+        StringUtils.formatNumberWithCommas = function formatNumberWithCommas(num) {
+          return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+        };
+        StringUtils.formatNumberWithDot = function formatNumberWithDot(num) {
+          return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+        };
+        return StringUtils;
+      }()) || _class));
+      cclegacy._RF.pop();
+    }
+  };
+});
 
 (function(r) {
   r('virtual:///prerequisite-imports/main', 'chunks:///_virtual/main'); 
