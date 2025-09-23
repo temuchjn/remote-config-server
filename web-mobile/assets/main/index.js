@@ -3025,7 +3025,7 @@ System.register("chunks:///_virtual/CityModel.ts", ['./rollupPluginModLoBabelHel
 });
 
 System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseView.ts', './CityViewModel.ts', './Logger.ts'], function (exports) {
-  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _asyncToGenerator, _regeneratorRuntime, cclegacy, _decorator, Label, ProgressBar, Node, Sprite, Button, log, v3, Color, tween, director, BaseView, CityViewModel, logError;
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _asyncToGenerator, _regeneratorRuntime, cclegacy, _decorator, Label, ProgressBar, Node, Button, log, resources, Prefab, instantiate, tween, v3, director, BaseView, CityViewModel, logError;
   return {
     setters: [function (module) {
       _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
@@ -3040,12 +3040,13 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
       Label = module.Label;
       ProgressBar = module.ProgressBar;
       Node = module.Node;
-      Sprite = module.Sprite;
       Button = module.Button;
       log = module.log;
-      v3 = module.v3;
-      Color = module.Color;
+      resources = module.resources;
+      Prefab = module.Prefab;
+      instantiate = module.instantiate;
       tween = module.tween;
+      v3 = module.v3;
       director = module.director;
     }, function (module) {
       BaseView = module.BaseView;
@@ -3055,7 +3056,7 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
       logError = module.logError;
     }],
     execute: function () {
-      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17;
+      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14;
       cclegacy._RF.push({}, "b5969WZCAFGrZEV8MPqMTNc", "CityView", undefined);
       var ccclass = _decorator.ccclass,
         property = _decorator.property;
@@ -3063,7 +3064,7 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
       /**
        * City View - UI for city building scene
        */
-      var CityView = exports('CityView', (_dec = ccclass('CityView'), _dec2 = property(Label), _dec3 = property(Label), _dec4 = property(ProgressBar), _dec5 = property(Label), _dec6 = property([Node]), _dec7 = property([Sprite]), _dec8 = property([Label]), _dec9 = property([Label]), _dec10 = property([Button]), _dec11 = property([Label]), _dec12 = property(Button), _dec13 = property(Node), _dec14 = property(Label), _dec15 = property(Label), _dec16 = property(Button), _dec17 = property(Node), _dec18 = property(Label), _dec(_class = (_class2 = /*#__PURE__*/function (_BaseView) {
+      var CityView = exports('CityView', (_dec = ccclass('CityView'), _dec2 = property(Label), _dec3 = property(Label), _dec4 = property(ProgressBar), _dec5 = property(Label), _dec6 = property(Node), _dec7 = property([Button]), _dec8 = property([Label]), _dec9 = property(Button), _dec10 = property(Node), _dec11 = property(Label), _dec12 = property(Label), _dec13 = property(Button), _dec14 = property(Node), _dec15 = property(Label), _dec(_class = (_class2 = /*#__PURE__*/function (_BaseView) {
         _inheritsLoose(CityView, _BaseView);
         function CityView() {
           var _this;
@@ -3077,24 +3078,24 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
           _initializerDefineProperty(_this, "cityProgressBar", _descriptor3, _assertThisInitialized(_this));
           _initializerDefineProperty(_this, "cityProgressLabel", _descriptor4, _assertThisInitialized(_this));
           // Building UI
-          _initializerDefineProperty(_this, "buildingNodes", _descriptor5, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "buildingSprites", _descriptor6, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "buildingNameLabels", _descriptor7, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "buildingLevelLabels", _descriptor8, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "upgradeButtons", _descriptor9, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "upgradeCostLabels", _descriptor10, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "cityRoot", _descriptor5, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "upgradeButtons", _descriptor6, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "upgradeCostLabels", _descriptor7, _assertThisInitialized(_this));
           // Navigation
-          _initializerDefineProperty(_this, "backButton", _descriptor11, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "backButton", _descriptor8, _assertThisInitialized(_this));
           // Completion UI
-          _initializerDefineProperty(_this, "completionContainer", _descriptor12, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "completionTitleLabel", _descriptor13, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "completionRewardLabel", _descriptor14, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "completionCloseButton", _descriptor15, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "completionContainer", _descriptor9, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "completionTitleLabel", _descriptor10, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "completionRewardLabel", _descriptor11, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "completionCloseButton", _descriptor12, _assertThisInitialized(_this));
           // Notification UI
-          _initializerDefineProperty(_this, "notificationContainer", _descriptor16, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "notificationLabel", _descriptor17, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "notificationContainer", _descriptor13, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "notificationLabel", _descriptor14, _assertThisInitialized(_this));
           _this._viewModel = null;
           _this._buildingData = [];
+          _this._cityNode = null;
+          _this._buildingNodes = [];
+          _this._upgradeButtonsMappingBuildingIds = [];
           return _this;
         }
         var _proto = CityView.prototype;
@@ -3102,33 +3103,55 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
          * Setup UI components
          */
         _proto.setupUI = function setupUI() {
-          this.bindUI();
-          // Initialize UI state
-          this.updateHeaderDisplay();
-          this.updateBuildingDisplay();
-          this.hideCompletionUI();
-          this.hideNotification();
+          log('setupUI');
+          this.loadCityView();
+        };
+        _proto.loadCityView = function loadCityView() {
+          var _this2 = this;
+          log('loadCityView');
+          if (this._cityNode) {
+            return;
+          }
+          log('loadCityView 2');
+          this.cityRoot.removeAllChildren();
+          if (!this._viewModel) {
+            return;
+          }
+          log('loadCityView 3');
+          var cityViewPrefabPath = 'prefabs/city/City_' + this._viewModel.currentCityLevel;
+          resources.load(cityViewPrefabPath, Prefab, function (err, prefab) {
+            if (err) {
+              log('Failed to load prefab: ' + cityViewPrefabPath, err);
+              return;
+            }
+            if (prefab) {
+              log('Loaded prefab: ' + cityViewPrefabPath);
+              var cityViewNode = instantiate(prefab);
+              _this2.cityRoot.addChild(cityViewNode);
+              _this2._cityNode = cityViewNode;
+              log('setupUI 2');
+              _this2.bindUI();
+              // Initialize UI state
+              _this2.updateHeaderDisplay();
+              _this2.updateBuildingDisplay();
+              _this2.hideCompletionUI();
+              _this2.hideNotification();
+            }
+          });
         };
         _proto.bindUI = function bindUI() {
-          for (var i = 0; i < this.buildingNodes.length; i++) {
-            var buildingNode = this.buildingNodes[i];
-            var buildingSprite = buildingNode.getChildByName('BuildingSprite');
-            var buildingNameLabel = buildingNode.getChildByName('BuildingNameLabel');
-            var buildingLevelLabel = buildingNode.getChildByName('BuildingLevelLabel');
-            var upgradeButton = buildingNode.getChildByName('UpgradeButton');
-            var upgradeCostLabel = upgradeButton.getChildByName('UpgradeCostLabel');
-            if (buildingSprite) {
-              this.buildingSprites.push(buildingSprite.getComponent(Sprite));
+          var buildingsParent = this._cityNode.getChildByName('Buildings');
+          for (var i = 0; i < buildingsParent.children.length; i++) {
+            var buildingNode = buildingsParent.getChildByName('Building_' + (i + 1));
+            this._buildingNodes.push(buildingNode);
+            for (var j = 0; j < buildingNode.children.length; j++) {
+              buildingNode.children[j].active = false;
+              log('bindUI', buildingNode.children[j].name);
             }
-            if (buildingNameLabel) {
-              this.buildingNameLabels.push(buildingNameLabel.getComponent(Label));
-            }
-            if (buildingLevelLabel) {
-              this.buildingLevelLabels.push(buildingLevelLabel.getComponent(Label));
-            }
-            if (upgradeButton) {
-              this.upgradeButtons.push(upgradeButton.getComponent(Button));
-            }
+          }
+          for (var _i = 0; _i < this.upgradeButtons.length; _i++) {
+            var upgradeButton = this.upgradeButtons[_i];
+            var upgradeCostLabel = upgradeButton.node.getChildByName('Label');
             if (upgradeCostLabel) {
               this.upgradeCostLabels.push(upgradeCostLabel.getComponent(Label));
             }
@@ -3139,7 +3162,7 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
          * Bind UI events
          */;
         _proto.bindEvents = function bindEvents() {
-          var _this2 = this;
+          var _this3 = this;
           // Back button
           if (this.backButton) {
             this.backButton.node.on(Button.EventType.CLICK, this.onBackClicked, this);
@@ -3147,11 +3170,11 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
 
           // Upgrade buttons
           var _loop = function _loop(i) {
-            var button = _this2.upgradeButtons[i];
+            var button = _this3.upgradeButtons[i];
             if (button) {
               button.node.on(Button.EventType.CLICK, function () {
-                return _this2.onUpgradeClicked(i);
-              }, _this2);
+                return _this3.onUpgradeClickedBuildingId(_this3._upgradeButtonsMappingBuildingIds[i]);
+              }, _this3);
             }
           };
           for (var i = 0; i < this.upgradeButtons.length; i++) {
@@ -3238,21 +3261,40 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
          * Update building display
          */;
         _proto.updateBuildingDisplay = function updateBuildingDisplay() {
-          var _this3 = this;
+          var _this4 = this;
           if (!this._viewModel) return;
 
           // Get all building data asynchronously and update UI when ready
           this._viewModel.executeCommand('getAllBuildingsData').then(function (buildingData) {
-            _this3._buildingData = buildingData;
+            _this4._buildingData = buildingData;
 
             // Update each building UI
-            for (var i = 0; i < _this3._buildingData.length && i < _this3.buildingNodes.length; i++) {
-              var _buildingData = _this3._buildingData[i];
-              _this3.updateBuildingUI(i, _buildingData);
+            for (var i = 0; i < _this4._buildingData.length && i < _this4._buildingNodes.length; i++) {
+              var _buildingData = _this4._buildingData[i];
+              _this4.updateBuildingUI(i, _buildingData);
             }
+            _this4.updateUpgradeButtons();
           })["catch"](function (error) {
             logError('Failed to get building data:', error);
           });
+        };
+        _proto.updateUpgradeButtons = function updateUpgradeButtons() {
+          this._buildingData.sort(function (a, b) {
+            return a.upgradeCost - b.upgradeCost;
+          });
+          for (var i = 0; i < this.upgradeButtons.length; i++) {
+            this.upgradeButtons[i].node.active = false;
+          }
+          this._upgradeButtonsMappingBuildingIds = [];
+          var count = 0;
+          for (var _i2 = 0; _i2 < this._buildingData.length; _i2++) {
+            var buildingData = this._buildingData[_i2];
+            if (buildingData.isMaxLevel) continue;
+            this.upgradeButtons[count].node.active = true;
+            this.upgradeCostLabels[count].string = buildingData.buildingName + ': ' + this.formatNumber(buildingData.upgradeCost);
+            this._upgradeButtonsMappingBuildingIds.push(buildingData.buildingId);
+            count++;
+          }
         }
 
         /**
@@ -3261,28 +3303,28 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
         _proto.updateBuildingUI = function updateBuildingUI(index, buildingData) {
           log('updateBuildingUI', index, buildingData);
           // Update building name
-          if (this.buildingNameLabels[index]) {
-            this.buildingNameLabels[index].string = buildingData.buildingName;
-          }
+          // if (this.buildingNameLabels[index]) {
+          //     this.buildingNameLabels[index].string = buildingData.buildingName;
+          // }
 
-          // Update building level
-          if (this.buildingLevelLabels[index]) {
-            this.buildingLevelLabels[index].string = "Level " + buildingData.currentLevel + "/" + buildingData.maxLevel;
-          }
+          // // Update building level
+          // if (this.buildingLevelLabels[index]) {
+          //     this.buildingLevelLabels[index].string = `Level ${buildingData.currentLevel}/${buildingData.maxLevel}`;
+          // }
 
-          // Update upgrade button
-          if (this.upgradeButtons[index]) {
-            this.upgradeButtons[index].interactable = buildingData.canUpgrade;
-          }
+          // // Update upgrade button
+          // if (this.upgradeButtons[index]) {
+          //     this.upgradeButtons[index].interactable = buildingData.canUpgrade;
+          // }
 
-          // Update upgrade cost
-          if (this.upgradeCostLabels[index]) {
-            if (buildingData.isMaxLevel) {
-              this.upgradeCostLabels[index].string = 'MAX LEVEL';
-            } else {
-              this.upgradeCostLabels[index].string = this.formatNumber(buildingData.upgradeCost);
-            }
-          }
+          // // Update upgrade cost
+          // if (this.upgradeCostLabels[index]) {
+          //     if (buildingData.isMaxLevel) {
+          //         this.upgradeCostLabels[index].string = 'MAX LEVEL';
+          //     } else {
+          //         this.upgradeCostLabels[index].string = this.formatNumber(buildingData.upgradeCost);
+          //     }
+          // }
 
           // Update building sprite based on level
           this.updateBuildingSprite(index, buildingData);
@@ -3292,24 +3334,10 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
          * Update building sprite based on level
          */;
         _proto.updateBuildingSprite = function updateBuildingSprite(index, buildingData) {
-          if (!this.buildingSprites[index]) return;
-          var sprite = this.buildingSprites[index];
-
-          // Change sprite color/scale based on level (placeholder implementation)
-          var levelProgress = buildingData.currentLevel / buildingData.maxLevel;
-          var scale = 0.8 + levelProgress * 0.4; // Scale from 0.8 to 1.2
-
-          if (this.buildingNodes[index]) {
-            this.buildingNodes[index].scale = v3(scale, scale, 1);
-          }
-
-          // Change color based on level
-          if (buildingData.isMaxLevel) {
-            sprite.color = Color.YELLOW; // Gold for max level
-          } else if (buildingData.currentLevel > 0) {
-            sprite.color = Color.GREEN; // Green for upgraded
-          } else {
-            sprite.color = Color.WHITE; // White for level 0
+          var buildingNode = this._buildingNodes[index];
+          for (var i = 0; i <= buildingData.maxLevel; i++) {
+            var buildingSprite = buildingNode.getChildByName("BuildingSprite_" + i);
+            buildingSprite.active = i === buildingData.currentLevel;
           }
         }
 
@@ -3341,7 +3369,7 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
          * Show notification
          */;
         _proto.showNotification = function showNotification(message, duration) {
-          var _this4 = this;
+          var _this5 = this;
           if (duration === void 0) {
             duration = 3.0;
           }
@@ -3351,7 +3379,7 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
 
             // Auto-hide after duration
             this.scheduleOnce(function () {
-              _this4.hideNotification();
+              _this5.hideNotification();
             }, duration);
           }
         }
@@ -3381,8 +3409,8 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
          * Animate building upgrade
          */;
         _proto.animateBuildingUpgrade = function animateBuildingUpgrade(buildingIndex) {
-          if (buildingIndex < 0 || buildingIndex >= this.buildingNodes.length) return;
-          var buildingNode = this.buildingNodes[buildingIndex];
+          if (buildingIndex < 0 || buildingIndex >= this._buildingNodes.length) return;
+          var buildingNode = this._buildingNodes[buildingIndex];
           if (!buildingNode) return;
 
           // Scale animation
@@ -3401,6 +3429,8 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
          * Handle city data loaded
          */;
         _proto.onCityDataLoaded = function onCityDataLoaded() {
+          log('onCityDataLoaded');
+          this.setupUI();
           this.refreshUI();
         }
 
@@ -3523,6 +3553,25 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
             return _onUpgradeClicked.apply(this, arguments);
           }
           return onUpgradeClicked;
+        }();
+        _proto.onUpgradeClickedBuildingId = /*#__PURE__*/function () {
+          var _onUpgradeClickedBuildingId = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(buildingId) {
+            return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+              while (1) switch (_context2.prev = _context2.next) {
+                case 0:
+                  log("Upgrading buildingId " + buildingId + " _buildingData = " + JSON.stringify(this._buildingData));
+                  _context2.next = 3;
+                  return this._viewModel.executeCommand('upgradeBuilding', buildingId);
+                case 3:
+                case "end":
+                  return _context2.stop();
+              }
+            }, _callee2, this);
+          }));
+          function onUpgradeClickedBuildingId(_x2) {
+            return _onUpgradeClickedBuildingId.apply(this, arguments);
+          }
+          return onUpgradeClickedBuildingId;
         }()
         /**
          * Handle completion close button click
@@ -3598,91 +3647,70 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "buildingNodes", [_dec6], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return [];
-        }
-      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "buildingSprites", [_dec7], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return [];
-        }
-      }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, "buildingNameLabels", [_dec8], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return [];
-        }
-      }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, "buildingLevelLabels", [_dec9], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return [];
-        }
-      }), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, "upgradeButtons", [_dec10], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return [];
-        }
-      }), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, "upgradeCostLabels", [_dec11], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return [];
-        }
-      }), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, "backButton", [_dec12], {
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "cityRoot", [_dec6], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor12 = _applyDecoratedDescriptor(_class2.prototype, "completionContainer", [_dec13], {
+      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "upgradeButtons", [_dec7], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, "upgradeCostLabels", [_dec8], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, "backButton", [_dec9], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor13 = _applyDecoratedDescriptor(_class2.prototype, "completionTitleLabel", [_dec14], {
+      }), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, "completionContainer", [_dec10], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor14 = _applyDecoratedDescriptor(_class2.prototype, "completionRewardLabel", [_dec15], {
+      }), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, "completionTitleLabel", [_dec11], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor15 = _applyDecoratedDescriptor(_class2.prototype, "completionCloseButton", [_dec16], {
+      }), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, "completionRewardLabel", [_dec12], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor16 = _applyDecoratedDescriptor(_class2.prototype, "notificationContainer", [_dec17], {
+      }), _descriptor12 = _applyDecoratedDescriptor(_class2.prototype, "completionCloseButton", [_dec13], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor17 = _applyDecoratedDescriptor(_class2.prototype, "notificationLabel", [_dec18], {
+      }), _descriptor13 = _applyDecoratedDescriptor(_class2.prototype, "notificationContainer", [_dec14], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor14 = _applyDecoratedDescriptor(_class2.prototype, "notificationLabel", [_dec15], {
         configurable: true,
         enumerable: true,
         writable: true,
@@ -3854,23 +3882,25 @@ System.register("chunks:///_virtual/CityViewModel.ts", ['./rollupPluginModLoBabe
               while (1) switch (_context2.prev = _context2.next) {
                 case 0:
                   _context2.t0 = command;
-                  _context2.next = _context2.t0 === 'upgradeBuilding' ? 3 : _context2.t0 === 'getBuildingData' ? 4 : _context2.t0 === 'getAllBuildingsData' ? 5 : _context2.t0 === 'getCityProgress' ? 6 : _context2.t0 === 'goBack' ? 7 : _context2.t0 === 'refreshData' ? 8 : 9;
+                  _context2.next = _context2.t0 === 'upgradeBuilding' ? 3 : _context2.t0 === 'getCityLevel' ? 4 : _context2.t0 === 'getBuildingData' ? 5 : _context2.t0 === 'getAllBuildingsData' ? 6 : _context2.t0 === 'getCityProgress' ? 7 : _context2.t0 === 'goBack' ? 8 : _context2.t0 === 'refreshData' ? 9 : 10;
                   break;
                 case 3:
                   return _context2.abrupt("return", this.upgradeBuilding(_args2.length <= 1 ? undefined : _args2[1]));
                 case 4:
-                  return _context2.abrupt("return", this.getBuildingData(_args2.length <= 1 ? undefined : _args2[1]));
+                  return _context2.abrupt("return", this.currentCityLevel);
                 case 5:
-                  return _context2.abrupt("return", this.getAllBuildingsData());
+                  return _context2.abrupt("return", this.getBuildingData(_args2.length <= 1 ? undefined : _args2[1]));
                 case 6:
-                  return _context2.abrupt("return", this.getCityProgress());
+                  return _context2.abrupt("return", this.getAllBuildingsData());
                 case 7:
-                  return _context2.abrupt("return", this.goBack());
+                  return _context2.abrupt("return", this.getCityProgress());
                 case 8:
-                  return _context2.abrupt("return", this.loadCityData());
+                  return _context2.abrupt("return", this.goBack());
                 case 9:
-                  throw new Error("Unknown command: " + command);
+                  return _context2.abrupt("return", this.loadCityData());
                 case 10:
+                  throw new Error("Unknown command: " + command);
+                case 11:
                 case "end":
                   return _context2.stop();
               }
@@ -4207,6 +4237,63 @@ System.register("chunks:///_virtual/CityViewModel.ts", ['./rollupPluginModLoBabe
         }]);
         return CityViewModel;
       }(BaseViewModel));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/CoinAnimationManager.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
+  var _createClass, cclegacy;
+  return {
+    setters: [function (module) {
+      _createClass = module.createClass;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "8210bFbio5M+4mwmWBaJUGT", "CoinAnimationManager", undefined);
+      /**
+       * Manages shared state for coin animations, such as control points for converging curves.
+       */
+      var CoinAnimationManager = exports('CoinAnimationManager', /*#__PURE__*/function () {
+        function CoinAnimationManager() {
+          this._convergeControlPoint = null;
+        }
+        var _proto = CoinAnimationManager.prototype;
+        /**
+         * Sets the shared control point for converging animations.
+         * @param point - The Vec3 position of the control point.
+         */
+        _proto.setConvergeControlPoint = function setConvergeControlPoint(point) {
+          this._convergeControlPoint = point.clone();
+        }
+
+        /**
+         * Gets the shared control point for converging animations.
+         * @returns The Vec3 position of the control point, or null if not set.
+         */;
+        _proto.getConvergeControlPoint = function getConvergeControlPoint() {
+          return this._convergeControlPoint;
+        }
+
+        /**
+         * Clears the shared control point.
+         */;
+        _proto.clearConvergeControlPoint = function clearConvergeControlPoint() {
+          this._convergeControlPoint = null;
+        };
+        _createClass(CoinAnimationManager, null, [{
+          key: "instance",
+          get: function get() {
+            if (!CoinAnimationManager._instance) {
+              CoinAnimationManager._instance = new CoinAnimationManager();
+            }
+            return CoinAnimationManager._instance;
+          }
+        }]);
+        return CoinAnimationManager;
+      }());
+      CoinAnimationManager._instance = null;
       cclegacy._RF.pop();
     }
   };
@@ -7166,9 +7253,9 @@ System.register("chunks:///_virtual/Logger.ts", ['cc'], function (exports) {
   };
 });
 
-System.register("chunks:///_virtual/main", ['./CheatComponent.ts', './ReelComponent.ts', './RevealWave.ts', './SlotMachineComponent.ts', './AnimationConfig.ts', './GameConfig.ts', './SlotMachineConfig.ts', './ResourceManagerExample.ts', './BaseModel.ts', './BaseService.ts', './BaseView.ts', './BaseViewModel.ts', './ServiceLocator.ts', './index2.ts', './ResourceManager.ts', './BuildingModel.ts', './CityModel.ts', './MainEventModel.ts', './PlayerModel.ts', './ResourceModel.ts', './SlotMachineModel.ts', './index.ts', './ConfigScene.ts', './PreviewDragonBone.ts', './AttackView.ts', './AttackViewModel.ts', './CityView.ts', './CityViewModel.ts', './LoadingView.ts', './LoadingViewModel.ts', './MainView.ts', './MainViewModel.ts', './RaidView.ts', './RaidViewModel.ts', './GameService.ts', './NetworkService.ts', './index3.ts', './SimpleCityModelTest.ts', './DebugPanel.ts', './Logger.ts', './SlotMachineUtils.ts', './StringUtils.ts'], function () {
+System.register("chunks:///_virtual/main", ['./CheatComponent.ts', './CoinAnimationManager.ts', './ReelComponent.ts', './RevealWave.ts', './RewardCoin.ts', './RewardFly.ts', './RewardUIIntegration.ts', './SlotMachineComponent.ts', './AnimationConfig.ts', './GameConfig.ts', './RewardAnimationConfig.ts', './SlotMachineConfig.ts', './ResourceManagerExample.ts', './RewardAnimationExample.ts', './BaseModel.ts', './BaseService.ts', './BaseView.ts', './BaseViewModel.ts', './ServiceLocator.ts', './index2.ts', './ResourceManager.ts', './BuildingModel.ts', './CityModel.ts', './MainEventModel.ts', './PlayerModel.ts', './ResourceModel.ts', './SlotMachineModel.ts', './index.ts', './ConfigScene.ts', './PreviewDragonBone.ts', './AttackView.ts', './AttackViewModel.ts', './CityView.ts', './CityViewModel.ts', './LoadingView.ts', './LoadingViewModel.ts', './MainView.ts', './MainViewModel.ts', './RaidView.ts', './RaidViewModel.ts', './GameService.ts', './NetworkService.ts', './index3.ts', './SimpleCityModelTest.ts', './DebugPanel.ts', './Logger.ts', './SlotMachineUtils.ts', './StringUtils.ts'], function () {
   return {
-    setters: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+    setters: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
     execute: function () {}
   };
 });
@@ -13358,6 +13445,1619 @@ System.register("chunks:///_virtual/RevealWave.ts", ['./rollupPluginModLoBabelHe
         writable: true,
         initializer: function initializer() {
           return 4.0;
+        }
+      })), _class2)) || _class));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/RewardAnimationConfig.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
+  var _extends, cclegacy, Vec3;
+  return {
+    setters: [function (module) {
+      _extends = module.extends;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      Vec3 = module.Vec3;
+    }],
+    execute: function () {
+      var _REWARD_ANIMATION_CON;
+      cclegacy._RF.push({}, "961c6vfF6NG8q4CqFXIMQr9", "RewardAnimationConfig", undefined);
+
+      /**
+       * Configuration interface for reward animations
+       */
+
+      /**
+       * Reward type definitions
+       */
+      var RewardType = exports('RewardType', /*#__PURE__*/function (RewardType) {
+        RewardType["GOLD"] = "gold";
+        RewardType["GEMS"] = "gems";
+        RewardType["COINS"] = "coins";
+        RewardType["EXPERIENCE"] = "experience";
+        RewardType["ENERGY"] = "energy";
+        RewardType["CUSTOM"] = "custom";
+        return RewardType;
+      }({}));
+
+      /**
+       * Predefined configurations for different reward types
+       */
+      var REWARD_ANIMATION_CONFIGS = exports('REWARD_ANIMATION_CONFIGS', (_REWARD_ANIMATION_CON = {}, _REWARD_ANIMATION_CON[RewardType.GOLD] = {
+        coinCount: 8,
+        spawnRadius: 100,
+        duration: 1.2,
+        spawnDelay: 0.05,
+        easing: 'sineOut',
+        useCurvedPath: true,
+        curveIntensity: 0.3,
+        scaleAnimation: true,
+        rotateAnimation: true,
+        initialScale: 1.0,
+        finalScale: 0.8,
+        spawnSoundEffect: 'gold_spawn',
+        collectSoundEffect: 'gold_collect'
+      }, _REWARD_ANIMATION_CON[RewardType.GEMS] = {
+        coinCount: 5,
+        spawnRadius: 80,
+        duration: 1.0,
+        spawnDelay: 0.08,
+        easing: 'backOut',
+        useCurvedPath: true,
+        curveIntensity: 0.4,
+        scaleAnimation: true,
+        rotateAnimation: false,
+        initialScale: 1.2,
+        finalScale: 0.6,
+        spawnSoundEffect: 'gem_spawn',
+        collectSoundEffect: 'gem_collect'
+      }, _REWARD_ANIMATION_CON[RewardType.COINS] = {
+        coinCount: 12,
+        spawnRadius: 120,
+        duration: 1.5,
+        spawnDelay: 0.03,
+        easing: 'quartOut',
+        useCurvedPath: false,
+        curveIntensity: 0.2,
+        scaleAnimation: false,
+        rotateAnimation: true,
+        initialScale: 0.8,
+        finalScale: 0.8,
+        spawnSoundEffect: 'coin_spawn',
+        collectSoundEffect: 'coin_collect'
+      }, _REWARD_ANIMATION_CON[RewardType.EXPERIENCE] = {
+        coinCount: 6,
+        spawnRadius: 90,
+        duration: 1.3,
+        spawnDelay: 0.06,
+        easing: 'cubicOut',
+        useCurvedPath: true,
+        curveIntensity: 0.25,
+        scaleAnimation: true,
+        rotateAnimation: false,
+        initialScale: 1.1,
+        finalScale: 0.7,
+        spawnSoundEffect: 'exp_spawn',
+        collectSoundEffect: 'exp_collect'
+      }, _REWARD_ANIMATION_CON[RewardType.ENERGY] = {
+        coinCount: 4,
+        spawnRadius: 70,
+        duration: 0.9,
+        spawnDelay: 0.1,
+        easing: 'bounceOut',
+        useCurvedPath: true,
+        curveIntensity: 0.5,
+        scaleAnimation: true,
+        rotateAnimation: false,
+        initialScale: 1.3,
+        finalScale: 0.5,
+        spawnSoundEffect: 'energy_spawn',
+        collectSoundEffect: 'energy_collect'
+      }, _REWARD_ANIMATION_CON[RewardType.CUSTOM] = {
+        coinCount: 5,
+        spawnRadius: 100,
+        duration: 1.0,
+        spawnDelay: 0.05,
+        easing: 'sineOut',
+        useCurvedPath: true,
+        curveIntensity: 0.3,
+        scaleAnimation: true,
+        rotateAnimation: true,
+        initialScale: 1.0,
+        finalScale: 0.8
+      }, _REWARD_ANIMATION_CON));
+
+      /**
+       * Animation event callbacks
+       */
+
+      /**
+       * Reward animation parameters
+       */
+
+      /**
+       * Utility functions for reward configuration
+       */
+      var RewardConfigUtils = exports('RewardConfigUtils', /*#__PURE__*/function () {
+        function RewardConfigUtils() {}
+        /**
+         * Get configuration for a specific reward type
+         */
+        RewardConfigUtils.getConfig = function getConfig(rewardType) {
+          return _extends({}, REWARD_ANIMATION_CONFIGS[rewardType]);
+        }
+
+        /**
+         * Create custom configuration by merging base config with overrides
+         */;
+        RewardConfigUtils.createCustomConfig = function createCustomConfig(baseType, overrides) {
+          var baseConfig = this.getConfig(baseType);
+          return _extends({}, baseConfig, overrides);
+        }
+
+        /**
+         * Scale coin count based on reward amount
+         */;
+        RewardConfigUtils.scaleCoinCount = function scaleCoinCount(baseCount, amount, scalingFactor) {
+          if (scalingFactor === void 0) {
+            scalingFactor = 0.1;
+          }
+          var scaledCount = Math.floor(baseCount + amount * scalingFactor);
+          return Math.min(scaledCount, baseCount * 3); // Cap at 3x base count
+        }
+
+        /**
+         * Calculate spawn positions in a circle
+         */;
+        RewardConfigUtils.calculateSpawnPositions = function calculateSpawnPositions(center, radius, count, randomness) {
+          if (randomness === void 0) {
+            randomness = 0.3;
+          }
+          var positions = [];
+          var angleStep = Math.PI * 2 / count;
+          for (var i = 0; i < count; i++) {
+            var baseAngle = i * angleStep;
+            var randomAngle = baseAngle + (Math.random() - 0.5) * randomness;
+            var randomRadius = radius * (0.5 + Math.random() * 0.5);
+            var x = center.x + Math.cos(randomAngle) * randomRadius;
+            var y = center.y + Math.sin(randomAngle) * randomRadius;
+            positions.push(new Vec3(x, y, center.z));
+          }
+          return positions;
+        }
+
+        /**
+         * Validate configuration parameters
+         */;
+        RewardConfigUtils.validateConfig = function validateConfig(config) {
+          return config.coinCount > 0 && config.spawnRadius >= 0 && config.duration > 0 && config.spawnDelay >= 0 && config.curveIntensity >= 0 && config.curveIntensity <= 1 && config.initialScale > 0 && config.finalScale > 0;
+        };
+        return RewardConfigUtils;
+      }());
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/RewardAnimationExample.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './RewardUIIntegration.ts', './RewardFly.ts', './RewardAnimationConfig.ts'], function (exports) {
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, cclegacy, _decorator, Prefab, Button, Node, Label, Vec3, log, Component, RewardUIIntegration, RewardFly, RewardType, RewardConfigUtils;
+  return {
+    setters: [function (module) {
+      _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
+      _inheritsLoose = module.inheritsLoose;
+      _initializerDefineProperty = module.initializerDefineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      Prefab = module.Prefab;
+      Button = module.Button;
+      Node = module.Node;
+      Label = module.Label;
+      Vec3 = module.Vec3;
+      log = module.log;
+      Component = module.Component;
+    }, function (module) {
+      RewardUIIntegration = module.RewardUIIntegration;
+    }, function (module) {
+      RewardFly = module.RewardFly;
+    }, function (module) {
+      RewardType = module.RewardType;
+      RewardConfigUtils = module.RewardConfigUtils;
+    }],
+    execute: function () {
+      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13;
+      cclegacy._RF.push({}, "3093d2sCGFFTqNOh4SMud6J", "RewardAnimationExample", undefined);
+      var ccclass = _decorator.ccclass,
+        property = _decorator.property;
+
+      /**
+       * Example component demonstrating how to use the reward animation system
+       */
+      var RewardAnimationExample = exports('RewardAnimationExample', (_dec = ccclass('RewardAnimationExample'), _dec2 = property(RewardUIIntegration), _dec3 = property(RewardFly), _dec4 = property(Prefab), _dec5 = property(Prefab), _dec6 = property(Button), _dec7 = property(Button), _dec8 = property(Button), _dec9 = property(Button), _dec10 = property(Button), _dec11 = property(Button), _dec12 = property(Button), _dec13 = property(Node), _dec14 = property(Label), _dec(_class = (_class2 = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(RewardAnimationExample, _Component);
+        function RewardAnimationExample() {
+          var _this;
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+          _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+          _initializerDefineProperty(_this, "rewardUIIntegration", _descriptor, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "rewardAnimationManager", _descriptor2, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "goldCoinPrefab", _descriptor3, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "gemPrefab", _descriptor4, _assertThisInitialized(_this));
+          // Test buttons
+          _initializerDefineProperty(_this, "goldRewardButton", _descriptor5, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "gemsRewardButton", _descriptor6, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "coinsRewardButton", _descriptor7, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "experienceRewardButton", _descriptor8, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "energyRewardButton", _descriptor9, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "customRewardButton", _descriptor10, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "multiRewardButton", _descriptor11, _assertThisInitialized(_this));
+          // Spawn position node
+          _initializerDefineProperty(_this, "spawnPoint", _descriptor12, _assertThisInitialized(_this));
+          // Status label
+          _initializerDefineProperty(_this, "statusLabel", _descriptor13, _assertThisInitialized(_this));
+          return _this;
+        }
+        var _proto = RewardAnimationExample.prototype;
+        _proto.onLoad = function onLoad() {
+          this._setupButtonListeners();
+          this._updateStatus('Ready to test reward animations');
+        };
+        _proto._setupButtonListeners = function _setupButtonListeners() {
+          if (this.goldRewardButton) {
+            this.goldRewardButton.node.on(Button.EventType.CLICK, this._onGoldRewardClick, this);
+          }
+          if (this.gemsRewardButton) {
+            this.gemsRewardButton.node.on(Button.EventType.CLICK, this._onGemsRewardClick, this);
+          }
+          if (this.coinsRewardButton) {
+            this.coinsRewardButton.node.on(Button.EventType.CLICK, this._onCoinsRewardClick, this);
+          }
+          if (this.experienceRewardButton) {
+            this.experienceRewardButton.node.on(Button.EventType.CLICK, this._onExperienceRewardClick, this);
+          }
+          if (this.energyRewardButton) {
+            this.energyRewardButton.node.on(Button.EventType.CLICK, this._onEnergyRewardClick, this);
+          }
+          if (this.customRewardButton) {
+            this.customRewardButton.node.on(Button.EventType.CLICK, this._onCustomRewardClick, this);
+          }
+          if (this.multiRewardButton) {
+            this.multiRewardButton.node.on(Button.EventType.CLICK, this._onMultiRewardClick, this);
+          }
+        };
+        _proto._getSpawnPosition = function _getSpawnPosition() {
+          return this.spawnPoint ? this.spawnPoint.getWorldPosition() : new Vec3(0, 0, 0);
+        };
+        _proto._updateStatus = function _updateStatus(message) {
+          log("RewardAnimationExample: " + message, this.statusLabel);
+          if (this.statusLabel) {
+            this.statusLabel.string = "Status: " + message;
+          }
+          console.log("RewardAnimationExample: " + message);
+        }
+
+        // Example 1: Basic gold reward
+        ;
+
+        _proto._onGoldRewardClick = function _onGoldRewardClick() {
+          var _this2 = this;
+          this._updateStatus('Playing gold reward animation...');
+          if (this.rewardUIIntegration) {
+            this.rewardUIIntegration.playGoldReward(100, this._getSpawnPosition(), function () {
+              _this2._updateStatus('Gold reward animation completed!');
+            });
+          }
+        }
+
+        // Example 2: Gems reward with different configuration
+        ;
+
+        _proto._onGemsRewardClick = function _onGemsRewardClick() {
+          var _this3 = this;
+          this._updateStatus('Playing gems reward animation...');
+          if (this.rewardUIIntegration) {
+            this.rewardUIIntegration.playGemsReward(50, this._getSpawnPosition(), function () {
+              _this3._updateStatus('Gems reward animation completed!');
+            });
+          }
+        }
+
+        // Example 3: Coins reward
+        ;
+
+        _proto._onCoinsRewardClick = function _onCoinsRewardClick() {
+          var _this4 = this;
+          this._updateStatus('Playing coins reward animation...');
+          if (this.rewardUIIntegration) {
+            this.rewardUIIntegration.playCoinsReward(200, this._getSpawnPosition(), function () {
+              _this4._updateStatus('Coins reward animation completed!');
+            });
+          }
+        }
+
+        // Example 4: Experience reward
+        ;
+
+        _proto._onExperienceRewardClick = function _onExperienceRewardClick() {
+          var _this5 = this;
+          this._updateStatus('Playing experience reward animation...');
+          if (this.rewardUIIntegration) {
+            this.rewardUIIntegration.playExperienceReward(75, this._getSpawnPosition(), function () {
+              _this5._updateStatus('Experience reward animation completed!');
+            });
+          }
+        }
+
+        // Example 5: Energy reward
+        ;
+
+        _proto._onEnergyRewardClick = function _onEnergyRewardClick() {
+          var _this6 = this;
+          this._updateStatus('Playing energy reward animation...');
+          if (this.rewardUIIntegration) {
+            this.rewardUIIntegration.playEnergyReward(25, this._getSpawnPosition(), function () {
+              _this6._updateStatus('Energy reward animation completed!');
+            });
+          }
+        }
+
+        // Example 6: Custom reward with modified configuration
+        ;
+
+        _proto._onCustomRewardClick = function _onCustomRewardClick() {
+          var _this7 = this;
+          this._updateStatus('Playing custom reward animation...');
+          if (this.rewardUIIntegration) {
+            var customParams = {
+              rewardType: RewardType.GOLD,
+              amount: 150,
+              spawnPosition: this._getSpawnPosition(),
+              targetPosition: new Vec3(),
+              // Will be set automatically
+              customConfig: {
+                coinCount: 15,
+                spawnRadius: 150,
+                duration: 2.0,
+                spawnDelay: 0.02,
+                easing: 'bounceOut',
+                useCurvedPath: true,
+                curveIntensity: 0.6,
+                scaleAnimation: true,
+                rotateAnimation: true
+              },
+              callbacks: {
+                onStart: function onStart() {
+                  _this7._updateStatus('Custom animation started!');
+                },
+                onCoinSpawn: function onCoinSpawn(coinIndex) {
+                  console.log("Coin " + (coinIndex + 1) + " spawned");
+                },
+                onCoinCollect: function onCoinCollect(coinIndex) {
+                  console.log("Coin " + (coinIndex + 1) + " collected");
+                },
+                onComplete: function onComplete(totalCoins) {
+                  _this7._updateStatus("Custom animation completed! Collected " + totalCoins + " coins.");
+                }
+              }
+            };
+            this.rewardUIIntegration.playRewardAnimation(customParams);
+          }
+        }
+
+        // Example 7: Multiple rewards in sequence
+        ;
+
+        _proto._onMultiRewardClick = function _onMultiRewardClick() {
+          var _this8 = this;
+          this._updateStatus('Playing multiple reward animations...');
+          if (this.rewardUIIntegration) {
+            // Play gold reward first
+            this.rewardUIIntegration.playGoldReward(50, this._getSpawnPosition(), function () {
+              // Then play gems reward
+              _this8.scheduleOnce(function () {
+                _this8.rewardUIIntegration.playGemsReward(25, _this8._getSpawnPosition(), function () {
+                  // Finally play experience reward
+                  _this8.scheduleOnce(function () {
+                    _this8.rewardUIIntegration.playExperienceReward(100, _this8._getSpawnPosition(), function () {
+                      _this8._updateStatus('All reward animations completed!');
+                    });
+                  }, 0.5);
+                });
+              }, 0.5);
+            });
+          }
+        }
+
+        // Example 8: Direct animation manager usage (without UI integration)
+        ;
+
+        _proto.playDirectAnimation = function playDirectAnimation() {
+          var _this9 = this;
+          if (!this.rewardAnimationManager) return;
+          this._updateStatus('Playing direct animation...');
+          var spawnPos = this._getSpawnPosition();
+          var targetPos = new Vec3(200, 200, 0); // Fixed target position
+
+          this.rewardAnimationManager.playRewardAnimation('gold', 100, spawnPos, targetPos, {
+            coinCount: 10,
+            duration: 1.5,
+            useCurvedPath: true
+          }, function (collectedCoins) {
+            _this9._updateStatus("Direct animation completed! " + collectedCoins + " coins collected.");
+          });
+        }
+
+        // Example 9: Configuration testing
+        ;
+
+        _proto.testConfigurations = function testConfigurations() {
+          this._updateStatus('Testing configuration utilities...');
+
+          // Test configuration retrieval
+          var goldConfig = RewardConfigUtils.getConfig(RewardType.GOLD);
+          console.log('Gold config:', goldConfig);
+
+          // Test custom configuration creation
+          var customConfig = RewardConfigUtils.createCustomConfig(RewardType.GEMS, {
+            coinCount: 20,
+            duration: 3.0,
+            spawnRadius: 200
+          });
+          console.log('Custom config:', customConfig);
+
+          // Test coin count scaling
+          var scaledCount = RewardConfigUtils.scaleCoinCount(8, 500, 0.05);
+          console.log('Scaled coin count:', scaledCount);
+
+          // Test spawn position calculation
+          var spawnPositions = RewardConfigUtils.calculateSpawnPositions(new Vec3(0, 0, 0), 100, 8, 0.3);
+          console.log('Spawn positions:', spawnPositions);
+
+          // Test configuration validation
+          var isValid = RewardConfigUtils.validateConfig(goldConfig);
+          console.log('Config is valid:', isValid);
+          this._updateStatus('Configuration testing completed! Check console for details.');
+        }
+
+        // Example 10: Stress test with many simultaneous animations
+        ;
+
+        _proto.stressTest = function stressTest() {
+          var _this10 = this;
+          this._updateStatus('Running stress test...');
+          if (!this.rewardUIIntegration) return;
+          var rewardTypes = [RewardType.GOLD, RewardType.GEMS, RewardType.COINS, RewardType.EXPERIENCE, RewardType.ENERGY];
+          var completedAnimations = 0;
+          var totalAnimations = rewardTypes.length * 3; // 3 animations per type
+
+          rewardTypes.forEach(function (rewardType, typeIndex) {
+            for (var i = 0; i < 3; i++) {
+              _this10.scheduleOnce(function () {
+                var spawnOffset = new Vec3((Math.random() - 0.5) * 200, (Math.random() - 0.5) * 200, 0);
+                var spawnPos = Vec3.add(new Vec3(), _this10._getSpawnPosition(), spawnOffset);
+                var params = {
+                  rewardType: rewardType,
+                  amount: 50,
+                  spawnPosition: spawnPos,
+                  targetPosition: new Vec3(),
+                  callbacks: {
+                    onComplete: function onComplete() {
+                      completedAnimations++;
+                      if (completedAnimations >= totalAnimations) {
+                        _this10._updateStatus("Stress test completed! " + totalAnimations + " animations finished.");
+                      }
+                    }
+                  }
+                };
+                _this10.rewardUIIntegration.playRewardAnimation(params);
+              }, typeIndex * 0.2 + i * 0.1);
+            }
+          });
+        };
+        return RewardAnimationExample;
+      }(Component), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "rewardUIIntegration", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "rewardAnimationManager", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "goldCoinPrefab", [_dec4], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "gemPrefab", [_dec5], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "goldRewardButton", [_dec6], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "gemsRewardButton", [_dec7], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, "coinsRewardButton", [_dec8], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, "experienceRewardButton", [_dec9], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, "energyRewardButton", [_dec10], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, "customRewardButton", [_dec11], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, "multiRewardButton", [_dec12], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor12 = _applyDecoratedDescriptor(_class2.prototype, "spawnPoint", [_dec13], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor13 = _applyDecoratedDescriptor(_class2.prototype, "statusLabel", [_dec14], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      })), _class2)) || _class));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/RewardCoin.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './CoinAnimationManager.ts'], function (exports) {
+  var _inheritsLoose, cclegacy, _decorator, Vec3, tween, Component, CoinAnimationManager;
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      Vec3 = module.Vec3;
+      tween = module.tween;
+      Component = module.Component;
+    }, function (module) {
+      CoinAnimationManager = module.CoinAnimationManager;
+    }],
+    execute: function () {
+      var _dec, _class;
+      cclegacy._RF.push({}, "e4060RmJ9FJfqGHU7A1Eodh", "RewardCoin", undefined);
+      var ccclass = _decorator.ccclass,
+        property = _decorator.property;
+
+      /**
+       * Individual reward coin component
+       */
+      var RewardCoin = exports('RewardCoin', (_dec = ccclass('RewardCoin'), _dec(_class = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(RewardCoin, _Component);
+        function RewardCoin() {
+          var _this;
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+          _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+          _this._isAnimating = false;
+          _this._currentTween = null;
+          return _this;
+        }
+        var _proto = RewardCoin.prototype;
+        /**
+         * Animate this coin to target position
+         */
+        _proto.animateToTarget = function animateToTarget(targetPos, config, delay, onComplete) {
+          var _this2 = this;
+          if (delay === void 0) {
+            delay = 0;
+          }
+          if (this._isAnimating) return;
+          this._isAnimating = true;
+          var startPos = this.node.position.clone();
+
+          // Calculate curve control point if using curved path
+          var controlPoint = null;
+          if (config.useCurvedPath) {
+            controlPoint = CoinAnimationManager.instance.getConvergeControlPoint();
+            if (!controlPoint) {
+              var midPoint = Vec3.lerp(new Vec3(), startPos, targetPos, 0.5);
+              var perpendicular = Vec3.cross(new Vec3(), Vec3.subtract(new Vec3(), targetPos, startPos), new Vec3(0, 0, 1)).normalize();
+
+              // Adjust curve direction based on config
+              var curveDirection = config.curveDirection || 'auto';
+              if (curveDirection === 'counterClockwise') {
+                Vec3.multiplyScalar(perpendicular, perpendicular, -1);
+              } else if (curveDirection === 'auto') {
+                if (startPos.x > targetPos.x) {
+                  Vec3.multiplyScalar(perpendicular, perpendicular, -1);
+                }
+              }
+              controlPoint = Vec3.add(new Vec3(), midPoint, Vec3.multiplyScalar(new Vec3(), perpendicular, config.spawnRadius * config.curveIntensity));
+              CoinAnimationManager.instance.setConvergeControlPoint(controlPoint);
+            }
+          }
+
+          // Start animation after delay
+          this.scheduleOnce(function () {
+            _this2._startAnimation(startPos, targetPos, controlPoint, config, onComplete);
+          }, delay);
+        }
+
+        /**
+         * Phase 1 & 2: Burst outward and pause.
+         * @param burstTargetPos - The position to burst to.
+         * @param config - Animation configuration.
+         * @param onBurstComplete - Callback when burst and pause are finished.
+         */;
+        _proto.burstAndPause = function burstAndPause(burstTargetPos, config, onBurstComplete) {
+          var _this3 = this;
+          if (this._isAnimating) return;
+          this._isAnimating = true;
+          var burstDuration = config.duration * config.burstDurationRate;
+          var pauseDuration = 0.001;
+
+          // Phase 1: Burst outward
+          this._currentTween = tween(this.node).to(0, {
+            position: burstTargetPos
+          }, {
+            easing: 'expoOut'
+          }).call(function () {
+            // Phase 2: Pause
+            _this3.scheduleOnce(function () {
+              if (onBurstComplete) {
+                onBurstComplete();
+              }
+            }, pauseDuration);
+          }).start();
+
+          // Burst scale and rotation animations
+          if (config.scaleAnimation) {
+            this.node.scale = new Vec3(config.scaleInitial, config.scaleInitial, config.scaleInitial);
+            tween(this.node).to(burstDuration * 0.5, {
+              scale: new Vec3(1.5, 1.5, 1.5)
+            }, {
+              easing: 'sineOut'
+            }).to(burstDuration * 0.5, {
+              scale: new Vec3(1.0, 1.0, 1.0)
+            }, {
+              easing: 'sineIn'
+            }).start();
+          }
+          if (config.rotateAnimation) {
+            var burstRotations = Math.floor(burstDuration * 4);
+            tween(this.node).by(burstDuration, {
+              eulerAngles: new Vec3(0, 0, 360 * burstRotations)
+            }, {
+              easing: 'linear'
+            }).start();
+          }
+        }
+
+        /**
+         * Phase 3: Fly from burst position to the final target.
+         * @param targetPos - The final target position.
+         * @param config - Animation configuration.
+         * @param onComplete - Callback when collection is finished.
+         */;
+        _proto.collect = function collect(targetPos, config, onComplete) {
+          var fromPos = this.node.position.clone();
+          var collectDuration = config.duration * config.collectDurationRate;
+          this._startCollectionPhase(fromPos, targetPos, config, collectDuration, onComplete);
+        };
+        _proto._startAnimation = function _startAnimation(startPos, targetPos, controlPoint, config, onComplete) {
+          var _this4 = this;
+          var duration = config.duration;
+
+          // Create main position tween
+          if (config.useCurvedPath && controlPoint) {
+            // Bezier curve animation using custom progress
+            var progress = {
+              value: 0
+            };
+            this._currentTween = tween(progress).to(duration, {
+              value: 1
+            }, {
+              easing: config.easing,
+              onUpdate: function onUpdate() {
+                var pos = _this4._calculateBezierPoint(startPos, controlPoint, targetPos, progress.value);
+                _this4.node.setPosition(pos);
+              }
+            }).call(function () {
+              return _this4._onAnimationComplete(onComplete);
+            }).start();
+          } else {
+            // Linear animation
+            this._currentTween = tween(this.node).to(duration, {
+              position: targetPos
+            }, {
+              easing: config.easing
+            }).call(function () {
+              return _this4._onAnimationComplete(onComplete);
+            }).start();
+          }
+
+          // Add scale animation if enabled
+          if (config.scaleAnimation) {
+            tween(this.node).to(duration * 0.3, {
+              scale: new Vec3(1.2, 1.2, 1.2)
+            }, {
+              easing: 'sineOut'
+            }).to(duration * 0.7, {
+              scale: new Vec3(0.8, 0.8, 0.8)
+            }, {
+              easing: 'sineIn'
+            }).start();
+          }
+
+          // Add rotation animation if enabled
+          if (config.rotateAnimation) {
+            var rotations = Math.floor(duration * 2); // 2 rotations per second
+            tween(this.node).by(duration, {
+              eulerAngles: new Vec3(0, 0, 360 * rotations)
+            }, {
+              easing: 'linear'
+            }).start();
+          }
+        }
+
+        /**
+         * Phase 3: Collection phase - fly from scattered position to target
+         */;
+        _proto._startCollectionPhase = function _startCollectionPhase(fromPos, targetPos, config, duration, onComplete) {
+          var _this5 = this;
+          // Use a shared control point for the collection phase to make paths converge
+          var controlPoint = CoinAnimationManager.instance.getConvergeControlPoint();
+          if (!controlPoint) {
+            // If no control point is set, calculate one and set it as the shared point
+            var midPoint = Vec3.lerp(new Vec3(), fromPos, targetPos, 0.1);
+            var direction = Vec3.subtract(new Vec3(), targetPos, fromPos);
+            var perpendicular = Vec3.cross(new Vec3(), direction, new Vec3(0, 0, 1)).normalize();
+
+            // Adjust curve direction based on config
+            var curveDirection = config.curveDirection || 'auto';
+            if (curveDirection === 'counterClockwise') {
+              Vec3.multiplyScalar(perpendicular, perpendicular, -1);
+            } else if (curveDirection === 'auto') {
+              if (fromPos.x > targetPos.x) {
+                Vec3.multiplyScalar(perpendicular, perpendicular, -1);
+              }
+            }
+            controlPoint = Vec3.add(new Vec3(), midPoint, Vec3.multiplyScalar(new Vec3(), perpendicular, config.spawnRadius * config.curveIntensity * 0.7));
+            CoinAnimationManager.instance.setConvergeControlPoint(controlPoint);
+          }
+
+          // Animate along the bezier curve with a 'backIn' easing for a sucking-in effect
+          var progress = {
+            value: 0
+          };
+          this._currentTween = tween(progress).to(duration, {
+            value: 1
+          }, {
+            easing: 'backIn',
+            // Use 'sineIn' for a smoother acceleration
+            onUpdate: function onUpdate() {
+              var pos = _this5._calculateBezierPoint(fromPos, controlPoint, targetPos, progress.value);
+              _this5.node.setPosition(pos);
+            }
+          }).call(function () {
+            return _this5._onAnimationComplete(onComplete);
+          }).start();
+
+          // Add collection phase scale animation
+          if (config.scaleAnimation) {
+            tween(this.node).to(duration * 0.3, {
+              scale: new Vec3(1.1, 1.1, 1.1)
+            }, {
+              easing: 'sineOut'
+            }).to(duration * 0.7, {
+              scale: new Vec3(0.8, 0.8, 0.8)
+            }, {
+              easing: 'sineIn'
+            }).start();
+          }
+
+          // Add collection rotation if enabled
+          if (config.rotateAnimation) {
+            var collectRotations = Math.floor(duration * 2); // Normal rotation speed
+            tween(this.node).by(duration, {
+              eulerAngles: new Vec3(0, 0, 360 * collectRotations)
+            }, {
+              easing: 'linear'
+            }).start();
+          }
+        };
+        _proto._calculateBezierPoint = function _calculateBezierPoint(p0, p1, p2, t) {
+          var u = 1 - t;
+          var tt = t * t;
+          var uu = u * u;
+          var result = new Vec3();
+          Vec3.multiplyScalar(result, p0, uu);
+          Vec3.add(result, result, Vec3.multiplyScalar(new Vec3(), p1, 2 * u * t));
+          Vec3.add(result, result, Vec3.multiplyScalar(new Vec3(), p2, tt));
+          return result;
+        };
+        _proto._onAnimationComplete = function _onAnimationComplete(onComplete) {
+          this._isAnimating = false;
+          this._currentTween = null;
+          if (onComplete) {
+            onComplete();
+          }
+
+          // Destroy the coin node
+          this.node.destroy();
+        };
+        _proto.stopAnimation = function stopAnimation() {
+          if (this._currentTween) {
+            this._currentTween.stop();
+            this._currentTween = null;
+          }
+          this._isAnimating = false;
+        };
+        _proto.onDestroy = function onDestroy() {
+          this.stopAnimation();
+        };
+        return RewardCoin;
+      }(Component)) || _class));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/RewardFly.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './CoinAnimationManager.ts', './RewardCoin.ts'], function (exports) {
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _extends, cclegacy, _decorator, Prefab, Node, log, Vec3, UITransform, instantiate, Component, CoinAnimationManager, RewardCoin;
+  return {
+    setters: [function (module) {
+      _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
+      _inheritsLoose = module.inheritsLoose;
+      _initializerDefineProperty = module.initializerDefineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+      _extends = module.extends;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      Prefab = module.Prefab;
+      Node = module.Node;
+      log = module.log;
+      Vec3 = module.Vec3;
+      UITransform = module.UITransform;
+      instantiate = module.instantiate;
+      Component = module.Component;
+    }, function (module) {
+      CoinAnimationManager = module.CoinAnimationManager;
+    }, function (module) {
+      RewardCoin = module.RewardCoin;
+    }],
+    execute: function () {
+      var _dec, _dec2, _dec3, _class, _class2, _descriptor, _descriptor2;
+      cclegacy._RF.push({}, "9c70854+pNIk79Ud2Jcr0FH", "RewardFly", undefined);
+      var ccclass = _decorator.ccclass,
+        property = _decorator.property;
+
+      /**
+       * Configuration for reward animation
+       */
+
+      /**
+       * Default configuration for different reward types
+       */
+      var REWARD_CONFIGS = exports('REWARD_CONFIGS', {
+        gold: {
+          coinCount: 20,
+          spawnRadius: 100,
+          duration: 1.5,
+          burstDurationRate: 0.2,
+          collectDurationRate: 0.8,
+          spawnDelay: 0.02,
+          collectionDelay: 0.02,
+          easing: 'sineOut',
+          useCurvedPath: true,
+          curveIntensity: 4,
+          scaleAnimation: true,
+          scaleInitial: 0.01,
+          rotateAnimation: false,
+          curveDirection: 'auto'
+        },
+        gems: {
+          coinCount: 5,
+          spawnRadius: 80,
+          duration: 1.0,
+          spawnDelay: 0.08,
+          collectionDelay: 0.08,
+          easing: 'backOut',
+          useCurvedPath: true,
+          curveIntensity: 0.4,
+          scaleAnimation: true,
+          rotateAnimation: false,
+          curveDirection: 'auto'
+        },
+        coins: {
+          coinCount: 12,
+          spawnRadius: 120,
+          duration: 1.5,
+          spawnDelay: 0.03,
+          collectionDelay: 0.04,
+          easing: 'quartOut',
+          useCurvedPath: false,
+          curveIntensity: 0.2,
+          scaleAnimation: false,
+          rotateAnimation: true,
+          curveDirection: 'auto'
+        }
+      });
+
+      /**
+       * Main reward animation manager component
+       */
+      var RewardFly = exports('RewardFly', (_dec = ccclass('RewardFly'), _dec2 = property(Prefab), _dec3 = property(Node), _dec(_class = (_class2 = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(RewardFly, _Component);
+        function RewardFly() {
+          var _this;
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+          _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+          _initializerDefineProperty(_this, "rewardPrefab", _descriptor, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "targetNode", _descriptor2, _assertThisInitialized(_this));
+          _this._activeAnimations = [];
+          return _this;
+        }
+        var _proto = RewardFly.prototype;
+        /**
+         * Play reward animation with specified configuration
+         */
+        _proto.playRewardAnimation = function playRewardAnimation(rewardType, amount, spawnPosition, targetPosition, customConfig, onComplete) {
+          var _this$node$getCompone, _this$node$getCompone2;
+          // Clear any previous converge control points
+          CoinAnimationManager.instance.clearConvergeControlPoint();
+          log("playRewardAnimation", rewardType, amount, spawnPosition, targetPosition, customConfig, onComplete);
+          // Get configuration for reward type
+          var config = REWARD_CONFIGS[rewardType] || REWARD_CONFIGS.gold;
+
+          // Apply custom configuration overrides
+          if (customConfig) {
+            config = _extends({}, config, customConfig);
+          }
+
+          // Scale coin count based on amount (optional)
+          var scaledCoinCount = Math.min(config.coinCount, Math.max(3, Math.floor(amount / 10)));
+          // config = { ...config, coinCount: scaledCoinCount };
+
+          // Use target node position if no target position specified
+          var finalTargetPos = targetPosition || (this.targetNode ? this.targetNode.getWorldPosition() : new Vec3());
+
+          // Convert world position to local position if needed
+          var localTargetPos = ((_this$node$getCompone = this.node.getComponent(UITransform)) == null ? void 0 : _this$node$getCompone.convertToNodeSpaceAR(finalTargetPos)) || finalTargetPos;
+          var localSpawnPos = ((_this$node$getCompone2 = this.node.getComponent(UITransform)) == null ? void 0 : _this$node$getCompone2.convertToNodeSpaceAR(spawnPosition)) || spawnPosition;
+          log("checkkzz", localSpawnPos, localTargetPos);
+          this._spawnAndAnimateCoins(localSpawnPos, localTargetPos, config, onComplete);
+        }
+
+        /**
+         * Play reward animation for specific reward types with predefined settings
+         */;
+        _proto.playGoldReward = function playGoldReward(amount, spawnPos, onComplete) {
+          this.playRewardAnimation('gold', amount, spawnPos, undefined, undefined, onComplete);
+        };
+        _proto.playGemReward = function playGemReward(amount, spawnPos, onComplete) {
+          this.playRewardAnimation('gems', amount, spawnPos, undefined, undefined, onComplete);
+        };
+        _proto.playCoinReward = function playCoinReward(amount, spawnPos, onComplete) {
+          this.playRewardAnimation('coins', amount, spawnPos, undefined, undefined, onComplete);
+        };
+        _proto._spawnAndAnimateCoins = function _spawnAndAnimateCoins(spawnPos, targetPos, config, onComplete) {
+          var _this2 = this;
+          if (!this.rewardPrefab) {
+            console.error('RewardFly: No reward prefab assigned!');
+            return;
+          }
+          var coins = [];
+          var burstDirections = this._generateBurstDirections(config.coinCount);
+
+          // --- Phase 2: Sequential Collection ---
+          // This will be called after all coins have completed their burst and pause.
+          var burstCompletedCount = 0;
+          var onBurstComplete = function onBurstComplete() {
+            burstCompletedCount++;
+            if (burstCompletedCount === config.coinCount) {
+              _this2._startSequentialCollection(coins, targetPos, config, onComplete);
+            }
+          };
+
+          // --- Phase 1: Sequential Burst ---
+          // Spawn and burst coins one by one with a delay.
+          var _loop = function _loop(i) {
+            _this2.scheduleOnce(function () {
+              var coin = _this2._spawnSingleCoin(spawnPos);
+              coins.push(coin);
+              var burstDirection = burstDirections[i];
+              var randomDistanceFactor = Math.random();
+              var burstDistance = config.spawnRadius * randomDistanceFactor;
+              var burstTargetPos = Vec3.add(new Vec3(), spawnPos, Vec3.multiplyScalar(new Vec3(), burstDirection, burstDistance));
+              coin.burstAndPause(burstTargetPos, config, onBurstComplete);
+            }, i * config.spawnDelay);
+          };
+          for (var i = 0; i < config.coinCount; i++) {
+            _loop(i);
+          }
+        };
+        _proto._spawnSingleCoin = function _spawnSingleCoin(spawnPos) {
+          log("_spawnSingleCoin", spawnPos);
+          // Create coin instance
+          var coinNode = instantiate(this.rewardPrefab);
+          this.node.addChild(coinNode);
+
+          // Set coin position to central spawn position (all coins start from same point)
+          coinNode.setPosition(spawnPos);
+
+          // Add RewardCoin component if not present
+          var rewardCoin = coinNode.getComponent(RewardCoin);
+          if (!rewardCoin) {
+            rewardCoin = coinNode.addComponent(RewardCoin);
+          }
+
+          // Track active animation
+          this._activeAnimations.push(rewardCoin);
+          return rewardCoin;
+        };
+        _proto._startSequentialCollection = function _startSequentialCollection(coins, targetPos, config, onComplete) {
+          var _this3 = this;
+          // Sort coins by distance to the target (closest first)
+          coins.sort(function (a, b) {
+            // const distA = Vec3.distance(a.node.position, targetPos);
+            // const distB = Vec3.distance(b.node.position, targetPos);
+            var distA = targetPos.y - a.node.position.y;
+            var distB = targetPos.y - b.node.position.y;
+            return distA - distB;
+          });
+          var completedCoins = 0;
+          var totalCoins = coins.length;
+
+          // Start collection animation for each coin with a delay
+          coins.forEach(function (coin, index) {
+            _this3.scheduleOnce(function () {
+              coin.collect(targetPos, config, function () {
+                completedCoins++;
+                // Remove from active animations
+                var animIndex = _this3._activeAnimations.indexOf(coin);
+                if (animIndex > -1) {
+                  _this3._activeAnimations.splice(animIndex, 1);
+                }
+                if (completedCoins === totalCoins && onComplete) {
+                  onComplete(totalCoins);
+                }
+              });
+            }, index * config.collectionDelay);
+          });
+        }
+
+        /**
+         * Generate burst directions for all coins to create scattered explosion effect
+         */;
+        _proto._generateBurstDirections = function _generateBurstDirections(coinCount) {
+          var directions = [];
+          var ovalShapeFactorX = 0.9; // Stretch horizontally to create an oval
+          var ovalShapeFactorY = 1.1; // Compress vertically
+
+          for (var i = 0; i < coinCount; i++) {
+            // Distribute coins evenly around a circle with more randomness
+            var baseAngle = i / coinCount * Math.PI * 2;
+            var randomOffset = (Math.random() - 0.5) * 1.2; // Increased randomness to ±60%
+            var finalAngle = baseAngle + randomOffset;
+
+            // Create a direction vector and apply the oval shape factors
+            var direction = new Vec3(Math.cos(finalAngle) * ovalShapeFactorX, Math.sin(finalAngle) * ovalShapeFactorY, 0);
+
+            // Normalize the vector to ensure it's a direction
+            direction.normalize();
+            directions.push(direction);
+          }
+          return directions;
+        }
+
+        /**
+         * Stop all active reward animations
+         */;
+        _proto.stopAllAnimations = function stopAllAnimations() {
+          this._activeAnimations.forEach(function (coin) {
+            if (coin && coin.node && coin.node.isValid) {
+              coin.node.destroy();
+            }
+          });
+          this._activeAnimations = [];
+        };
+        _proto.onDestroy = function onDestroy() {
+          this.stopAllAnimations();
+        };
+        return RewardFly;
+      }(Component), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "rewardPrefab", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "targetNode", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      })), _class2)) || _class));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/RewardUIIntegration.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './RewardFly.ts', './RewardAnimationConfig.ts'], function (exports) {
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _extends, cclegacy, _decorator, Camera, Node, find, Label, log, Vec3, UITransform, Component, RewardFly, RewardType;
+  return {
+    setters: [function (module) {
+      _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
+      _inheritsLoose = module.inheritsLoose;
+      _initializerDefineProperty = module.initializerDefineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+      _extends = module.extends;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      Camera = module.Camera;
+      Node = module.Node;
+      find = module.find;
+      Label = module.Label;
+      log = module.log;
+      Vec3 = module.Vec3;
+      UITransform = module.UITransform;
+      Component = module.Component;
+    }, function (module) {
+      RewardFly = module.RewardFly;
+    }, function (module) {
+      RewardType = module.RewardType;
+    }],
+    execute: function () {
+      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12;
+      cclegacy._RF.push({}, "d5d0aw82QtFobQ4FYFCZ410", "RewardUIIntegration", undefined);
+      var ccclass = _decorator.ccclass,
+        property = _decorator.property;
+
+      /**
+       * UI element configuration for reward targets
+       */
+
+      /**
+       * Component that integrates reward animations with UI elements
+       */
+      var RewardUIIntegration = exports('RewardUIIntegration', (_dec = ccclass('RewardUIIntegration'), _dec2 = property(RewardFly), _dec3 = property(Camera), _dec4 = property({
+        type: Node,
+        tooltip: "Gold UI target (wallet icon)"
+      }), _dec5 = property({
+        type: Node,
+        tooltip: "Gold count label"
+      }), _dec6 = property({
+        type: Node,
+        tooltip: "Gems UI target"
+      }), _dec7 = property({
+        type: Node,
+        tooltip: "Gems count label"
+      }), _dec8 = property({
+        type: Node,
+        tooltip: "Coins UI target"
+      }), _dec9 = property({
+        type: Node,
+        tooltip: "Coins count label"
+      }), _dec10 = property({
+        type: Node,
+        tooltip: "Experience UI target"
+      }), _dec11 = property({
+        type: Node,
+        tooltip: "Experience count label"
+      }), _dec12 = property({
+        type: Node,
+        tooltip: "Energy UI target"
+      }), _dec13 = property({
+        type: Node,
+        tooltip: "Energy count label"
+      }), _dec(_class = (_class2 = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(RewardUIIntegration, _Component);
+        function RewardUIIntegration() {
+          var _this;
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+          _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+          _initializerDefineProperty(_this, "rewardAnimationManager", _descriptor, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "uiCamera", _descriptor2, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "goldTarget", _descriptor3, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "goldCountLabel", _descriptor4, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "gemsTarget", _descriptor5, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "gemsCountLabel", _descriptor6, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "coinsTarget", _descriptor7, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "coinsCountLabel", _descriptor8, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "experienceTarget", _descriptor9, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "experienceCountLabel", _descriptor10, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "energyTarget", _descriptor11, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "energyCountLabel", _descriptor12, _assertThisInitialized(_this));
+          _this._rewardTargets = new Map();
+          _this._pendingUpdates = new Map();
+          return _this;
+        }
+        var _proto = RewardUIIntegration.prototype;
+        _proto.onLoad = function onLoad() {
+          this._initializeRewardTargets();
+
+          // Find UI camera if not assigned
+          if (!this.uiCamera) {
+            var cameraNode = find('Canvas/Camera') || find('Camera');
+            if (cameraNode) {
+              this.uiCamera = cameraNode.getComponent(Camera);
+            }
+          }
+        };
+        _proto._initializeRewardTargets = function _initializeRewardTargets() {
+          // Initialize reward targets map
+          if (this.goldTarget) {
+            this._rewardTargets.set(RewardType.GOLD, {
+              targetNode: this.goldTarget,
+              countLabel: this.goldCountLabel,
+              currentValue: this._getCurrentLabelValue(this.goldCountLabel),
+              animateValueUpdate: true
+            });
+          }
+          if (this.gemsTarget) {
+            this._rewardTargets.set(RewardType.GEMS, {
+              targetNode: this.gemsTarget,
+              countLabel: this.gemsCountLabel,
+              currentValue: this._getCurrentLabelValue(this.gemsCountLabel),
+              animateValueUpdate: true
+            });
+          }
+          if (this.coinsTarget) {
+            this._rewardTargets.set(RewardType.COINS, {
+              targetNode: this.coinsTarget,
+              countLabel: this.coinsCountLabel,
+              currentValue: this._getCurrentLabelValue(this.coinsCountLabel),
+              animateValueUpdate: true
+            });
+          }
+          if (this.experienceTarget) {
+            this._rewardTargets.set(RewardType.EXPERIENCE, {
+              targetNode: this.experienceTarget,
+              countLabel: this.experienceCountLabel,
+              currentValue: this._getCurrentLabelValue(this.experienceCountLabel),
+              animateValueUpdate: true
+            });
+          }
+          if (this.energyTarget) {
+            this._rewardTargets.set(RewardType.ENERGY, {
+              targetNode: this.energyTarget,
+              countLabel: this.energyCountLabel,
+              currentValue: this._getCurrentLabelValue(this.energyCountLabel),
+              animateValueUpdate: true
+            });
+          }
+        };
+        _proto._getCurrentLabelValue = function _getCurrentLabelValue(labelNode) {
+          if (!labelNode) return 0;
+          var label = labelNode.getComponent(Label);
+          if (!label) return 0;
+          var text = label.string;
+          var match = text.match(/\d+/);
+          return match ? parseInt(match[0]) : 0;
+        }
+
+        /**
+         * Play reward animation with automatic UI integration
+         */;
+        _proto.playRewardAnimation = function playRewardAnimation(params) {
+          var _this2 = this,
+            _updatedParams$callba;
+          if (!this.rewardAnimationManager) {
+            console.error('RewardUIIntegration: No reward animation manager assigned!');
+            return;
+          }
+          var target = this._rewardTargets.get(params.rewardType);
+          if (!target) {
+            console.error("RewardUIIntegration: No UI target configured for reward type: " + params.rewardType);
+            return;
+          }
+
+          // Get target position from UI element
+          var targetWorldPos = this._getUIElementWorldPosition(target.targetNode);
+          log('RewardUIIntegration: Getting target world position...', target.targetNode);
+          if (!targetWorldPos) {
+            console.error('RewardUIIntegration: Could not get target world position');
+            return;
+          }
+
+          // Update parameters with target position
+          var updatedParams = _extends({}, params, {
+            targetPosition: targetWorldPos,
+            callbacks: _extends({}, params.callbacks, {
+              onComplete: function onComplete(totalCoins) {
+                var _params$callbacks;
+                _this2._updateRewardValue(params.rewardType, params.amount);
+                if ((_params$callbacks = params.callbacks) != null && _params$callbacks.onComplete) {
+                  params.callbacks.onComplete(totalCoins);
+                }
+              }
+            })
+          });
+
+          // Start animation
+          this.rewardAnimationManager.playRewardAnimation(updatedParams.rewardType, updatedParams.amount, updatedParams.spawnPosition, updatedParams.targetPosition, updatedParams.customConfig, (_updatedParams$callba = updatedParams.callbacks) == null ? void 0 : _updatedParams$callba.onComplete);
+        }
+
+        /**
+         * Convenience methods for specific reward types
+         */;
+        _proto.playGoldReward = function playGoldReward(amount, spawnPos, _onComplete) {
+          this.playRewardAnimation({
+            rewardType: RewardType.GOLD,
+            amount: amount,
+            spawnPosition: spawnPos,
+            targetPosition: new Vec3(),
+            // Will be set automatically
+            callbacks: {
+              onComplete: function onComplete() {
+                return _onComplete == null ? void 0 : _onComplete();
+              }
+            }
+          });
+        };
+        _proto.playGemsReward = function playGemsReward(amount, spawnPos, _onComplete2) {
+          this.playRewardAnimation({
+            rewardType: RewardType.GEMS,
+            amount: amount,
+            spawnPosition: spawnPos,
+            targetPosition: new Vec3(),
+            // Will be set automatically
+            callbacks: {
+              onComplete: function onComplete() {
+                return _onComplete2 == null ? void 0 : _onComplete2();
+              }
+            }
+          });
+        };
+        _proto.playCoinsReward = function playCoinsReward(amount, spawnPos, _onComplete3) {
+          this.playRewardAnimation({
+            rewardType: RewardType.COINS,
+            amount: amount,
+            spawnPosition: spawnPos,
+            targetPosition: new Vec3(),
+            // Will be set automatically
+            callbacks: {
+              onComplete: function onComplete() {
+                return _onComplete3 == null ? void 0 : _onComplete3();
+              }
+            }
+          });
+        };
+        _proto.playExperienceReward = function playExperienceReward(amount, spawnPos, _onComplete4) {
+          this.playRewardAnimation({
+            rewardType: RewardType.EXPERIENCE,
+            amount: amount,
+            spawnPosition: spawnPos,
+            targetPosition: new Vec3(),
+            // Will be set automatically
+            callbacks: {
+              onComplete: function onComplete() {
+                return _onComplete4 == null ? void 0 : _onComplete4();
+              }
+            }
+          });
+        };
+        _proto.playEnergyReward = function playEnergyReward(amount, spawnPos, _onComplete5) {
+          this.playRewardAnimation({
+            rewardType: RewardType.ENERGY,
+            amount: amount,
+            spawnPosition: spawnPos,
+            targetPosition: new Vec3(),
+            // Will be set automatically
+            callbacks: {
+              onComplete: function onComplete() {
+                return _onComplete5 == null ? void 0 : _onComplete5();
+              }
+            }
+          });
+        };
+        _proto._getUIElementWorldPosition = function _getUIElementWorldPosition(uiNode) {
+          if (!uiNode || !this.uiCamera) return null;
+
+          // Get UI transform
+          var uiTransform = uiNode.getComponent(UITransform);
+          if (!uiTransform) return null;
+
+          // Convert UI position to world position
+          var worldPos = uiTransform.convertToWorldSpaceAR(Vec3.ZERO);
+          return worldPos;
+        };
+        _proto._updateRewardValue = function _updateRewardValue(rewardType, amount) {
+          var target = this._rewardTargets.get(rewardType);
+          if (!target || !target.countLabel) return;
+          var label = target.countLabel.getComponent(Label);
+          if (!label) return;
+
+          // Update current value
+          target.currentValue += amount;
+          if (target.animateValueUpdate) {
+            this._animateValueUpdate(label, target.currentValue - amount, target.currentValue);
+          } else {
+            label.string = target.currentValue.toString();
+          }
+        };
+        _proto._animateValueUpdate = function _animateValueUpdate(label, fromValue, toValue) {
+          var duration = 0.5;
+          var steps = 20;
+          var stepDuration = duration / steps;
+          var valueStep = (toValue - fromValue) / steps;
+          var currentStep = 0;
+          var updateInterval = setInterval(function () {
+            currentStep++;
+            var currentValue = Math.floor(fromValue + valueStep * currentStep);
+            label.string = currentValue.toString();
+            if (currentStep >= steps) {
+              clearInterval(updateInterval);
+              label.string = toValue.toString();
+            }
+          }, stepDuration * 1000);
+        }
+
+        /**
+         * Set current value for a reward type (useful for initialization)
+         */;
+        _proto.setRewardValue = function setRewardValue(rewardType, value) {
+          var target = this._rewardTargets.get(rewardType);
+          if (!target) return;
+          target.currentValue = value;
+          if (target.countLabel) {
+            var label = target.countLabel.getComponent(Label);
+            if (label) {
+              label.string = value.toString();
+            }
+          }
+        }
+
+        /**
+         * Get current value for a reward type
+         */;
+        _proto.getRewardValue = function getRewardValue(rewardType) {
+          var target = this._rewardTargets.get(rewardType);
+          return target ? target.currentValue : 0;
+        };
+        return RewardUIIntegration;
+      }(Component), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "rewardAnimationManager", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "uiCamera", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "goldTarget", [_dec4], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "goldCountLabel", [_dec5], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "gemsTarget", [_dec6], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "gemsCountLabel", [_dec7], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, "coinsTarget", [_dec8], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, "coinsCountLabel", [_dec9], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, "experienceTarget", [_dec10], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, "experienceCountLabel", [_dec11], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, "energyTarget", [_dec12], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor12 = _applyDecoratedDescriptor(_class2.prototype, "energyCountLabel", [_dec13], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
         }
       })), _class2)) || _class));
       cclegacy._RF.pop();
