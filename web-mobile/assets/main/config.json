@@ -29,6 +29,7 @@
         "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8@f9941",
         "5ed6e6cd-5653-4aae-8e2e-2445a68d7ed9@f9941",
         "5f409279-aaf2-4500-89d3-76e94c532068",
+        "6bab036f-80bb-43a9-ab20-0d0643cc97a0",
         "7aa393cb-ab35-4736-acd6-33797fffe5c5",
         "7c8e5e11-6f0b-4687-817c-582adb6977f7",
         "8a70a535-54a4-42ae-9abe-a1c5dcce5720@f9941",
@@ -37,6 +38,7 @@
         "951249e0-9f16-456d-8b85-a6ca954da16b@f9941",
         "9670253f-9c1c-4370-8983-94de45bba891@f9941",
         "9c70da5a-b66b-4c72-855f-388d5752a934@f9941",
+        "9d7f474b-8537-4a62-9dc4-bab340760cd7@f9941",
         "9fd900dd-221b-4f89-8f2c-fba34243c835",
         "9fd900dd-221b-4f89-8f2c-fba34243c835@6c48a",
         "9fd900dd-221b-4f89-8f2c-fba34243c835@f9941",
@@ -65,6 +67,7 @@
         "f00a7233-7037-4fe7-a68a-b25193b9a1c1@f9941",
         "f13cf980-ffe0-4ad1-8e58-ee461192fa44@f9941",
         "f9ef58d0-7118-4cc1-ace4-36ffe3cdf468",
+        "fc8ef094-7fc3-4447-95ba-2352fe9688be",
         "fd8ec536-a354-4a17-9c74-4f3883c378c8",
         "ff76dfb7-8fdc-4372-bfc1-3efaec77cfa8@f9941"
     ],
@@ -89,6 +92,11 @@
             "cc.SceneAsset",
             1
         ],
+        "6bab036f-80bb-43a9-ab20-0d0643cc97a0": [
+            "db:/assets/scenes/Saga",
+            "cc.SceneAsset",
+            1
+        ],
         "fd8ec536-a354-4a17-9c74-4f3883c378c8": [
             "db:/internal/default_renderpipeline/builtin-forward",
             "cc.RenderPipeline",
@@ -104,7 +112,8 @@
         "db://assets/scenes/City.scene": "ac5674f5-1fb1-44e7-b4b9-a40659f72c5a",
         "db://assets/scenes/Config.scene": "aa360b6c-d636-41aa-ae29-654ebd914481",
         "db://assets/scenes/Loading.scene": "7c8e5e11-6f0b-4687-817c-582adb6977f7",
-        "db://assets/scenes/Main.scene": "7aa393cb-ab35-4736-acd6-33797fffe5c5"
+        "db://assets/scenes/Main.scene": "7aa393cb-ab35-4736-acd6-33797fffe5c5",
+        "db://assets/scenes/Saga.scene": "6bab036f-80bb-43a9-ab20-0d0643cc97a0"
     },
     "packs": {
         "0c963911d": [
@@ -161,6 +170,8 @@
         "0",
         "9c70da5a-b66b-4c72-855f-388d5752a934@f9941",
         "0",
+        "9d7f474b-8537-4a62-9dc4-bab340760cd7@f9941",
+        "0",
         "a1d3934b-b10d-4aa0-8bf6-f38e200aebdb@f9941",
         "0",
         "a371e89e-3a42-4d7c-87da-f26bce85812d@f9941",
@@ -198,6 +209,8 @@
         "f13cf980-ffe0-4ad1-8e58-ee461192fa44@f9941",
         "0",
         "f9ef58d0-7118-4cc1-ace4-36ffe3cdf468",
+        "0",
+        "fc8ef094-7fc3-4447-95ba-2352fe9688be",
         "0",
         "ff76dfb7-8fdc-4372-bfc1-3efaec77cfa8@f9941",
         "0"
