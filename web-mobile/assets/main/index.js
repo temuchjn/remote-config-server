@@ -2649,6 +2649,15 @@ System.register("chunks:///_virtual/CheatComponent.ts", ['./rollupPluginModLoBab
             log("Error in onClickBtnSetGold: " + error);
           }
         };
+        _proto.onClickBtnClearData = function onClickBtnClearData() {
+          var serviceLocator = ServiceLocator.getInstance();
+          var gameService = serviceLocator.getService('GameService');
+          if (!gameService) {
+            log("Error: GameService not found");
+            return;
+          }
+          gameService.cheatClearPlayerData();
+        };
         _proto.onClickBtnClose = function onClickBtnClose() {
           this.hide();
         };
@@ -3025,7 +3034,7 @@ System.register("chunks:///_virtual/CityModel.ts", ['./rollupPluginModLoBabelHel
 });
 
 System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseView.ts', './CityViewModel.ts', './Logger.ts'], function (exports) {
-  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _asyncToGenerator, _regeneratorRuntime, cclegacy, _decorator, Label, ProgressBar, Node, Button, log, resources, Prefab, instantiate, tween, v3, director, BaseView, CityViewModel, logError;
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _asyncToGenerator, _regeneratorRuntime, cclegacy, _decorator, Label, ProgressBar, Node, Button, Sprite, log, resources, Prefab, instantiate, SpriteFrame, Tween, tween, v3, director, BaseView, CityViewModel, logError;
   return {
     setters: [function (module) {
       _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
@@ -3041,10 +3050,13 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
       ProgressBar = module.ProgressBar;
       Node = module.Node;
       Button = module.Button;
+      Sprite = module.Sprite;
       log = module.log;
       resources = module.resources;
       Prefab = module.Prefab;
       instantiate = module.instantiate;
+      SpriteFrame = module.SpriteFrame;
+      Tween = module.Tween;
       tween = module.tween;
       v3 = module.v3;
       director = module.director;
@@ -3056,7 +3068,7 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
       logError = module.logError;
     }],
     execute: function () {
-      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14;
+      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15;
       cclegacy._RF.push({}, "b5969WZCAFGrZEV8MPqMTNc", "CityView", undefined);
       var ccclass = _decorator.ccclass,
         property = _decorator.property;
@@ -3064,7 +3076,7 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
       /**
        * City View - UI for city building scene
        */
-      var CityView = exports('CityView', (_dec = ccclass('CityView'), _dec2 = property(Label), _dec3 = property(Label), _dec4 = property(ProgressBar), _dec5 = property(Label), _dec6 = property(Node), _dec7 = property([Button]), _dec8 = property([Label]), _dec9 = property(Button), _dec10 = property(Node), _dec11 = property(Label), _dec12 = property(Label), _dec13 = property(Button), _dec14 = property(Node), _dec15 = property(Label), _dec(_class = (_class2 = /*#__PURE__*/function (_BaseView) {
+      var CityView = exports('CityView', (_dec = ccclass('CityView'), _dec2 = property(Label), _dec3 = property(Label), _dec4 = property(ProgressBar), _dec5 = property(Label), _dec6 = property(Node), _dec7 = property([Button]), _dec8 = property([Label]), _dec9 = property([Sprite]), _dec10 = property(Button), _dec11 = property(Node), _dec12 = property(Label), _dec13 = property(Label), _dec14 = property(Button), _dec15 = property(Node), _dec16 = property(Label), _dec(_class = (_class2 = /*#__PURE__*/function (_BaseView) {
         _inheritsLoose(CityView, _BaseView);
         function CityView() {
           var _this;
@@ -3081,21 +3093,23 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
           _initializerDefineProperty(_this, "cityRoot", _descriptor5, _assertThisInitialized(_this));
           _initializerDefineProperty(_this, "upgradeButtons", _descriptor6, _assertThisInitialized(_this));
           _initializerDefineProperty(_this, "upgradeCostLabels", _descriptor7, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "upgradeIcons", _descriptor8, _assertThisInitialized(_this));
           // Navigation
-          _initializerDefineProperty(_this, "backButton", _descriptor8, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "backButton", _descriptor9, _assertThisInitialized(_this));
           // Completion UI
-          _initializerDefineProperty(_this, "completionContainer", _descriptor9, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "completionTitleLabel", _descriptor10, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "completionRewardLabel", _descriptor11, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "completionCloseButton", _descriptor12, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "completionContainer", _descriptor10, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "completionTitleLabel", _descriptor11, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "completionRewardLabel", _descriptor12, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "completionCloseButton", _descriptor13, _assertThisInitialized(_this));
           // Notification UI
-          _initializerDefineProperty(_this, "notificationContainer", _descriptor13, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "notificationLabel", _descriptor14, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "notificationContainer", _descriptor14, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "notificationLabel", _descriptor15, _assertThisInitialized(_this));
           _this._viewModel = null;
           _this._buildingData = [];
           _this._cityNode = null;
           _this._buildingNodes = [];
           _this._upgradeButtonsMappingBuildingIds = [];
+          _this._currentCityLevel = -1;
           return _this;
         }
         var _proto = CityView.prototype;
@@ -3103,57 +3117,58 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
          * Setup UI components
          */
         _proto.setupUI = function setupUI() {
-          log('setupUI');
-          this.loadCityView();
+          this.updateHeaderDisplay();
+          this.hideCompletionUI();
+          this.hideNotification();
         };
         _proto.loadCityView = function loadCityView() {
           var _this2 = this;
           log('loadCityView');
-          if (this._cityNode) {
-            return;
-          }
-          log('loadCityView 2');
-          this.cityRoot.removeAllChildren();
-          if (!this._viewModel) {
-            return;
-          }
-          log('loadCityView 3');
-          var cityViewPrefabPath = 'prefabs/city/City_' + this._viewModel.currentCityLevel;
-          resources.load(cityViewPrefabPath, Prefab, function (err, prefab) {
-            if (err) {
-              log('Failed to load prefab: ' + cityViewPrefabPath, err);
-              return;
+          return new Promise(function (resolve, reject) {
+            _this2.cityRoot.removeAllChildren();
+            if (!_this2._viewModel) {
+              return resolve(false);
             }
-            if (prefab) {
-              log('Loaded prefab: ' + cityViewPrefabPath);
-              var cityViewNode = instantiate(prefab);
-              _this2.cityRoot.addChild(cityViewNode);
-              _this2._cityNode = cityViewNode;
-              log('setupUI 2');
-              _this2.bindUI();
-              // Initialize UI state
-              _this2.updateHeaderDisplay();
-              _this2.updateBuildingDisplay();
-              _this2.hideCompletionUI();
-              _this2.hideNotification();
-            }
+            var cityViewPrefabPath = 'prefab/city/City_' + _this2._viewModel.currentCityLevel;
+            resources.load(cityViewPrefabPath, Prefab, function (err, prefab) {
+              if (err) {
+                log('Failed to load prefab: ' + cityViewPrefabPath, err);
+                return reject(err);
+              }
+              if (prefab) {
+                log('Loaded prefab: ' + cityViewPrefabPath);
+                var cityViewNode = instantiate(prefab);
+                _this2.cityRoot.addChild(cityViewNode);
+                _this2._cityNode = cityViewNode;
+                return resolve(true);
+              }
+              resolve(false); // phòng trường hợp prefab = null
+            });
           });
         };
-        _proto.bindUI = function bindUI() {
+
+        _proto.bindCityUI = function bindCityUI() {
+          this._buildingNodes = [];
           var buildingsParent = this._cityNode.getChildByName('Buildings');
           for (var i = 0; i < buildingsParent.children.length; i++) {
             var buildingNode = buildingsParent.getChildByName('Building_' + (i + 1));
             this._buildingNodes.push(buildingNode);
             for (var j = 0; j < buildingNode.children.length; j++) {
               buildingNode.children[j].active = false;
-              log('bindUI', buildingNode.children[j].name);
+              log('bindCityUI', buildingNode.children[j].name);
             }
           }
+          this.upgradeCostLabels = [];
+          this.upgradeIcons = [];
           for (var _i = 0; _i < this.upgradeButtons.length; _i++) {
             var upgradeButton = this.upgradeButtons[_i];
-            var upgradeCostLabel = upgradeButton.node.getChildByName('Label');
+            var upgradeCostLabel = upgradeButton.node.getChildByName('CostLabel');
+            var upgradeIcon = upgradeButton.node.getChildByName('BuildingIcon');
             if (upgradeCostLabel) {
               this.upgradeCostLabels.push(upgradeCostLabel.getComponent(Label));
+            }
+            if (upgradeIcon) {
+              this.upgradeIcons.push(upgradeIcon.getComponent(Sprite));
             }
           }
         }
@@ -3198,6 +3213,7 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
          * Refresh entire UI
          */;
         _proto.refreshUI = function refreshUI() {
+          log("refreshUI");
           this.updateHeaderDisplay();
           this.updateBuildingDisplay();
         }
@@ -3236,6 +3252,9 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
          */;
         _proto.updateHeaderDisplay = function updateHeaderDisplay() {
           if (!this._viewModel) return;
+          if (this.isCurrentCityChanged()) {
+            return;
+          }
 
           // Update city name
           if (this.cityNameLabel) {
@@ -3263,6 +3282,9 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
         _proto.updateBuildingDisplay = function updateBuildingDisplay() {
           var _this4 = this;
           if (!this._viewModel) return;
+          if (this.isCurrentCityChanged()) {
+            return;
+          }
 
           // Get all building data asynchronously and update UI when ready
           this._viewModel.executeCommand('getAllBuildingsData').then(function (buildingData) {
@@ -3279,6 +3301,7 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
           });
         };
         _proto.updateUpgradeButtons = function updateUpgradeButtons() {
+          var _this5 = this;
           this._buildingData.sort(function (a, b) {
             return a.upgradeCost - b.upgradeCost;
           });
@@ -3286,15 +3309,29 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
             this.upgradeButtons[i].node.active = false;
           }
           this._upgradeButtonsMappingBuildingIds = [];
-          var count = 0;
-          for (var _i2 = 0; _i2 < this._buildingData.length; _i2++) {
-            var buildingData = this._buildingData[_i2];
-            if (buildingData.isMaxLevel) continue;
-            this.upgradeButtons[count].node.active = true;
-            this.upgradeCostLabels[count].string = buildingData.buildingName + ': ' + this.formatNumber(buildingData.upgradeCost);
-            this._upgradeButtonsMappingBuildingIds.push(buildingData.buildingId);
-            count++;
-          }
+          resources.loadDir("texture/city/" + this._viewModel.currentCityLevel + "/icon", SpriteFrame, function (err, assets) {
+            if (err) {
+              logError('Failed to load sprite frames:', err);
+              return;
+            }
+            log('assets', assets);
+            var assetMap = assets.reduce(function (map, spriteFrame) {
+              map[spriteFrame.name] = spriteFrame;
+              return map;
+            }, {});
+            var count = 0;
+            for (var _i2 = 0; _i2 < _this5._buildingData.length; _i2++) {
+              var buildingData = _this5._buildingData[_i2];
+              if (buildingData.isMaxLevel) continue;
+              _this5.upgradeButtons[count].node.active = true;
+              _this5.upgradeCostLabels[count].string = _this5.formatNumber(buildingData.upgradeCost);
+              var iconName = "icon_" + buildingData.buildingId + "_" + (buildingData.currentLevel + 1);
+              var spriteFrame = assetMap[iconName];
+              _this5.upgradeIcons[count].spriteFrame = spriteFrame;
+              _this5._upgradeButtonsMappingBuildingIds.push(buildingData.buildingId);
+              count++;
+            }
+          });
         }
 
         /**
@@ -3369,7 +3406,7 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
          * Show notification
          */;
         _proto.showNotification = function showNotification(message, duration) {
-          var _this5 = this;
+          var _this6 = this;
           if (duration === void 0) {
             duration = 3.0;
           }
@@ -3377,10 +3414,21 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
             this.notificationLabel.string = message;
             this.notificationContainer.active = true;
 
-            // Auto-hide after duration
-            this.scheduleOnce(function () {
-              _this5.hideNotification();
-            }, duration);
+            // Scale animation
+            Tween.stopAllByTarget(this.notificationContainer);
+            tween(this.notificationContainer).set({
+              scale: v3(0.1, 0.1, 1)
+            }).to(0.3, {
+              scale: v3(1., 1., 1)
+            }, {
+              easing: 'backOut'
+            }).delay(duration).to(0.3, {
+              scale: v3(0.1, 0.1, 1)
+            }, {
+              easing: 'backIn'
+            }).call(function () {
+              _this6.hideNotification();
+            }).start();
           }
         }
 
@@ -3428,15 +3476,49 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
         /**
          * Handle city data loaded
          */;
-        _proto.onCityDataLoaded = function onCityDataLoaded() {
-          log('onCityDataLoaded');
-          this.setupUI();
-          this.refreshUI();
-        }
-
+        _proto.onCityDataLoaded = /*#__PURE__*/
+        function () {
+          var _onCityDataLoaded = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+            var loaded;
+            return _regeneratorRuntime().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  log('onCityDataLoaded');
+                  if (!this.isCurrentCityChanged()) {
+                    _context.next = 3;
+                    break;
+                  }
+                  return _context.abrupt("return");
+                case 3:
+                  _context.next = 5;
+                  return this.loadCityView();
+                case 5:
+                  loaded = _context.sent;
+                  if (loaded) {
+                    _context.next = 9;
+                    break;
+                  }
+                  logError('Failed to load city view');
+                  return _context.abrupt("return");
+                case 9:
+                  this.bindCityUI();
+                  this.updateBuildingDisplay();
+                  this.refreshUI();
+                case 12:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee, this);
+          }));
+          function onCityDataLoaded() {
+            return _onCityDataLoaded.apply(this, arguments);
+          }
+          return onCityDataLoaded;
+        }()
         /**
          * Handle resource updated
          */;
+
         _proto.onResourceUpdated = function onResourceUpdated(event) {
           this.updateHeaderDisplay();
         }
@@ -3445,6 +3527,7 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
          * Handle building data updated
          */;
         _proto.onBuildingDataUpdated = function onBuildingDataUpdated(buildingData) {
+          log("onBuildingDataUpdated");
           this._buildingData = buildingData;
           this.updateBuildingDisplay();
         }
@@ -3495,6 +3578,7 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
          */;
         _proto.onCityCompleted = function onCityCompleted(event) {
           this.updateHeaderDisplay();
+          log("onCityCompleted");
           this.updateBuildingDisplay();
         }
 
@@ -3502,6 +3586,7 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
          * Handle show city completion
          */;
         _proto.onShowCityCompletion = function onShowCityCompletion(event) {
+          log("onShowCityCompletion");
           this.showCompletionUI(event.cityName, event.reward);
         }
 
@@ -3528,26 +3613,26 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
          */;
         _proto.onUpgradeClicked = /*#__PURE__*/
         function () {
-          var _onUpgradeClicked = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(buildingIndex) {
+          var _onUpgradeClicked = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(buildingIndex) {
             var buildingData;
-            return _regeneratorRuntime().wrap(function _callee$(_context) {
-              while (1) switch (_context.prev = _context.next) {
+            return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+              while (1) switch (_context2.prev = _context2.next) {
                 case 0:
                   log("Upgrading building at index " + buildingIndex + " _buildingData = " + JSON.stringify(this._buildingData));
                   if (!(!this._viewModel || buildingIndex >= this._buildingData.length)) {
-                    _context.next = 3;
+                    _context2.next = 3;
                     break;
                   }
-                  return _context.abrupt("return");
+                  return _context2.abrupt("return");
                 case 3:
                   buildingData = this._buildingData[buildingIndex];
-                  _context.next = 6;
+                  _context2.next = 6;
                   return this._viewModel.executeCommand('upgradeBuilding', buildingData.buildingId);
                 case 6:
                 case "end":
-                  return _context.stop();
+                  return _context2.stop();
               }
-            }, _callee, this);
+            }, _callee2, this);
           }));
           function onUpgradeClicked(_x) {
             return _onUpgradeClicked.apply(this, arguments);
@@ -3555,18 +3640,18 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
           return onUpgradeClicked;
         }();
         _proto.onUpgradeClickedBuildingId = /*#__PURE__*/function () {
-          var _onUpgradeClickedBuildingId = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(buildingId) {
-            return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-              while (1) switch (_context2.prev = _context2.next) {
+          var _onUpgradeClickedBuildingId = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(buildingId) {
+            return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+              while (1) switch (_context3.prev = _context3.next) {
                 case 0:
                   log("Upgrading buildingId " + buildingId + " _buildingData = " + JSON.stringify(this._buildingData));
-                  _context2.next = 3;
+                  _context3.next = 3;
                   return this._viewModel.executeCommand('upgradeBuilding', buildingId);
                 case 3:
                 case "end":
-                  return _context2.stop();
+                  return _context3.stop();
               }
-            }, _callee2, this);
+            }, _callee3, this);
           }));
           function onUpgradeClickedBuildingId(_x2) {
             return _onUpgradeClickedBuildingId.apply(this, arguments);
@@ -3579,6 +3664,7 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
 
         _proto.onCompletionCloseClicked = function onCompletionCloseClicked() {
           this.hideCompletionUI();
+          director.loadScene('Saga');
         };
         _proto.start = function start() {
           this.onShow();
@@ -3602,6 +3688,7 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
          * Cleanup on destroy
          */;
         _proto.onDestroy = function onDestroy() {
+          log('onDestroy');
           // Remove ViewModel event listeners
           if (this._viewModel) {
             this._viewModel.off('cityDataLoaded', this.onCityDataLoaded, this);
@@ -3617,6 +3704,13 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
             this._viewModel.off('navigateToScene', this.onNavigateToScene, this);
           }
           _BaseView.prototype.onDestroy.call(this);
+        };
+        _proto.isCurrentCityChanged = function isCurrentCityChanged() {
+          if (this._currentCityLevel == -1) {
+            this._currentCityLevel = this._viewModel.currentCityLevel;
+            return false;
+          }
+          return this._currentCityLevel != this._viewModel.currentCityLevel;
         };
         return CityView;
       }(BaseView), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "cityNameLabel", [_dec2], {
@@ -3668,49 +3762,56 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
         initializer: function initializer() {
           return [];
         }
-      }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, "backButton", [_dec9], {
+      }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, "upgradeIcons", [_dec9], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return [];
+        }
+      }), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, "backButton", [_dec10], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, "completionContainer", [_dec10], {
+      }), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, "completionContainer", [_dec11], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, "completionTitleLabel", [_dec11], {
+      }), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, "completionTitleLabel", [_dec12], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, "completionRewardLabel", [_dec12], {
+      }), _descriptor12 = _applyDecoratedDescriptor(_class2.prototype, "completionRewardLabel", [_dec13], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor12 = _applyDecoratedDescriptor(_class2.prototype, "completionCloseButton", [_dec13], {
+      }), _descriptor13 = _applyDecoratedDescriptor(_class2.prototype, "completionCloseButton", [_dec14], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor13 = _applyDecoratedDescriptor(_class2.prototype, "notificationContainer", [_dec14], {
+      }), _descriptor14 = _applyDecoratedDescriptor(_class2.prototype, "notificationContainer", [_dec15], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor14 = _applyDecoratedDescriptor(_class2.prototype, "notificationLabel", [_dec15], {
+      }), _descriptor15 = _applyDecoratedDescriptor(_class2.prototype, "notificationLabel", [_dec16], {
         configurable: true,
         enumerable: true,
         writable: true,
@@ -3724,7 +3825,7 @@ System.register("chunks:///_virtual/CityView.ts", ['./rollupPluginModLoBabelHelp
 });
 
 System.register("chunks:///_virtual/CityViewModel.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseViewModel.ts', './ServiceLocator.ts', './PlayerModel.ts', './Logger.ts'], function (exports) {
-  var _inheritsLoose, _createClass, _asyncToGenerator, _regeneratorRuntime, cclegacy, BaseViewModel, ServiceLocator, PlayerModel, logError;
+  var _inheritsLoose, _createClass, _asyncToGenerator, _regeneratorRuntime, cclegacy, log, BaseViewModel, ServiceLocator, PlayerModel, logError;
   return {
     setters: [function (module) {
       _inheritsLoose = module.inheritsLoose;
@@ -3733,6 +3834,7 @@ System.register("chunks:///_virtual/CityViewModel.ts", ['./rollupPluginModLoBabe
       _regeneratorRuntime = module.regeneratorRuntime;
     }, function (module) {
       cclegacy = module.cclegacy;
+      log = module.log;
     }, function (module) {
       BaseViewModel = module.BaseViewModel;
     }, function (module) {
@@ -3841,29 +3943,30 @@ System.register("chunks:///_virtual/CityViewModel.ts", ['./rollupPluginModLoBabe
             return _regeneratorRuntime().wrap(function _callee$(_context) {
               while (1) switch (_context.prev = _context.next) {
                 case 0:
-                  _context.prev = 0;
+                  log('loadCityData');
+                  _context.prev = 1;
                   if (!(this._gameService && this._gameService.isReady && this._currentCity)) {
-                    _context.next = 5;
+                    _context.next = 6;
                     break;
                   }
-                  _context.next = 4;
+                  _context.next = 5;
                   return this._gameService.getCityData(this._currentCity.id);
-                case 4:
-                  _context.sent;
                 case 5:
+                  _context.sent;
+                case 6:
                   this.emit('cityDataLoaded');
-                  _context.next = 12;
+                  _context.next = 13;
                   break;
-                case 8:
-                  _context.prev = 8;
-                  _context.t0 = _context["catch"](0);
+                case 9:
+                  _context.prev = 9;
+                  _context.t0 = _context["catch"](1);
                   logError('Failed to load city data:', _context.t0);
                   this.emit('cityDataLoadError', _context.t0);
-                case 12:
+                case 13:
                 case "end":
                   return _context.stop();
               }
-            }, _callee, this, [[0, 8]]);
+            }, _callee, this, [[1, 9]]);
           }));
           function loadCityData() {
             return _loadCityData.apply(this, arguments);
@@ -4113,6 +4216,7 @@ System.register("chunks:///_virtual/CityViewModel.ts", ['./rollupPluginModLoBabe
          * Handle city completed
          */;
         _proto.onCityCompleted = function onCityCompleted(event) {
+          log("CityViewModel::onCityCompleted");
           this.emit('cityCompleted', event);
 
           // Show completion celebration
@@ -4126,6 +4230,7 @@ System.register("chunks:///_virtual/CityViewModel.ts", ['./rollupPluginModLoBabe
          * Handle current city changed
          */;
         _proto.onCurrentCityChanged = function onCurrentCityChanged(event) {
+          log("onCurrentCityChanged");
           this._currentCity = event.city;
 
           // Setup new city event listeners
@@ -5878,6 +5983,11 @@ System.register("chunks:///_virtual/GameService.ts", ['./rollupPluginModLoBabelH
             createdTime: Date.now()
           };
           this._playerModel.initializePlayerData(newPlayerData);
+        };
+        _proto.cheatClearPlayerData = function cheatClearPlayerData() {
+          localStorage.removeItem('playerData');
+          this._playerModel.destroy();
+          this._playerModel = null;
         }
 
         /**
@@ -7253,9 +7363,9 @@ System.register("chunks:///_virtual/Logger.ts", ['cc'], function (exports) {
   };
 });
 
-System.register("chunks:///_virtual/main", ['./CheatComponent.ts', './CoinAnimationManager.ts', './ReelComponent.ts', './RevealWave.ts', './RewardCoin.ts', './RewardFly.ts', './RewardUIIntegration.ts', './SlotMachineComponent.ts', './AnimationConfig.ts', './GameConfig.ts', './RewardAnimationConfig.ts', './SlotMachineConfig.ts', './ResourceManagerExample.ts', './RewardAnimationExample.ts', './BaseModel.ts', './BaseService.ts', './BaseView.ts', './BaseViewModel.ts', './ServiceLocator.ts', './index2.ts', './ResourceManager.ts', './BuildingModel.ts', './CityModel.ts', './MainEventModel.ts', './PlayerModel.ts', './ResourceModel.ts', './SlotMachineModel.ts', './index.ts', './ConfigScene.ts', './PreviewDragonBone.ts', './AttackView.ts', './AttackViewModel.ts', './CityView.ts', './CityViewModel.ts', './LoadingView.ts', './LoadingViewModel.ts', './MainView.ts', './MainViewModel.ts', './RaidView.ts', './RaidViewModel.ts', './GameService.ts', './NetworkService.ts', './index3.ts', './SimpleCityModelTest.ts', './DebugPanel.ts', './Logger.ts', './SlotMachineUtils.ts', './StringUtils.ts'], function () {
+System.register("chunks:///_virtual/main", ['./CheatComponent.ts', './CoinAnimationManager.ts', './ReelComponent.ts', './RevealWave.ts', './RewardCoin.ts', './RewardFly.ts', './RewardUIIntegration.ts', './SlotMachineComponent.ts', './AnimationConfig.ts', './GameConfig.ts', './RewardAnimationConfig.ts', './SlotMachineConfig.ts', './ResourceManagerExample.ts', './RewardAnimationExample.ts', './BaseModel.ts', './BaseService.ts', './BaseView.ts', './BaseViewModel.ts', './ServiceLocator.ts', './index2.ts', './ResourceManager.ts', './BuildingModel.ts', './CityModel.ts', './MainEventModel.ts', './PlayerModel.ts', './ResourceModel.ts', './SlotMachineModel.ts', './index.ts', './ConfigScene.ts', './PreviewDragonBone.ts', './SagaScene.ts', './AttackView.ts', './AttackViewModel.ts', './CityView.ts', './CityViewModel.ts', './LoadingView.ts', './LoadingViewModel.ts', './MainView.ts', './MainViewModel.ts', './RaidView.ts', './RaidViewModel.ts', './GameService.ts', './NetworkService.ts', './index3.ts', './SimpleCityModelTest.ts', './DebugPanel.ts', './Logger.ts', './SlotMachineUtils.ts', './StringUtils.ts'], function () {
   return {
-    setters: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+    setters: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
     execute: function () {}
   };
 });
@@ -9719,7 +9829,7 @@ System.register("chunks:///_virtual/NetworkService.ts", ['./rollupPluginModLoBab
 });
 
 System.register("chunks:///_virtual/PlayerModel.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseModel.ts', './ResourceModel.ts', './CityModel.ts', './MainEventModel.ts'], function (exports) {
-  var _inheritsLoose, _createForOfIteratorHelperLoose, _createClass, cclegacy, BaseModel, ResourceModel, CityModel, MainEventModel;
+  var _inheritsLoose, _createForOfIteratorHelperLoose, _createClass, cclegacy, log, BaseModel, ResourceModel, CityModel, MainEventModel;
   return {
     setters: [function (module) {
       _inheritsLoose = module.inheritsLoose;
@@ -9727,6 +9837,7 @@ System.register("chunks:///_virtual/PlayerModel.ts", ['./rollupPluginModLoBabelH
       _createClass = module.createClass;
     }, function (module) {
       cclegacy = module.cclegacy;
+      log = module.log;
     }, function (module) {
       BaseModel = module.BaseModel;
     }, function (module) {
@@ -9813,6 +9924,7 @@ System.register("chunks:///_virtual/PlayerModel.ts", ['./rollupPluginModLoBabelH
               cityId: cityId,
               city: city
             });
+            log("currentCityChanged");
             return true;
           }
           return false;
@@ -9866,6 +9978,8 @@ System.register("chunks:///_virtual/PlayerModel.ts", ['./rollupPluginModLoBabelH
 
           // Award completion reward
           this._resourceModel.addGold(reward);
+          this.emit('cityCompleted', event);
+          log("cityCompleted");
 
           // Create next city
           var completedCity = this._cities.get(cityId);
@@ -9875,7 +9989,6 @@ System.register("chunks:///_virtual/PlayerModel.ts", ['./rollupPluginModLoBabelH
             this.addCity(nextCity);
             this.setCurrentCity(nextCity.id);
           }
-          this.emit('cityCompleted', event);
         }
 
         /**
@@ -15060,6 +15173,75 @@ System.register("chunks:///_virtual/RewardUIIntegration.ts", ['./rollupPluginMod
           return null;
         }
       })), _class2)) || _class));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/SagaScene.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, cclegacy, _decorator, UIOpacity, tween, director, Component;
+  return {
+    setters: [function (module) {
+      _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
+      _inheritsLoose = module.inheritsLoose;
+      _initializerDefineProperty = module.initializerDefineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      UIOpacity = module.UIOpacity;
+      tween = module.tween;
+      director = module.director;
+      Component = module.Component;
+    }],
+    execute: function () {
+      var _dec, _dec2, _class, _class2, _descriptor;
+      cclegacy._RF.push({}, "32e04MhBsJDhaIyqbZ9Ymim", "SagaScene", undefined);
+      var ccclass = _decorator.ccclass,
+        property = _decorator.property;
+      var SagaScene = exports('SagaScene', (_dec = ccclass('SagaScene'), _dec2 = property(UIOpacity), _dec(_class = (_class2 = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(SagaScene, _Component);
+        function SagaScene() {
+          var _this;
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+          _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+          _initializerDefineProperty(_this, "introLabelOpacity", _descriptor, _assertThisInitialized(_this));
+          return _this;
+        }
+        var _proto = SagaScene.prototype;
+        _proto.start = function start() {
+          tween(this.introLabelOpacity).set({
+            opacity: 0
+          }).repeat(3, tween().to(0.6, {
+            opacity: 255
+          }, {
+            easing: 'sineInOut'
+          }) // sáng lên êm
+          .to(0.6, {
+            opacity: 20
+          }, {
+            easing: 'sineInOut'
+          }) // mờ dần xuống
+          ).to(0.8, {
+            opacity: 255
+          }, {
+            easing: 'quadOut'
+          }) // sáng hẳn lần cuối
+          .call(function () {
+            director.loadScene('City');
+          }).start();
+        };
+        return SagaScene;
+      }(Component), _descriptor = _applyDecoratedDescriptor(_class2.prototype, "introLabelOpacity", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _class2)) || _class));
       cclegacy._RF.pop();
     }
   };
