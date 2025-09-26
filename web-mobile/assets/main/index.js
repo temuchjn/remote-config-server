@@ -247,7 +247,7 @@ System.register("chunks:///_virtual/AnimationConfig.ts", ['cc'], function (expor
 });
 
 System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseView.ts', './AttackViewModel.ts'], function (exports) {
-  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _createForOfIteratorHelperLoose, _asyncToGenerator, _regeneratorRuntime, cclegacy, _decorator, Label, Node, Sprite, Button, Color, tween, v3, director, BaseView, AttackViewModel;
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _createForOfIteratorHelperLoose, _asyncToGenerator, _regeneratorRuntime, cclegacy, _decorator, Label, Node, Sprite, Button, Color, v3, tween, log, director, BaseView, AttackViewModel;
   return {
     setters: [function (module) {
       _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
@@ -265,8 +265,9 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
       Sprite = module.Sprite;
       Button = module.Button;
       Color = module.Color;
-      tween = module.tween;
       v3 = module.v3;
+      tween = module.tween;
+      log = module.log;
       director = module.director;
     }, function (module) {
       BaseView = module.BaseView;
@@ -274,7 +275,7 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
       AttackViewModel = module.AttackViewModel;
     }],
     execute: function () {
-      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _dec20, _dec21, _dec22, _dec23, _dec24, _dec25, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19, _descriptor20, _descriptor21, _descriptor22, _descriptor23, _descriptor24;
+      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _dec19, _dec20, _dec21, _dec22, _dec23, _dec24, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17, _descriptor18, _descriptor19, _descriptor20, _descriptor21, _descriptor22, _descriptor23, _class3;
       cclegacy._RF.push({}, "61a85CfdqpJ3rYS52F9av3G", "AttackView", undefined);
       var ccclass = _decorator.ccclass,
         property = _decorator.property;
@@ -282,7 +283,7 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
       /**
        * Attack View - UI for attack scene
        */
-      var AttackView = exports('AttackView', (_dec = ccclass('AttackView'), _dec2 = property(Label), _dec3 = property(Label), _dec4 = property(Node), _dec5 = property(Label), _dec6 = property(Label), _dec7 = property(Label), _dec8 = property([Node]), _dec9 = property([Sprite]), _dec10 = property([Label]), _dec11 = property([Label]), _dec12 = property([Label]), _dec13 = property([Button]), _dec14 = property([Node]), _dec15 = property(Button), _dec16 = property(Button), _dec17 = property(Node), _dec18 = property(Label), _dec19 = property(Node), _dec20 = property(Label), _dec21 = property(Label), _dec22 = property(Label), _dec23 = property(Button), _dec24 = property(Node), _dec25 = property(Label), _dec(_class = (_class2 = /*#__PURE__*/function (_BaseView) {
+      var AttackView = exports('AttackView', (_dec = ccclass('AttackView'), _dec2 = property(Label), _dec3 = property(Label), _dec4 = property(Node), _dec5 = property(Label), _dec6 = property(Label), _dec7 = property(Label), _dec8 = property([Node]), _dec9 = property([Sprite]), _dec10 = property([Label]), _dec11 = property([Button]), _dec12 = property([Node]), _dec13 = property(Node), _dec14 = property(Button), _dec15 = property(Button), _dec16 = property(Node), _dec17 = property(Label), _dec18 = property(Node), _dec19 = property(Label), _dec20 = property(Label), _dec21 = property(Label), _dec22 = property(Button), _dec23 = property(Node), _dec24 = property(Label), _dec(_class = (_class2 = (_class3 = /*#__PURE__*/function (_BaseView) {
         _inheritsLoose(AttackView, _BaseView);
         function AttackView() {
           var _this;
@@ -297,32 +298,34 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
           _initializerDefineProperty(_this, "targetInfoContainer", _descriptor3, _assertThisInitialized(_this));
           _initializerDefineProperty(_this, "targetPlayerNameLabel", _descriptor4, _assertThisInitialized(_this));
           _initializerDefineProperty(_this, "targetPlayerLevelLabel", _descriptor5, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "targetCityNameLabel", _descriptor6, _assertThisInitialized(_this));
-          // Buildings UI
-          _initializerDefineProperty(_this, "buildingNodes", _descriptor7, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "buildingSprites", _descriptor8, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "buildingNameLabels", _descriptor9, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "buildingLevelLabels", _descriptor10, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "rewardLabels", _descriptor11, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "attackButtons", _descriptor12, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "destroyedOverlays", _descriptor13, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "targetTotalMoneyLabel", _descriptor6, _assertThisInitialized(_this));
+          // Ship UI
+          _initializerDefineProperty(_this, "shipPositionNodes", _descriptor7, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "shipPositionSprites", _descriptor8, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "positionMoneyLabels", _descriptor9, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "attackButtons", _descriptor10, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "fireOverlays", _descriptor11, _assertThisInitialized(_this));
+          // Bullet animation node
+          _initializerDefineProperty(_this, "bulletNode", _descriptor12, _assertThisInitialized(_this));
           // Action Buttons
-          _initializerDefineProperty(_this, "newTargetButton", _descriptor14, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "backButton", _descriptor15, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "newTargetButton", _descriptor13, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "backButton", _descriptor14, _assertThisInitialized(_this));
           // Loading UI
-          _initializerDefineProperty(_this, "loadingContainer", _descriptor16, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "loadingLabel", _descriptor17, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "loadingContainer", _descriptor15, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "loadingLabel", _descriptor16, _assertThisInitialized(_this));
           // Result UI
-          _initializerDefineProperty(_this, "resultContainer", _descriptor18, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "resultTitleLabel", _descriptor19, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "resultMessageLabel", _descriptor20, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "resultRewardLabel", _descriptor21, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "resultCloseButton", _descriptor22, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "resultContainer", _descriptor17, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "resultTitleLabel", _descriptor18, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "resultMessageLabel", _descriptor19, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "resultRewardLabel", _descriptor20, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "resultCloseButton", _descriptor21, _assertThisInitialized(_this));
           // Notification UI
-          _initializerDefineProperty(_this, "notificationContainer", _descriptor23, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "notificationLabel", _descriptor24, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "notificationContainer", _descriptor22, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "notificationLabel", _descriptor23, _assertThisInitialized(_this));
           _this._viewModel = null;
           _this._currentTarget = null;
+          _this._animatingAttack = false;
+          _this._queuedAttackCompleted = null;
           return _this;
         }
         var _proto = AttackView.prototype;
@@ -333,10 +336,11 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
           // Initialize UI state
           this.updateHeaderDisplay();
           this.hideTargetInfo();
-          this.hideAllBuildings();
+          this.hideAllShipPositions();
           this.hideResultUI();
           this.hideNotification();
           this.showLoading('Loading target...');
+          this.show();
         }
 
         /**
@@ -384,7 +388,7 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
         _proto.refreshUI = function refreshUI() {
           this.updateHeaderDisplay();
           this.updateTargetDisplay();
-          this.updateBuildingsDisplay();
+          this.updateShipDisplay();
         }
 
         /**
@@ -410,7 +414,7 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
           this._viewModel.on('attackStarted', this.onAttackStarted, this);
           this._viewModel.on('attackCompleted', this.onAttackCompleted, this);
           this._viewModel.on('attackError', this.onAttackError, this);
-          this._viewModel.on('buildingAlreadyDestroyed', this.onBuildingAlreadyDestroyed, this);
+          this._viewModel.on('positionAlreadyOnFire', this.onPositionAlreadyOnFire, this);
           this._viewModel.on('noAttacksRemaining', this.onNoAttacksRemaining, this);
           this._viewModel.on('navigateToScene', this.onNavigateToScene, this);
         }
@@ -447,105 +451,91 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
           if (this.targetPlayerLevelLabel) {
             this.targetPlayerLevelLabel.string = "Level " + this._currentTarget.playerLevel;
           }
-          if (this.targetCityNameLabel) {
-            this.targetCityNameLabel.string = this._currentTarget.cityName;
+          if (this.targetTotalMoneyLabel) {
+            this.targetTotalMoneyLabel.string = "Total: " + this.formatNumber(this._currentTarget.totalMoney) + " Gold";
           }
         }
 
         /**
-         * Update buildings display
+         * Update ship display
          */;
-        _proto.updateBuildingsDisplay = function updateBuildingsDisplay() {
+        _proto.updateShipDisplay = function updateShipDisplay() {
           if (!this._currentTarget) {
-            this.hideAllBuildings();
+            this.hideAllShipPositions();
             return;
           }
-          var buildings = this._currentTarget.buildings;
-          for (var i = 0; i < buildings.length && i < this.buildingNodes.length; i++) {
-            var building = buildings[i];
-            this.updateBuildingUI(i, building);
+          var positions = this._currentTarget.ship.positions;
+          for (var i = 0; i < positions.length && i < this.shipPositionNodes.length; i++) {
+            var position = positions[i];
+            this.updateShipPositionUI(i, position);
           }
 
-          // Hide unused building slots
-          for (var _i = buildings.length; _i < this.buildingNodes.length; _i++) {
-            if (this.buildingNodes[_i]) {
-              this.buildingNodes[_i].active = false;
+          // Hide unused position slots
+          for (var _i = positions.length; _i < this.shipPositionNodes.length; _i++) {
+            if (this.shipPositionNodes[_i]) {
+              this.shipPositionNodes[_i].active = false;
             }
           }
         }
 
         /**
-         * Update individual building UI
+         * Update individual ship position UI
          */;
-        _proto.updateBuildingUI = function updateBuildingUI(index, building) {
-          // Show building node
-          if (this.buildingNodes[index]) {
-            this.buildingNodes[index].active = true;
+        _proto.updateShipPositionUI = function updateShipPositionUI(index, position) {
+          // Show position node
+          if (this.shipPositionNodes[index]) {
+            this.shipPositionNodes[index].active = true;
           }
 
-          // Update building name
-          if (this.buildingNameLabels[index]) {
-            this.buildingNameLabels[index].string = this.getBuildingDisplayName(building.buildingType);
-          }
-
-          // Update building level
-          if (this.buildingLevelLabels[index]) {
-            this.buildingLevelLabels[index].string = "Level " + building.level;
-          }
-
-          // Update reward label
-          if (this.rewardLabels[index]) {
-            this.rewardLabels[index].string = this.formatNumber(building.potentialReward) + " Gold";
+          // Update money label (only show if revealed)
+          if (this.positionMoneyLabels[index]) {
+            if (position.isRevealed) {
+              this.positionMoneyLabels[index].string = this.formatNumber(position.moneyValue) + " Gold";
+              this.positionMoneyLabels[index].node.active = true;
+            } else {
+              this.positionMoneyLabels[index].string = '???';
+              this.positionMoneyLabels[index].node.active = false;
+            }
           }
 
           // Update attack button
           if (this.attackButtons[index]) {
             var _this$_viewModel, _this$_viewModel2;
-            this.attackButtons[index].interactable = !building.isDestroyed && ((_this$_viewModel = this._viewModel) == null ? void 0 : _this$_viewModel.hasAttacksRemaining) && !((_this$_viewModel2 = this._viewModel) != null && _this$_viewModel2.isAttacking);
+            this.attackButtons[index].interactable = !position.isOnFire && ((_this$_viewModel = this._viewModel) == null ? void 0 : _this$_viewModel.hasAttacksRemaining) && !((_this$_viewModel2 = this._viewModel) != null && _this$_viewModel2.isAttacking);
           }
 
-          // Update destroyed overlay
-          if (this.destroyedOverlays[index]) {
-            this.destroyedOverlays[index].active = building.isDestroyed;
+          // Update fire overlay
+          if (this.fireOverlays[index]) {
+            this.fireOverlays[index].active = position.isOnFire;
           }
 
-          // Update building sprite
-          this.updateBuildingSprite(index, building);
+          // Update position sprite
+          this.updateShipPositionSprite(index, position);
         }
 
         /**
-         * Update building sprite based on state
+         * Update ship position sprite based on state
          */;
-        _proto.updateBuildingSprite = function updateBuildingSprite(index, building) {
-          if (!this.buildingSprites[index]) return;
-          var sprite = this.buildingSprites[index];
-          if (building.isDestroyed) {
-            sprite.color = Color.GRAY;
+        _proto.updateShipPositionSprite = function updateShipPositionSprite(index, position) {
+          if (!this.shipPositionSprites[index]) return;
+          var sprite = this.shipPositionSprites[index];
+          if (position.isOnFire) {
+            sprite.color = Color.RED; // On fire
           } else {
-            // Color based on level and potential reward
-            var rewardLevel = building.potentialReward;
-            if (rewardLevel >= 400) {
-              sprite.color = Color.YELLOW; // High reward
-            } else if (rewardLevel >= 200) {
-              sprite.color = Color.GREEN; // Medium reward
+            // Color based on money value (if revealed)
+            if (position.isRevealed) {
+              var moneyValue = position.moneyValue;
+              if (moneyValue >= 400) {
+                sprite.color = Color.YELLOW; // High value
+              } else if (moneyValue >= 200) {
+                sprite.color = Color.GREEN; // Medium value
+              } else {
+                sprite.color = Color.WHITE; // Low value
+              }
             } else {
-              sprite.color = Color.WHITE; // Low reward
+              sprite.color = Color.GRAY; // Hidden/unrevealed
             }
           }
-        }
-
-        /**
-         * Get building display name
-         */;
-        _proto.getBuildingDisplayName = function getBuildingDisplayName(buildingType) {
-          var buildingNames = {
-            'house': 'House',
-            'shop': 'Shop',
-            'factory': 'Factory',
-            'tower': 'Tower',
-            'castle': 'Castle'
-          };
-          return buildingNames[buildingType] || 'Building';
         }
 
         /**
@@ -588,13 +578,13 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
         }
 
         /**
-         * Hide all buildings
+         * Hide all ship positions
          */;
-        _proto.hideAllBuildings = function hideAllBuildings() {
-          for (var _iterator = _createForOfIteratorHelperLoose(this.buildingNodes), _step; !(_step = _iterator()).done;) {
-            var buildingNode = _step.value;
-            if (buildingNode) {
-              buildingNode.active = false;
+        _proto.hideAllShipPositions = function hideAllShipPositions() {
+          for (var _iterator = _createForOfIteratorHelperLoose(this.shipPositionNodes), _step; !(_step = _iterator()).done;) {
+            var positionNode = _step.value;
+            if (positionNode) {
+              positionNode.active = false;
             }
           }
         }
@@ -603,11 +593,18 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
          * Show attack result
          */;
         _proto.showAttackResult = function showAttackResult(result) {
+          var _this3 = this;
           if (this.resultContainer) {
             this.resultContainer.active = true;
           }
           if (this.resultTitleLabel) {
-            this.resultTitleLabel.string = result.success ? 'Attack Successful!' : 'Attack Failed!';
+            if (result.wasBlocked) {
+              this.resultTitleLabel.string = 'Attack Blocked!';
+            } else if (result.success) {
+              this.resultTitleLabel.string = result.causedFire ? 'Critical Hit!' : 'Attack Successful!';
+            } else {
+              this.resultTitleLabel.string = 'Attack Failed!';
+            }
           }
           if (this.resultMessageLabel) {
             this.resultMessageLabel.string = result.message;
@@ -620,6 +617,18 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
               this.resultRewardLabel.node.active = false;
             }
           }
+
+          // Auto-hide result after 3 seconds and show return button
+          this.scheduleOnce(function () {
+            _this3.onResultCloseClicked();
+          }, 3);
+        }
+
+        /**
+         * Show return to main button after attack sequence
+         */;
+        _proto.showReturnToMainButton = function showReturnToMainButton() {
+          this.showNotification('Attack complete! Tap Back to return to main screen.', 5.0);
         }
 
         /**
@@ -635,7 +644,7 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
          * Show notification
          */;
         _proto.showNotification = function showNotification(message, duration) {
-          var _this3 = this;
+          var _this4 = this;
           if (duration === void 0) {
             duration = 3.0;
           }
@@ -645,7 +654,7 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
 
             // Auto-hide after duration
             this.scheduleOnce(function () {
-              _this3.hideNotification();
+              _this4.hideNotification();
             }, duration);
           }
         }
@@ -672,16 +681,43 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
         }
 
         /**
-         * Animate building attack
+         * Animate bullet firing toward ship position
          */;
-        _proto.animateBuildingAttack = function animateBuildingAttack(buildingIndex) {
-          if (buildingIndex < 0 || buildingIndex >= this.buildingNodes.length) return;
-          var buildingNode = this.buildingNodes[buildingIndex];
-          if (!buildingNode) return;
+        _proto.animateBulletAttack = function animateBulletAttack(positionIndex) {
+          var _this5 = this;
+          if (positionIndex < 0 || positionIndex >= this.shipPositionNodes.length) return;
+          var targetNode = this.shipPositionNodes[positionIndex];
+          if (!targetNode || !this.bulletNode) return;
+          this._animatingAttack = true;
+          // Position bullet at starting point (could be a cannon or player position)
+          var startPos = v3(0, -900, 0);
+          var targetPos = targetNode.position;
+          this.bulletNode.position = startPos;
+          this.bulletNode.active = true;
 
-          // Shake animation
-          var originalPosition = buildingNode.position;
-          tween(buildingNode).to(0.1, {
+          // Animate bullet flying to target
+          tween(this.bulletNode).to(AttackView.ATTACK_ANIMATION_DURATION, {
+            position: targetPos
+          }).call(function () {
+            // Hide bullet and animate impact
+            _this5.bulletNode.active = false;
+            _this5.animatePositionImpact(positionIndex);
+            _this5._animatingAttack = false;
+            _this5.doAttackCompleted();
+          }).start();
+        }
+
+        /**
+         * Animate impact on ship position
+         */;
+        _proto.animatePositionImpact = function animatePositionImpact(positionIndex) {
+          if (positionIndex < 0 || positionIndex >= this.shipPositionNodes.length) return;
+          var positionNode = this.shipPositionNodes[positionIndex];
+          if (!positionNode) return;
+
+          // Shake animation for impact
+          var originalPosition = positionNode.position;
+          tween(positionNode).to(0.1, {
             position: v3(originalPosition.x + 10, originalPosition.y, originalPosition.z)
           }).to(0.1, {
             position: v3(originalPosition.x - 10, originalPosition.y, originalPosition.z)
@@ -703,7 +739,7 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
           if (isLoading) {
             this.showLoading('Loading target...');
             this.hideTargetInfo();
-            this.hideAllBuildings();
+            this.hideAllShipPositions();
           } else {
             this.hideLoading();
           }
@@ -737,24 +773,35 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
          * Handle attack started
          */;
         _proto.onAttackStarted = function onAttackStarted(event) {
-          var _this$_currentTarget;
-          var buildingIndex = ((_this$_currentTarget = this._currentTarget) == null ? void 0 : _this$_currentTarget.buildings.findIndex(function (b) {
-            return b.buildingId === event.buildingId;
-          })) || -1;
-          if (buildingIndex >= 0) {
-            this.animateBuildingAttack(buildingIndex);
+          var _this$_currentTarget, _this$_currentTarget2;
+          var positionIndex = (_this$_currentTarget = this._currentTarget) == null ? void 0 : _this$_currentTarget.ship.positions.findIndex(function (p) {
+            return p.positionId === event.positionId;
+          });
+          log("Attack started for position positionIndex " + positionIndex + " event.positionId " + event.positionId);
+          log((_this$_currentTarget2 = this._currentTarget) == null ? void 0 : _this$_currentTarget2.ship.positions);
+          if (positionIndex >= 0) {
+            this.animateBulletAttack(positionIndex);
           }
           this.showNotification("Attacking " + event.targetPlayer + "...");
-          this.updateBuildingsDisplay(); // Update button states
+          this.updateShipDisplay(); // Update button states
         }
 
         /**
          * Handle attack completed
          */;
         _proto.onAttackCompleted = function onAttackCompleted(result) {
-          this.showAttackResult(result);
-          this.updateHeaderDisplay();
-          this.updateBuildingsDisplay();
+          this._queuedAttackCompleted = result;
+          if (!this._animatingAttack) {
+            this.doAttackCompleted();
+          }
+        };
+        _proto.doAttackCompleted = function doAttackCompleted() {
+          if (this._queuedAttackCompleted) {
+            this.showAttackResult(this._queuedAttackCompleted);
+            this.updateHeaderDisplay();
+            this.updateShipDisplay();
+            this._queuedAttackCompleted = null;
+          }
         }
 
         /**
@@ -762,14 +809,14 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
          */;
         _proto.onAttackError = function onAttackError(event) {
           this.showNotification("Attack failed: " + event.error);
-          this.updateBuildingsDisplay();
+          this.updateShipDisplay();
         }
 
         /**
-         * Handle building already destroyed
+         * Handle position already on fire
          */;
-        _proto.onBuildingAlreadyDestroyed = function onBuildingAlreadyDestroyed(event) {
-          this.showNotification('Building is already destroyed!');
+        _proto.onPositionAlreadyOnFire = function onPositionAlreadyOnFire(event) {
+          this.showNotification('Position is already on fire!');
         }
 
         /**
@@ -829,8 +876,8 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
          */;
         _proto.onAttackClicked = /*#__PURE__*/
         function () {
-          var _onAttackClicked = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(buildingIndex) {
-            var building;
+          var _onAttackClicked = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(positionIndex) {
+            var position;
             return _regeneratorRuntime().wrap(function _callee2$(_context2) {
               while (1) switch (_context2.prev = _context2.next) {
                 case 0:
@@ -840,13 +887,13 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
                   }
                   return _context2.abrupt("return");
                 case 2:
-                  building = this._currentTarget.buildings[buildingIndex];
-                  if (!building) {
+                  position = this._currentTarget.ship.positions[positionIndex];
+                  if (!position) {
                     _context2.next = 6;
                     break;
                   }
                   _context2.next = 6;
-                  return this._viewModel.executeCommand('attackBuilding', building.buildingId);
+                  return this._viewModel.executeCommand('attackPosition', position.positionId);
                 case 6:
                 case "end":
                   return _context2.stop();
@@ -863,7 +910,8 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
          */;
 
         _proto.onResultCloseClicked = function onResultCloseClicked() {
-          this.hideResultUI();
+          // this.hideResultUI();
+          this.onNavigateToScene('Main');
         }
 
         /**
@@ -871,7 +919,7 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
          */;
         _proto.onShow = function onShow() {
           _BaseView.prototype.onShow.call(this);
-
+          log('AttackView: onShow called');
           // Initialize ViewModel if not already done
           if (!this._viewModel) {
             this._viewModel = new AttackViewModel();
@@ -885,19 +933,19 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
          */;
         _proto.onDestroy = function onDestroy() {
           // Remove button event listeners
-          if (this.newTargetButton) {
+          if (this.newTargetButton && this.newTargetButton.node) {
             this.newTargetButton.node.off(Button.EventType.CLICK, this.onNewTargetClicked, this);
           }
-          if (this.backButton) {
+          if (this.backButton && this.backButton.node) {
             this.backButton.node.off(Button.EventType.CLICK, this.onBackClicked, this);
           }
           for (var i = 0; i < this.attackButtons.length; i++) {
             var button = this.attackButtons[i];
-            if (button) {
+            if (button && button.node) {
               button.node.off(Button.EventType.CLICK);
             }
           }
-          if (this.resultCloseButton) {
+          if (this.resultCloseButton && this.resultCloseButton.node) {
             this.resultCloseButton.node.off(Button.EventType.CLICK, this.onResultCloseClicked, this);
           }
 
@@ -910,14 +958,14 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
             this._viewModel.off('attackStarted', this.onAttackStarted, this);
             this._viewModel.off('attackCompleted', this.onAttackCompleted, this);
             this._viewModel.off('attackError', this.onAttackError, this);
-            this._viewModel.off('buildingAlreadyDestroyed', this.onBuildingAlreadyDestroyed, this);
+            this._viewModel.off('positionAlreadyOnFire', this.onPositionAlreadyOnFire, this);
             this._viewModel.off('noAttacksRemaining', this.onNoAttacksRemaining, this);
             this._viewModel.off('navigateToScene', this.onNavigateToScene, this);
           }
           _BaseView.prototype.onDestroy.call(this);
         };
         return AttackView;
-      }(BaseView), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "goldLabel", [_dec2], {
+      }(BaseView), _class3.ATTACK_ANIMATION_DURATION = 0.5, _class3), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "goldLabel", [_dec2], {
         configurable: true,
         enumerable: true,
         writable: true,
@@ -952,133 +1000,126 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "targetCityNameLabel", [_dec7], {
+      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "targetTotalMoneyLabel", [_dec7], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, "buildingNodes", [_dec8], {
+      }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, "shipPositionNodes", [_dec8], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return [];
         }
-      }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, "buildingSprites", [_dec9], {
+      }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, "shipPositionSprites", [_dec9], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return [];
         }
-      }), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, "buildingNameLabels", [_dec10], {
+      }), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, "positionMoneyLabels", [_dec10], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return [];
         }
-      }), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, "buildingLevelLabels", [_dec11], {
+      }), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, "attackButtons", [_dec11], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return [];
         }
-      }), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, "rewardLabels", [_dec12], {
+      }), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, "fireOverlays", [_dec12], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return [];
         }
-      }), _descriptor12 = _applyDecoratedDescriptor(_class2.prototype, "attackButtons", [_dec13], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return [];
-        }
-      }), _descriptor13 = _applyDecoratedDescriptor(_class2.prototype, "destroyedOverlays", [_dec14], {
-        configurable: true,
-        enumerable: true,
-        writable: true,
-        initializer: function initializer() {
-          return [];
-        }
-      }), _descriptor14 = _applyDecoratedDescriptor(_class2.prototype, "newTargetButton", [_dec15], {
+      }), _descriptor12 = _applyDecoratedDescriptor(_class2.prototype, "bulletNode", [_dec13], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor15 = _applyDecoratedDescriptor(_class2.prototype, "backButton", [_dec16], {
+      }), _descriptor13 = _applyDecoratedDescriptor(_class2.prototype, "newTargetButton", [_dec14], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor16 = _applyDecoratedDescriptor(_class2.prototype, "loadingContainer", [_dec17], {
+      }), _descriptor14 = _applyDecoratedDescriptor(_class2.prototype, "backButton", [_dec15], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor17 = _applyDecoratedDescriptor(_class2.prototype, "loadingLabel", [_dec18], {
+      }), _descriptor15 = _applyDecoratedDescriptor(_class2.prototype, "loadingContainer", [_dec16], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor18 = _applyDecoratedDescriptor(_class2.prototype, "resultContainer", [_dec19], {
+      }), _descriptor16 = _applyDecoratedDescriptor(_class2.prototype, "loadingLabel", [_dec17], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor19 = _applyDecoratedDescriptor(_class2.prototype, "resultTitleLabel", [_dec20], {
+      }), _descriptor17 = _applyDecoratedDescriptor(_class2.prototype, "resultContainer", [_dec18], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor20 = _applyDecoratedDescriptor(_class2.prototype, "resultMessageLabel", [_dec21], {
+      }), _descriptor18 = _applyDecoratedDescriptor(_class2.prototype, "resultTitleLabel", [_dec19], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor21 = _applyDecoratedDescriptor(_class2.prototype, "resultRewardLabel", [_dec22], {
+      }), _descriptor19 = _applyDecoratedDescriptor(_class2.prototype, "resultMessageLabel", [_dec20], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor22 = _applyDecoratedDescriptor(_class2.prototype, "resultCloseButton", [_dec23], {
+      }), _descriptor20 = _applyDecoratedDescriptor(_class2.prototype, "resultRewardLabel", [_dec21], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor23 = _applyDecoratedDescriptor(_class2.prototype, "notificationContainer", [_dec24], {
+      }), _descriptor21 = _applyDecoratedDescriptor(_class2.prototype, "resultCloseButton", [_dec22], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor24 = _applyDecoratedDescriptor(_class2.prototype, "notificationLabel", [_dec25], {
+      }), _descriptor22 = _applyDecoratedDescriptor(_class2.prototype, "notificationContainer", [_dec23], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor23 = _applyDecoratedDescriptor(_class2.prototype, "notificationLabel", [_dec24], {
         configurable: true,
         enumerable: true,
         writable: true,
@@ -1092,7 +1133,7 @@ System.register("chunks:///_virtual/AttackView.ts", ['./rollupPluginModLoBabelHe
 });
 
 System.register("chunks:///_virtual/AttackViewModel.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseViewModel.ts', './ServiceLocator.ts', './Logger.ts'], function (exports) {
-  var _inheritsLoose, _createClass, _asyncToGenerator, _regeneratorRuntime, cclegacy, BaseViewModel, ServiceLocator, logError;
+  var _inheritsLoose, _createClass, _asyncToGenerator, _regeneratorRuntime, cclegacy, log, BaseViewModel, ServiceLocator, logError;
   return {
     setters: [function (module) {
       _inheritsLoose = module.inheritsLoose;
@@ -1101,6 +1142,7 @@ System.register("chunks:///_virtual/AttackViewModel.ts", ['./rollupPluginModLoBa
       _regeneratorRuntime = module.regeneratorRuntime;
     }, function (module) {
       cclegacy = module.cclegacy;
+      log = module.log;
     }, function (module) {
       BaseViewModel = module.BaseViewModel;
     }, function (module) {
@@ -1116,7 +1158,11 @@ System.register("chunks:///_virtual/AttackViewModel.ts", ['./rollupPluginModLoBa
        */
 
       /**
-       * Attack building data
+       * Ship data with 4 attackable positions
+       */
+
+      /**
+       * Ship position data
        */
 
       /**
@@ -1186,30 +1232,31 @@ System.register("chunks:///_virtual/AttackViewModel.ts", ['./rollupPluginModLoBa
             return _regeneratorRuntime().wrap(function _callee$(_context) {
               while (1) switch (_context.prev = _context.next) {
                 case 0:
-                  _context.prev = 0;
+                  log("Loading attack target...");
+                  _context.prev = 1;
                   this.emit('loadingTarget', true);
                   if (!(this._gameService && this._gameService.isReady)) {
-                    _context.next = 9;
+                    _context.next = 10;
                     break;
                   }
-                  _context.next = 5;
+                  _context.next = 6;
                   return this._gameService.getAttackTarget();
-                case 5:
+                case 6:
                   targetData = _context.sent;
                   this._attackTarget = this.processTargetData(targetData);
-                  _context.next = 10;
+                  _context.next = 11;
                   break;
-                case 9:
+                case 10:
                   // Generate mock target for offline mode
                   this._attackTarget = this.generateMockTarget();
-                case 10:
+                case 11:
                   this.emit('targetLoaded', this._attackTarget);
                   this.emit('loadingTarget', false);
-                  _context.next = 21;
+                  _context.next = 22;
                   break;
-                case 14:
-                  _context.prev = 14;
-                  _context.t0 = _context["catch"](0);
+                case 15:
+                  _context.prev = 15;
+                  _context.t0 = _context["catch"](1);
                   logError('Failed to load attack target:', _context.t0);
                   this.emit('targetLoadError', _context.t0);
                   this.emit('loadingTarget', false);
@@ -1217,11 +1264,11 @@ System.register("chunks:///_virtual/AttackViewModel.ts", ['./rollupPluginModLoBa
                   // Fallback to mock target
                   this._attackTarget = this.generateMockTarget();
                   this.emit('targetLoaded', this._attackTarget);
-                case 21:
+                case 22:
                 case "end":
                   return _context.stop();
               }
-            }, _callee, this, [[0, 14]]);
+            }, _callee, this, [[1, 15]]);
           }));
           function loadAttackTarget() {
             return _loadAttackTarget.apply(this, arguments);
@@ -1233,51 +1280,64 @@ System.register("chunks:///_virtual/AttackViewModel.ts", ['./rollupPluginModLoBa
          */;
 
         _proto.processTargetData = function processTargetData(serverData) {
-          var _serverData$buildings;
+          var _serverData$ship;
           return {
             playerId: serverData.playerId || 'unknown',
             playerName: serverData.playerName || 'Unknown Player',
             playerLevel: serverData.playerLevel || 1,
-            cityName: serverData.cityName || 'Unknown City',
-            buildings: ((_serverData$buildings = serverData.buildings) == null ? void 0 : _serverData$buildings.map(function (building) {
-              return {
-                buildingId: building.id || '',
-                buildingType: building.type || 'building',
-                level: building.level || 1,
-                isDestroyed: building.isDestroyed || false,
-                potentialReward: building.potentialReward || 100
-              };
-            })) || []
+            totalMoney: serverData.totalMoney || 0,
+            ship: {
+              positions: ((_serverData$ship = serverData.ship) == null || (_serverData$ship = _serverData$ship.positions) == null ? void 0 : _serverData$ship.map(function (pos) {
+                return {
+                  positionId: pos.id || '',
+                  moneyValue: pos.moneyValue || 100,
+                  isOnFire: pos.isOnFire || false,
+                  isRevealed: pos.isRevealed || false
+                };
+              })) || this.generateDefaultShipPositions()
+            }
           };
+        }
+
+        /**
+         * Generate default ship positions
+         */;
+        _proto.generateDefaultShipPositions = function generateDefaultShipPositions() {
+          var playerModel = this._gameService.getPlayerModel();
+          var moneyValue = 100000 + 75000 * playerModel.currentCity.level;
+          var positions = [];
+          for (var i = 0; i < 4; i++) {
+            positions.push({
+              positionId: "position_" + i,
+              moneyValue: moneyValue,
+              isOnFire: Math.random() < 0.15,
+              // 15% chance of being on fire
+              isRevealed: false
+            });
+          }
+          return positions;
         }
 
         /**
          * Generate mock target for testing/offline mode
          */;
         _proto.generateMockTarget = function generateMockTarget() {
-          var playerNames = ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'];
-          var cityNames = ['Village', 'Town', 'City', 'Metropolis', 'Capital'];
-          var buildingTypes = ['house', 'shop', 'factory', 'tower', 'castle'];
+          var playerNames = ['Captain Alice', 'Admiral Bob', 'Pirate Charlie', 'Navigator Diana', 'Sailor Eve'];
           var randomName = playerNames[Math.floor(Math.random() * playerNames.length)];
-          var randomCity = cityNames[Math.floor(Math.random() * cityNames.length)];
           var randomLevel = Math.floor(Math.random() * 10) + 1;
-          var buildings = [];
-          for (var i = 0; i < 5; i++) {
-            buildings.push({
-              buildingId: "building_" + i,
-              buildingType: buildingTypes[i],
-              level: Math.floor(Math.random() * 3) + 1,
-              isDestroyed: Math.random() < 0.2,
-              // 20% chance of being destroyed
-              potentialReward: Math.floor(Math.random() * 500) + 100
-            });
-          }
+          var shipPositions = this.generateDefaultShipPositions();
+          log(shipPositions);
+          var totalMoney = shipPositions.reduce(function (sum, pos) {
+            return sum + pos.moneyValue;
+          }, 0);
           return {
             playerId: "player_" + Date.now(),
             playerName: randomName,
             playerLevel: randomLevel,
-            cityName: randomCity,
-            buildings: buildings
+            totalMoney: totalMoney,
+            ship: {
+              positions: shipPositions
+            }
           };
         }
 
@@ -1292,10 +1352,10 @@ System.register("chunks:///_virtual/AttackViewModel.ts", ['./rollupPluginModLoBa
               while (1) switch (_context2.prev = _context2.next) {
                 case 0:
                   _context2.t0 = command;
-                  _context2.next = _context2.t0 === 'attackBuilding' ? 3 : _context2.t0 === 'getNewTarget' ? 4 : _context2.t0 === 'goBack' ? 5 : _context2.t0 === 'refreshTarget' ? 6 : 7;
+                  _context2.next = _context2.t0 === 'attackPosition' ? 3 : _context2.t0 === 'getNewTarget' ? 4 : _context2.t0 === 'goBack' ? 5 : _context2.t0 === 'refreshTarget' ? 6 : 7;
                   break;
                 case 3:
-                  return _context2.abrupt("return", this.attackBuilding(_args2.length <= 1 ? undefined : _args2[1]));
+                  return _context2.abrupt("return", this.attackPosition(_args2.length <= 1 ? undefined : _args2[1]));
                 case 4:
                   return _context2.abrupt("return", this.getNewTarget());
                 case 5:
@@ -1316,13 +1376,13 @@ System.register("chunks:///_virtual/AttackViewModel.ts", ['./rollupPluginModLoBa
           return executeCommand;
         }()
         /**
-         * Attack a specific building
+         * Attack a specific ship position
          */;
 
-        _proto.attackBuilding = /*#__PURE__*/
+        _proto.attackPosition = /*#__PURE__*/
         function () {
-          var _attackBuilding = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(buildingId) {
-            var building, attackResult, serverResult;
+          var _attackPosition = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(positionId) {
+            var position, attackResult, serverResult;
             return _regeneratorRuntime().wrap(function _callee3$(_context3) {
               while (1) switch (_context3.prev = _context3.next) {
                 case 0:
@@ -1332,109 +1392,112 @@ System.register("chunks:///_virtual/AttackViewModel.ts", ['./rollupPluginModLoBa
                   }
                   return _context3.abrupt("return", null);
                 case 2:
-                  building = this._attackTarget.buildings.find(function (b) {
-                    return b.buildingId === buildingId;
+                  position = this._attackTarget.ship.positions.find(function (p) {
+                    return p.positionId === positionId;
                   });
-                  if (building) {
+                  if (position) {
                     _context3.next = 6;
                     break;
                   }
-                  logError("Building not found: " + buildingId);
+                  logError("Ship position not found: " + positionId);
                   return _context3.abrupt("return", null);
                 case 6:
-                  if (!building.isDestroyed) {
-                    _context3.next = 9;
-                    break;
-                  }
-                  this.emit('buildingAlreadyDestroyed', {
-                    buildingId: buildingId
-                  });
-                  return _context3.abrupt("return", null);
-                case 9:
                   if (!(this._attacksRemaining <= 0)) {
-                    _context3.next = 12;
+                    _context3.next = 9;
                     break;
                   }
                   this.emit('noAttacksRemaining');
                   return _context3.abrupt("return", null);
-                case 12:
-                  _context3.prev = 12;
+                case 9:
+                  _context3.prev = 9;
                   this._isAttacking = true;
                   this.emit('attackStarted', {
-                    buildingId: buildingId,
+                    positionId: positionId,
                     targetPlayer: this._attackTarget.playerName
                   });
                   if (!(this._gameService && this._gameService.isReady)) {
-                    _context3.next = 22;
+                    _context3.next = 19;
                     break;
                   }
-                  _context3.next = 18;
-                  return this._gameService.attackPlayer(this._attackTarget.playerId, buildingId);
-                case 18:
+                  _context3.next = 15;
+                  return this._gameService.attackPlayer(this._attackTarget.playerId, positionId);
+                case 15:
                   serverResult = _context3.sent;
-                  attackResult = this.processAttackResult(serverResult, buildingId);
-                  _context3.next = 23;
+                  attackResult = this.processAttackResult(serverResult, positionId);
+                  _context3.next = 20;
                   break;
-                case 22:
+                case 19:
                   // Generate mock attack result
-                  attackResult = this.generateMockAttackResult(buildingId, building);
-                case 23:
-                  _context3.next = 25;
+                  attackResult = this.generateMockAttackResult(positionId, position);
+                case 20:
+                  _context3.next = 22;
                   return this.processAttackSuccess(attackResult);
-                case 25:
+                case 22:
                   this._attacksRemaining--;
                   this._isAttacking = false;
                   this.emit('attackCompleted', attackResult);
                   return _context3.abrupt("return", attackResult);
-                case 31:
-                  _context3.prev = 31;
-                  _context3.t0 = _context3["catch"](12);
+                case 28:
+                  _context3.prev = 28;
+                  _context3.t0 = _context3["catch"](9);
                   logError('Attack failed:', _context3.t0);
                   this._isAttacking = false;
                   this.emit('attackError', {
-                    buildingId: buildingId,
+                    positionId: positionId,
                     error: _context3.t0.message
                   });
                   return _context3.abrupt("return", null);
-                case 37:
+                case 34:
                 case "end":
                   return _context3.stop();
               }
-            }, _callee3, this, [[12, 31]]);
+            }, _callee3, this, [[9, 28]]);
           }));
-          function attackBuilding(_x2) {
-            return _attackBuilding.apply(this, arguments);
+          function attackPosition(_x2) {
+            return _attackPosition.apply(this, arguments);
           }
-          return attackBuilding;
+          return attackPosition;
         }()
         /**
          * Process attack result from server
          */;
 
-        _proto.processAttackResult = function processAttackResult(serverResult, buildingId) {
+        _proto.processAttackResult = function processAttackResult(serverResult, positionId) {
           return {
             success: serverResult.success || false,
-            buildingId: buildingId,
+            positionId: positionId,
             goldEarned: serverResult.goldEarned || 0,
-            damageDealt: serverResult.damageDealt || false,
+            wasBlocked: serverResult.wasBlocked || false,
+            causedFire: serverResult.causedFire || false,
             message: serverResult.message || 'Attack completed'
           };
         }
 
         /**
-         * Generate mock attack result
+         * Generate mock attack result for ship position
          */;
-        _proto.generateMockAttackResult = function generateMockAttackResult(buildingId, building) {
-          var success = Math.random() < 0.7; // 70% success rate
-          var goldEarned = success ? Math.floor(building.potentialReward * (0.5 + Math.random() * 0.5)) : 0;
-          var damageDealt = success && Math.random() < 0.3; // 30% chance to destroy building
-
+        _proto.generateMockAttackResult = function generateMockAttackResult(positionId, position) {
+          var playerModel = this._gameService.getPlayerModel();
+          // Shield blocking chance (30%)
+          var wasBlocked = Math.random() < 0.3;
+          var success = !wasBlocked;
+          var goldEarned = 0;
+          var causedFire = false;
+          if (success) {
+            // Earn money from the position 
+            goldEarned = position.moneyValue;
+            // 25% chance to cause fire damage
+            causedFire = Math.random() < 0.25;
+          } else {
+            goldEarned = playerModel.currentCity.level * 50000;
+          }
           return {
             success: success,
-            buildingId: buildingId,
+            positionId: positionId,
             goldEarned: goldEarned,
-            damageDealt: damageDealt,
-            message: success ? damageDealt ? 'Building destroyed! Great attack!' : 'Attack successful!' : 'Attack failed! Better luck next time.'
+            wasBlocked: wasBlocked,
+            causedFire: causedFire,
+            message: wasBlocked ? 'Attack blocked by shield!' : success ? causedFire ? 'Direct hit! Ship position on fire!' : 'Attack successful!' : 'Attack failed! Better luck next time.'
           };
         }
 
@@ -1444,7 +1507,7 @@ System.register("chunks:///_virtual/AttackViewModel.ts", ['./rollupPluginModLoBa
         _proto.processAttackSuccess = /*#__PURE__*/
         function () {
           var _processAttackSuccess = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(attackResult) {
-            var building;
+            var _position, position;
             return _regeneratorRuntime().wrap(function _callee4$(_context4) {
               while (1) switch (_context4.prev = _context4.next) {
                 case 0:
@@ -1461,16 +1524,24 @@ System.register("chunks:///_virtual/AttackViewModel.ts", ['./rollupPluginModLoBa
                   _context4.next = 5;
                   return this._resourceManager.addGold(attackResult.goldEarned, 'attack_reward');
                 case 5:
-                  // Update building state if damaged
-                  if (attackResult.damageDealt) {
-                    building = this._attackTarget.buildings.find(function (b) {
-                      return b.buildingId === attackResult.buildingId;
+                  // Update ship position state if fire damage was caused
+                  if (attackResult.causedFire) {
+                    _position = this._attackTarget.ship.positions.find(function (p) {
+                      return p.positionId === attackResult.positionId;
                     });
-                    if (building) {
-                      building.isDestroyed = true;
+                    if (_position) {
+                      _position.isOnFire = true;
                     }
                   }
-                case 6:
+
+                  // Reveal the money value of the attacked position
+                  position = this._attackTarget.ship.positions.find(function (p) {
+                    return p.positionId === attackResult.positionId;
+                  });
+                  if (position) {
+                    position.isRevealed = true;
+                  }
+                case 8:
                 case "end":
                   return _context4.stop();
               }
@@ -1596,12 +1667,12 @@ System.register("chunks:///_virtual/AttackViewModel.ts", ['./rollupPluginModLoBa
           }
 
           /**
-           * Get target city name
+           * Get target total money
            */
         }, {
-          key: "targetCityName",
+          key: "targetTotalMoney",
           get: function get() {
-            return this._attackTarget ? this._attackTarget.cityName : '';
+            return this._attackTarget ? this._attackTarget.totalMoney : 0;
           }
 
           /**
@@ -1614,38 +1685,38 @@ System.register("chunks:///_virtual/AttackViewModel.ts", ['./rollupPluginModLoBa
           }
 
           /**
-           * Get available buildings for attack
+           * Get available ship positions for attack
            */
         }, {
-          key: "availableBuildings",
+          key: "availablePositions",
           get: function get() {
             if (!this._attackTarget) return [];
-            return this._attackTarget.buildings.filter(function (building) {
-              return !building.isDestroyed;
+            return this._attackTarget.ship.positions.filter(function (position) {
+              return !position.isOnFire;
             });
           }
 
           /**
-           * Get destroyed buildings
+           * Get positions on fire
            */
         }, {
-          key: "destroyedBuildings",
+          key: "burningPositions",
           get: function get() {
             if (!this._attackTarget) return [];
-            return this._attackTarget.buildings.filter(function (building) {
-              return building.isDestroyed;
+            return this._attackTarget.ship.positions.filter(function (position) {
+              return position.isOnFire;
             });
           }
 
           /**
-           * Get total potential reward
+           * Get total potential reward from all positions
            */
         }, {
           key: "totalPotentialReward",
           get: function get() {
             if (!this._attackTarget) return 0;
-            return this.availableBuildings.reduce(function (total, building) {
-              return total + building.potentialReward;
+            return this._attackTarget.ship.positions.reduce(function (total, position) {
+              return total + position.moneyValue;
             }, 0);
           }
         }]);
@@ -7363,9 +7434,9 @@ System.register("chunks:///_virtual/Logger.ts", ['cc'], function (exports) {
   };
 });
 
-System.register("chunks:///_virtual/main", ['./CheatComponent.ts', './CoinAnimationManager.ts', './ReelComponent.ts', './RevealWave.ts', './RewardCoin.ts', './RewardFly.ts', './RewardUIIntegration.ts', './SlotMachineComponent.ts', './AnimationConfig.ts', './GameConfig.ts', './RewardAnimationConfig.ts', './SlotMachineConfig.ts', './ResourceManagerExample.ts', './RewardAnimationExample.ts', './BaseModel.ts', './BaseService.ts', './BaseView.ts', './BaseViewModel.ts', './ServiceLocator.ts', './index2.ts', './ResourceManager.ts', './BuildingModel.ts', './CityModel.ts', './MainEventModel.ts', './PlayerModel.ts', './ResourceModel.ts', './SlotMachineModel.ts', './index.ts', './ConfigScene.ts', './PreviewDragonBone.ts', './SagaScene.ts', './AttackView.ts', './AttackViewModel.ts', './CityView.ts', './CityViewModel.ts', './LoadingView.ts', './LoadingViewModel.ts', './MainView.ts', './MainViewModel.ts', './RaidView.ts', './RaidViewModel.ts', './GameService.ts', './NetworkService.ts', './index3.ts', './SimpleCityModelTest.ts', './DebugPanel.ts', './Logger.ts', './SlotMachineUtils.ts', './StringUtils.ts'], function () {
+System.register("chunks:///_virtual/main", ['./CheatComponent.ts', './CoinAnimationManager.ts', './MysteryBoxComponent.ts', './ReelComponent.ts', './RevealWave.ts', './RewardCoin.ts', './RewardFly.ts', './RewardUIIntegration.ts', './SlotMachineComponent.ts', './AnimationConfig.ts', './GameConfig.ts', './RewardAnimationConfig.ts', './SlotMachineConfig.ts', './ResourceManagerExample.ts', './RewardAnimationExample.ts', './BaseModel.ts', './BaseService.ts', './BaseView.ts', './BaseViewModel.ts', './ServiceLocator.ts', './index2.ts', './ResourceManager.ts', './BuildingModel.ts', './CityModel.ts', './MainEventModel.ts', './PlayerModel.ts', './ResourceModel.ts', './SlotMachineModel.ts', './StealModel.ts', './index.ts', './ConfigScene.ts', './PreviewDragonBone.ts', './SagaScene.ts', './AttackView.ts', './AttackViewModel.ts', './CityView.ts', './CityViewModel.ts', './LoadingView.ts', './LoadingViewModel.ts', './MainView.ts', './MainViewModel.ts', './RaidView.ts', './RaidViewModel.ts', './StealView.ts', './StealViewModel.ts', './GameService.ts', './NetworkService.ts', './index3.ts', './SimpleCityModelTest.ts', './DebugPanel.ts', './Logger.ts', './SlotMachineUtils.ts', './StringUtils.ts'], function () {
   return {
-    setters: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+    setters: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
     execute: function () {}
   };
 });
@@ -7743,7 +7814,7 @@ System.register("chunks:///_virtual/MainEventModel.ts", ['./rollupPluginModLoBab
 });
 
 System.register("chunks:///_virtual/MainView.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseView.ts', './MainViewModel.ts', './Logger.ts', './SlotMachineComponent.ts', './CheatComponent.ts'], function (exports) {
-  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _asyncToGenerator, _regeneratorRuntime, cclegacy, _decorator, SpriteAtlas, Label, Node, ProgressBar, Button, Tween, tween, director, BaseView, MainViewModel, logError, SlotMachineComponent, CheatComponent;
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _asyncToGenerator, _regeneratorRuntime, cclegacy, _decorator, SpriteAtlas, Label, Node, ProgressBar, Button, Tween, tween, director, log, UIOpacity, BaseView, MainViewModel, logError, SlotMachineComponent, CheatComponent;
   return {
     setters: [function (module) {
       _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
@@ -7763,6 +7834,8 @@ System.register("chunks:///_virtual/MainView.ts", ['./rollupPluginModLoBabelHelp
       Tween = module.Tween;
       tween = module.tween;
       director = module.director;
+      log = module.log;
+      UIOpacity = module.UIOpacity;
     }, function (module) {
       BaseView = module.BaseView;
     }, function (module) {
@@ -7775,11 +7848,11 @@ System.register("chunks:///_virtual/MainView.ts", ['./rollupPluginModLoBabelHelp
       CheatComponent = module.CheatComponent;
     }],
     execute: function () {
-      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15;
+      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _dec14, _dec15, _dec16, _dec17, _dec18, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11, _descriptor12, _descriptor13, _descriptor14, _descriptor15, _descriptor16, _descriptor17;
       cclegacy._RF.push({}, "3976ax0WAxBZqcZXrh3/tDy", "MainView", undefined);
       var ccclass = _decorator.ccclass,
         property = _decorator.property;
-      var MainView = exports('MainView', (_dec = ccclass('MainView'), _dec2 = property([SpriteAtlas]), _dec3 = property(Label), _dec4 = property(Label), _dec5 = property(Label), _dec6 = property(Label), _dec7 = property(Node), _dec8 = property(Node), _dec9 = property(Label), _dec10 = property(Label), _dec11 = property(ProgressBar), _dec12 = property(Button), _dec13 = property(Button), _dec14 = property(Node), _dec15 = property(CheatComponent), _dec16 = property(Label), _dec(_class = (_class2 = /*#__PURE__*/function (_BaseView) {
+      var MainView = exports('MainView', (_dec = ccclass('MainView'), _dec2 = property([SpriteAtlas]), _dec3 = property(Label), _dec4 = property(Label), _dec5 = property(Label), _dec6 = property(Label), _dec7 = property(Node), _dec8 = property(Node), _dec9 = property(Label), _dec10 = property(Label), _dec11 = property(ProgressBar), _dec12 = property(Button), _dec13 = property(Button), _dec14 = property(Node), _dec15 = property(Node), _dec16 = property(Node), _dec17 = property(CheatComponent), _dec18 = property(Label), _dec(_class = (_class2 = /*#__PURE__*/function (_BaseView) {
         _inheritsLoose(MainView, _BaseView);
         function MainView() {
           var _this;
@@ -7802,9 +7875,11 @@ System.register("chunks:///_virtual/MainView.ts", ['./rollupPluginModLoBabelHelp
           _initializerDefineProperty(_this, "cityButton", _descriptor12, _assertThisInitialized(_this));
           // Notification UI
           _initializerDefineProperty(_this, "notificationContainer", _descriptor13, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "stealNotification", _descriptor14, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "attackNotification", _descriptor15, _assertThisInitialized(_this));
           //Cheat UI
-          _initializerDefineProperty(_this, "cheatContainer", _descriptor14, _assertThisInitialized(_this));
-          _initializerDefineProperty(_this, "notificationLabel", _descriptor15, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "cheatContainer", _descriptor16, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "notificationLabel", _descriptor17, _assertThisInitialized(_this));
           _this._viewModel = null;
           _this._slotMachineComponent = null;
           return _this;
@@ -8006,10 +8081,29 @@ System.register("chunks:///_virtual/MainView.ts", ['./rollupPluginModLoBabelHelp
           director.loadScene(sceneName);
         };
         _proto.onAttackRewardReceived = function onAttackRewardReceived() {
+          log('onAttackRewardReceived');
           this.showNotification('Attack available! Tap Attack button!');
+          var attackNotificationOpacity = this.attackNotification.getComponent(UIOpacity);
+          this.attackNotification.active = true;
+          tween(attackNotificationOpacity).set({
+            opacity: 0
+          }).delay(1).to(0.3, {
+            opacity: 255
+          }).delay(1).call(function () {
+            director.loadScene('Attack');
+          }).start();
         };
         _proto.onRaidRewardReceived = function onRaidRewardReceived() {
           this.showNotification('Raid available! Tap Raid button!');
+          var stealNotificationOpacity = this.stealNotification.getComponent(UIOpacity);
+          this.stealNotification.active = true;
+          tween(stealNotificationOpacity).set({
+            opacity: 0
+          }).delay(1).to(0.3, {
+            opacity: 255
+          }).delay(1).call(function () {
+            director.loadScene('Steal');
+          }).start();
         }
 
         // Button Event Handlers
@@ -8055,6 +8149,7 @@ System.register("chunks:///_virtual/MainView.ts", ['./rollupPluginModLoBabelHelp
           }
         };
         _proto.onDestroy = function onDestroy() {
+          log("MainView: onDestroy called");
           // Stop the energy regeneration timer
           this.stopEnergyRegenTimer();
           if (this._viewModel) {
@@ -8162,14 +8257,28 @@ System.register("chunks:///_virtual/MainView.ts", ['./rollupPluginModLoBabelHelp
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor14 = _applyDecoratedDescriptor(_class2.prototype, "cheatContainer", [_dec15], {
+      }), _descriptor14 = _applyDecoratedDescriptor(_class2.prototype, "stealNotification", [_dec15], {
         configurable: true,
         enumerable: true,
         writable: true,
         initializer: function initializer() {
           return null;
         }
-      }), _descriptor15 = _applyDecoratedDescriptor(_class2.prototype, "notificationLabel", [_dec16], {
+      }), _descriptor15 = _applyDecoratedDescriptor(_class2.prototype, "attackNotification", [_dec16], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor16 = _applyDecoratedDescriptor(_class2.prototype, "cheatContainer", [_dec17], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor17 = _applyDecoratedDescriptor(_class2.prototype, "notificationLabel", [_dec18], {
         configurable: true,
         enumerable: true,
         writable: true,
@@ -8212,7 +8321,6 @@ System.register("chunks:///_virtual/MainViewModel.ts", ['./rollupPluginModLoBabe
     }],
     execute: function () {
       cclegacy._RF.push({}, "e4de49BZ0lFgpMLiS3rhzFI", "MainViewModel", undefined);
-
       /**
        * Main Scene ViewModel - Handles main game screen logic
        */
@@ -8239,6 +8347,7 @@ System.register("chunks:///_virtual/MainViewModel.ts", ['./rollupPluginModLoBabe
           this.setupModels();
           this.setupEventListeners();
           this.loadInitialData();
+          this.checkForStealReward();
         }
 
         /**
@@ -9002,6 +9111,35 @@ System.register("chunks:///_virtual/MainViewModel.ts", ['./rollupPluginModLoBabe
           this.emit('autoSpinStateChanged', payload);
         }
 
+        /**
+         * Check for steal rewards when returning from Steal scene
+         */;
+        _proto.checkForStealReward = function checkForStealReward() {
+          if (typeof window !== 'undefined' && window.stealReward) {
+            var reward = window.stealReward;
+            var timeDiff = Date.now() - reward.timestamp;
+
+            // Only process recent rewards (within 5 minutes)
+            if (timeDiff < 300000 && reward.gold > 0) {
+              this.awardStealReward(reward.gold);
+              // Clear the reward
+              delete window.stealReward;
+            }
+          }
+        }
+
+        /**
+         * Award stolen gold to the player
+         */;
+        _proto.awardStealReward = function awardStealReward(goldAmount) {
+          if (this._resourceManager) {
+            this._resourceManager.addGold(goldAmount);
+            this.emit('stealRewardAwarded', {
+              gold: goldAmount
+            });
+          }
+        }
+
         // Getters
 
         /**
@@ -9189,6 +9327,290 @@ System.register("chunks:///_virtual/MainViewModel.ts", ['./rollupPluginModLoBabe
         }]);
         return MainViewModel;
       }(BaseViewModel));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/MysteryBoxComponent.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc'], function (exports) {
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, cclegacy, _decorator, Button, Sprite, Node, Label, SpriteFrame, Color, log, Vec3, tween, Component;
+  return {
+    setters: [function (module) {
+      _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
+      _inheritsLoose = module.inheritsLoose;
+      _initializerDefineProperty = module.initializerDefineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      Button = module.Button;
+      Sprite = module.Sprite;
+      Node = module.Node;
+      Label = module.Label;
+      SpriteFrame = module.SpriteFrame;
+      Color = module.Color;
+      log = module.log;
+      Vec3 = module.Vec3;
+      tween = module.tween;
+      Component = module.Component;
+    }],
+    execute: function () {
+      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10;
+      cclegacy._RF.push({}, "95fa92yf2NGJ4qjtQRwWji4", "MysteryBoxComponent", undefined);
+      var ccclass = _decorator.ccclass,
+        property = _decorator.property;
+      var MysteryBoxComponent = exports('MysteryBoxComponent', (_dec = ccclass('MysteryBoxComponent'), _dec2 = property(Button), _dec3 = property(Sprite), _dec4 = property(Node), _dec5 = property(Label), _dec6 = property(Sprite), _dec7 = property(SpriteFrame), _dec8 = property(SpriteFrame), _dec9 = property(SpriteFrame), _dec10 = property(SpriteFrame), _dec11 = property(SpriteFrame), _dec(_class = (_class2 = /*#__PURE__*/function (_Component) {
+        _inheritsLoose(MysteryBoxComponent, _Component);
+        function MysteryBoxComponent() {
+          var _this;
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+          _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+          _initializerDefineProperty(_this, "boxButton", _descriptor, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "boxSprite", _descriptor2, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "contentContainer", _descriptor3, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "contentLabel", _descriptor4, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "contentIcon", _descriptor5, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "closedBoxSprite", _descriptor6, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "openBoxSprite", _descriptor7, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "goldIconSprite", _descriptor8, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "keyIconSprite", _descriptor9, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "noLuckIconSprite", _descriptor10, _assertThisInitialized(_this));
+          _this.boxIndex = -1;
+          _this.content = null;
+          _this.isBoxOpened = false;
+          _this.isInteractable = true;
+          return _this;
+        }
+        var _proto = MysteryBoxComponent.prototype;
+        _proto.onLoad = function onLoad() {
+          this.bindEvents();
+          this.resetToClosedState();
+        };
+        _proto.onDestroy = function onDestroy() {
+          this.unbindEvents();
+        };
+        _proto.bindEvents = function bindEvents() {
+          if (this.boxButton) {
+            this.boxButton.node.on(Button.EventType.CLICK, this.onBoxClicked, this);
+          }
+        };
+        _proto.unbindEvents = function unbindEvents() {
+          if (this.boxButton && this.boxButton.node) {
+            this.boxButton.node.off(Button.EventType.CLICK, this.onBoxClicked, this);
+          }
+        };
+        _proto.initialize = function initialize(index) {
+          this.boxIndex = index;
+          this.resetToClosedState();
+        };
+        _proto.setContent = function setContent(content) {
+          this.content = content;
+        };
+        _proto.setInteractable = function setInteractable(interactable) {
+          this.isInteractable = interactable;
+          if (this.boxButton) {
+            this.boxButton.interactable = interactable && !this.isBoxOpened;
+          }
+
+          // Visual feedback for non-interactable state
+          if (this.boxSprite) {
+            var color = interactable ? Color.WHITE : new Color(150, 150, 150, 255);
+            this.boxSprite.color = color;
+          }
+        };
+        _proto.reveal = function reveal(content) {
+          if (this.isBoxOpened) return;
+          this.isBoxOpened = true;
+          this.content = content;
+
+          // Update visual state
+          this.showOpenedState();
+          this.displayContent();
+
+          // Disable interaction
+          this.setInteractable(false);
+        };
+        _proto.isOpened = function isOpened() {
+          return this.isBoxOpened;
+        };
+        _proto.onBoxClicked = function onBoxClicked() {
+          if (!this.isInteractable || this.isBoxOpened) return;
+          log("MysteryBoxComponent: Box " + this.boxIndex + " clicked");
+
+          // Emit event to parent
+          this.node.emit('mysteryBoxClicked', {
+            boxIndex: this.boxIndex
+          });
+        };
+        _proto.resetToClosedState = function resetToClosedState() {
+          this.isBoxOpened = false;
+
+          // Set closed box sprite
+          if (this.boxSprite && this.closedBoxSprite) {
+            this.boxSprite.spriteFrame = this.closedBoxSprite;
+            this.boxSprite.color = Color.WHITE;
+          }
+
+          // Hide content
+          if (this.contentContainer) {
+            this.contentContainer.active = false;
+          }
+
+          // Enable interaction
+          this.setInteractable(true);
+        };
+        _proto.showOpenedState = function showOpenedState() {
+          // Set opened box sprite
+          if (this.boxSprite && this.openBoxSprite) {
+            this.boxSprite.spriteFrame = this.openBoxSprite;
+          }
+
+          // Show content container
+          if (this.contentContainer) {
+            this.contentContainer.active = true;
+          }
+        };
+        _proto.displayContent = function displayContent() {
+          if (!this.content) return;
+
+          // Set content text
+          if (this.contentLabel) {
+            switch (this.content.type) {
+              case 'gold':
+                this.contentLabel.string = "" + this.content.amount;
+                this.contentLabel.color = new Color(255, 215, 0, 255); // Gold color
+                break;
+              case 'key':
+                this.contentLabel.string = "+" + this.content.amount;
+                this.contentLabel.color = new Color(192, 192, 192, 255); // Silver color
+                break;
+              case 'noLuck':
+                this.contentLabel.string = 'No Luck';
+                this.contentLabel.color = new Color(128, 128, 128, 255); // Gray color
+                break;
+            }
+          }
+
+          // Set content icon
+          if (this.contentIcon) {
+            switch (this.content.type) {
+              case 'gold':
+                if (this.goldIconSprite) {
+                  this.contentIcon.spriteFrame = this.goldIconSprite;
+                  this.contentIcon.node.active = true;
+                }
+                break;
+              case 'key':
+                if (this.keyIconSprite) {
+                  this.contentIcon.spriteFrame = this.keyIconSprite;
+                  this.contentIcon.node.active = true;
+                }
+                break;
+              case 'noLuck':
+                if (this.noLuckIconSprite) {
+                  this.contentIcon.spriteFrame = this.noLuckIconSprite;
+                  this.contentIcon.node.active = true;
+                }
+                break;
+            }
+          }
+
+          // Add reveal animation
+          this.playRevealAnimation();
+        };
+        _proto.playRevealAnimation = function playRevealAnimation() {
+          if (!this.contentContainer) return;
+
+          // Start with scale 0 and animate to normal size
+          this.contentContainer.setScale(Vec3.ZERO);
+          tween(this.contentContainer).to(0.3, {
+            scale: new Vec3(1.2, 1.2, 1)
+          }, {
+            easing: 'backOut'
+          }).to(0.1, {
+            scale: Vec3.ONE
+          }).start();
+        };
+        _proto.getBoxIndex = function getBoxIndex() {
+          return this.boxIndex;
+        };
+        _proto.getContent = function getContent() {
+          return this.content;
+        };
+        return MysteryBoxComponent;
+      }(Component), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "boxButton", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "boxSprite", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "contentContainer", [_dec4], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "contentLabel", [_dec5], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "contentIcon", [_dec6], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "closedBoxSprite", [_dec7], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, "openBoxSprite", [_dec8], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, "goldIconSprite", [_dec9], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, "keyIconSprite", [_dec10], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, "noLuckIconSprite", [_dec11], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      })), _class2)) || _class));
       cclegacy._RF.pop();
     }
   };
@@ -13863,6 +14285,8 @@ System.register("chunks:///_virtual/RewardAnimationExample.ts", ['./rollupPlugin
           if (this.rewardUIIntegration) {
             this.rewardUIIntegration.playGoldReward(100, this._getSpawnPosition(), function () {
               _this2._updateStatus('Gold reward animation completed!');
+            }, function (coinIndex) {
+              _this2._updateStatus("Collected gold coin " + (coinIndex + 1) + "!");
             });
           }
         }
@@ -14002,6 +14426,8 @@ System.register("chunks:///_virtual/RewardAnimationExample.ts", ['./rollupPlugin
             useCurvedPath: true
           }, function (collectedCoins) {
             _this9._updateStatus("Direct animation completed! " + collectedCoins + " coins collected.");
+          }, function () {
+            log("one animation completed!");
           });
         }
 
@@ -14397,7 +14823,6 @@ System.register("chunks:///_virtual/RewardCoin.ts", ['./rollupPluginModLoBabelHe
             value: 1
           }, {
             easing: 'backIn',
-            // Use 'sineIn' for a smoother acceleration
             onUpdate: function onUpdate() {
               var pos = _this5._calculateBezierPoint(fromPos, controlPoint, targetPos, progress.value);
               _this5.node.setPosition(pos);
@@ -14408,12 +14833,12 @@ System.register("chunks:///_virtual/RewardCoin.ts", ['./rollupPluginModLoBabelHe
 
           // Add collection phase scale animation
           if (config.scaleAnimation) {
-            tween(this.node).to(duration * 0.3, {
-              scale: new Vec3(1.1, 1.1, 1.1)
+            tween(this.node).to(duration * 0.4, {
+              scale: new Vec3(1.2, 1.2, 1.2)
             }, {
               easing: 'sineOut'
-            }).to(duration * 0.7, {
-              scale: new Vec3(0.8, 0.8, 0.8)
+            }).to(duration * 0.6, {
+              scale: new Vec3(1., 1., 1.)
             }, {
               easing: 'sineIn'
             }).start();
@@ -14506,7 +14931,7 @@ System.register("chunks:///_virtual/RewardFly.ts", ['./rollupPluginModLoBabelHel
       var REWARD_CONFIGS = exports('REWARD_CONFIGS', {
         gold: {
           coinCount: 20,
-          spawnRadius: 100,
+          spawnRadius: 150,
           duration: 1.5,
           burstDurationRate: 0.2,
           collectDurationRate: 0.8,
@@ -14568,7 +14993,7 @@ System.register("chunks:///_virtual/RewardFly.ts", ['./rollupPluginModLoBabelHel
         /**
          * Play reward animation with specified configuration
          */
-        _proto.playRewardAnimation = function playRewardAnimation(rewardType, amount, spawnPosition, targetPosition, customConfig, onComplete) {
+        _proto.playRewardAnimation = function playRewardAnimation(rewardType, amount, spawnPosition, targetPosition, customConfig, onComplete, onCoinCollect) {
           var _this$node$getCompone, _this$node$getCompone2;
           // Clear any previous converge control points
           CoinAnimationManager.instance.clearConvergeControlPoint();
@@ -14583,7 +15008,9 @@ System.register("chunks:///_virtual/RewardFly.ts", ['./rollupPluginModLoBabelHel
 
           // Scale coin count based on amount (optional)
           var scaledCoinCount = Math.min(config.coinCount, Math.max(3, Math.floor(amount / 10)));
-          // config = { ...config, coinCount: scaledCoinCount };
+          config = _extends({}, config, {
+            coinCount: scaledCoinCount
+          });
 
           // Use target node position if no target position specified
           var finalTargetPos = targetPosition || (this.targetNode ? this.targetNode.getWorldPosition() : new Vec3());
@@ -14592,7 +15019,7 @@ System.register("chunks:///_virtual/RewardFly.ts", ['./rollupPluginModLoBabelHel
           var localTargetPos = ((_this$node$getCompone = this.node.getComponent(UITransform)) == null ? void 0 : _this$node$getCompone.convertToNodeSpaceAR(finalTargetPos)) || finalTargetPos;
           var localSpawnPos = ((_this$node$getCompone2 = this.node.getComponent(UITransform)) == null ? void 0 : _this$node$getCompone2.convertToNodeSpaceAR(spawnPosition)) || spawnPosition;
           log("checkkzz", localSpawnPos, localTargetPos);
-          this._spawnAndAnimateCoins(localSpawnPos, localTargetPos, config, onComplete);
+          this._spawnAndAnimateCoins(localSpawnPos, localTargetPos, config, onComplete, onCoinCollect);
         }
 
         /**
@@ -14607,12 +15034,13 @@ System.register("chunks:///_virtual/RewardFly.ts", ['./rollupPluginModLoBabelHel
         _proto.playCoinReward = function playCoinReward(amount, spawnPos, onComplete) {
           this.playRewardAnimation('coins', amount, spawnPos, undefined, undefined, onComplete);
         };
-        _proto._spawnAndAnimateCoins = function _spawnAndAnimateCoins(spawnPos, targetPos, config, onComplete) {
+        _proto._spawnAndAnimateCoins = function _spawnAndAnimateCoins(spawnPos, targetPos, config, onComplete, onCoinCollect) {
           var _this2 = this;
           if (!this.rewardPrefab) {
             console.error('RewardFly: No reward prefab assigned!');
             return;
           }
+          log("_spawnAndAnimateCoins", spawnPos, targetPos, config, onComplete, onCoinCollect);
           var coins = [];
           var burstDirections = this._generateBurstDirections(config.coinCount);
 
@@ -14622,7 +15050,7 @@ System.register("chunks:///_virtual/RewardFly.ts", ['./rollupPluginModLoBabelHel
           var onBurstComplete = function onBurstComplete() {
             burstCompletedCount++;
             if (burstCompletedCount === config.coinCount) {
-              _this2._startSequentialCollection(coins, targetPos, config, onComplete);
+              _this2._startSequentialCollection(coins, targetPos, config, onComplete, onCoinCollect);
             }
           };
 
@@ -14662,7 +15090,7 @@ System.register("chunks:///_virtual/RewardFly.ts", ['./rollupPluginModLoBabelHel
           this._activeAnimations.push(rewardCoin);
           return rewardCoin;
         };
-        _proto._startSequentialCollection = function _startSequentialCollection(coins, targetPos, config, onComplete) {
+        _proto._startSequentialCollection = function _startSequentialCollection(coins, targetPos, config, onComplete, onCoinCollect) {
           var _this3 = this;
           // Sort coins by distance to the target (closest first)
           coins.sort(function (a, b) {
@@ -14680,6 +15108,9 @@ System.register("chunks:///_virtual/RewardFly.ts", ['./rollupPluginModLoBabelHel
             _this3.scheduleOnce(function () {
               coin.collect(targetPos, config, function () {
                 completedCoins++;
+                if (onCoinCollect) {
+                  onCoinCollect(completedCoins, totalCoins);
+                }
                 // Remove from active animations
                 var animIndex = _this3._activeAnimations.indexOf(coin);
                 if (animIndex > -1) {
@@ -14753,7 +15184,7 @@ System.register("chunks:///_virtual/RewardFly.ts", ['./rollupPluginModLoBabelHel
 });
 
 System.register("chunks:///_virtual/RewardUIIntegration.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './RewardFly.ts', './RewardAnimationConfig.ts'], function (exports) {
-  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _extends, cclegacy, _decorator, Camera, Node, find, Label, log, Vec3, UITransform, Component, RewardFly, RewardType;
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, _extends, cclegacy, _decorator, Camera, Node, find, Label, log, Vec3, UITransform, Tween, tween, Component, RewardFly, RewardType;
   return {
     setters: [function (module) {
       _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
@@ -14771,6 +15202,8 @@ System.register("chunks:///_virtual/RewardUIIntegration.ts", ['./rollupPluginMod
       log = module.log;
       Vec3 = module.Vec3;
       UITransform = module.UITransform;
+      Tween = module.Tween;
+      tween = module.tween;
       Component = module.Component;
     }, function (module) {
       RewardFly = module.RewardFly;
@@ -14913,7 +15346,8 @@ System.register("chunks:///_virtual/RewardUIIntegration.ts", ['./rollupPluginMod
          */;
         _proto.playRewardAnimation = function playRewardAnimation(params) {
           var _this2 = this,
-            _updatedParams$callba;
+            _updatedParams$callba,
+            _updatedParams$callba2;
           if (!this.rewardAnimationManager) {
             console.error('RewardUIIntegration: No reward animation manager assigned!');
             return;
@@ -14938,22 +15372,31 @@ System.register("chunks:///_virtual/RewardUIIntegration.ts", ['./rollupPluginMod
             callbacks: _extends({}, params.callbacks, {
               onComplete: function onComplete(totalCoins) {
                 var _params$callbacks;
-                _this2._updateRewardValue(params.rewardType, params.amount);
+                // this._updateRewardValue(params.rewardType, params.amount);
                 if ((_params$callbacks = params.callbacks) != null && _params$callbacks.onComplete) {
                   params.callbacks.onComplete(totalCoins);
+                }
+              },
+              onCoinCollect: function onCoinCollect(coinIndex, totalCoins) {
+                var _params$callbacks2;
+                log('RewardUIIntegration: onCoinCollect', coinIndex, totalCoins, params.amount);
+                _this2._updateRewardValueOnCoinCollect(params.rewardType, params.amount, coinIndex, totalCoins);
+                _this2._animateTargetNode(target.targetNode);
+                if ((_params$callbacks2 = params.callbacks) != null && _params$callbacks2.onCoinCollect) {
+                  params.callbacks.onCoinCollect(coinIndex, totalCoins);
                 }
               }
             })
           });
 
           // Start animation
-          this.rewardAnimationManager.playRewardAnimation(updatedParams.rewardType, updatedParams.amount, updatedParams.spawnPosition, updatedParams.targetPosition, updatedParams.customConfig, (_updatedParams$callba = updatedParams.callbacks) == null ? void 0 : _updatedParams$callba.onComplete);
+          this.rewardAnimationManager.playRewardAnimation(updatedParams.rewardType, updatedParams.amount, updatedParams.spawnPosition, updatedParams.targetPosition, updatedParams.customConfig, (_updatedParams$callba = updatedParams.callbacks) == null ? void 0 : _updatedParams$callba.onComplete, (_updatedParams$callba2 = updatedParams.callbacks) == null ? void 0 : _updatedParams$callba2.onCoinCollect);
         }
 
         /**
          * Convenience methods for specific reward types
          */;
-        _proto.playGoldReward = function playGoldReward(amount, spawnPos, _onComplete) {
+        _proto.playGoldReward = function playGoldReward(amount, spawnPos, _onComplete, _onCoinCollect) {
           this.playRewardAnimation({
             rewardType: RewardType.GOLD,
             amount: amount,
@@ -14963,6 +15406,9 @@ System.register("chunks:///_virtual/RewardUIIntegration.ts", ['./rollupPluginMod
             callbacks: {
               onComplete: function onComplete() {
                 return _onComplete == null ? void 0 : _onComplete();
+              },
+              onCoinCollect: function onCoinCollect(coinIndex) {
+                return _onCoinCollect == null ? void 0 : _onCoinCollect(coinIndex);
               }
             }
           });
@@ -15034,6 +15480,23 @@ System.register("chunks:///_virtual/RewardUIIntegration.ts", ['./rollupPluginMod
           var worldPos = uiTransform.convertToWorldSpaceAR(Vec3.ZERO);
           return worldPos;
         };
+        _proto._updateRewardValueOnCoinCollect = function _updateRewardValueOnCoinCollect(rewardType, amount, coinIndex, totalCoins) {
+          var target = this._rewardTargets.get(rewardType);
+          if (!target || !target.countLabel) return;
+          var label = target.countLabel.getComponent(Label);
+          if (!label) return;
+          var average = Math.floor(amount / totalCoins);
+          var remain = amount - average * totalCoins;
+
+          // Update current value
+          log('RewardUIIntegration: _updateRewardValueOnCoinCollect after', target.currentValue);
+          target.currentValue += average;
+          if (coinIndex == totalCoins) {
+            target.currentValue += remain;
+          }
+          log('RewardUIIntegration: _updateRewardValueOnCoinCollect before', target.currentValue);
+          label.string = target.currentValue.toString();
+        };
         _proto._updateRewardValue = function _updateRewardValue(rewardType, amount) {
           var target = this._rewardTargets.get(rewardType);
           if (!target || !target.countLabel) return;
@@ -15063,6 +15526,22 @@ System.register("chunks:///_virtual/RewardUIIntegration.ts", ['./rollupPluginMod
               label.string = toValue.toString();
             }
           }, stepDuration * 1000);
+        };
+        _proto._animateTargetNode = function _animateTargetNode(targetNode) {
+          Tween.stopAllByTarget(targetNode);
+          tween(targetNode).to(0.03, {
+            scale: new Vec3(0.9, 0.9, 0.9)
+          }) // nhún xuống nhẹ
+          .to(0.03, {
+            scale: new Vec3(1.05, 1.05, 1.05)
+          }) // bật lên nhẹ
+          .to(0.1, {
+            scale: new Vec3(0.95, 0.95, 0.95)
+          }) // nhún lần 2
+          .to(0.1, {
+            scale: new Vec3(1, 1, 1)
+          }) // trở lại bình thường
+          .start();
         }
 
         /**
@@ -17141,6 +17620,837 @@ System.register("chunks:///_virtual/SlotMachineUtils.ts", ['./rollupPluginModLoB
         };
         return SlotMachineUtils;
       }());
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/StealModel.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseModel.ts'], function (exports) {
+  var _inheritsLoose, _extends, _createForOfIteratorHelperLoose, cclegacy, BaseModel;
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _extends = module.extends;
+      _createForOfIteratorHelperLoose = module.createForOfIteratorHelperLoose;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+    }, function (module) {
+      BaseModel = module.BaseModel;
+    }],
+    execute: function () {
+      cclegacy._RF.push({}, "b66640TPNxLvpWlC5o5AsE0", "StealModel", undefined);
+      var StealModel = exports('StealModel', /*#__PURE__*/function (_BaseModel) {
+        _inheritsLoose(StealModel, _BaseModel);
+        function StealModel() {
+          var _this;
+          _this = _BaseModel.call(this) || this;
+          _this.gameData = null;
+          _this.initializeData();
+          return _this;
+        }
+        var _proto = StealModel.prototype;
+        _proto.initializeData = function initializeData() {
+          this.gameData = {
+            targetPlayer: {
+              name: '',
+              level: 0,
+              goldAvailable: 0
+            },
+            mysteryBoxes: [],
+            keyCount: 3,
+            totalGoldStolen: 0,
+            gameEnded: false
+          };
+        };
+        _proto.setTargetPlayer = function setTargetPlayer(player) {
+          if (this.gameData) {
+            this.gameData.targetPlayer = _extends({}, player);
+            this.emit('targetPlayerUpdated', this.gameData.targetPlayer);
+          }
+        };
+        _proto.setMysteryBoxes = function setMysteryBoxes(boxes) {
+          if (this.gameData) {
+            this.gameData.mysteryBoxes = [].concat(boxes);
+            this.emit('mysteryBoxesUpdated', this.gameData.mysteryBoxes);
+          }
+        };
+        _proto.openBox = function openBox(boxIndex) {
+          if (!this.gameData || boxIndex < 0 || boxIndex >= this.gameData.mysteryBoxes.length) {
+            return false;
+          }
+          var box = this.gameData.mysteryBoxes[boxIndex];
+          if (box.isOpened || this.gameData.keyCount <= 0) {
+            return false;
+          }
+
+          // Open the box
+          box.isOpened = true;
+          this.gameData.keyCount--;
+
+          // Process the content
+          if (box.type === 'gold') {
+            this.gameData.totalGoldStolen += box.amount;
+          } else if (box.type === 'key') {
+            this.gameData.keyCount += box.amount;
+          }
+          this.emit('boxOpened', {
+            boxIndex: boxIndex,
+            content: {
+              type: box.type,
+              amount: box.amount
+            },
+            keysRemaining: this.gameData.keyCount,
+            totalGoldStolen: this.gameData.totalGoldStolen
+          });
+
+          // Check if game should end
+          if (this.gameData.keyCount <= 0) {
+            this.endGame();
+          }
+          return true;
+        };
+        _proto.endGame = function endGame() {
+          if (this.gameData) {
+            this.gameData.gameEnded = true;
+            this.emit('gameEnded', {
+              totalGoldStolen: this.gameData.totalGoldStolen
+            });
+          }
+        };
+        _proto.getGameData = function getGameData() {
+          return this.gameData;
+        };
+        _proto.resetGame = function resetGame() {
+          this.initializeData();
+          this.emit('gameReset');
+        };
+        _proto.getTargetPlayer = function getTargetPlayer() {
+          return this.gameData ? this.gameData.targetPlayer : null;
+        };
+        _proto.getMysteryBoxes = function getMysteryBoxes() {
+          return this.gameData ? this.gameData.mysteryBoxes : [];
+        };
+        _proto.getKeyCount = function getKeyCount() {
+          return this.gameData ? this.gameData.keyCount : 0;
+        };
+        _proto.getTotalGoldStolen = function getTotalGoldStolen() {
+          return this.gameData ? this.gameData.totalGoldStolen : 0;
+        };
+        _proto.isGameEnded = function isGameEnded() {
+          return this.gameData ? this.gameData.gameEnded : false;
+        }
+
+        /**
+         * Validate the steal game data
+         */;
+        _proto.validate = function validate() {
+          if (!this.gameData) {
+            return false;
+          }
+
+          // Validate target player
+          if (!this.gameData.targetPlayer || !this.gameData.targetPlayer.name || this.gameData.targetPlayer.level <= 0 || this.gameData.targetPlayer.goldAvailable < 0) {
+            return false;
+          }
+
+          // Validate mystery boxes
+          if (!Array.isArray(this.gameData.mysteryBoxes) || this.gameData.mysteryBoxes.length !== 9) {
+            return false;
+          }
+
+          // Validate each mystery box
+          for (var _iterator = _createForOfIteratorHelperLoose(this.gameData.mysteryBoxes), _step; !(_step = _iterator()).done;) {
+            var box = _step.value;
+            if (!box || !['gold', 'key', 'noLuck'].includes(box.type) || box.amount < 0 || typeof box.isOpened !== 'boolean') {
+              return false;
+            }
+          }
+
+          // Validate game state
+          if (this.gameData.keyCount < 0 || this.gameData.totalGoldStolen < 0 || typeof this.gameData.gameEnded !== 'boolean') {
+            return false;
+          }
+          return true;
+        };
+        return StealModel;
+      }(BaseModel));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/StealView.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseView.ts', './StealViewModel.ts', './MysteryBoxComponent.ts'], function (exports) {
+  var _applyDecoratedDescriptor, _inheritsLoose, _initializerDefineProperty, _assertThisInitialized, cclegacy, _decorator, Node, Label, Button, log, director, Color, tween, Vec3, BaseView, StealViewModel, MysteryBoxComponent;
+  return {
+    setters: [function (module) {
+      _applyDecoratedDescriptor = module.applyDecoratedDescriptor;
+      _inheritsLoose = module.inheritsLoose;
+      _initializerDefineProperty = module.initializerDefineProperty;
+      _assertThisInitialized = module.assertThisInitialized;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      Node = module.Node;
+      Label = module.Label;
+      Button = module.Button;
+      log = module.log;
+      director = module.director;
+      Color = module.Color;
+      tween = module.tween;
+      Vec3 = module.Vec3;
+    }, function (module) {
+      BaseView = module.BaseView;
+    }, function (module) {
+      StealViewModel = module.StealViewModel;
+    }, function (module) {
+      MysteryBoxComponent = module.MysteryBoxComponent;
+    }],
+    execute: function () {
+      var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _descriptor6, _descriptor7, _descriptor8, _descriptor9, _descriptor10, _descriptor11;
+      cclegacy._RF.push({}, "90671h+mwtGi49dF6hfTDH2", "StealView", undefined);
+      var ccclass = _decorator.ccclass,
+        property = _decorator.property;
+      var StealView = exports('StealView', (_dec = ccclass('StealView'), _dec2 = property(Node), _dec3 = property(Node), _dec4 = property(Node), _dec5 = property(Label), _dec6 = property(Label), _dec7 = property(Label), _dec8 = property(Node), _dec9 = property(Label), _dec10 = property(Node), _dec11 = property(Label), _dec12 = property(Button), _dec(_class = (_class2 = /*#__PURE__*/function (_BaseView) {
+        _inheritsLoose(StealView, _BaseView);
+        function StealView() {
+          var _this;
+          for (var _len = arguments.length, args = new Array(_len), _key2 = 0; _key2 < _len; _key2++) {
+            args[_key2] = arguments[_key2];
+          }
+          _this = _BaseView.call.apply(_BaseView, [this].concat(args)) || this;
+          _initializerDefineProperty(_this, "loadingContainer", _descriptor, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "mainContainer", _descriptor2, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "targetPlayerPanel", _descriptor3, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "targetPlayerNameLabel", _descriptor4, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "targetPlayerLevelLabel", _descriptor5, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "targetPlayerGoldLabel", _descriptor6, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "mysteryBoxGrid", _descriptor7, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "keyCounterLabel", _descriptor8, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "resultsContainer", _descriptor9, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "totalGoldStolenLabel", _descriptor10, _assertThisInitialized(_this));
+          _initializerDefineProperty(_this, "returnToMainButton", _descriptor11, _assertThisInitialized(_this));
+          _this.mysteryBoxComponents = [];
+          return _this;
+        }
+        var _proto = StealView.prototype;
+        _proto.setupUI = function setupUI() {
+          this.initializeMysteryBoxes();
+        };
+        _proto.bindEvents = function bindEvents() {
+          if (this.returnToMainButton) {
+            this.returnToMainButton.node.on(Button.EventType.CLICK, this.onReturnToMainClicked, this);
+          }
+        };
+        _proto.onDestroy = function onDestroy() {
+          var _this2 = this;
+          // Cleanup mystery box event listeners
+          this.mysteryBoxComponents.forEach(function (box) {
+            if (box && box.node) {
+              box.node.off('mysteryBoxClicked', _this2.onMysteryBoxClicked, _this2);
+            }
+          });
+
+          // Cleanup button event listeners
+          if (this.returnToMainButton && this.returnToMainButton.node) {
+            this.returnToMainButton.node.off(Button.EventType.CLICK, this.onReturnToMainClicked, this);
+          }
+
+          // Cleanup view model listeners
+          if (this._viewModel) {
+            this._viewModel.off('loadingStarted', this.onLoadingStarted, this);
+            this._viewModel.off('loadingCompleted', this.onLoadingCompleted, this);
+            this._viewModel.off('targetPlayerUpdated', this.onTargetPlayerUpdated, this);
+            this._viewModel.off('mysteryBoxesUpdated', this.onMysteryBoxesUpdated, this);
+            this._viewModel.off('keyCountUpdated', this.onKeyCountUpdated, this);
+            this._viewModel.off('boxOpened', this.onBoxOpened, this);
+            this._viewModel.off('gameEnded', this.onGameEnded, this);
+            this._viewModel.off('navigateToScene', this.onNavigateToScene, this);
+          }
+          _BaseView.prototype.onDestroy.call(this);
+          log('StealView: Cleanup completed');
+        };
+        _proto.initializeMysteryBoxes = function initializeMysteryBoxes() {
+          var _this3 = this;
+          if (!this.mysteryBoxGrid) return;
+          this.mysteryBoxComponents = this.mysteryBoxGrid.getComponentsInChildren(MysteryBoxComponent);
+          log("StealView: Found " + this.mysteryBoxComponents.length + " mystery boxes");
+
+          // Initialize each mystery box with its index
+          this.mysteryBoxComponents.forEach(function (box, index) {
+            box.initialize(index);
+            box.node.on('mysteryBoxClicked', _this3.onMysteryBoxClicked, _this3);
+          });
+        };
+        _proto.onLoad = function onLoad() {
+          _BaseView.prototype.onLoad.call(this);
+          if (!this._viewModel) {
+            var viewModel = new StealViewModel();
+            this.setViewModel(viewModel);
+            viewModel.initialize();
+          }
+        };
+        _proto.setViewModel = function setViewModel(viewModel) {
+          _BaseView.prototype.setViewModel.call(this, viewModel);
+          this.setupViewModelListeners();
+        };
+        _proto.setupViewModelListeners = function setupViewModelListeners() {
+          if (!this._viewModel) return;
+          this._viewModel.on('loadingStarted', this.onLoadingStarted, this);
+          this._viewModel.on('loadingCompleted', this.onLoadingCompleted, this);
+          this._viewModel.on('targetPlayerUpdated', this.onTargetPlayerUpdated, this);
+          this._viewModel.on('mysteryBoxesUpdated', this.onMysteryBoxesUpdated, this);
+          this._viewModel.on('keyCountUpdated', this.onKeyCountUpdated, this);
+          this._viewModel.on('boxOpened', this.onBoxOpened, this);
+          this._viewModel.on('gameEnded', this.onGameEnded, this);
+          this._viewModel.on('navigateToScene', this.onNavigateToScene, this);
+        };
+        _proto.onLoadingStarted = function onLoadingStarted() {
+          log('StealView: Loading started');
+          this.showLoadingScreen();
+        };
+        _proto.onLoadingCompleted = function onLoadingCompleted() {
+          log('StealView: Loading completed');
+          this.showMainUI();
+        };
+        _proto.onTargetPlayerUpdated = function onTargetPlayerUpdated(playerData) {
+          this.updateTargetPlayerInfo(playerData);
+        };
+        _proto.onMysteryBoxesUpdated = function onMysteryBoxesUpdated(boxData) {
+          this.updateMysteryBoxes(boxData);
+        };
+        _proto.onKeyCountUpdated = function onKeyCountUpdated(keyCount) {
+          this.updateKeyCounter(keyCount);
+        };
+        _proto.onBoxOpened = function onBoxOpened(data) {
+          this.revealMysteryBox(data.boxIndex, data.content);
+          this.updateKeyCounter(data.keysRemaining);
+        };
+        _proto.onGameEnded = function onGameEnded(results) {
+          var _this4 = this;
+          this.scheduleOnce(function () {
+            _this4.showResults(results);
+          }, 1);
+        };
+        _proto.onNavigateToScene = function onNavigateToScene(sceneName) {
+          director.loadScene(sceneName);
+        };
+        _proto.onMysteryBoxClicked = function onMysteryBoxClicked(event) {
+          if (this._viewModel) {
+            this._viewModel.openMysteryBox(event.boxIndex);
+          }
+        };
+        _proto.onReturnToMainClicked = function onReturnToMainClicked() {
+          if (this._viewModel) {
+            this._viewModel.returnToMainScreen();
+          }
+        };
+        _proto.showLoadingScreen = function showLoadingScreen() {
+          if (this.loadingContainer) {
+            this.loadingContainer.active = true;
+          }
+          if (this.mainContainer) {
+            this.mainContainer.active = false;
+          }
+          if (this.resultsContainer) {
+            this.resultsContainer.active = false;
+          }
+        };
+        _proto.showMainUI = function showMainUI() {
+          if (this.loadingContainer) {
+            this.loadingContainer.active = false;
+          }
+          if (this.mainContainer) {
+            this.mainContainer.active = true;
+          }
+          if (this.resultsContainer) {
+            this.resultsContainer.active = false;
+          }
+        };
+        _proto.showResults = function showResults(results) {
+          if (this.mainContainer) {
+            this.mainContainer.active = false;
+          }
+          if (this.resultsContainer) {
+            this.resultsContainer.active = true;
+          }
+          if (this.totalGoldStolenLabel) {
+            this.totalGoldStolenLabel.string = "" + results.totalGoldStolen;
+          }
+        };
+        _proto.updateTargetPlayerInfo = function updateTargetPlayerInfo(playerData) {
+          if (this.targetPlayerNameLabel) {
+            this.targetPlayerNameLabel.string = playerData.name;
+          }
+          if (this.targetPlayerLevelLabel) {
+            this.targetPlayerLevelLabel.string = "Level " + playerData.level;
+          }
+          if (this.targetPlayerGoldLabel) {
+            this.targetPlayerGoldLabel.string = playerData.goldAvailable + " Gold";
+          }
+        };
+        _proto.updateMysteryBoxes = function updateMysteryBoxes(boxData) {
+          this.mysteryBoxComponents.forEach(function (box, index) {
+            if (boxData[index]) {
+              box.setContent(boxData[index]);
+            }
+          });
+        };
+        _proto.updateKeyCounter = function updateKeyCounter(keyCount) {
+          if (this.keyCounterLabel) {
+            this.keyCounterLabel.string = "Keys: " + keyCount;
+          }
+          if (keyCount == 0) {
+            this.keyCounterLabel.color = Color.RED;
+            tween(this.keyCounterLabel.node).to(0.1, {
+              scale: new Vec3(1.5, 1.5, 1.5)
+            }).to(0.1, {
+              scale: new Vec3(1, 1, 1)
+            }).start();
+          }
+
+          // Update mystery box interactability based on key count
+          this.mysteryBoxComponents.forEach(function (box) {
+            box.setInteractable(keyCount > 0 && !box.isOpened());
+          });
+        };
+        _proto.revealMysteryBox = function revealMysteryBox(boxIndex, content) {
+          if (boxIndex >= 0 && boxIndex < this.mysteryBoxComponents.length) {
+            var box = this.mysteryBoxComponents[boxIndex];
+            box.reveal(content);
+
+            // Add some visual feedback
+            tween(box.node).to(0.1, {
+              scale: new Vec3(1.1, 1.1, 1)
+            }).to(0.1, {
+              scale: new Vec3(1, 1, 1)
+            }).start();
+          }
+        };
+        _proto.updateUI = function updateUI(_key, _value, _oldValue) {
+          // This view uses custom event handlers (e.g., onTargetPlayerUpdated)
+          // instead of the generic updateUI. This method is implemented to
+          // satisfy the BaseView abstract class requirement.
+        };
+        _proto.refreshUI = function refreshUI() {
+          if (!this._viewModel) return;
+
+          // This method is called when the view model is first initialized.
+          this.updateTargetPlayerInfo(this._viewModel.getTargetPlayer());
+          this.updateKeyCounter(this._viewModel.getKeyCount());
+          this.updateMysteryBoxes(this._viewModel.getMysteryBoxes());
+          if (this._viewModel.isGameEnded()) {
+            this.showResults({
+              totalGoldStolen: this._viewModel.getTotalGoldStolen()
+            });
+          } else {
+            this.showMainUI();
+          }
+        };
+        return StealView;
+      }(BaseView), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "loadingContainer", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "mainContainer", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "targetPlayerPanel", [_dec4], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "targetPlayerNameLabel", [_dec5], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "targetPlayerLevelLabel", [_dec6], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor6 = _applyDecoratedDescriptor(_class2.prototype, "targetPlayerGoldLabel", [_dec7], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor7 = _applyDecoratedDescriptor(_class2.prototype, "mysteryBoxGrid", [_dec8], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor8 = _applyDecoratedDescriptor(_class2.prototype, "keyCounterLabel", [_dec9], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor9 = _applyDecoratedDescriptor(_class2.prototype, "resultsContainer", [_dec10], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor10 = _applyDecoratedDescriptor(_class2.prototype, "totalGoldStolenLabel", [_dec11], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor11 = _applyDecoratedDescriptor(_class2.prototype, "returnToMainButton", [_dec12], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      })), _class2)) || _class));
+      cclegacy._RF.pop();
+    }
+  };
+});
+
+System.register("chunks:///_virtual/StealViewModel.ts", ['./rollupPluginModLoBabelHelpers.js', 'cc', './BaseViewModel.ts', './StealModel.ts'], function (exports) {
+  var _inheritsLoose, _asyncToGenerator, _regeneratorRuntime, cclegacy, _decorator, log, BaseViewModel, StealModel;
+  return {
+    setters: [function (module) {
+      _inheritsLoose = module.inheritsLoose;
+      _asyncToGenerator = module.asyncToGenerator;
+      _regeneratorRuntime = module.regeneratorRuntime;
+    }, function (module) {
+      cclegacy = module.cclegacy;
+      _decorator = module._decorator;
+      log = module.log;
+    }, function (module) {
+      BaseViewModel = module.BaseViewModel;
+    }, function (module) {
+      StealModel = module.StealModel;
+    }],
+    execute: function () {
+      var _dec, _class;
+      cclegacy._RF.push({}, "7ad7elRAghN2axDdLJfS7us", "StealViewModel", undefined);
+      var ccclass = _decorator.ccclass;
+      var StealViewModel = exports('StealViewModel', (_dec = ccclass('StealViewModel'), _dec(_class = /*#__PURE__*/function (_BaseViewModel) {
+        _inheritsLoose(StealViewModel, _BaseViewModel);
+        function StealViewModel() {
+          var _this;
+          _this = _BaseViewModel.call(this) || this;
+          _this.stealModel = void 0;
+          _this.targetPlayer = null;
+          _this.mysteryBoxes = [];
+          _this.keyCount = 3;
+          _this.totalGoldStolen = 0;
+          _this.gameEnded = false;
+          _this.stealModel = new StealModel();
+          _this.setupModelListeners();
+          return _this;
+        }
+        var _proto = StealViewModel.prototype;
+        _proto.setupModelListeners = function setupModelListeners() {
+          // Listen for model events if needed
+        };
+        _proto.initialize = /*#__PURE__*/function () {
+          var _initialize = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+            return _regeneratorRuntime().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  log('StealViewModel: Initializing steal game');
+                  this.emit('loadingStarted');
+
+                  // Simulate 2-second loading
+                  _context.next = 4;
+                  return this.delay(2000);
+                case 4:
+                  // Generate random target player and mystery box contents
+                  this.generateTargetPlayer();
+                  this.generateMysteryBoxes();
+                  this.emit('loadingCompleted');
+                  this.emit('targetPlayerUpdated', this.targetPlayer);
+                  this.emit('mysteryBoxesUpdated', this.mysteryBoxes);
+                  this.emit('keyCountUpdated', this.keyCount);
+                case 10:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee, this);
+          }));
+          function initialize() {
+            return _initialize.apply(this, arguments);
+          }
+          return initialize;
+        }();
+        _proto.openMysteryBox = function openMysteryBox(boxIndex) {
+          if (this.gameEnded) return;
+          if (this.keyCount <= 0) {
+            log('StealViewModel: No keys remaining');
+            return;
+          }
+          if (boxIndex < 0 || boxIndex >= this.mysteryBoxes.length) {
+            log('StealViewModel: Invalid box index');
+            return;
+          }
+          if (this.mysteryBoxes[boxIndex].isOpened) {
+            log('StealViewModel: Box already opened');
+            return;
+          }
+
+          // Open the box
+          this.mysteryBoxes[boxIndex].isOpened = true;
+          this.keyCount--;
+          var content = this.mysteryBoxes[boxIndex].content;
+
+          // Process the content
+          if (content.type === 'gold') {
+            this.totalGoldStolen += content.amount;
+          } else if (content.type === 'key') {
+            this.keyCount += content.amount;
+          }
+          this.emit('boxOpened', {
+            boxIndex: boxIndex,
+            content: content,
+            keysRemaining: this.keyCount
+          });
+
+          // Check if game should end
+          if (this.keyCount <= 0) {
+            this.endGame();
+          }
+        };
+        _proto.returnToMainScreen = function returnToMainScreen() {
+          // Award the stolen gold to the player
+          if (this.totalGoldStolen > 0) {
+            this.awardStolenGold();
+          }
+
+          // Return to main scene
+          this.emit('navigateToScene', 'Main');
+        };
+        _proto.awardStolenGold = function awardStolenGold() {
+          // In a real implementation, this would integrate with the ResourceManager
+          // For now, we'll emit an event that can be caught by the main game systems
+          log("StealViewModel: Awarding " + this.totalGoldStolen + " gold to player");
+
+          // Store the reward for the main scene to pick up
+          if (typeof window !== 'undefined') {
+            window.stealReward = {
+              gold: this.totalGoldStolen,
+              timestamp: Date.now()
+            };
+          }
+        };
+        _proto.generateTargetPlayer = function generateTargetPlayer() {
+          var names = ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve', 'Frank', 'Grace', 'Henry', 'Isabella', 'Jack', 'Kate', 'Liam', 'Maya', 'Noah', 'Olivia', 'Paul', 'Quinn', 'Ruby', 'Sam', 'Tara', 'Uma', 'Victor', 'Wendy', 'Xavier'];
+          var randomName = names[Math.floor(Math.random() * names.length)];
+
+          // Generate level with weighted distribution (more lower levels)
+          var randomLevel = this.generateWeightedLevel();
+
+          // Generate gold based on level with some randomness
+          var baseGold = randomLevel * 100 + Math.floor(Math.random() * 500) + 500;
+          var goldVariation = Math.floor(Math.random() * baseGold * 0.5); // ±25% variation
+          var randomGold = baseGold + (Math.random() > 0.5 ? goldVariation : -goldVariation);
+          this.targetPlayer = {
+            name: randomName,
+            level: randomLevel,
+            goldAvailable: Math.max(randomGold, 100) // Minimum 100 gold
+          };
+        };
+
+        _proto.generateWeightedLevel = function generateWeightedLevel() {
+          var rand = Math.random();
+          if (rand < 0.4) return Math.floor(Math.random() * 10) + 1; // 40% chance: levels 1-10
+          if (rand < 0.7) return Math.floor(Math.random() * 15) + 11; // 30% chance: levels 11-25
+          if (rand < 0.9) return Math.floor(Math.random() * 15) + 26; // 20% chance: levels 26-40
+          return Math.floor(Math.random() * 10) + 41; // 10% chance: levels 41-50
+        };
+
+        _proto.generateMysteryBoxes = function generateMysteryBoxes() {
+          var _this2 = this;
+          if (!this.targetPlayer) return;
+
+          // Create 9 mystery boxes
+          this.mysteryBoxes = new Array(9).fill(null).map(function () {
+            return {
+              content: {
+                type: 'noLuck',
+                amount: 0
+              },
+              isOpened: false
+            };
+          });
+
+          // Distribute gold across 3 boxes (must sum to target player's gold)
+          var goldBoxIndices = this.getRandomIndices(3, 9);
+          var goldAmounts = this.distributeGold(this.targetPlayer.goldAvailable, 3);
+          goldBoxIndices.forEach(function (index, i) {
+            _this2.mysteryBoxes[index].content = {
+              type: 'gold',
+              amount: goldAmounts[i]
+            };
+          });
+
+          // Add key boxes (1, 2, and 3 keys)
+          var keyBoxIndices = this.getRandomIndices(3, 9, goldBoxIndices);
+          var keyAmounts = [1, 2, 3];
+          keyBoxIndices.forEach(function (index, i) {
+            _this2.mysteryBoxes[index].content = {
+              type: 'key',
+              amount: keyAmounts[i]
+            };
+          });
+
+          // Remaining 3 boxes are already set to 'noLuck'
+        };
+
+        _proto.getRandomIndices = function getRandomIndices(count, total, excludeIndices) {
+          if (excludeIndices === void 0) {
+            excludeIndices = [];
+          }
+          var availableIndices = Array.from({
+            length: total
+          }, function (_, i) {
+            return i;
+          }).filter(function (i) {
+            return !excludeIndices.includes(i);
+          });
+          var selectedIndices = [];
+          for (var i = 0; i < count && availableIndices.length > 0; i++) {
+            var randomIndex = Math.floor(Math.random() * availableIndices.length);
+            selectedIndices.push(availableIndices[randomIndex]);
+            availableIndices.splice(randomIndex, 1);
+          }
+          return selectedIndices;
+        };
+        _proto.distributeGold = function distributeGold(totalGold, parts) {
+          var amounts = [];
+          var remaining = totalGold;
+
+          // Use more sophisticated distribution to avoid edge cases
+          for (var i = 0; i < parts - 1; i++) {
+            var averageRemaining = remaining / (parts - i);
+            var minAmount = Math.max(1, Math.floor(averageRemaining * 0.2)); // At least 20% of average, minimum 1
+            var maxAmount = Math.floor(averageRemaining * 1.6); // At most 160% of average
+            var amount = Math.floor(Math.random() * (maxAmount - minAmount + 1)) + minAmount;
+            amounts.push(Math.min(amount, remaining - (parts - i - 1))); // Ensure we don't exceed remaining
+            remaining -= amounts[amounts.length - 1];
+          }
+          amounts.push(Math.max(remaining, 1)); // Last part gets the remainder, minimum 1
+
+          // Shuffle the amounts to make distribution more random
+          return this.shuffleArray(amounts);
+        };
+        _proto.shuffleArray = function shuffleArray(array) {
+          var shuffled = [].concat(array);
+          for (var i = shuffled.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var _ref = [shuffled[j], shuffled[i]];
+            shuffled[i] = _ref[0];
+            shuffled[j] = _ref[1];
+          }
+          return shuffled;
+        };
+        _proto.endGame = function endGame() {
+          this.gameEnded = true;
+          this.emit('gameEnded', {
+            totalGoldStolen: this.totalGoldStolen
+          });
+        };
+        _proto.delay = function delay(ms) {
+          return new Promise(function (resolve) {
+            return setTimeout(resolve, ms);
+          });
+        };
+        _proto.getTargetPlayer = function getTargetPlayer() {
+          return this.targetPlayer;
+        };
+        _proto.getMysteryBoxes = function getMysteryBoxes() {
+          return this.mysteryBoxes;
+        };
+        _proto.getKeyCount = function getKeyCount() {
+          return this.keyCount;
+        };
+        _proto.getTotalGoldStolen = function getTotalGoldStolen() {
+          return this.totalGoldStolen;
+        };
+        _proto.isGameEnded = function isGameEnded() {
+          return this.gameEnded;
+        }
+
+        /**
+         * Implementation of abstract method from BaseViewModel
+         */;
+        _proto.executeCommand = /*#__PURE__*/
+        function () {
+          var _executeCommand = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(command) {
+            var _args2 = arguments;
+            return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+              while (1) switch (_context2.prev = _context2.next) {
+                case 0:
+                  _context2.t0 = command;
+                  _context2.next = _context2.t0 === 'initialize' ? 3 : _context2.t0 === 'openMysteryBox' ? 6 : _context2.t0 === 'returnToMainScreen' ? 10 : _context2.t0 === 'getTargetPlayer' ? 12 : _context2.t0 === 'getMysteryBoxes' ? 13 : _context2.t0 === 'getKeyCount' ? 14 : _context2.t0 === 'getTotalGoldStolen' ? 15 : _context2.t0 === 'isGameEnded' ? 16 : 17;
+                  break;
+                case 3:
+                  _context2.next = 5;
+                  return this.initialize();
+                case 5:
+                  return _context2.abrupt("return", _context2.sent);
+                case 6:
+                  if (!((_args2.length <= 1 ? 0 : _args2.length - 1) > 0 && typeof (_args2.length <= 1 ? undefined : _args2[1]) === 'number')) {
+                    _context2.next = 9;
+                    break;
+                  }
+                  this.openMysteryBox(_args2.length <= 1 ? undefined : _args2[1]);
+                  return _context2.abrupt("return", true);
+                case 9:
+                  return _context2.abrupt("return", false);
+                case 10:
+                  this.returnToMainScreen();
+                  return _context2.abrupt("return", true);
+                case 12:
+                  return _context2.abrupt("return", this.getTargetPlayer());
+                case 13:
+                  return _context2.abrupt("return", this.getMysteryBoxes());
+                case 14:
+                  return _context2.abrupt("return", this.getKeyCount());
+                case 15:
+                  return _context2.abrupt("return", this.getTotalGoldStolen());
+                case 16:
+                  return _context2.abrupt("return", this.isGameEnded());
+                case 17:
+                  throw new Error("Unknown command: " + command);
+                case 18:
+                case "end":
+                  return _context2.stop();
+              }
+            }, _callee2, this);
+          }));
+          function executeCommand(_x) {
+            return _executeCommand.apply(this, arguments);
+          }
+          return executeCommand;
+        }();
+        return StealViewModel;
+      }(BaseViewModel)) || _class));
       cclegacy._RF.pop();
     }
   };
