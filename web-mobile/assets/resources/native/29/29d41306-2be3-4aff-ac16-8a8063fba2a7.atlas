@@ -1,0 +1,153 @@
+
+skeleton.png
+size: 735,1027
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1_2_lid_open
+  rotate: true
+  xy: 288, 573
+  size: 262, 151
+  orig: 270, 151
+  offset: 4, 0
+  index: -1
+1_2_lid_open_light
+  rotate: false
+  xy: 275, 229
+  size: 268, 148
+  orig: 270, 151
+  offset: 1, 2
+  index: -1
+1_3_lid_open
+  rotate: false
+  xy: 2, 15
+  size: 222, 213
+  orig: 230, 213
+  offset: 4, 0
+  index: -1
+1_3_lid_open light
+  rotate: false
+  xy: 441, 635
+  size: 222, 213
+  orig: 230, 213
+  offset: 4, 0
+  index: -1
+1_4_lid_open
+  rotate: false
+  xy: 287, 379
+  size: 233, 192
+  orig: 241, 192
+  offset: 4, 0
+  index: -1
+1_4_lid_open_light
+  rotate: true
+  xy: 522, 394
+  size: 239, 188
+  orig: 241, 192
+  offset: 0, 2
+  index: -1
+1_Lid_close
+  rotate: false
+  xy: 226, 76
+  size: 280, 151
+  orig: 283, 154
+  offset: 2, 0
+  index: -1
+Chest_high_drop_1
+  rotate: false
+  xy: 2, 421
+  size: 283, 197
+  orig: 283, 202
+  offset: 0, 3
+  index: -1
+Chest_high_drop_2
+  rotate: false
+  xy: 2, 230
+  size: 271, 189
+  orig: 275, 192
+  offset: 2, 2
+  index: -1
+Chest_high_drop_3
+  rotate: false
+  xy: 2, 620
+  size: 284, 215
+  orig: 290, 215
+  offset: 3, 0
+  index: -1
+Chest_under
+  rotate: true
+  xy: 545, 110
+  size: 282, 146
+  orig: 290, 146
+  offset: 4, 0
+  index: -1
+as_ad_trong_sau
+  rotate: false
+  xy: 2, 837
+  size: 412, 188
+  orig: 420, 188
+  offset: 4, 0
+  index: -1
+as_ad_trong_xanh
+  rotate: true
+  xy: 693, 159
+  size: 233, 40
+  orig: 241, 40
+  offset: 4, 0
+  index: -1
+as_ad_vien_vang
+  rotate: false
+  xy: 226, 9
+  size: 274, 65
+  orig: 282, 65
+  offset: 4, 0
+  index: -1
+as_tron
+  rotate: true
+  xy: 508, 7
+  size: 101, 107
+  orig: 103, 107
+  offset: 1, 0
+  index: -1
+flare
+  rotate: false
+  xy: 617, 2
+  size: 100, 106
+  orig: 108, 106
+  offset: 4, 0
+  index: -1
+light
+  rotate: true
+  xy: 416, 850
+  size: 175, 259
+  orig: 181, 259
+  offset: 2, 0
+  index: -1
+mask_as
+  rotate: true
+  xy: 677, 792
+  size: 233, 40
+  orig: 241, 40
+  offset: 4, 0
+  index: -1
+o_v2
+  rotate: false
+  xy: 665, 670
+  size: 47, 56
+  orig: 55, 56
+  offset: 4, 0
+  index: -1
+tam_giac_mang_ad_blur
+  rotate: false
+  xy: 665, 728
+  size: 45, 62
+  orig: 59, 62
+  offset: 7, 0
+  index: -1
+tam_vien_blur
+  rotate: true
+  xy: 441, 586
+  size: 47, 70
+  orig: 65, 70
+  offset: 9, 0
+  index: -1
