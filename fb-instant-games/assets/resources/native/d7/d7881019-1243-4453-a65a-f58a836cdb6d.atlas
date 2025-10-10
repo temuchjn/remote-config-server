@@ -1,0 +1,139 @@
+
+Smoke_dis.png
+size: 1559,742
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Smoke2_00002
+  rotate: true
+  xy: 2, 559
+  size: 181, 184
+  orig: 183, 186
+  offset: 1, 1
+  index: -1
+Smoke2_00003
+  rotate: true
+  xy: 188, 542
+  size: 198, 202
+  orig: 200, 204
+  offset: 1, 1
+  index: -1
+Smoke2_00004
+  rotate: true
+  xy: 392, 535
+  size: 205, 209
+  orig: 207, 211
+  offset: 1, 1
+  index: -1
+Smoke2_00005
+  rotate: true
+  xy: 603, 528
+  size: 212, 217
+  orig: 214, 218
+  offset: 1, 1
+  index: -1
+Smoke2_00006
+  rotate: true
+  xy: 822, 526
+  size: 214, 219
+  orig: 216, 221
+  offset: 1, 1
+  index: -1
+Smoke2_00007
+  rotate: true
+  xy: 1043, 522
+  size: 218, 224
+  orig: 220, 225
+  offset: 1, 1
+  index: -1
+Smoke2_00008
+  rotate: true
+  xy: 1269, 514
+  size: 226, 233
+  orig: 228, 235
+  offset: 1, 1
+  index: -1
+Smoke2_00009
+  rotate: true
+  xy: 2, 308
+  size: 232, 236
+  orig: 234, 238
+  offset: 1, 1
+  index: -1
+Smoke2_00010
+  rotate: true
+  xy: 240, 296
+  size: 237, 239
+  orig: 239, 241
+  offset: 1, 1
+  index: -1
+Smoke2_00011
+  rotate: false
+  xy: 481, 284
+  size: 243, 242
+  orig: 245, 244
+  offset: 1, 1
+  index: -1
+Smoke2_00012
+  rotate: false
+  xy: 726, 280
+  size: 249, 244
+  orig: 251, 246
+  offset: 1, 1
+  index: -1
+Smoke2_00013
+  rotate: false
+  xy: 977, 273
+  size: 250, 247
+  orig: 252, 249
+  offset: 1, 1
+  index: -1
+Smoke2_00014
+  rotate: false
+  xy: 1229, 261
+  size: 253, 251
+  orig: 255, 253
+  offset: 1, 1
+  index: -1
+Smoke2_00015
+  rotate: false
+  xy: 2, 43
+  size: 254, 251
+  orig: 256, 253
+  offset: 1, 1
+  index: -1
+Smoke2_00016
+  rotate: false
+  xy: 258, 30
+  size: 256, 252
+  orig: 258, 254
+  offset: 1, 1
+  index: -1
+Smoke2_00017
+  rotate: false
+  xy: 516, 24
+  size: 258, 254
+  orig: 260, 256
+  offset: 1, 1
+  index: -1
+Smoke2_00018
+  rotate: false
+  xy: 776, 15
+  size: 259, 256
+  orig: 261, 258
+  offset: 1, 1
+  index: -1
+Smoke2_00019
+  rotate: false
+  xy: 1037, 3
+  size: 260, 256
+  orig: 262, 258
+  offset: 1, 1
+  index: -1
+Smoke2_00020
+  rotate: true
+  xy: 1299, 2
+  size: 257, 258
+  orig: 259, 260
+  offset: 1, 1
+  index: -1

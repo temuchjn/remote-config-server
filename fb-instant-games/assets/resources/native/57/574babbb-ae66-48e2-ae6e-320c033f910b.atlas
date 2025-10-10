@@ -1,0 +1,13 @@
+
+rain_lose.png
+size: 23,78
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hat_mua
+  rotate: false
+  xy: 2, 2
+  size: 19, 74
+  orig: 21, 74
+  offset: 1, 0
+  index: -1
