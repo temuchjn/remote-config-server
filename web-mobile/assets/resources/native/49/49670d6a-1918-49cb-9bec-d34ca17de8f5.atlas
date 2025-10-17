@@ -1,0 +1,20 @@
+
+flare.png
+size: 158,115
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 506
+  rotate: false
+  xy: 2, 2
+  size: 112, 111
+  orig: 120, 119
+  offset: 4, 4
+  index: -1
+o_add
+  rotate: true
+  xy: 116, 70
+  size: 43, 40
+  orig: 48, 44
+  offset: 2, 2
+  index: -1

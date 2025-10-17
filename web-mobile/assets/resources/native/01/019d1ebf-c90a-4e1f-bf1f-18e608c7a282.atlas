@@ -1,0 +1,41 @@
+
+Damage_Noti.png
+size: 1110,752
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dam
+  rotate: true
+  xy: 2, 198
+  size: 552, 1100
+  orig: 556, 1100
+  offset: 2, 0
+  index: -1
+mark1
+  rotate: false
+  xy: 2, 2
+  size: 245, 194
+  orig: 249, 194
+  offset: 2, 0
+  index: -1
+mark2
+  rotate: false
+  xy: 1087, 100
+  size: 21, 96
+  orig: 25, 96
+  offset: 2, 0
+  index: -1
+mark_box
+  rotate: false
+  xy: 249, 60
+  size: 679, 113
+  orig: 683, 113
+  offset: 2, 0
+  index: -1
+mark_line
+  rotate: false
+  xy: 249, 175
+  size: 836, 21
+  orig: 841, 21
+  offset: 3, 0
+  index: -1
