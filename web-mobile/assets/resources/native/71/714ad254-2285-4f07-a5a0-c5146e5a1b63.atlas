@@ -1,0 +1,111 @@
+
+vfx.png
+size: 903,528
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1_flare
+  rotate: false
+  xy: 808, 15
+  size: 37, 46
+  orig: 45, 46
+  offset: 4, 0
+  index: -1
+2_flare
+  rotate: false
+  xy: 808, 63
+  size: 49, 56
+  orig: 57, 56
+  offset: 4, 0
+  index: -1
+4
+  rotate: true
+  xy: 859, 59
+  size: 23, 31
+  orig: 31, 31
+  offset: 4, 0
+  index: -1
+5
+  rotate: false
+  xy: 847, 27
+  size: 22, 30
+  orig: 30, 30
+  offset: 4, 0
+  index: -1
+6
+  rotate: false
+  xy: 871, 27
+  size: 22, 30
+  orig: 30, 30
+  offset: 4, 0
+  index: -1
+7
+  rotate: false
+  xy: 859, 84
+  size: 27, 35
+  orig: 35, 35
+  offset: 4, 0
+  index: -1
+8
+  rotate: false
+  xy: 859, 84
+  size: 27, 35
+  orig: 35, 35
+  offset: 4, 0
+  index: -1
+c3a
+  rotate: false
+  xy: 808, 121
+  size: 93, 130
+  orig: 130, 130
+  offset: 18, 0
+  index: -1
+flare_to
+  rotate: true
+  xy: 349, 2
+  size: 233, 241
+  orig: 241, 241
+  offset: 4, 0
+  index: -1
+flare_trang_to
+  rotate: false
+  xy: 592, 12
+  size: 214, 223
+  orig: 222, 223
+  offset: 4, 0
+  index: -1
+glow-nho
+  rotate: false
+  xy: 2, 12
+  size: 175, 169
+  orig: 175, 169
+  offset: 0, 0
+  index: -1
+tron_nho_blur
+  rotate: false
+  xy: 179, 5
+  size: 168, 176
+  orig: 176, 176
+  offset: 4, 0
+  index: -1
+vong_glow
+  rotate: false
+  xy: 626, 253
+  size: 269, 273
+  orig: 273, 273
+  offset: 2, 0
+  index: -1
+vong_glow2
+  rotate: false
+  xy: 2, 183
+  size: 339, 343
+  orig: 343, 343
+  offset: 2, 0
+  index: -1
+vong_to
+  rotate: false
+  xy: 343, 237
+  size: 281, 289
+  orig: 289, 289
+  offset: 4, 0
+  index: -1
