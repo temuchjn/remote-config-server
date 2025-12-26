@@ -1,34 +1,125 @@
 
 fire_work.png
-size: 258,521
+size: 1043,1074
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-f1_c
+f10_c
+  rotate: false
+  xy: 2, 259
+  size: 252, 272
+  orig: 260, 272
+  offset: 4, 0
+  index: -1
+f11_c
   rotate: true
-  xy: 2, 244
+  xy: 2, 533
+  size: 269, 264
+  orig: 277, 264
+  offset: 4, 0
+  index: -1
+f12_c
+  rotate: false
+  xy: 257, 4
+  size: 254, 260
+  orig: 262, 260
+  offset: 4, 0
+  index: -1
+f13_c
+  rotate: false
+  xy: 542, 812
+  size: 261, 260
+  orig: 269, 260
+  offset: 4, 0
+  index: -1
+f14_c
+  rotate: false
+  xy: 533, 554
+  size: 258, 256
+  orig: 266, 256
+  offset: 4, 0
+  index: -1
+f15_c
+  rotate: false
+  xy: 2, 804
+  size: 268, 268
+  orig: 276, 268
+  offset: 4, 0
+  index: -1
+f16_c
+  rotate: false
+  xy: 272, 554
+  size: 259, 257
+  orig: 267, 257
+  offset: 4, 0
+  index: -1
+f1_c
+  rotate: false
+  xy: 805, 818
   size: 226, 254
   orig: 234, 254
   offset: 4, 0
   index: -1
-hat_nho
+f2_c
   rotate: true
-  xy: 2, 502
-  size: 17, 21
-  orig: 21, 21
-  offset: 2, 0
+  xy: 256, 266
+  size: 265, 247
+  orig: 273, 247
+  offset: 4, 0
   index: -1
-tia_cam
-  rotate: true
-  xy: 25, 472
-  size: 47, 166
-  orig: 47, 166
-  offset: 0, 0
+f3_c
+  rotate: false
+  xy: 272, 813
+  size: 268, 259
+  orig: 276, 259
+  offset: 4, 0
   index: -1
-tron_blur
-  rotate: true
+f4_c
+  rotate: false
   xy: 2, 2
-  size: 240, 248
-  orig: 248, 248
+  size: 253, 255
+  orig: 261, 255
+  offset: 4, 0
+  index: -1
+f5_c
+  rotate: false
+  xy: 793, 561
+  size: 248, 249
+  orig: 256, 249
+  offset: 4, 0
+  index: -1
+f6_c
+  rotate: false
+  xy: 505, 300
+  size: 257, 252
+  orig: 265, 252
+  offset: 4, 0
+  index: -1
+f7_c
+  rotate: false
+  xy: 765, 43
+  size: 253, 255
+  orig: 261, 255
+  offset: 4, 0
+  index: -1
+f8_c
+  rotate: false
+  xy: 513, 41
+  size: 250, 257
+  orig: 258, 257
+  offset: 4, 0
+  index: -1
+f9_c
+  rotate: true
+  xy: 764, 300
+  size: 252, 255
+  orig: 260, 255
+  offset: 4, 0
+  index: -1
+tia
+  rotate: true
+  xy: 765, 3
+  size: 38, 101
+  orig: 46, 101
   offset: 4, 0
   index: -1

@@ -1,0 +1,27 @@
+
+Smoke_2.png
+size: 478,294
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+BubbleEft_tex
+  rotate: true
+  xy: 302, 48
+  size: 60, 68
+  orig: 68, 68
+  offset: 4, 0
+  index: -1
+trang
+  rotate: false
+  xy: 302, 110
+  size: 174, 182
+  orig: 182, 182
+  offset: 4, 0
+  index: -1
+trang_blur
+  rotate: true
+  xy: 2, 2
+  size: 290, 298
+  orig: 298, 298
+  offset: 4, 0
+  index: -1

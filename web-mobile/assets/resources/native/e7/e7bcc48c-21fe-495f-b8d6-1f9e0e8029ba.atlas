@@ -1,0 +1,104 @@
+
+Start.png
+size: 2030,1549
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Gun_3_Start0004
+  rotate: false
+  xy: 217, 564
+  size: 23, 67
+  orig: 25, 67
+  offset: 1, 0
+  index: -1
+Gun_3_Start0006
+  rotate: false
+  xy: 2, 493
+  size: 213, 1054
+  orig: 215, 1054
+  offset: 1, 0
+  index: -1
+Gun_3_Start0008
+  rotate: false
+  xy: 217, 633
+  size: 306, 914
+  orig: 308, 914
+  offset: 1, 0
+  index: -1
+Gun_3_Start0010
+  rotate: false
+  xy: 525, 743
+  size: 347, 804
+  orig: 349, 804
+  offset: 1, 0
+  index: -1
+Gun_3_Start0012
+  rotate: false
+  xy: 874, 797
+  size: 350, 750
+  orig: 352, 750
+  offset: 1, 0
+  index: -1
+Gun_3_Start0014
+  rotate: false
+  xy: 560, 2
+  size: 334, 739
+  orig: 336, 739
+  offset: 1, 0
+  index: -1
+Gun_3_Start0016
+  rotate: true
+  xy: 1191, 369
+  size: 306, 753
+  orig: 308, 753
+  offset: 1, 0
+  index: -1
+Gun_3_Start0018
+  rotate: false
+  xy: 279, 227
+  size: 279, 404
+  orig: 281, 404
+  offset: 1, 0
+  index: -1
+Gun_3_Start0020
+  rotate: false
+  xy: 2, 78
+  size: 275, 413
+  orig: 277, 413
+  offset: 1, 0
+  index: -1
+Gun_3_Start0022
+  rotate: true
+  xy: 1226, 1264
+  size: 283, 802
+  orig: 285, 802
+  offset: 1, 0
+  index: -1
+Gun_3_Start0024
+  rotate: true
+  xy: 1226, 972
+  size: 290, 791
+  orig: 292, 791
+  offset: 1, 0
+  index: -1
+Gun_3_Start0026
+  rotate: true
+  xy: 1226, 677
+  size: 293, 777
+  orig: 295, 777
+  offset: 1, 0
+  index: -1
+Gun_3_Start0028
+  rotate: false
+  xy: 896, 28
+  size: 293, 767
+  orig: 295, 767
+  offset: 1, 0
+  index: -1
+Gun_3_Start0032
+  rotate: true
+  xy: 1191, 74
+  size: 293, 762
+  orig: 295, 762
+  offset: 1, 0
+  index: -1

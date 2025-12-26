@@ -1,0 +1,153 @@
+
+vong.png
+size: 2009,1317
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Ek_00
+  rotate: false
+  xy: 1827, 58
+  size: 86, 107
+  orig: 90, 107
+  offset: 2, 0
+  index: -1
+Ek_01
+  rotate: true
+  xy: 1591, 41
+  size: 232, 234
+  orig: 236, 234
+  offset: 2, 0
+  index: -1
+Ek_02
+  rotate: false
+  xy: 1645, 275
+  size: 318, 320
+  orig: 322, 320
+  offset: 2, 0
+  index: -1
+Ek_03
+  rotate: true
+  xy: 1256, 536
+  size: 386, 387
+  orig: 390, 387
+  offset: 2, 0
+  index: -1
+Ek_04
+  rotate: false
+  xy: 2, 896
+  size: 416, 419
+  orig: 420, 419
+  offset: 2, 0
+  index: -1
+Ek_05
+  rotate: false
+  xy: 2, 475
+  size: 416, 419
+  orig: 420, 419
+  offset: 2, 0
+  index: -1
+Ek_06
+  rotate: false
+  xy: 420, 896
+  size: 416, 419
+  orig: 420, 419
+  offset: 2, 0
+  index: -1
+Ek_07
+  rotate: false
+  xy: 2, 54
+  size: 416, 419
+  orig: 420, 419
+  offset: 2, 0
+  index: -1
+Ek_08
+  rotate: false
+  xy: 420, 475
+  size: 416, 419
+  orig: 420, 419
+  offset: 2, 0
+  index: -1
+Ek_09
+  rotate: false
+  xy: 838, 896
+  size: 416, 419
+  orig: 420, 419
+  offset: 2, 0
+  index: -1
+Ek_10
+  rotate: false
+  xy: 420, 68
+  size: 402, 405
+  orig: 406, 405
+  offset: 2, 0
+  index: -1
+Ek_11
+  rotate: false
+  xy: 838, 489
+  size: 402, 405
+  orig: 406, 405
+  offset: 2, 0
+  index: -1
+Ek_12
+  rotate: false
+  xy: 1256, 924
+  size: 387, 391
+  orig: 391, 391
+  offset: 2, 0
+  index: -1
+Ek_13
+  rotate: false
+  xy: 1645, 947
+  size: 362, 368
+  orig: 366, 368
+  offset: 2, 0
+  index: -1
+Ek_14
+  rotate: true
+  xy: 1242, 217
+  size: 317, 347
+  orig: 321, 347
+  offset: 2, 0
+  index: -1
+Ek_15
+  rotate: false
+  xy: 1645, 597
+  size: 318, 348
+  orig: 322, 348
+  offset: 2, 0
+  index: -1
+Ek_16
+  rotate: false
+  xy: 824, 128
+  size: 312, 345
+  orig: 316, 345
+  offset: 2, 0
+  index: -1
+Ek_17
+  rotate: true
+  xy: 1138, 2
+  size: 213, 215
+  orig: 217, 215
+  offset: 2, 0
+  index: -1
+Ek_18
+  rotate: false
+  xy: 1355, 3
+  size: 206, 212
+  orig: 210, 212
+  offset: 2, 0
+  index: -1
+blur
+  rotate: false
+  xy: 1965, 899
+  size: 42, 46
+  orig: 46, 46
+  offset: 2, 0
+  index: -1
+vong_sang_vien_xanh
+  rotate: false
+  xy: 1827, 167
+  size: 106, 106
+  orig: 106, 106
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,152 @@
+
+Electric_ball.png
+size: 995,961
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+BubbleEft_tex
+  rotate: false
+  xy: 2, 2
+  size: 30, 34
+  orig: 34, 34
+  offset: 2, 0
+  index: -1
+E_00
+  rotate: true
+  xy: 393, 50
+  size: 309, 347
+  orig: 313, 347
+  offset: 2, 0
+  index: -1
+E_04
+  rotate: false
+  xy: 2, 644
+  size: 389, 315
+  orig: 389, 315
+  offset: 0, 0
+  index: -1
+E_06
+  rotate: false
+  xy: 2, 342
+  size: 389, 300
+  orig: 389, 300
+  offset: 0, 0
+  index: -1
+E_08
+  rotate: false
+  xy: 393, 361
+  size: 369, 284
+  orig: 369, 284
+  offset: 0, 0
+  index: -1
+E_10
+  rotate: false
+  xy: 2, 38
+  size: 376, 302
+  orig: 376, 302
+  offset: 0, 0
+  index: -1
+E_13
+  rotate: false
+  xy: 393, 647
+  size: 372, 312
+  orig: 376, 312
+  offset: 2, 0
+  index: -1
+Ellipse 19
+  rotate: false
+  xy: 764, 380
+  size: 117, 120
+  orig: 120, 120
+  offset: 1, 0
+  index: -1
+gon_trang
+  rotate: false
+  xy: 767, 502
+  size: 222, 221
+  orig: 235, 221
+  offset: 10, 0
+  index: -1
+spot_white
+  rotate: false
+  xy: 767, 725
+  size: 213, 234
+  orig: 217, 234
+  offset: 0, 0
+  index: -1
+spot_white_blur
+  rotate: false
+  xy: 764, 361
+  size: 15, 17
+  orig: 19, 17
+  offset: 2, 0
+  index: -1
+tron_1
+  rotate: false
+  xy: 883, 386
+  size: 110, 114
+  orig: 114, 114
+  offset: 2, 0
+  index: -1
+tron_2
+  rotate: false
+  xy: 742, 245
+  size: 110, 114
+  orig: 114, 114
+  offset: 2, 0
+  index: -1
+tron_3
+  rotate: false
+  xy: 742, 129
+  size: 110, 114
+  orig: 114, 114
+  offset: 2, 0
+  index: -1
+
+Electric_ball2.png
+size: 941,652
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+E_02
+  rotate: true
+  xy: 2, 331
+  size: 319, 336
+  orig: 323, 336
+  offset: 2, 0
+  index: -1
+E_15
+  rotate: true
+  xy: 340, 313
+  size: 337, 311
+  orig: 337, 311
+  offset: 0, 0
+  index: -1
+E_17
+  rotate: true
+  xy: 2, 13
+  size: 316, 336
+  orig: 320, 336
+  offset: 2, 0
+  index: -1
+rim_white
+  rotate: false
+  xy: 651, 25
+  size: 286, 286
+  orig: 286, 286
+  offset: 0, 0
+  index: -1
+rim_white_2
+  rotate: false
+  xy: 653, 364
+  size: 286, 286
+  orig: 286, 286
+  offset: 0, 0
+  index: -1
+vien_glow
+  rotate: false
+  xy: 340, 2
+  size: 309, 309
+  orig: 309, 309
+  offset: 0, 0
+  index: -1

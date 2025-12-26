@@ -1,0 +1,97 @@
+
+Smoke_3.png
+size: 539,531
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+B05_1_00
+  rotate: true
+  xy: 302, 274
+  size: 79, 154
+  orig: 79, 154
+  offset: 0, 0
+  index: -1
+B05_1_02
+  rotate: false
+  xy: 458, 199
+  size: 79, 154
+  orig: 79, 154
+  offset: 0, 0
+  index: -1
+B05_1_04
+  rotate: true
+  xy: 302, 193
+  size: 79, 154
+  orig: 79, 154
+  offset: 0, 0
+  index: -1
+B05_1_06
+  rotate: false
+  xy: 458, 43
+  size: 79, 154
+  orig: 79, 154
+  offset: 0, 0
+  index: -1
+B05_1_08
+  rotate: false
+  xy: 2, 83
+  size: 79, 154
+  orig: 79, 154
+  offset: 0, 0
+  index: -1
+B05_1_10
+  rotate: true
+  xy: 2, 2
+  size: 79, 154
+  orig: 79, 154
+  offset: 0, 0
+  index: -1
+B05_1_12
+  rotate: false
+  xy: 83, 83
+  size: 79, 154
+  orig: 79, 154
+  offset: 0, 0
+  index: -1
+B05_1_14
+  rotate: true
+  xy: 158, 2
+  size: 79, 154
+  orig: 79, 154
+  offset: 0, 0
+  index: -1
+B05_1_18
+  rotate: false
+  xy: 164, 83
+  size: 79, 154
+  orig: 79, 154
+  offset: 0, 0
+  index: -1
+B05_1_20
+  rotate: true
+  xy: 245, 112
+  size: 79, 154
+  orig: 79, 154
+  offset: 0, 0
+  index: -1
+BubbleEft_tex
+  rotate: false
+  xy: 314, 42
+  size: 60, 68
+  orig: 68, 68
+  offset: 4, 0
+  index: -1
+trang
+  rotate: true
+  xy: 302, 355
+  size: 174, 182
+  orig: 182, 182
+  offset: 4, 0
+  index: -1
+trang_blur
+  rotate: true
+  xy: 2, 239
+  size: 290, 298
+  orig: 298, 298
+  offset: 4, 0
+  index: -1

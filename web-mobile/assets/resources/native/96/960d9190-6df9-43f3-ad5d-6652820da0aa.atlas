@@ -1,0 +1,279 @@
+
+Attack.png
+size: 1966,1132
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1_back
+  rotate: true
+  xy: 1239, 2
+  size: 99, 119
+  orig: 107, 119
+  offset: 4, 0
+  index: -1
+1_body
+  rotate: true
+  xy: 1752, 312
+  size: 245, 192
+  orig: 247, 194
+  offset: 1, 1
+  index: -1
+1_ear
+  rotate: false
+  xy: 1436, 70
+  size: 159, 98
+  orig: 162, 101
+  offset: 1, 2
+  index: -1
+1_ear2
+  rotate: false
+  xy: 926, 296
+  size: 109, 56
+  orig: 110, 58
+  offset: 1, 1
+  index: -1
+1_eye_Light
+  rotate: false
+  xy: 1752, 582
+  size: 22, 30
+  orig: 30, 30
+  offset: 4, 0
+  index: -1
+1_eye_Light2
+  rotate: false
+  xy: 854, 110
+  size: 20, 28
+  orig: 28, 28
+  offset: 4, 0
+  index: -1
+1_eye_black
+  rotate: true
+  xy: 1733, 36
+  size: 49, 60
+  orig: 57, 60
+  offset: 4, 0
+  index: -1
+1_eye_black2
+  rotate: false
+  xy: 1905, 882
+  size: 41, 52
+  orig: 49, 52
+  offset: 4, 0
+  index: -1
+1_hand_back
+  rotate: false
+  xy: 1687, 171
+  size: 197, 139
+  orig: 197, 140
+  offset: 0, 0
+  index: -1
+1_head
+  rotate: false
+  xy: 2, 14
+  size: 419, 349
+  orig: 419, 351
+  offset: 0, 2
+  index: -1
+1_khung_duoi
+  rotate: false
+  xy: 2, 905
+  size: 1113, 101
+  orig: 1113, 101
+  offset: 0, 0
+  index: -1
+1_khung_giua
+  rotate: true
+  xy: 633, 354
+  size: 549, 419
+  orig: 570, 419
+  offset: 8, 0
+  index: -1
+1_khung_tren
+  rotate: false
+  xy: 2, 1008
+  size: 1155, 122
+  orig: 1155, 122
+  offset: 0, 0
+  index: -1
+1_leg1
+  rotate: false
+  xy: 1487, 170
+  size: 198, 154
+  orig: 200, 155
+  offset: 1, 1
+  index: -1
+1_light
+  rotate: false
+  xy: 631, 140
+  size: 293, 212
+  orig: 295, 212
+  offset: 1, 0
+  index: -1
+1_shadow
+  rotate: true
+  xy: 1780, 559
+  size: 296, 167
+  orig: 296, 167
+  offset: 0, 0
+  index: -1
+1_tail
+  rotate: false
+  xy: 1733, 87
+  size: 64, 82
+  orig: 68, 87
+  offset: 2, 3
+  index: -1
+1_touge
+  rotate: true
+  xy: 1905, 1058
+  size: 72, 52
+  orig: 77, 55
+  offset: 2, 1
+  index: -1
+1_vai_mu
+  rotate: true
+  xy: 1886, 140
+  size: 170, 78
+  orig: 172, 80
+  offset: 0, 2
+  index: -1
+1_xe
+  rotate: false
+  xy: 2, 365
+  size: 629, 538
+  orig: 629, 538
+  offset: 0, 0
+  index: -1
+ALL_text
+  rotate: false
+  xy: 1159, 857
+  size: 744, 273
+  orig: 752, 273
+  offset: 4, 0
+  index: -1
+boom
+  rotate: false
+  xy: 1487, 326
+  size: 263, 286
+  orig: 271, 286
+  offset: 4, 0
+  index: -1
+fire
+  rotate: false
+  xy: 1054, 277
+  size: 431, 335
+  orig: 439, 335
+  offset: 4, 0
+  index: -1
+flash
+  rotate: false
+  xy: 423, 19
+  size: 206, 344
+  orig: 222, 344
+  offset: 9, 0
+  index: -1
+hand_2
+  rotate: true
+  xy: 631, 25
+  size: 113, 181
+  orig: 117, 184
+  offset: 2, 3
+  index: -1
+l1
+  rotate: true
+  xy: 1054, 857
+  size: 46, 66
+  orig: 50, 66
+  offset: 4, 0
+  index: -1
+l2
+  rotate: false
+  xy: 1360, 13
+  size: 71, 88
+  orig: 79, 88
+  offset: 4, 0
+  index: -1
+l3
+  rotate: false
+  xy: 1905, 936
+  size: 46, 60
+  orig: 54, 60
+  offset: 4, 0
+  index: -1
+l4
+  rotate: false
+  xy: 1117, 958
+  size: 40, 48
+  orig: 48, 48
+  offset: 4, 0
+  index: -1
+l5
+  rotate: false
+  xy: 1905, 998
+  size: 49, 58
+  orig: 57, 58
+  offset: 4, 0
+  index: -1
+l6
+  rotate: false
+  xy: 1799, 106
+  size: 49, 63
+  orig: 60, 63
+  offset: 4, 0
+  index: -1
+l7
+  rotate: true
+  xy: 814, 103
+  size: 35, 38
+  orig: 40, 38
+  offset: 0, 0
+  index: -1
+l8
+  rotate: false
+  xy: 1433, 18
+  size: 50, 50
+  orig: 51, 50
+  offset: 1, 0
+  index: -1
+l9
+  rotate: true
+  xy: 1117, 911
+  size: 45, 38
+  orig: 45, 38
+  offset: 0, 0
+  index: -1
+mask_text
+  rotate: false
+  xy: 1054, 614
+  size: 724, 241
+  orig: 732, 241
+  offset: 4, 0
+  index: -1
+smoke
+  rotate: false
+  xy: 1597, 36
+  size: 134, 132
+  orig: 142, 132
+  offset: 4, 0
+  index: -1
+tia
+  rotate: false
+  xy: 926, 187
+  size: 540, 88
+  orig: 606, 88
+  offset: 20, 0
+  index: -1
+tia1
+  rotate: false
+  xy: 814, 8
+  size: 423, 93
+  orig: 423, 93
+  offset: 0, 0
+  index: -1
+tia_2
+  rotate: false
+  xy: 926, 103
+  size: 508, 82
+  orig: 538, 82
+  offset: 26, 0
+  index: -1

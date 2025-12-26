@@ -1,61 +1,47 @@
 
 21_00.png
-size: 598,319
+size: 530,288
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-21_00
-  rotate: true
-  xy: 188, 22
-  size: 100, 80
-  orig: 108, 80
-  offset: 4, 0
-  index: -1
-21_01
-  rotate: false
-  xy: 2, 9
-  size: 184, 110
-  orig: 192, 110
-  offset: 4, 0
-  index: -1
 21_02
-  rotate: true
-  xy: 2, 121
+  rotate: false
+  xy: 2, 160
   size: 196, 126
   orig: 204, 126
   offset: 4, 0
   index: -1
 21_03
-  rotate: true
-  xy: 130, 124
+  rotate: false
+  xy: 333, 152
   size: 193, 134
   orig: 201, 134
   offset: 4, 0
   index: -1
 21_04
-  rotate: true
-  xy: 266, 135
+  rotate: false
+  xy: 163, 3
   size: 182, 147
   orig: 190, 147
   offset: 4, 0
   index: -1
 21_05
   rotate: false
-  xy: 415, 169
+  xy: 347, 2
   size: 181, 148
   orig: 189, 148
   offset: 4, 0
   index: -1
 21_06
-  rotate: true
-  xy: 415, 8
+  rotate: false
+  xy: 2, 15
   size: 159, 143
   orig: 167, 143
   offset: 4, 0
   index: -1
 21_07
   rotate: false
-  xy: 270, 2
+  xy: 200, 155
   size: 131, 131
   orig: 139, 131
   offset: 4, 0

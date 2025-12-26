@@ -1,0 +1,83 @@
+
+bubble_water.png
+size: 688,260
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1_ad
+  rotate: false
+  xy: 553, 14
+  size: 66, 72
+  orig: 74, 72
+  offset: 4, 0
+  index: -1
+1_vien
+  rotate: false
+  xy: 621, 18
+  size: 60, 68
+  orig: 68, 68
+  offset: 4, 0
+  index: -1
+2_sang_vien
+  rotate: true
+  xy: 242, 2
+  size: 41, 52
+  orig: 49, 52
+  offset: 4, 0
+  index: -1
+2sang_canh
+  rotate: false
+  xy: 594, 174
+  size: 92, 84
+  orig: 100, 84
+  offset: 4, 0
+  index: -1
+2vien
+  rotate: true
+  xy: 449, 13
+  size: 101, 102
+  orig: 103, 103
+  offset: 1, 0
+  index: -1
+bb_max
+  rotate: false
+  xy: 2, 22
+  size: 238, 236
+  orig: 240, 238
+  offset: 1, 1
+  index: -1
+bb_to_2
+  rotate: false
+  xy: 449, 116
+  size: 143, 142
+  orig: 144, 144
+  offset: 0, 1
+  index: -1
+blur
+  rotate: true
+  xy: 594, 88
+  size: 84, 92
+  orig: 92, 92
+  offset: 4, 0
+  index: -1
+dac
+  rotate: true
+  xy: 296, 5
+  size: 38, 46
+  orig: 46, 46
+  offset: 4, 0
+  index: -1
+dac_rong
+  rotate: true
+  xy: 344, 5
+  size: 38, 46
+  orig: 46, 46
+  offset: 4, 0
+  index: -1
+nen_to
+  rotate: false
+  xy: 242, 45
+  size: 205, 213
+  orig: 213, 213
+  offset: 4, 0
+  index: -1

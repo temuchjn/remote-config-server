@@ -1,0 +1,167 @@
+
+cannon.png
+size: 1999,1420
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+canon_start0004
+  rotate: false
+  xy: 2, 1015
+  size: 539, 403
+  orig: 547, 403
+  offset: 4, 0
+  index: -1
+canon_start0006
+  rotate: false
+  xy: 2, 678
+  size: 463, 335
+  orig: 471, 335
+  offset: 4, 0
+  index: -1
+canon_start0008
+  rotate: false
+  xy: 928, 1128
+  size: 404, 290
+  orig: 412, 290
+  offset: 4, 0
+  index: -1
+canon_start0010
+  rotate: true
+  xy: 387, 311
+  size: 365, 267
+  orig: 373, 267
+  offset: 4, 0
+  index: -1
+canon_start0012
+  rotate: true
+  xy: 769, 2
+  size: 350, 262
+  orig: 358, 262
+  offset: 4, 0
+  index: -1
+canon_start0014
+  rotate: false
+  xy: 1624, 400
+  size: 353, 268
+  orig: 361, 268
+  offset: 4, 0
+  index: -1
+canon_start0016
+  rotate: true
+  xy: 1718, 1053
+  size: 365, 279
+  orig: 373, 279
+  offset: 4, 0
+  index: -1
+canon_start0018
+  rotate: false
+  xy: 1575, 109
+  size: 377, 289
+  orig: 385, 289
+  offset: 4, 0
+  index: -1
+canon_start0020
+  rotate: false
+  xy: 928, 835
+  size: 381, 291
+  orig: 389, 291
+  offset: 4, 0
+  index: -1
+canon_start0022
+  rotate: false
+  xy: 1311, 816
+  size: 381, 291
+  orig: 389, 291
+  offset: 4, 0
+  index: -1
+canon_start0024
+  rotate: false
+  xy: 543, 737
+  size: 381, 286
+  orig: 389, 286
+  offset: 4, 0
+  index: -1
+canon_start0026
+  rotate: true
+  xy: 1694, 670
+  size: 381, 296
+  orig: 389, 296
+  offset: 4, 0
+  index: -1
+canon_start0028
+  rotate: false
+  xy: 386, 3
+  size: 381, 306
+  orig: 389, 306
+  offset: 4, 0
+  index: -1
+canon_start0030
+  rotate: true
+  xy: 656, 354
+  size: 381, 285
+  orig: 389, 285
+  offset: 4, 0
+  index: -1
+canon_start0032
+  rotate: true
+  xy: 1033, 69
+  size: 381, 247
+  orig: 389, 247
+  offset: 4, 0
+  index: -1
+canon_start0034
+  rotate: false
+  xy: 1334, 1109
+  size: 382, 309
+  orig: 390, 309
+  offset: 4, 0
+  index: -1
+canon_start0036
+  rotate: false
+  xy: 543, 1025
+  size: 383, 393
+  orig: 391, 393
+  offset: 4, 0
+  index: -1
+canon_start0038
+  rotate: false
+  xy: 2, 316
+  size: 383, 360
+  orig: 391, 360
+  offset: 4, 0
+  index: -1
+canon_start0040
+  rotate: false
+  xy: 2, 4
+  size: 382, 310
+  orig: 390, 310
+  offset: 4, 0
+  index: -1
+canon_start0042
+  rotate: true
+  xy: 943, 452
+  size: 381, 296
+  orig: 389, 296
+  offset: 4, 0
+  index: -1
+canon_start0044
+  rotate: false
+  xy: 1241, 522
+  size: 381, 292
+  orig: 389, 292
+  offset: 4, 0
+  index: -1
+canon_start0046
+  rotate: true
+  xy: 1282, 139
+  size: 381, 291
+  orig: 389, 291
+  offset: 4, 0
+  index: -1
+file_light
+  rotate: false
+  xy: 467, 933
+  size: 63, 80
+  orig: 72, 80
+  offset: 4, 0
+  index: -1

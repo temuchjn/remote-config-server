@@ -1,54 +1,54 @@
 
 Island_btn.png
-size: 442,753
+size: 452,712
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 as_tron
   rotate: true
-  xy: 202, 104
+  xy: 189, 400
   size: 222, 238
   orig: 230, 238
   offset: 4, 0
   index: -1
 blur_vien
   rotate: true
-  xy: 2, 124
+  xy: 2, 457
   size: 177, 185
   orig: 185, 185
   offset: 4, 0
   index: -1
 falre_v
   rotate: true
-  xy: 352, 16
+  xy: 337, 624
   size: 86, 88
   orig: 94, 88
   offset: 4, 0
   index: -1
 flash_light
   rotate: true
-  xy: 139, 28
+  xy: 124, 636
   size: 74, 211
   orig: 79, 211
   offset: 3, 0
   index: -1
 h2_v
-  rotate: false
-  xy: 2, 2
-  size: 135, 120
+  rotate: true
+  xy: 2, 644
+  size: 66, 120
   orig: 143, 120
-  offset: 4, 0
+  offset: 31, 0
   index: -1
 vien
-  rotate: true
-  xy: 2, 303
+  rotate: false
+  xy: 2, 2
   size: 448, 198
   orig: 456, 198
   offset: 4, 0
   index: -1
 vien_flash
-  rotate: true
-  xy: 202, 328
+  rotate: false
+  xy: 2, 202
   size: 423, 196
   orig: 431, 196
   offset: 4, 0
