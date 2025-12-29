@@ -38,6 +38,14 @@
 
   <link rel="stylesheet" type="text/css" href="style.css" />
 
+  <style>
+    /* Đảm bảo GameDiv có tỉ lệ 1:2 và vừa trong browser */
+    #GameDiv {
+      aspect-ratio: 1 / 2 !important;
+      box-sizing: border-box;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -66,6 +74,53 @@
   <script src="https://connect.facebook.net/en_US/fbinstant.7.0.js" async onload="initializeGameAsync()"></script>
 
   <script src="file-selection.js"></script>
+  
+  <script>
+    // Đảm bảo GameDiv có tỉ lệ 1:2 và vừa trong browser
+    function resizeGameDiv() {
+      const gameDiv = document.getElementById('GameDiv');
+      if (!gameDiv) return;
+      
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+      
+      // Tỉ lệ 1:2 (width:height = 1:2)
+      const aspectRatio = 1 / 2;
+      
+      // Tính toán kích thước dựa trên viewport
+      let width, height;
+      
+      // Nếu viewport rộng hơn tỉ lệ 1:2, giới hạn theo height
+      if (viewportWidth / viewportHeight > aspectRatio) {
+        height = viewportHeight;
+        width = height * aspectRatio;
+      } else {
+        // Nếu viewport hẹp hơn tỉ lệ 1:2, giới hạn theo width
+        width = viewportWidth;
+        height = width / aspectRatio;
+      }
+      
+      // Đảm bảo không vượt quá viewport
+      width = Math.min(width, viewportWidth);
+      height = Math.min(height, viewportHeight);
+      
+      gameDiv.style.width = width + 'px';
+      gameDiv.style.height = height + 'px';
+      gameDiv.style.maxWidth = '100vw';
+      gameDiv.style.maxHeight = '100vh';
+    }
+    
+    // Chạy khi trang load và khi resize
+    window.addEventListener('load', resizeGameDiv);
+    window.addEventListener('resize', resizeGameDiv);
+    // Chạy ngay để set kích thước ban đầu
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', resizeGameDiv);
+    } else {
+      resizeGameDiv();
+    }
+  </script>
+  
   <!-- File Selection Section -->
   <div id="fileSelectionContainer">
     <input type="file" id="fileInput" multiple style="display: none;" />
