@@ -39,109 +39,44 @@
   <link rel="stylesheet" type="text/css" href="style.css" />
 
   <style>
-    /* Cố định: chiều cao = 100vh, chiều rộng = 50vh (1/2 chiều cao) */
+    /* Wrapper cho GameDiv với tỉ lệ 1:2 */
+    #GameWrapper {
+      height: 100vh;
+      width: calc(100vh / 2);
+      max-width: 100vw;
+      max-height: 100vh;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    
     #GameDiv {
-      height: 100vh !important;
-      width: calc(100vh / 2) !important;
-      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
     }
   </style>
 
   <script>
-    // Chạy ngay lập tức, trước khi DOM load
+    // Set kích thước cho wrapper và delay load Cocos
     (function() {
-      let isResizing = false;
-      
-      // Cố định: chiều cao = chiều cao browser, chiều rộng = 1/2 chiều cao
-      function resizeGameDiv() {
-        if (isResizing) return;
-        isResizing = true;
+      function setWrapperSize() {
+        const wrapper = document.getElementById('GameWrapper');
+        if (!wrapper) return;
         
-        const gameDiv = document.getElementById('GameDiv');
-        if (!gameDiv) {
-          isResizing = false;
-          return;
-        }
-        
-        const viewportHeight = window.innerHeight;
-        
-        // Chiều cao = chiều cao browser
-        const height = viewportHeight;
-        // Chiều rộng = 1/2 chiều cao
+        const height = window.innerHeight;
         const width = height / 2;
         
-        // Set kích thước cho GameDiv
-        gameDiv.style.width = width + 'px';
-        gameDiv.style.height = height + 'px';
-        gameDiv.style.maxWidth = '100vw';
-        gameDiv.style.maxHeight = '100vh';
-        
-        // Đảm bảo container và canvas cũng có kích thước đúng
-        const container = document.getElementById('Cocos3dGameContainer');
-        const canvas = document.getElementById('GameCanvas');
-        
-        if (container) {
-          container.style.width = width + 'px';
-          container.style.height = height + 'px';
-        }
-        
-        if (canvas) {
-          canvas.style.width = width + 'px';
-          canvas.style.height = height + 'px';
-          // Đảm bảo canvas không bị Cocos Creator override
-          canvas.setAttribute('width', width);
-          canvas.setAttribute('height', height);
-        }
-        
-        isResizing = false;
+        wrapper.style.height = height + 'px';
+        wrapper.style.width = width + 'px';
       }
       
-      // Chạy ngay khi DOM ready
-      function initResize() {
-        // Set kích thước ngay lập tức
-        resizeGameDiv();
-        
-        // Tiếp tục theo dõi và đảm bảo kích thước đúng
-        let frameCount = 0;
-        const maxFrames = 180; // ~3 giây với 60fps
-        function continuousResize() {
-          if (frameCount < maxFrames) {
-            resizeGameDiv();
-            frameCount++;
-            requestAnimationFrame(continuousResize);
-          }
-        }
-        requestAnimationFrame(continuousResize);
-        
-        // Sau đó chỉ check khi có thay đổi
-        setTimeout(function() {
-          const observer = new MutationObserver(function() {
-            resizeGameDiv();
-          });
-          
-          const gameDiv = document.getElementById('GameDiv');
-          const canvas = document.getElementById('GameCanvas');
-          if (gameDiv) {
-            observer.observe(gameDiv, { 
-              attributes: true, 
-              attributeFilter: ['style', 'width', 'height', 'class'] 
-            });
-          }
-          if (canvas) {
-            observer.observe(canvas, { 
-              attributes: true, 
-              attributeFilter: ['style', 'width', 'height'] 
-            });
-          }
-        }, 3000);
-      }
-      
-      // Intercept System.import để delay việc load game
-      window._delayCocosLoad = function() {
+      // Delay việc load Cocos Creator
+      function delayCocosLoad() {
         if (window.System && window.System.import) {
           const originalImport = window.System.import;
           window.System.import = function(module) {
-            // Delay 300ms để đảm bảo kích thước đã được set
             return new Promise(function(resolve, reject) {
               setTimeout(function() {
                 originalImport.call(window.System, module)
@@ -151,25 +86,26 @@
             });
           };
         }
-      };
-      
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initResize);
-      } else {
-        initResize();
       }
       
-      // Chạy khi resize
-      window.addEventListener('resize', function() {
-        resizeGameDiv();
-      });
+      function init() {
+        // Set kích thước wrapper ngay
+        setWrapperSize();
+        
+        // Delay load Cocos
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(delayCocosLoad, 100);
+          });
+        } else {
+          setTimeout(delayCocosLoad, 100);
+        }
+      }
       
-      // Chạy khi window load hoàn toàn
-      window.addEventListener('load', function() {
-        setTimeout(resizeGameDiv, 100);
-        setTimeout(resizeGameDiv, 500);
-        setTimeout(resizeGameDiv, 1000);
-      });
+      init();
+      
+      // Update khi resize
+      window.addEventListener('resize', setWrapperSize);
     })();
   </script>
 
@@ -201,7 +137,6 @@
   <script src="https://connect.facebook.net/en_US/fbinstant.7.0.js" async onload="initializeGameAsync()"></script>
 
   <script src="file-selection.js"></script>
-  
   <!-- File Selection Section -->
   <div id="fileSelectionContainer">
     <input type="file" id="fileInput" multiple style="display: none;" />
@@ -221,19 +156,13 @@
 </div>
 
 
-  <div id="GameDiv" cc_exact_fit_screen="false">
-    <div id="Cocos3dGameContainer">
-      <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="99"></canvas>
+  <div id="GameWrapper">
+    <div id="GameDiv" cc_exact_fit_screen="true">
+      <div id="Cocos3dGameContainer">
+        <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="99"></canvas>
+      </div>
     </div>
   </div>
-  
-  <script>
-    // Delay việc load Cocos Creator cho đến khi kích thước đã được set
-    if (window._delayCocosLoad) {
-      window._delayCocosLoad();
-    }
-  </script>
-  
   
 
 <!-- Polyfills bundle. -->
@@ -251,25 +180,6 @@
     System.import('./index.js').catch(function(err) { console.error(err); })
 </script>
 
-  
-  <script>
-    // Đảm bảo delay được áp dụng sau khi System đã load
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(function() {
-          if (window._delayCocosLoad) {
-            window._delayCocosLoad();
-          }
-        }, 100);
-      });
-    } else {
-      setTimeout(function() {
-        if (window._delayCocosLoad) {
-          window._delayCocosLoad();
-        }
-      }, 100);
-    }
-  </script>
 </body>
 
 </html>
