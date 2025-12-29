@@ -98,15 +98,10 @@
       
       // Chạy ngay khi DOM ready
       function initResize() {
+        // Set kích thước ngay lập tức
         resizeGameDiv();
         
-        // Sử dụng requestAnimationFrame để đảm bảo chạy sau khi Cocos Creator render
-        function checkAndResize() {
-          resizeGameDiv();
-          requestAnimationFrame(checkAndResize);
-        }
-        
-        // Chạy liên tục trong 3 giây đầu để đảm bảo override Cocos Creator
+        // Tiếp tục theo dõi và đảm bảo kích thước đúng
         let frameCount = 0;
         const maxFrames = 180; // ~3 giây với 60fps
         function continuousResize() {
@@ -140,6 +135,23 @@
           }
         }, 3000);
       }
+      
+      // Intercept System.import để delay việc load game
+      window._delayCocosLoad = function() {
+        if (window.System && window.System.import) {
+          const originalImport = window.System.import;
+          window.System.import = function(module) {
+            // Delay 300ms để đảm bảo kích thước đã được set
+            return new Promise(function(resolve, reject) {
+              setTimeout(function() {
+                originalImport.call(window.System, module)
+                  .then(resolve)
+                  .catch(reject);
+              }, 300);
+            });
+          };
+        }
+      };
       
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initResize);
@@ -215,6 +227,14 @@
     </div>
   </div>
   
+  <script>
+    // Delay việc load Cocos Creator cho đến khi kích thước đã được set
+    if (window._delayCocosLoad) {
+      window._delayCocosLoad();
+    }
+  </script>
+  
+  
 
 <!-- Polyfills bundle. -->
 
@@ -231,6 +251,25 @@
     System.import('./index.js').catch(function(err) { console.error(err); })
 </script>
 
+  
+  <script>
+    // Đảm bảo delay được áp dụng sau khi System đã load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+          if (window._delayCocosLoad) {
+            window._delayCocosLoad();
+          }
+        }, 100);
+      });
+    } else {
+      setTimeout(function() {
+        if (window._delayCocosLoad) {
+          window._delayCocosLoad();
+        }
+      }, 100);
+    }
+  </script>
 </body>
 
 </html>
