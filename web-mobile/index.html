@@ -39,9 +39,10 @@
   <link rel="stylesheet" type="text/css" href="style.css" />
 
   <style>
-    /* Đảm bảo GameDiv có tỉ lệ 1:2 và vừa trong browser */
+    /* Cố định: chiều cao = 100vh, chiều rộng = 50vh (1/2 chiều cao) */
     #GameDiv {
-      aspect-ratio: 1 / 2 !important;
+      height: 100vh !important;
+      width: calc(100vh / 2) !important;
       box-sizing: border-box;
     }
   </style>
@@ -76,33 +77,17 @@
   <script src="file-selection.js"></script>
   
   <script>
-    // Đảm bảo GameDiv có tỉ lệ 1:2 và vừa trong browser
+    // Cố định: chiều cao = chiều cao browser, chiều rộng = 1/2 chiều cao
     function resizeGameDiv() {
       const gameDiv = document.getElementById('GameDiv');
       if (!gameDiv) return;
       
-      const viewportWidth = window.innerWidth;
       const viewportHeight = window.innerHeight;
       
-      // Tỉ lệ 1:2 (width:height = 1:2)
-      const aspectRatio = 1 / 2;
-      
-      // Tính toán kích thước dựa trên viewport
-      let width, height;
-      
-      // Nếu viewport rộng hơn tỉ lệ 1:2, giới hạn theo height
-      if (viewportWidth / viewportHeight > aspectRatio) {
-        height = viewportHeight;
-        width = height * aspectRatio;
-      } else {
-        // Nếu viewport hẹp hơn tỉ lệ 1:2, giới hạn theo width
-        width = viewportWidth;
-        height = width / aspectRatio;
-      }
-      
-      // Đảm bảo không vượt quá viewport
-      width = Math.min(width, viewportWidth);
-      height = Math.min(height, viewportHeight);
+      // Chiều cao = chiều cao browser
+      const height = viewportHeight;
+      // Chiều rộng = 1/2 chiều cao
+      const width = height / 2;
       
       gameDiv.style.width = width + 'px';
       gameDiv.style.height = height + 'px';
