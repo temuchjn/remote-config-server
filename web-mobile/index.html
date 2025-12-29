@@ -47,6 +47,120 @@
     }
   </style>
 
+  <script>
+    // Chạy ngay lập tức, trước khi DOM load
+    (function() {
+      let isResizing = false;
+      
+      // Cố định: chiều cao = chiều cao browser, chiều rộng = 1/2 chiều cao
+      function resizeGameDiv() {
+        if (isResizing) return;
+        isResizing = true;
+        
+        const gameDiv = document.getElementById('GameDiv');
+        if (!gameDiv) {
+          isResizing = false;
+          return;
+        }
+        
+        const viewportHeight = window.innerHeight;
+        
+        // Chiều cao = chiều cao browser
+        const height = viewportHeight;
+        // Chiều rộng = 1/2 chiều cao
+        const width = height / 2;
+        
+        // Set kích thước cho GameDiv
+        gameDiv.style.width = width + 'px';
+        gameDiv.style.height = height + 'px';
+        gameDiv.style.maxWidth = '100vw';
+        gameDiv.style.maxHeight = '100vh';
+        
+        // Đảm bảo container và canvas cũng có kích thước đúng
+        const container = document.getElementById('Cocos3dGameContainer');
+        const canvas = document.getElementById('GameCanvas');
+        
+        if (container) {
+          container.style.width = width + 'px';
+          container.style.height = height + 'px';
+        }
+        
+        if (canvas) {
+          canvas.style.width = width + 'px';
+          canvas.style.height = height + 'px';
+          // Đảm bảo canvas không bị Cocos Creator override
+          canvas.setAttribute('width', width);
+          canvas.setAttribute('height', height);
+        }
+        
+        isResizing = false;
+      }
+      
+      // Chạy ngay khi DOM ready
+      function initResize() {
+        resizeGameDiv();
+        
+        // Sử dụng requestAnimationFrame để đảm bảo chạy sau khi Cocos Creator render
+        function checkAndResize() {
+          resizeGameDiv();
+          requestAnimationFrame(checkAndResize);
+        }
+        
+        // Chạy liên tục trong 3 giây đầu để đảm bảo override Cocos Creator
+        let frameCount = 0;
+        const maxFrames = 180; // ~3 giây với 60fps
+        function continuousResize() {
+          if (frameCount < maxFrames) {
+            resizeGameDiv();
+            frameCount++;
+            requestAnimationFrame(continuousResize);
+          }
+        }
+        requestAnimationFrame(continuousResize);
+        
+        // Sau đó chỉ check khi có thay đổi
+        setTimeout(function() {
+          const observer = new MutationObserver(function() {
+            resizeGameDiv();
+          });
+          
+          const gameDiv = document.getElementById('GameDiv');
+          const canvas = document.getElementById('GameCanvas');
+          if (gameDiv) {
+            observer.observe(gameDiv, { 
+              attributes: true, 
+              attributeFilter: ['style', 'width', 'height', 'class'] 
+            });
+          }
+          if (canvas) {
+            observer.observe(canvas, { 
+              attributes: true, 
+              attributeFilter: ['style', 'width', 'height'] 
+            });
+          }
+        }, 3000);
+      }
+      
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initResize);
+      } else {
+        initResize();
+      }
+      
+      // Chạy khi resize
+      window.addEventListener('resize', function() {
+        resizeGameDiv();
+      });
+      
+      // Chạy khi window load hoàn toàn
+      window.addEventListener('load', function() {
+        setTimeout(resizeGameDiv, 100);
+        setTimeout(resizeGameDiv, 500);
+        setTimeout(resizeGameDiv, 1000);
+      });
+    })();
+  </script>
+
 </head>
 
 <body>
@@ -75,36 +189,6 @@
   <script src="https://connect.facebook.net/en_US/fbinstant.7.0.js" async onload="initializeGameAsync()"></script>
 
   <script src="file-selection.js"></script>
-  
-  <script>
-    // Cố định: chiều cao = chiều cao browser, chiều rộng = 1/2 chiều cao
-    function resizeGameDiv() {
-      const gameDiv = document.getElementById('GameDiv');
-      if (!gameDiv) return;
-      
-      const viewportHeight = window.innerHeight;
-      
-      // Chiều cao = chiều cao browser
-      const height = viewportHeight;
-      // Chiều rộng = 1/2 chiều cao
-      const width = height / 2;
-      
-      gameDiv.style.width = width + 'px';
-      gameDiv.style.height = height + 'px';
-      gameDiv.style.maxWidth = '100vw';
-      gameDiv.style.maxHeight = '100vh';
-    }
-    
-    // Chạy khi trang load và khi resize
-    window.addEventListener('load', resizeGameDiv);
-    window.addEventListener('resize', resizeGameDiv);
-    // Chạy ngay để set kích thước ban đầu
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', resizeGameDiv);
-    } else {
-      resizeGameDiv();
-    }
-  </script>
   
   <!-- File Selection Section -->
   <div id="fileSelectionContainer">
