@@ -1,0 +1,83 @@
+
+18.png
+size: 710,397
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Eyeball
+  rotate: true
+  xy: 152, 7
+  size: 98, 116
+  orig: 102, 116
+  offset: 2, 0
+  index: -1
+Fin
+  rotate: false
+  xy: 2, 2
+  size: 148, 103
+  orig: 148, 103
+  offset: 0, 0
+  index: -1
+Fin_above
+  rotate: true
+  xy: 624, 86
+  size: 144, 84
+  orig: 145, 85
+  offset: 1, 0
+  index: -1
+Tail
+  rotate: false
+  xy: 527, 232
+  size: 158, 163
+  orig: 158, 163
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 2, 107
+  size: 523, 288
+  orig: 524, 288
+  offset: 0, 0
+  index: -1
+e_black
+  rotate: true
+  xy: 624, 30
+  size: 54, 67
+  orig: 58, 67
+  offset: 2, 0
+  index: -1
+e_light
+  rotate: false
+  xy: 505, 85
+  size: 16, 20
+  orig: 20, 20
+  offset: 2, 0
+  index: -1
+mi duoi
+  rotate: false
+  xy: 398, 12
+  size: 105, 93
+  orig: 109, 93
+  offset: 2, 0
+  index: -1
+mi tren
+  rotate: false
+  xy: 505, 16
+  size: 96, 49
+  orig: 100, 49
+  offset: 2, 0
+  index: -1
+mouth_down
+  rotate: true
+  xy: 527, 67
+  size: 163, 95
+  orig: 163, 97
+  offset: 0, 1
+  index: -1
+shadow_fin
+  rotate: false
+  xy: 270, 12
+  size: 126, 93
+  orig: 134, 115
+  offset: 7, 18
+  index: -1

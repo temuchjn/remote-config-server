@@ -1,0 +1,83 @@
+
+16.png
+size: 331,522
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Eyeball_back
+  rotate: true
+  xy: 101, 2
+  size: 80, 83
+  orig: 84, 83
+  offset: 2, 0
+  index: -1
+Fin_above
+  rotate: true
+  xy: 189, 183
+  size: 94, 115
+  orig: 96, 115
+  offset: 1, 0
+  index: -1
+Fin_shadow
+  rotate: false
+  xy: 2, 5
+  size: 97, 77
+  orig: 98, 77
+  offset: 0, 0
+  index: -1
+Fin_under
+  rotate: false
+  xy: 186, 8
+  size: 85, 81
+  orig: 87, 81
+  offset: 1, 0
+  index: -1
+Lantern
+  rotate: false
+  xy: 2, 196
+  size: 185, 81
+  orig: 186, 81
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 2, 279
+  size: 316, 241
+  orig: 317, 241
+  offset: 1, 0
+  index: -1
+e_black
+  rotate: false
+  xy: 273, 45
+  size: 44, 44
+  orig: 48, 44
+  offset: 2, 0
+  index: -1
+e_light
+  rotate: false
+  xy: 273, 26
+  size: 13, 17
+  orig: 17, 17
+  offset: 2, 0
+  index: -1
+glow
+  rotate: false
+  xy: 243, 91
+  size: 86, 90
+  orig: 90, 90
+  offset: 2, 0
+  index: -1
+lip_down
+  rotate: false
+  xy: 2, 84
+  size: 130, 110
+  orig: 132, 110
+  offset: 1, 0
+  index: -1
+shadow_tail
+  rotate: true
+  xy: 134, 94
+  size: 87, 107
+  orig: 88, 107
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,83 @@
+
+5.png
+size: 249,515
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1_bb
+  rotate: false
+  xy: 2, 14
+  size: 68, 72
+  orig: 72, 72
+  offset: 2, 0
+  index: -1
+Back_Eye
+  rotate: false
+  xy: 131, 17
+  size: 49, 55
+  orig: 53, 55
+  offset: 2, 0
+  index: -1
+Fin
+  rotate: true
+  xy: 162, 310
+  size: 203, 85
+  orig: 203, 85
+  offset: 0, 0
+  index: -1
+Fin 2
+  rotate: false
+  xy: 148, 74
+  size: 98, 60
+  orig: 98, 60
+  offset: 0, 0
+  index: -1
+Mouth
+  rotate: false
+  xy: 72, 2
+  size: 57, 84
+  orig: 60, 87
+  offset: 2, 1
+  index: -1
+Tail
+  rotate: false
+  xy: 2, 88
+  size: 144, 117
+  orig: 144, 118
+  offset: 0, 0
+  index: -1
+cody
+  rotate: true
+  xy: 2, 207
+  size: 306, 158
+  orig: 306, 158
+  offset: 0, 0
+  index: -1
+eye_black
+  rotate: true
+  xy: 182, 34
+  size: 38, 46
+  orig: 42, 46
+  offset: 2, 0
+  index: -1
+eye_light
+  rotate: true
+  xy: 225, 293
+  size: 15, 20
+  orig: 19, 20
+  offset: 2, 0
+  index: -1
+shadow_fin
+  rotate: true
+  xy: 162, 205
+  size: 103, 61
+  orig: 104, 63
+  offset: 0, 0
+  index: -1
+shadow_mouth
+  rotate: true
+  xy: 148, 136
+  size: 67, 89
+  orig: 67, 89
+  offset: 0, 0
+  index: -1

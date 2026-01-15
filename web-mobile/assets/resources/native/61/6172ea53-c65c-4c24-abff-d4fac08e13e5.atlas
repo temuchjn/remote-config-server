@@ -1,0 +1,83 @@
+
+1.png
+size: 455,280
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Mi duoi
+  rotate: true
+  xy: 346, 156
+  size: 56, 55
+  orig: 60, 55
+  offset: 2, 0
+  index: -1
+Mi duoi2
+  rotate: true
+  xy: 346, 98
+  size: 56, 55
+  orig: 60, 55
+  offset: 2, 0
+  index: -1
+Mi tren
+  rotate: false
+  xy: 403, 159
+  size: 50, 53
+  orig: 54, 53
+  offset: 2, 0
+  index: -1
+Mi tren2
+  rotate: false
+  xy: 403, 104
+  size: 50, 53
+  orig: 54, 53
+  offset: 2, 0
+  index: -1
+back
+  rotate: true
+  xy: 407, 66
+  size: 36, 34
+  orig: 40, 34
+  offset: 2, 0
+  index: -1
+body
+  rotate: false
+  xy: 2, 2
+  size: 342, 276
+  orig: 342, 276
+  offset: 0, 0
+  index: -1
+e_back
+  rotate: true
+  xy: 404, 237
+  size: 41, 38
+  orig: 45, 38
+  offset: 2, 0
+  index: -1
+eye_white 2
+  rotate: true
+  xy: 346, 214
+  size: 64, 56
+  orig: 68, 56
+  offset: 2, 0
+  index: -1
+eye_white1
+  rotate: false
+  xy: 346, 44
+  size: 59, 52
+  orig: 63, 52
+  offset: 2, 0
+  index: -1
+light
+  rotate: true
+  xy: 421, 224
+  size: 11, 14
+  orig: 15, 14
+  offset: 2, 0
+  index: -1
+light_1
+  rotate: true
+  xy: 404, 221
+  size: 14, 15
+  orig: 18, 15
+  offset: 2, 0
+  index: -1

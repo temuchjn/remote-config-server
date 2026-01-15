@@ -1,0 +1,62 @@
+
+9.png
+size: 218,682
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1_bb
+  rotate: true
+  xy: 94, 62
+  size: 68, 72
+  orig: 72, 72
+  offset: 2, 0
+  index: -1
+FIN
+  rotate: true
+  xy: 178, 69
+  size: 70, 38
+  orig: 71, 38
+  offset: 0, 0
+  index: -1
+body2
+  rotate: true
+  xy: 2, 232
+  size: 448, 211
+  orig: 449, 212
+  offset: 0, 0
+  index: -1
+eye_light
+  rotate: true
+  xy: 168, 47
+  size: 20, 24
+  orig: 24, 24
+  offset: 2, 0
+  index: -1
+eyebal_back
+  rotate: true
+  xy: 2, 44
+  size: 86, 90
+  orig: 90, 90
+  offset: 2, 0
+  index: -1
+eyey_black
+  rotate: true
+  xy: 94, 2
+  size: 58, 62
+  orig: 62, 62
+  offset: 2, 0
+  index: -1
+mouth
+  rotate: true
+  xy: 178, 141
+  size: 89, 35
+  orig: 91, 36
+  offset: 1, 0
+  index: -1
+shadow_tail
+  rotate: true
+  xy: 2, 132
+  size: 98, 174
+  orig: 101, 174
+  offset: 0, 0
+  index: -1
