@@ -1,0 +1,62 @@
+
+Steal_return_title.png
+size: 1920,367
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1_text
+  rotate: false
+  xy: 554, 172
+  size: 432, 193
+  orig: 440, 193
+  offset: 4, 0
+  index: -1
+1_text+spec
+  rotate: false
+  xy: 988, 18
+  size: 465, 169
+  orig: 473, 169
+  offset: 4, 0
+  index: -1
+1_text_ad
+  rotate: false
+  xy: 1455, 29
+  size: 406, 158
+  orig: 414, 158
+  offset: 4, 0
+  index: -1
+2_text_spec_ad
+  rotate: false
+  xy: 2, 2
+  size: 438, 136
+  orig: 446, 136
+  offset: 4, 0
+  index: -1
+2_text_steal
+  rotate: false
+  xy: 554, 5
+  size: 411, 165
+  orig: 419, 165
+  offset: 4, 0
+  index: -1
+2_text_steal_ad
+  rotate: false
+  xy: 1534, 233
+  size: 384, 132
+  orig: 392, 132
+  offset: 4, 0
+  index: -1
+dai_tim_to
+  rotate: false
+  xy: 988, 189
+  size: 544, 176
+  orig: 544, 176
+  offset: 0, 0
+  index: -1
+khung_trang
+  rotate: false
+  xy: 2, 140
+  size: 550, 225
+  orig: 550, 225
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,433 @@
+
+steal_go_ship.png
+size: 1922,1286
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+0_Leg1
+  rotate: false
+  xy: 1847, 347
+  size: 59, 88
+  orig: 61, 91
+  offset: 1, 1
+  index: -1
+0_body
+  rotate: false
+  xy: 1644, 122
+  size: 222, 165
+  orig: 226, 167
+  offset: 2, 1
+  index: -1
+0_ear1
+  rotate: false
+  xy: 1753, 2
+  size: 53, 45
+  orig: 56, 49
+  offset: 2, 2
+  index: -1
+0_ear2
+  rotate: true
+  xy: 1107, 37
+  size: 102, 66
+  orig: 105, 70
+  offset: 1, 3
+  index: -1
+0_eye
+  rotate: false
+  xy: 1891, 661
+  size: 29, 46
+  orig: 37, 46
+  offset: 4, 0
+  index: -1
+0_eye1
+  rotate: false
+  xy: 1868, 133
+  size: 36, 49
+  orig: 44, 49
+  offset: 4, 0
+  index: -1
+0_hair1
+  rotate: true
+  xy: 1891, 709
+  size: 48, 29
+  orig: 56, 29
+  offset: 4, 0
+  index: -1
+0_hair2
+  rotate: true
+  xy: 1022, 2
+  size: 19, 27
+  orig: 27, 27
+  offset: 4, 0
+  index: -1
+0_hand
+  rotate: false
+  xy: 1175, 41
+  size: 136, 94
+  orig: 136, 94
+  offset: 0, 0
+  index: -1
+0_head
+  rotate: false
+  xy: 1178, 201
+  size: 253, 198
+  orig: 255, 202
+  offset: 2, 2
+  index: -1
+0_leg2
+  rotate: false
+  xy: 865, 67
+  size: 79, 94
+  orig: 82, 98
+  offset: 1, 2
+  index: -1
+0_m
+  rotate: true
+  xy: 1517, 413
+  size: 871, 95
+  orig: 879, 95
+  offset: 4, 0
+  index: -1
+0_mouth
+  rotate: false
+  xy: 1847, 437
+  size: 60, 89
+  orig: 64, 92
+  offset: 2, 2
+  index: -1
+0_shadow
+  rotate: false
+  xy: 1209, 401
+  size: 280, 167
+  orig: 288, 167
+  offset: 4, 0
+  index: -1
+0_ship
+  rotate: false
+  xy: 545, 534
+  size: 662, 750
+  orig: 670, 750
+  offset: 4, 0
+  index: -1
+0_ship_water
+  rotate: true
+  xy: 971, 197
+  size: 335, 205
+  orig: 335, 205
+  offset: 0, 0
+  index: -1
+0_tail
+  rotate: false
+  xy: 1825, 48
+  size: 50, 72
+  orig: 54, 74
+  offset: 2, 1
+  index: -1
+1_bot
+  rotate: true
+  xy: 1491, 432
+  size: 136, 21
+  orig: 144, 21
+  offset: 4, 0
+  index: -1
+Ellipse 13
+  rotate: true
+  xy: 545, 163
+  size: 369, 424
+  orig: 374, 424
+  offset: 0, 0
+  index: -1
+Fish3_0
+  rotate: true
+  xy: 1875, 922
+  size: 27, 36
+  orig: 35, 36
+  offset: 4, 0
+  index: -1
+Fissh3_1
+  rotate: true
+  xy: 986, 2
+  size: 19, 34
+  orig: 27, 34
+  offset: 4, 0
+  index: -1
+Fissh_3
+  rotate: true
+  xy: 540, 2
+  size: 159, 121
+  orig: 161, 123
+  offset: 0, 1
+  index: -1
+bb1
+  rotate: false
+  xy: 1847, 291
+  size: 46, 54
+  orig: 54, 54
+  offset: 4, 0
+  index: -1
+blur
+  rotate: false
+  xy: 1313, 26
+  size: 104, 109
+  orig: 104, 109
+  offset: 0, 0
+  index: -1
+dai_trang
+  rotate: false
+  xy: 2, 2
+  size: 66, 14
+  orig: 74, 14
+  offset: 4, 0
+  index: -1
+dai_trang - ngan
+  rotate: false
+  xy: 70, 2
+  size: 22, 14
+  orig: 29, 14
+  offset: 4, 0
+  index: -1
+fish
+  rotate: true
+  xy: 1547, 43
+  size: 88, 79
+  orig: 92, 82
+  offset: 2, 2
+  index: -1
+fish1_2
+  rotate: false
+  xy: 1891, 638
+  size: 21, 21
+  orig: 24, 21
+  offset: 2, 0
+  index: -1
+fish_2
+  rotate: false
+  xy: 883, 2
+  size: 101, 63
+  orig: 106, 66
+  offset: 2, 1
+  index: -1
+gon_head
+  rotate: true
+  xy: 1644, 289
+  size: 460, 201
+  orig: 468, 201
+  offset: 4, 0
+  index: -1
+gon_nuoc
+  rotate: true
+  xy: 1614, 174
+  size: 1110, 28
+  orig: 1113, 35
+  offset: 3, 7
+  index: -1
+gon_nuoc_xanh
+  rotate: true
+  xy: 1791, 924
+  size: 360, 44
+  orig: 368, 44
+  offset: 4, 0
+  index: -1
+gon_xanh_le
+  rotate: false
+  xy: 1808, 12
+  size: 66, 34
+  orig: 74, 34
+  offset: 4, 0
+  index: -1
+l1
+  rotate: true
+  xy: 1196, 137
+  size: 28, 137
+  orig: 31, 223
+  offset: 1, 83
+  index: -1
+l2
+  rotate: true
+  xy: 663, 6
+  size: 49, 218
+  orig: 60, 291
+  offset: 2, 71
+  index: -1
+l3
+  rotate: false
+  xy: 1178, 408
+  size: 28, 124
+  orig: 32, 176
+  offset: 2, 50
+  index: -1
+l4
+  rotate: false
+  xy: 1868, 184
+  size: 42, 91
+  orig: 46, 96
+  offset: 2, 2
+  index: -1
+l5
+  rotate: true
+  xy: 1419, 4
+  size: 26, 82
+  orig: 31, 115
+  offset: 3, 31
+  index: -1
+l6
+  rotate: false
+  xy: 1753, 49
+  size: 70, 71
+  orig: 74, 83
+  offset: 2, 10
+  index: -1
+l7
+  rotate: false
+  xy: 1895, 277
+  size: 25, 68
+  orig: 29, 95
+  offset: 2, 25
+  index: -1
+l8
+  rotate: false
+  xy: 1847, 631
+  size: 42, 126
+  orig: 48, 161
+  offset: 4, 33
+  index: -1
+l9
+  rotate: true
+  xy: 1196, 167
+  size: 32, 187
+  orig: 36, 219
+  offset: 2, 30
+  index: -1
+m2
+  rotate: true
+  xy: 1644, 751
+  size: 533, 145
+  orig: 541, 145
+  offset: 4, 0
+  index: -1
+mau_bot
+  rotate: true
+  xy: 1837, 917
+  size: 367, 36
+  orig: 375, 36
+  offset: 4, 0
+  index: -1
+mb1
+  rotate: true
+  xy: 946, 74
+  size: 65, 38
+  orig: 73, 38
+  offset: 4, 0
+  index: -1
+mb_cum
+  rotate: true
+  xy: 1875, 951
+  size: 333, 44
+  orig: 341, 44
+  offset: 4, 0
+  index: -1
+pan1_00
+  rotate: false
+  xy: 1433, 181
+  size: 58, 218
+  orig: 66, 218
+  offset: 4, 0
+  index: -1
+pan1_01
+  rotate: true
+  xy: 341, 75
+  size: 109, 197
+  orig: 117, 197
+  offset: 4, 0
+  index: -1
+pan1_02
+  rotate: false
+  xy: 1791, 759
+  size: 123, 156
+  orig: 131, 156
+  offset: 4, 0
+  index: -1
+pan1_03
+  rotate: false
+  xy: 1419, 32
+  size: 126, 99
+  orig: 134, 99
+  offset: 4, 0
+  index: -1
+pan1_04
+  rotate: false
+  xy: 1493, 133
+  size: 119, 122
+  orig: 127, 122
+  offset: 4, 0
+  index: -1
+pan1_05
+  rotate: true
+  xy: 341, 6
+  size: 67, 179
+  orig: 75, 179
+  offset: 4, 0
+  index: -1
+pan1_06
+  rotate: true
+  xy: 971, 141
+  size: 54, 223
+  orig: 62, 223
+  offset: 4, 0
+  index: -1
+pan1_07
+  rotate: true
+  xy: 663, 57
+  size: 104, 200
+  orig: 112, 200
+  offset: 4, 0
+  index: -1
+pan1_08
+  rotate: false
+  xy: 1493, 257
+  size: 119, 154
+  orig: 127, 154
+  offset: 4, 0
+  index: -1
+pan1_09
+  rotate: false
+  xy: 1628, 21
+  size: 123, 99
+  orig: 131, 99
+  offset: 4, 0
+  index: -1
+pan1_10
+  rotate: false
+  xy: 986, 23
+  size: 119, 116
+  orig: 127, 116
+  offset: 4, 0
+  index: -1
+rock1
+  rotate: false
+  xy: 2, 18
+  size: 337, 166
+  orig: 345, 166
+  offset: 4, 0
+  index: -1
+rock_2
+  rotate: true
+  xy: 1209, 570
+  size: 714, 306
+  orig: 722, 306
+  offset: 4, 0
+  index: -1
+sky
+  rotate: false
+  xy: 2, 186
+  size: 541, 1098
+  orig: 545, 1098
+  offset: 2, 0
+  index: -1
+smoke
+  rotate: true
+  xy: 1847, 528
+  size: 101, 65
+  orig: 104, 65
+  offset: 0, 0
+  index: -1

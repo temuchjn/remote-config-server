@@ -1,0 +1,34 @@
+
+steal_go_title.png
+size: 1207,448
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+0_steal
+  rotate: false
+  xy: 554, 2
+  size: 651, 239
+  orig: 659, 239
+  offset: 4, 0
+  index: -1
+0_steal_ad
+  rotate: false
+  xy: 548, 243
+  size: 627, 203
+  orig: 635, 203
+  offset: 4, 0
+  index: -1
+dai_tim_to
+  rotate: false
+  xy: 2, 270
+  size: 544, 176
+  orig: 544, 176
+  offset: 0, 0
+  index: -1
+khung_trang
+  rotate: false
+  xy: 2, 16
+  size: 550, 225
+  orig: 550, 225
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,104 @@
+
+10.png
+size: 681,269
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Eyeball
+  rotate: false
+  xy: 471, 4
+  size: 89, 109
+  orig: 93, 109
+  offset: 2, 0
+  index: -1
+Eyeball 2
+  rotate: false
+  xy: 393, 8
+  size: 76, 100
+  orig: 80, 100
+  offset: 2, 0
+  index: -1
+Mouth
+  rotate: true
+  xy: 586, 62
+  size: 44, 71
+  orig: 45, 72
+  offset: 0, 1
+  index: -1
+b2
+  rotate: true
+  xy: 247, 110
+  size: 157, 154
+  orig: 157, 154
+  offset: 0, 0
+  index: -1
+e1
+  rotate: false
+  xy: 562, 98
+  size: 22, 26
+  orig: 26, 26
+  offset: 2, 0
+  index: -1
+e2
+  rotate: false
+  xy: 667, 123
+  size: 12, 16
+  orig: 16, 16
+  offset: 2, 0
+  index: -1
+eb
+  rotate: true
+  xy: 562, 8
+  size: 52, 66
+  orig: 56, 66
+  offset: 2, 0
+  index: -1
+eb2
+  rotate: true
+  xy: 562, 8
+  size: 52, 66
+  orig: 56, 66
+  offset: 2, 0
+  index: -1
+head
+  rotate: false
+  xy: 2, 9
+  size: 243, 258
+  orig: 243, 258
+  offset: 0, 0
+  index: -1
+shadow_mouth
+  rotate: true
+  xy: 588, 108
+  size: 31, 77
+  orig: 33, 80
+  offset: 0, 1
+  index: -1
+t2
+  rotate: false
+  xy: 588, 141
+  size: 91, 126
+  orig: 93, 134
+  offset: 1, 0
+  index: -1
+t3
+  rotate: true
+  xy: 247, 2
+  size: 106, 144
+  orig: 106, 153
+  offset: 0, 1
+  index: -1
+t4
+  rotate: true
+  xy: 403, 115
+  size: 152, 87
+  orig: 152, 89
+  offset: 0, 0
+  index: -1
+t5
+  rotate: true
+  xy: 492, 126
+  size: 141, 94
+  orig: 141, 95
+  offset: 0, 0
+  index: -1

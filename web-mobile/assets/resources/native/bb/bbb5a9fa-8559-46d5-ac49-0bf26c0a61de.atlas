@@ -1,0 +1,97 @@
+
+8.png
+size: 608,232
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Body
+  rotate: true
+  xy: 2, 7
+  size: 223, 258
+  orig: 224, 259
+  offset: 1, 0
+  index: -1
+Eyeball_back
+  rotate: true
+  xy: 443, 39
+  size: 86, 90
+  orig: 90, 90
+  offset: 2, 0
+  index: -1
+Hair
+  rotate: false
+  xy: 262, 51
+  size: 179, 179
+  orig: 180, 180
+  offset: 1, 1
+  index: -1
+e_black
+  rotate: true
+  xy: 262, 3
+  size: 46, 50
+  orig: 50, 50
+  offset: 2, 0
+  index: -1
+e_light
+  rotate: false
+  xy: 591, 211
+  size: 15, 19
+  orig: 19, 19
+  offset: 2, 0
+  index: -1
+ear
+  rotate: true
+  xy: 535, 6
+  size: 54, 64
+  orig: 55, 65
+  offset: 0, 1
+  index: -1
+eyeball_front
+  rotate: false
+  xy: 443, 127
+  size: 94, 103
+  orig: 98, 103
+  offset: 2, 0
+  index: -1
+fin
+  rotate: false
+  xy: 415, 2
+  size: 41, 35
+  orig: 42, 36
+  offset: 1, 1
+  index: -1
+fin_back
+  rotate: true
+  xy: 539, 128
+  size: 42, 56
+  orig: 43, 57
+  offset: 0, 1
+  index: -1
+mouth
+  rotate: false
+  xy: 535, 62
+  size: 61, 63
+  orig: 62, 64
+  offset: 0, 0
+  index: -1
+shadow_ear
+  rotate: true
+  xy: 314, 8
+  size: 41, 51
+  orig: 41, 53
+  offset: 0, 2
+  index: -1
+shadow_fin
+  rotate: false
+  xy: 367, 11
+  size: 46, 38
+  orig: 51, 47
+  offset: 2, 7
+  index: -1
+shadow_mouth
+  rotate: false
+  xy: 539, 172
+  size: 50, 58
+  orig: 51, 60
+  offset: 1, 1
+  index: -1
